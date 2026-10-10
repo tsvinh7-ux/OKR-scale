@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_template_apply_view_form" model="ir.ui.view">
+        <field name="name">okr.scale.template.apply.form</field>
+        <field name="model">okr.scale.template.apply</field>
+        <field name="arch" type="xml">
+            <form class="o_okr_tpl_apply">
+                <field name="template_id" invisible="1"/>
+                <field name="objective_id" invisible="1"/>
+                <div class="o_okr_tpl_apply_head">
+                    <div class="o_okr_tpl_apply_eyebrow">
+                        <i class="fa fa-magic me-1"/>Template · <field name="category_id" readonly="1" class="d-inline"/>
+                    </div>
+                    <field name="template_description" readonly="1" class="o_okr_tpl_apply_desc"/>
+                </div>
+                <div class="alert alert-info d-flex gap-2 align-items-center mb-3" role="status" invisible="not objective_id">
+                    <i class="fa fa-info-circle"/>
+                    <span>The key results below will be added to the draft objective
+                        <b><field name="objective_id" readonly="1" class="d-inline"/></b>.</span>
+                </div>
+                <div class="d-flex align-items-center gap-2 mb-2" invisible="not objective_id">
+                    <field name="replace_title" nolabel="1" widget="boolean_toggle"/>
+                    <label for="replace_title" class="mb-0"/>
+                </div>
+                <div class="oe_title mb-2" invisible="objective_id and not replace_title">
+                    <label for="name" string="Your objective"/>
+                    <h2><field name="name" class="w-100" placeholder="Inspiring, qualitative objective"/></h2>
+                </div>
+                <group invisible="objective_id">
+                    <group>
+                        <field name="cycle_id" options="{'no_create': True, 'no_open': True}" required="not objective_id"/>
+                        <field name="level" widget="radio" options="{'horizontal': true}" required="not objective_id"/>
+                        <field name="employee_id" invisible="level != 'individual'" required="level == 'individual' and not objective_id"
+                               options="{'no_create': True, 'no_open': True}"/>
+                        <field name="department_id" invisible="level != 'department'" required="level == 'department' and not objective_id"
+                               options="{'no_create': True, 'no_open': True}"/>
+                    </group>
+                    <group>
+                        <field name="owner_id" widget="many2one_avatar_user" options="{'no_create': True, 'no_open': True}"
+                               placeholder="Automatic"/>
+                        <field name="okr_type" widget="radio" options="{'horizontal': true}"/>
+                        <field name="parent_key_result_id" options="{'no_create': True, 'no_open': True}"
+                               placeholder="Optional: contribute to an upper key result"/>
+                    </group>
+                </group>
+                <div class="o_okr_tpl_apply_section">
+                    <span>Key results</span>
+                    <small>Adjust the start and target values to your context; untick what does not apply.</small>
+                </div>
+                <field name="line_ids" nolabel="1" class="o_okr_tpl_apply_lines">
+                    <tree editable="bottom" create="true" delete="true" decoration-muted="not include">
+                        <field name="sequence" widget="handle"/>
+                        <field name="include" widget="boolean_toggle" nolabel="1"/>
+                        <field name="name"/>
+                        <field name="metric_type" optional="hide"/>
+                        <field name="start_value" invisible="metric_type == 'boolean'"/>
+                        <field name="target_value" invisible="metric_type == 'boolean'"/>
+                        <field name="unit" invisible="metric_type == 'boolean'"/>
+                        <field name="weight" optional="show"/>
+                        <field name="hint" optional="hide"/>
+                    </tree>
+                </field>
+                <footer>
+                    <button name="action_apply" type="object" string="Create draft objective" class="btn-primary"
+                            icon="fa-check" invisible="objective_id"/>
+                    <button name="action_apply" type="object" string="Add key results" class="btn-primary"
+                            icon="fa-check" invisible="not objective_id"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

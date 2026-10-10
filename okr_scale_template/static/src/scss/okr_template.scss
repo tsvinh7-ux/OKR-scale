@@ -1,0 +1,283 @@
+// OKR template library (DMAG brand). Relies on the tokens of okr_scale/okr_brand.scss.
+
+// Category palette: soft versions of the Odoo color picker hues (0-11)
+$okr-tpl-palette: (
+    0: (#475569, #F1F5F9),
+    1: (#C2343B, #FDE8E9),
+    2: (#B85C00, #FFF0DF),
+    3: (#8A6A00, #FFF6D6),
+    4: (#0B7EA8, #E1F4FB),
+    5: (#5B3E96, #EEE8F8),
+    6: (#C24E3A, #FDECE7),
+    7: (#0E8A7E, #E0F5F2),
+    8: (#1A5BA8, #E3F1FD),
+    9: (#B0307A, #FBE8F3),
+    10: (#12804F, #E3F6EC),
+    11: (#7444C9, #F0EAFD),
+);
+
+@each $index, $colors in $okr-tpl-palette {
+    .o_okr_tpl_cat.o_okr_tpl_c_#{$index} {
+        color: nth($colors, 1);
+        background: nth($colors, 2);
+    }
+    .o_okr_tpl_sp_icon.o_okr_tpl_c_#{$index} {
+        color: nth($colors, 1);
+        background: nth($colors, 2);
+    }
+}
+
+// Category icon in the search panel
+.o_search_panel .o_okr_tpl_sp_icon {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 7px;
+    font-size: .8rem;
+    margin-right: 8px;
+    flex: none;
+}
+
+// Wider side panel so that category names stay readable
+.o_search_panel.o_okr_tpl_searchpanel {
+    width: 270px;
+    min-width: 270px;
+}
+
+// Hero banner above the gallery
+.o_onboarding_container .o_okr_tpl_banner {
+    padding: 16px 16px 0;
+    background: var(--okr-sky);
+
+    .o_okr_tpl_hero {
+        padding: 22px 28px;
+        h1 {
+            font-size: 1.5rem;
+        }
+    }
+    .o_okr_tpl_stat {
+        min-width: 92px;
+        padding: 10px 14px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, .12);
+        border: 1px solid rgba(255, 255, 255, .22);
+        text-align: center;
+        b {
+            display: block;
+            font-size: 1.35rem;
+            line-height: 1.1;
+        }
+        span {
+            font-size: .72rem;
+            opacity: .8;
+        }
+    }
+    @media (max-width: 767.98px) {
+        padding: 12px 12px 0;
+        .o_okr_tpl_hero {
+            padding: 18px;
+        }
+        .o_okr_hero_sub, .o_okr_hero_mark {
+            display: none;
+        }
+        .o_okr_tpl_stat {
+            min-width: 0;
+            flex: 1;
+            padding: 6px 8px;
+        }
+    }
+}
+
+// Gallery
+.o_okr_tpl_gallery.o_kanban_renderer {
+    background: var(--okr-sky);
+    padding: 16px 12px 32px;
+    --KanbanRecord-width: 330px;
+
+    .o_kanban_record.o_okr_tpl_card {
+        display: flex;
+        flex-direction: column;
+        margin: 0 6px 12px;
+        padding: 18px 20px 14px;
+        background: #fff;
+        border: 1px solid var(--okr-line);
+        border-radius: var(--okr-radius);
+        box-shadow: var(--okr-shadow);
+        transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+
+        &:hover {
+            transform: translateY(-2px);
+            border-color: rgba(23, 139, 236, .35);
+            box-shadow: 0 2px 4px rgba(17, 52, 106, .06), 0 14px 32px rgba(17, 52, 106, .12);
+        }
+    }
+    .o_kanban_ghost {
+        margin: 0 6px;
+    }
+}
+
+.o_okr_tpl_card {
+    .o_okr_tpl_card_head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+    .o_okr_tpl_cat {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        max-width: 70%;
+        padding: 3px 10px;
+        border-radius: 999px;
+        font-size: .72rem;
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        > span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+    .o_okr_tpl_level {
+        font-size: .66rem;
+        font-weight: 700;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        color: var(--okr-muted);
+        border: 1px solid var(--okr-line);
+        border-radius: 6px;
+        padding: 2px 7px;
+        white-space: nowrap;
+        &.o_okr_tpl_level_company {
+            color: var(--okr-navy);
+            border-color: #C9D5E8;
+            background: #F1F5FB;
+        }
+    }
+    .o_okr_tpl_title {
+        color: var(--okr-navy);
+        font-weight: 700;
+        font-size: 1.02rem;
+        line-height: 1.35;
+        margin-bottom: 12px;
+    }
+    .o_okr_tpl_krs {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 14px;
+        flex: 1;
+        li {
+            display: flex;
+            gap: 8px;
+            align-items: baseline;
+            font-size: .82rem;
+            color: var(--okr-ink);
+            padding: 4px 0;
+            line-height: 1.35;
+            .fa {
+                color: var(--okr-blue);
+                font-size: .78rem;
+                flex: none;
+            }
+        }
+        .o_okr_tpl_more {
+            color: var(--okr-muted);
+            font-size: .76rem;
+            padding-left: 18px;
+        }
+    }
+    .o_okr_tpl_foot {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-top: 12px;
+        border-top: 1px solid var(--okr-line);
+    }
+    .o_okr_tpl_meta {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: .78rem;
+        color: var(--okr-muted);
+        font-weight: 600;
+        white-space: nowrap;
+        .fa {
+            font-size: .8rem;
+        }
+    }
+    .o_okr_tpl_stretch {
+        color: #6D4ACF;
+    }
+    .o_okr_tpl_use {
+        margin-left: auto;
+        padding: 5px 14px;
+    }
+}
+
+// Template form
+.o_okr_tpl_form .o_okr_tpl_tip {
+    color: var(--okr-muted);
+    font-size: .82rem;
+    background: var(--okr-sky);
+    border-radius: 10px;
+    padding: 8px 12px;
+}
+
+// "Use template" wizard
+.o_okr_tpl_apply {
+    .o_okr_tpl_apply_head {
+        background: var(--okr-gradient);
+        color: #fff;
+        border-radius: var(--okr-radius);
+        padding: 14px 18px;
+        margin-bottom: 18px;
+        .o_okr_tpl_apply_eyebrow {
+            font-size: .72rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            opacity: .85;
+            margin-bottom: 4px;
+            .o_field_widget, span {
+                color: #fff;
+            }
+        }
+        .o_okr_tpl_apply_desc {
+            opacity: .92;
+            font-size: .88rem;
+            p:last-child {
+                margin-bottom: 0;
+            }
+            .o_readonly, .note-editable {
+                color: #fff;
+            }
+        }
+    }
+    .oe_title {
+        max-width: none;
+        width: 100%;
+        h2 {
+            color: var(--okr-navy);
+        }
+        .o_field_widget, input {
+            width: 100%;
+        }
+    }
+    .o_okr_tpl_apply_section {
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 8px 0 6px;
+        span {
+            font-weight: 700;
+            color: var(--okr-navy);
+        }
+        small {
+            color: var(--okr-muted);
+        }
+    }
+}

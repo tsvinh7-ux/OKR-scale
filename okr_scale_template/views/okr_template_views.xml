@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_template_view_kanban" model="ir.ui.view">
+        <field name="name">okr.scale.template.kanban</field>
+        <field name="model">okr.scale.template</field>
+        <field name="arch" type="xml">
+            <kanban class="o_okr_tpl_gallery" quick_create="false" group_create="false" records_draggable="false"
+                    banner_route="/okr_scale_template/gallery_banner">
+                <field name="category_id"/>
+                <field name="category_color"/>
+                <field name="category_icon"/>
+                <field name="level"/>
+                <field name="okr_type"/>
+                <field name="line_count"/>
+                <field name="line_preview"/>
+                <field name="usage_count"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_okr_tpl_card">
+                            <div class="o_okr_tpl_card_head">
+                                <span t-if="record.category_id.raw_value"
+                                      t-attf-class="o_okr_tpl_cat o_okr_tpl_c_{{ record.category_color.raw_value or 0 }}">
+                                    <i t-attf-class="fa {{ record.category_icon.raw_value or 'fa-bullseye' }}"/>
+                                    <field name="category_id"/>
+                                </span>
+                                <span t-else="" class="o_okr_tpl_cat o_okr_tpl_c_0"><i class="fa fa-bullseye"/> Other</span>
+                                <span t-attf-class="o_okr_tpl_level o_okr_tpl_level_{{ record.level.raw_value }}"><field name="level"/></span>
+                            </div>
+                            <div class="o_okr_tpl_title"><field name="name"/></div>
+                            <ul class="o_okr_tpl_krs">
+                                <t t-foreach="(record.line_preview.raw_value or '').split('\n')" t-as="kr" t-key="kr_index">
+                                <li t-if="kr">
+                                    <i class="fa fa-check-circle" title="Key result"/><span t-esc="kr"/>
+                                </li>
+                                </t>
+                                <li t-if="record.line_count.raw_value gt 3" class="o_okr_tpl_more">
+                                    + <t t-esc="record.line_count.raw_value - 3"/> more key result(s)
+                                </li>
+                            </ul>
+                            <div class="o_okr_tpl_foot">
+                                <span class="o_okr_tpl_meta" title="Key results"><i class="fa fa-key"/><t t-esc="record.line_count.raw_value"/> KRs</span>
+                                <span t-if="record.usage_count.raw_value" class="o_okr_tpl_meta" title="Objectives created from this template">
+                                    <i class="fa fa-bolt"/><t t-esc="record.usage_count.raw_value"/>
+                                </span>
+                                <span t-if="record.okr_type.raw_value == 'aspirational'" class="o_okr_tpl_meta o_okr_tpl_stretch" title="Aspirational: a score around 0.7 is a success">
+                                    <i class="fa fa-rocket"/>Stretch
+                                </span>
+                                <button name="action_use_template" type="object" class="btn btn-sm btn-okr-primary o_okr_tpl_use">
+                                    Use <i class="fa fa-arrow-right ms-1"/>
+                                </button>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="okr_template_view_tree" model="ir.ui.view">
+        <field name="name">okr.scale.template.tree</field>
+        <field name="model">okr.scale.template</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="category_id"/>
+                <field name="level" widget="badge"/>
+                <field name="okr_type" optional="show"/>
+                <field name="line_count" string="KRs"/>
+                <field name="usage_count"/>
+                <field name="keywords" optional="hide"/>
+                <button name="action_use_template" type="object" string="Use" icon="fa-magic" class="btn-link"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="okr_template_view_form" model="ir.ui.view">
+        <field name="name">okr.scale.template.form</field>
+        <field name="model">okr.scale.template</field>
+        <field name="arch" type="xml">
+            <form class="o_okr_tpl_form">
+                <header>
+                    <button name="action_use_template" type="object" string="Use this template" class="btn-primary"
+                            icon="fa-magic" invisible="not id"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" icon="fa-bolt" disabled="1">
+                            <field name="usage_count" widget="statinfo" string="Used"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. Deliver a dental experience patients recommend"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="category_id" options="{'no_create': True}"/>
+                            <field name="level"/>
+                            <field name="okr_type" widget="radio" options="{'horizontal': true}"/>
+                        </group>
+                        <group>
+                            <field name="keywords" placeholder="e.g. NPS, reviews, referral"/>
+                            <field name="source_objective_id" invisible="not source_objective_id"/>
+                            <field name="sequence" groups="okr_scale.group_okr_manager"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Key Results" name="key_results">
+                            <field name="line_ids">
+                                <tree editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="metric_type"/>
+                                    <field name="start_value" invisible="metric_type == 'boolean'"/>
+                                    <field name="target_value" invisible="metric_type == 'boolean'"/>
+                                    <field name="unit" invisible="metric_type == 'boolean'"/>
+                                    <field name="weight" optional="show"/>
+                                    <field name="hint" optional="show"/>
+                                </tree>
+                            </field>
+                            <div class="o_okr_tpl_tip mt-2">
+                                <i class="fa fa-lightbulb-o me-1"/>
+                                Good key results are measurable outcomes, not tasks. A target lower than the start value means "the lower the better" (e.g. no-show rate, waiting time).
+                            </div>
+                        </page>
+                        <page string="Description" name="description">
+                            <field name="description" placeholder="Why does this objective matter? When should a team use it?"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="okr_template_view_search" model="ir.ui.view">
+        <field name="name">okr.scale.template.search</field>
+        <field name="model">okr.scale.template</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Template" filter_domain="['|', '|', ('name', 'ilike', self), ('keywords', 'ilike', self), ('line_ids.name', 'ilike', self)]"/>
+                <field name="category_id"/>
+                <filter name="level_company" string="Company" domain="[('level', '=', 'company')]"/>
+                <filter name="level_department" string="Department" domain="[('level', '=', 'department')]"/>
+                <filter name="level_individual" string="Individual" domain="[('level', '=', 'individual')]"/>
+                <separator/>
+                <filter name="committed" string="Committed" domain="[('okr_type', '=', 'committed')]"/>
+                <filter name="aspirational" string="Aspirational" domain="[('okr_type', '=', 'aspirational')]"/>
+                <separator/>
+                <filter name="popular" string="Already used" domain="[('usage_count', '>', 0)]"/>
+                <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_category" string="Category" context="{'group_by': 'category_id'}"/>
+                    <filter name="group_level" string="Suggested Level" context="{'group_by': 'level'}"/>
+                </group>
+                <searchpanel class="o_okr_tpl_searchpanel">
+                    <field name="category_id" icon="fa-th-large" enable_counters="1"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <record id="okr_template_action" model="ir.actions.act_window">
+        <field name="name">Template Library</field>
+        <field name="res_model">okr.scale.template</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No template here yet</p>
+            <p>OKR managers can save any objective as a template to share good practices.</p>
+        </field>
+    </record>
+</odoo>

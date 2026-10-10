@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_objective_view_form_template" model="ir.ui.view">
+        <field name="name">okr.scale.objective.form.template</field>
+        <field name="model">okr.scale.objective</field>
+        <field name="inherit_id" ref="okr_scale.okr_objective_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/button[@name='action_submit']" position="before">
+                <button name="action_start_from_template" type="object" string="Start from a template" icon="fa-magic"
+                        class="btn-secondary" invisible="state != 'draft' or key_result_ids or not id"/>
+            </xpath>
+            <xpath expr="//header/field[@name='state']" position="before">
+                <button name="action_save_as_template" type="object" string="Save as template" icon="fa-clone"
+                        groups="okr_scale.group_okr_manager" invisible="not id or not key_result_ids"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="okr_objective_view_tree_template" model="ir.ui.view">
+        <field name="name">okr.scale.objective.tree.template</field>
+        <field name="model">okr.scale.objective</field>
+        <field name="inherit_id" ref="okr_scale.okr_objective_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <header>
+                    <button name="%(okr_scale_template.okr_template_action)d" type="action" string="From template"
+                            icon="fa-magic" display="always"/>
+                </header>
+            </xpath>
+        </field>
+    </record>
+</odoo>

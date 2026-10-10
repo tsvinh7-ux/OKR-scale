@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="okr_menu_template_library" name="Template Library" parent="okr_scale.okr_menu_okrs"
+              action="okr_template_action" sequence="9"/>
+    <menuitem id="okr_menu_template_categories" name="Template Categories" parent="okr_scale.okr_menu_config"
+              action="okr_template_category_action" sequence="10" groups="okr_scale.group_okr_admin"/>
+</odoo>

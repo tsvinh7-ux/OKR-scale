@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Hero above the template gallery (kanban banner_route) -->
+    <template id="okr_tpl_gallery_banner" name="OKR Template Gallery Banner">
+        <div class="o_okr_tpl_banner">
+            <div class="o_okr_hero o_okr_tpl_hero mb-0">
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="/okr_scale/static/src/img/dmag_mark.png" class="o_okr_hero_mark" alt="DMAG"/>
+                        <div>
+                            <div class="o_okr_hero_eyebrow">DMAG · OKR</div>
+                            <h1 class="mb-1">OKR Template Library</h1>
+                            <div class="o_okr_hero_sub">Start from proven objectives for dental clinics, adjust the targets, done in one minute.</div>
+                        </div>
+                    </div>
+                    <div class="o_okr_tpl_stats d-flex gap-2">
+                        <div class="o_okr_tpl_stat">
+                            <b t-out="template_count"/>
+                            <span>Templates</span>
+                        </div>
+                        <div class="o_okr_tpl_stat">
+                            <b t-out="category_count"/>
+                            <span>Categories</span>
+                        </div>
+                        <div class="o_okr_tpl_stat">
+                            <b t-out="usage_count"/>
+                            <span>Objectives created</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</odoo>

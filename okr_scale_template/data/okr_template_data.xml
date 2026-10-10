@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="okr_tpl_sales_growth" model="okr.scale.template">
+        <field name="name">Tăng trưởng doanh thu bền vững cho toàn chuỗi phòng khám</field>
+        <field name="category_id" ref="okr_tpl_cat_sales"/>
+        <field name="level">company</field>
+        <field name="okr_type">committed</field>
+        <field name="sequence">10</field>
+        <field name="keywords">doanh thu, tăng trưởng, chuỗi, revenue, ghế nha</field>
+        <field name="description" type="html"><p>Định hướng tăng trưởng của cả chuỗi trong quý: tăng doanh thu nhờ chất lượng tư vấn và dịch vụ giá trị cao, không chạy theo giảm giá. Phù hợp làm OKR cấp công ty để các chi nhánh căn chỉnh theo.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Tăng doanh thu thuần toàn chuỗi mỗi quý', 'metric_type': 'currency', 'unit': '', 'start_value': 12000000000.0, 'target_value': 15000000000.0, 'weight': 2.0, 'hint': 'Tổng doanh thu đã thu sau chiết khấu của tất cả chi nhánh, lấy từ báo cáo tài chính cuối tháng (cộng dồn quý).'}),
+            Command.create({'sequence': 20, 'name': 'Tăng doanh thu trung bình mỗi ghế nha mỗi tháng', 'metric_type': 'currency', 'unit': '', 'start_value': 180000000.0, 'target_value': 220000000.0, 'weight': 1.0, 'hint': 'Doanh thu tháng của chi nhánh chia cho số ghế nha đang hoạt động; lấy trung bình toàn chuỗi.'}),
+            Command.create({'sequence': 30, 'name': 'Nâng tỷ lệ chấp nhận kế hoạch điều trị', 'metric_type': 'percent', 'unit': '%', 'start_value': 55.0, 'target_value': 70.0, 'weight': 1.0, 'hint': 'Số kế hoạch điều trị được bệnh nhân đồng ý (đặt cọc hoặc bắt đầu điều trị) / tổng số kế hoạch đã trình bày trong tháng.'}),
+            Command.create({'sequence': 40, 'name': 'Tăng số ca implant mỗi tháng', 'metric_type': 'number', 'unit': 'ca', 'start_value': 40.0, 'target_value': 60.0, 'weight': 1.0, 'hint': 'Số ca cấy ghép implant đã thực hiện (tính theo trụ) ghi nhận trên phần mềm quản lý phòng khám.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_sales_ortho" model="okr.scale.template">
+        <field name="name">Trở thành địa chỉ niềng răng được tin chọn hàng đầu khu vực</field>
+        <field name="category_id" ref="okr_tpl_cat_sales"/>
+        <field name="level">department</field>
+        <field name="okr_type">aspirational</field>
+        <field name="sequence">20</field>
+        <field name="keywords">niềng răng, chỉnh nha, orthodontic, invisalign, mắc cài</field>
+        <field name="description" type="html"><p>Dành cho chi nhánh hoặc bộ phận chỉnh nha muốn bứt phá số ca niềng răng nhờ trải nghiệm tư vấn chuyên nghiệp và kết quả trước/sau minh bạch.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Tăng số ca chỉnh nha mới mỗi tháng', 'metric_type': 'number', 'unit': 'ca', 'start_value': 25.0, 'target_value': 40.0, 'weight': 2.0, 'hint': 'Số hợp đồng chỉnh nha mới được ký (đã đặt cọc) trong tháng.'}),
+            Command.create({'sequence': 20, 'name': 'Nâng tỷ lệ chuyển đổi tư vấn chỉnh nha → ký hợp đồng', 'metric_type': 'percent', 'unit': '%', 'start_value': 35.0, 'target_value': 50.0, 'weight': 1.0, 'hint': 'Số hợp đồng ký / số khách đã được tư vấn chỉnh nha trực tiếp trong tháng.'}),
+            Command.create({'sequence': 30, 'name': 'Tăng giá trị trung bình mỗi hợp đồng chỉnh nha', 'metric_type': 'currency', 'unit': '', 'start_value': 35000000.0, 'target_value': 40000000.0, 'weight': 1.0, 'hint': 'Tổng giá trị hợp đồng chỉnh nha mới / số hợp đồng mới trong tháng.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_sales_value" model="okr.scale.template">
+        <field name="name">Mỗi bệnh nhân nhận được giải pháp điều trị toàn diện và phù hợp nhất</field>
+        <field name="category_id" ref="okr_tpl_cat_sales"/>
+        <field name="level">department</field>
+        <field name="okr_type">committed</field>
+        <field name="sequence">30</field>
+        <field name="keywords">kế hoạch điều trị, giá trị bệnh nhân, upsell, toàn diện</field>
+        <field name="description" type="html"><p>Tăng giá trị điều trị trên mỗi bệnh nhân bằng cách khám kỹ, lập kế hoạch toàn diện và đồng hành đến khi hoàn thành, thay vì chỉ xử lý vấn đề trước mắt.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Tăng giá trị điều trị trung bình mỗi bệnh nhân', 'metric_type': 'currency', 'unit': '', 'start_value': 2500000.0, 'target_value': 3200000.0, 'weight': 1.0, 'hint': 'Doanh thu điều trị trong tháng / số bệnh nhân có phát sinh điều trị trong tháng.'}),
+            Command.create({'sequence': 20, 'name': 'Nâng tỷ lệ bệnh nhân hoàn thành trọn kế hoạch điều trị', 'metric_type': 'percent', 'unit': '%', 'start_value': 60.0, 'target_value': 75.0, 'weight': 1.0, 'hint': 'Số kế hoạch điều trị đã hoàn tất / số kế hoạch đến hạn hoàn tất trong quý.'}),
+            Command.create({'sequence': 30, 'name': 'Tăng số kế hoạch điều trị toàn diện được trình bày mỗi tháng', 'metric_type': 'number', 'unit': 'kế hoạch', 'start_value': 120.0, 'target_value': 180.0, 'weight': 1.0, 'hint': 'Số kế hoạch điều trị toàn diện (có hình ảnh, chi phí, lộ trình) được bác sĩ trình bày và lưu trên phần mềm.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_sales_consultant" model="okr.scale.template">
+        <field name="name">Trở thành tư vấn viên điều trị được bệnh nhân tin tưởng nhất chi nhánh</field>
+        <field name="category_id" ref="okr_tpl_cat_sales"/>
+        <field name="level">individual</field>
+        <field name="okr_type">committed</field>
+        <field name="sequence">40</field>
+        <field name="keywords">tư vấn viên, chốt kế hoạch, cá nhân, sale</field>
+        <field name="description" type="html"><p>OKR cá nhân cho tư vấn viên / điều phối điều trị: tư vấn tận tâm, minh bạch chi phí và theo sát đến khi bệnh nhân quyết định.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Nâng tỷ lệ chốt kế hoạch điều trị của cá nhân', 'metric_type': 'percent', 'unit': '%', 'start_value': 45.0, 'target_value': 60.0, 'weight': 2.0, 'hint': 'Số bệnh nhân đồng ý điều trị / số bệnh nhân do bạn tư vấn trong tháng (theo phần mềm CRM).'}),
+            Command.create({'sequence': 20, 'name': 'Tăng số buổi tư vấn hoàn tất mỗi tháng', 'metric_type': 'number', 'unit': 'buổi', 'start_value': 60.0, 'target_value': 80.0, 'weight': 1.0, 'hint': 'Số buổi tư vấn có ghi chú đầy đủ trên CRM.'}),
+            Command.create({'sequence': 30, 'name': 'Tăng doanh số điều trị tư vấn thành công mỗi tháng', 'metric_type': 'currency', 'unit': '', 'start_value': 400000000.0, 'target_value': 550000000.0, 'weight': 1.0, 'hint': 'Tổng giá trị kế hoạch điều trị được chấp nhận từ các buổi tư vấn của bạn.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_care_nps" model="okr.scale.template">
+        <field name="name">Mang lại trải nghiệm nha khoa khiến khách hàng muốn giới thiệu cho người thân</field>
+        <field name="category_id" ref="okr_tpl_cat_care"/>
+        <field name="level">company</field>
+        <field name="okr_type">aspirational</field>
+        <field name="sequence">50</field>
+        <field name="keywords">NPS, trải nghiệm, Google, đánh giá, giới thiệu, review</field>
+        <field name="description" type="html"><p>Trải nghiệm vượt mong đợi là động cơ tăng trưởng rẻ và bền nhất: khách hài lòng quay lại và giới thiệu thêm khách mới.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Nâng chỉ số NPS toàn chuỗi', 'metric_type': 'number', 'unit': 'điểm', 'start_value': 45.0, 'target_value': 65.0, 'weight': 2.0, 'hint': 'Khảo sát sau điều trị (Zalo/SMS): % khách chấm 9–10 trừ % khách chấm 0–6. Tối thiểu 200 phản hồi/tháng.'}),
+            Command.create({'sequence': 20, 'name': 'Nâng điểm đánh giá Google trung bình', 'metric_type': 'number', 'unit': 'sao', 'start_value': 4.5, 'target_value': 4.8, 'weight': 1.0, 'hint': 'Điểm trung bình trên Google Business Profile của tất cả chi nhánh vào cuối quý.'}),
+            Command.create({'sequence': 30, 'name': 'Tăng số đánh giá Google mới mỗi tháng', 'metric_type': 'number', 'unit': 'đánh giá', 'start_value': 80.0, 'target_value': 150.0, 'weight': 1.0, 'hint': 'Số đánh giá mới trên Google Business Profile của toàn chuỗi trong tháng.'}),
+            Command.create({'sequence': 40, 'name': 'Tăng tỷ lệ bệnh nhân mới đến từ giới thiệu', 'metric_type': 'percent', 'unit': '%', 'start_value': 20.0, 'target_value': 30.0, 'weight': 1.0, 'hint': 'Bệnh nhân mới có nguồn &quot;Người quen giới thiệu&quot; / tổng bệnh nhân mới trong tháng.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_care_complaint" model="okr.scale.template">
+        <field name="name">Mọi phàn nàn đều được lắng nghe và giải quyết nhanh chóng, tận tâm</field>
+        <field name="category_id" ref="okr_tpl_cat_care"/>
+        <field name="level">department</field>
+        <field name="okr_type">committed</field>
+        <field name="sequence">60</field>
+        <field name="keywords">khiếu nại, phàn nàn, complaint, CSKH, hotline</field>
+        <field name="description" type="html"><p>Một khiếu nại được xử lý tốt có thể biến khách hàng không hài lòng thành người ủng hộ trung thành.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Rút ngắn thời gian xử lý khiếu nại trung bình', 'metric_type': 'number', 'unit': 'giờ', 'start_value': 72.0, 'target_value': 24.0, 'weight': 2.0, 'hint': 'Từ lúc tiếp nhận đến lúc đóng phiếu khiếu nại (có xác nhận của khách), trung bình trong tháng.'}),
+            Command.create({'sequence': 20, 'name': 'Tăng tỷ lệ khiếu nại được phản hồi trong vòng 2 giờ', 'metric_type': 'percent', 'unit': '%', 'start_value': 60.0, 'target_value': 95.0, 'weight': 1.0, 'hint': 'Số khiếu nại có phản hồi đầu tiên ≤ 2 giờ / tổng khiếu nại tiếp nhận.'}),
+            Command.create({'sequence': 30, 'name': 'Nâng tỷ lệ khách hài lòng sau xử lý khiếu nại', 'metric_type': 'percent', 'unit': '%', 'start_value': 70.0, 'target_value': 90.0, 'weight': 1.0, 'hint': 'Khảo sát ngắn sau khi đóng phiếu: số khách hài lòng / số khách trả lời.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_care_recall" model="okr.scale.template">
+        <field name="name">Giữ chân bệnh nhân bằng chương trình chăm sóc định kỳ chu đáo</field>
+        <field name="category_id" ref="okr_tpl_cat_care"/>
+        <field name="level">department</field>
+        <field name="okr_type">committed</field>
+        <field name="sequence">70</field>
+        <field name="keywords">tái khám, recall, no-show, quay lại, nhắc lịch</field>
+        <field name="description" type="html"><p>Bệnh nhân quay lại tái khám định kỳ là nền tảng cho sức khỏe răng miệng lâu dài và doanh thu ổn định của phòng khám.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Tăng tỷ lệ bệnh nhân quay lại tái khám định kỳ 6 tháng', 'metric_type': 'percent', 'unit': '%', 'start_value': 35.0, 'target_value': 55.0, 'weight': 2.0, 'hint': 'Số bệnh nhân đến tái khám trong kỳ / số bệnh nhân đến hạn tái khám 6 tháng trong kỳ.'}),
+            Command.create({'sequence': 20, 'name': 'Giảm tỷ lệ vắng mặt lịch hẹn (no-show)', 'metric_type': 'percent', 'unit': '%', 'start_value': 18.0, 'target_value': 8.0, 'weight': 1.0, 'hint': 'Số lịch hẹn khách không đến và không báo trước / tổng số lịch hẹn trong tháng.'}),
+            Command.create({'sequence': 30, 'name': 'Gọi chăm sóc bệnh nhân trong 48 giờ sau điều trị', 'metric_type': 'percent', 'unit': '%', 'start_value': 70.0, 'target_value': 100.0, 'weight': 1.0, 'hint': 'Số bệnh nhân có cuộc gọi hậu điều trị ≤ 48 giờ (ghi nhận trên CRM) / số bệnh nhân điều trị xâm lấn.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_care_agent" model="okr.scale.template">
+        <field name="name">Mỗi cuộc gọi chăm sóc là một trải nghiệm ấm áp và hữu ích</field>
+        <field name="category_id" ref="okr_tpl_cat_care"/>
+        <field name="level">individual</field>
+        <field name="okr_type">committed</field>
+        <field name="sequence">80</field>
+        <field name="keywords">cuộc gọi, CSAT, tổng đài, chăm sóc, cá nhân</field>
+        <field name="description" type="html"><p>OKR cá nhân cho nhân viên chăm sóc khách hàng / tổng đài.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Tăng số cuộc gọi chăm sóc hoàn tất mỗi tuần', 'metric_type': 'number', 'unit': 'cuộc gọi', 'start_value': 150.0, 'target_value': 200.0, 'weight': 1.0, 'hint': 'Số cuộc gọi kết nối thành công có ghi chú trên tổng đài/CRM.'}),
+            Command.create({'sequence': 20, 'name': 'Nâng điểm hài lòng cuộc gọi (CSAT, thang 5)', 'metric_type': 'number', 'unit': 'điểm', 'start_value': 4.2, 'target_value': 4.7, 'weight': 1.0, 'hint': 'Điểm khảo sát tự động sau cuộc gọi, trung bình trong tháng.'}),
+            Command.create({'sequence': 30, 'name': 'Tăng tỷ lệ đặt lịch tái khám thành công từ cuộc gọi', 'metric_type': 'percent', 'unit': '%', 'start_value': 25.0, 'target_value': 40.0, 'weight': 1.0, 'hint': 'Số lịch hẹn tạo từ cuộc gọi chăm sóc / số cuộc gọi chăm sóc kết nối.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_clinical_safety" model="okr.scale.template">
+        <field name="name">Chuẩn mực an toàn lâm sàng không khoan nhượng tại mọi chi nhánh</field>
+        <field name="category_id" ref="okr_tpl_cat_clinical"/>
+        <field name="level">company</field>
+        <field name="okr_type">committed</field>
+        <field name="sequence">90</field>
+        <field name="keywords">vô khuẩn, an toàn, kiểm soát nhiễm khuẩn, tiệt trùng, hồ sơ bệnh án</field>
+        <field name="description" type="html"><p>An toàn người bệnh là cam kết không thể thương lượng: kiểm soát nhiễm khuẩn, hồ sơ đầy đủ và không sự cố nghiêm trọng.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Nâng điểm audit tuân thủ quy trình vô khuẩn – tiệt trùng', 'metric_type': 'percent', 'unit': '%', 'start_value': 85.0, 'target_value': 98.0, 'weight': 2.0, 'hint': 'Điểm audit vô khuẩn – tiệt trùng định kỳ hàng tháng theo checklist nội bộ, trung bình các chi nhánh.'}),
+            Command.create({'sequence': 20, 'name': 'Đưa số sự cố y khoa nghiêm trọng về 0', 'metric_type': 'number', 'unit': 'sự cố', 'start_value': 3.0, 'target_value': 0.0, 'weight': 1.0, 'hint': 'Số sự cố mức độ nặng được báo cáo trong quý (theo quy trình báo cáo sự cố).'}),
+            Command.create({'sequence': 30, 'name': 'Hồ sơ bệnh án đầy đủ chẩn đoán, chữ ký và cam kết điều trị', 'metric_type': 'percent', 'unit': '%', 'start_value': 80.0, 'target_value': 100.0, 'weight': 1.0, 'hint': 'Kiểm tra ngẫu nhiên 30 hồ sơ/chi nhánh/tháng: số hồ sơ đạt / số hồ sơ được kiểm tra.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_clinical_implant" model="okr.scale.template">
+        <field name="name">Nâng tầm chất lượng điều trị implant theo chuẩn quốc tế</field>
+        <field name="category_id" ref="okr_tpl_cat_clinical"/>
+        <field name="level">department</field>
+        <field name="okr_type">committed</field>
+        <field name="sequence">100</field>
+        <field name="keywords">implant, cấy ghép, CBCT, máng hướng dẫn, chất lượng</field>
+        <field name="description" type="html"><p>Dành cho trung tâm implant: kết quả lâm sàng ổn định, lập kế hoạch số hóa và giảm tái can thiệp.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Nâng tỷ lệ tích hợp xương thành công sau 6 tháng', 'metric_type': 'percent', 'unit': '%', 'start_value': 96.0, 'target_value': 98.5, 'weight': 2.0, 'hint': 'Số trụ implant tích hợp tốt khi tái khám 6 tháng / tổng số trụ đến hạn đánh giá.'}),
+            Command.create({'sequence': 20, 'name': 'Tăng tỷ lệ ca implant lập kế hoạch kỹ thuật số (CBCT + máng hướng dẫn)', 'metric_type': 'percent', 'unit': '%', 'start_value': 40.0, 'target_value': 80.0, 'weight': 1.0, 'hint': 'Số ca có kế hoạch số hóa lưu trên hồ sơ / tổng số ca implant trong tháng.'}),
+            Command.create({'sequence': 30, 'name': 'Giảm tỷ lệ tái can thiệp trong 12 tháng', 'metric_type': 'percent', 'unit': '%', 'start_value': 4.0, 'target_value': 2.0, 'weight': 1.0, 'hint': 'Số ca phải can thiệp lại (tháo, thay trụ, ghép bổ sung) trong 12 tháng / tổng số ca.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_clinical_doctor" model="okr.scale.template">
+        <field name="name">Phát triển chuyên môn vượt trội và được bệnh nhân tin yêu</field>
+        <field name="category_id" ref="okr_tpl_cat_clinical"/>
+        <field name="level">individual</field>
+        <field name="okr_type">aspirational</field>
+        <field name="sequence">110</field>
+        <field name="keywords">bác sĩ, CME, đào tạo liên tục, hội chẩn, cá nhân</field>
+        <field name="description" type="html"><p>OKR cá nhân cho bác sĩ: học tập liên tục, chia sẻ ca lâm sàng và nâng cao sự hài lòng của bệnh nhân.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Tích lũy giờ đào tạo chuyên môn liên tục (CME)', 'metric_type': 'number', 'unit': 'giờ', 'start_value': 8.0, 'target_value': 24.0, 'weight': 1.0, 'hint': 'Tổng số giờ có chứng nhận từ khóa học, hội nghị hoặc đào tạo nội bộ trong quý.'}),
+            Command.create({'sequence': 20, 'name': 'Trình bày ca lâm sàng tại hội chẩn nội bộ', 'metric_type': 'number', 'unit': 'ca', 'start_value': 0.0, 'target_value': 3.0, 'weight': 1.0, 'hint': 'Số ca được trình bày và lưu biên bản hội chẩn.'}),
+            Command.create({'sequence': 30, 'name': 'Nâng tỷ lệ bệnh nhân hài lòng với bác sĩ', 'metric_type': 'percent', 'unit': '%', 'start_value': 88.0, 'target_value': 95.0, 'weight': 1.0, 'hint': 'Khảo sát sau điều trị: số phản hồi hài lòng / tổng phản hồi về bác sĩ.'}),
+            Command.create({'sequence': 40, 'name': 'Hoàn thành một chứng chỉ chuyên sâu (implant, chỉnh nha hoặc thẩm mỹ)', 'metric_type': 'boolean', 'unit': '', 'start_value': 0.0, 'target_value': 1.0, 'weight': 1.0, 'hint': 'Đạt khi có chứng chỉ được cấp trong quý.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_mkt_leads" model="okr.scale.template">
+        <field name="name">Thu hút dòng bệnh nhân mới ổn định với chi phí tối ưu</field>
+        <field name="category_id" ref="okr_tpl_cat_marketing"/>
+        <field name="level">department</field>
+        <field name="okr_type">committed</field>
+        <field name="sequence">120</field>
+        <field name="keywords">lead, CPL, chuyển đổi, bệnh nhân mới, quảng cáo</field>
+        <field name="description" type="html"><p>OKR trọng tâm của phòng Marketing: tăng lượng khách tiềm năng chất lượng và chuyển đổi thành lịch hẹn thực tế.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Tăng số khách hàng tiềm năng (lead) đủ điều kiện mỗi tháng', 'metric_type': 'number', 'unit': 'lead', 'start_value': 800.0, 'target_value': 1200.0, 'weight': 1.0, 'hint': 'Số lead có số điện thoại hợp lệ và nhu cầu nha khoa rõ ràng, ghi nhận trên CRM.'}),
+            Command.create({'sequence': 20, 'name': 'Giảm chi phí mỗi lead (CPL)', 'metric_type': 'currency', 'unit': '', 'start_value': 250000.0, 'target_value': 180000.0, 'weight': 1.0, 'hint': 'Tổng chi phí quảng cáo trong tháng / số lead đủ điều kiện.'}),
+            Command.create({'sequence': 30, 'name': 'Nâng tỷ lệ chuyển đổi lead → lịch hẹn', 'metric_type': 'percent', 'unit': '%', 'start_value': 25.0, 'target_value': 35.0, 'weight': 1.0, 'hint': 'Số lead đặt được lịch hẹn / tổng số lead đủ điều kiện trong tháng.'}),
+            Command.create({'sequence': 40, 'name': 'Tăng số bệnh nhân mới mỗi tháng', 'metric_type': 'number', 'unit': 'bệnh nhân', 'start_value': 300.0, 'target_value': 420.0, 'weight': 2.0, 'hint': 'Số bệnh nhân lần đầu đến khám (có hồ sơ mới) trên toàn chuỗi.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_mkt_brand" model="okr.scale.template">
+        <field name="name">Xây dựng thương hiệu nha khoa được yêu thích nhất trên mạng xã hội</field>
+        <field name="category_id" ref="okr_tpl_cat_marketing"/>
+        <field name="level">department</field>
+        <field name="okr_type">aspirational</field>
+        <field name="sequence">130</field>
+        <field name="keywords">thương hiệu, fanpage, TikTok, nội dung, mạng xã hội, brand</field>
+        <field name="description" type="html"><p>Thương hiệu gần gũi, đáng tin nhờ nội dung giáo dục sức khỏe răng miệng và câu chuyện khách hàng thật.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Tăng lượt tương tác trung bình mỗi bài đăng', 'metric_type': 'number', 'unit': 'tương tác', 'start_value': 300.0, 'target_value': 800.0, 'weight': 1.0, 'hint': 'Tổng lượt thích, bình luận, chia sẻ / số bài đăng trên Facebook và TikTok trong tháng.'}),
+            Command.create({'sequence': 20, 'name': 'Tăng số người theo dõi mới trong quý', 'metric_type': 'number', 'unit': 'người theo dõi', 'start_value': 5000.0, 'target_value': 15000.0, 'weight': 1.0, 'hint': 'Số người theo dõi mới trên các kênh chính thức (Facebook, TikTok, Zalo OA).'}),
+            Command.create({'sequence': 30, 'name': 'Xuất bản video câu chuyện khách hàng thật', 'metric_type': 'number', 'unit': 'video', 'start_value': 4.0, 'target_value': 12.0, 'weight': 1.0, 'hint': 'Video có sự đồng ý của khách hàng, đăng trên kênh chính thức trong quý.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_mkt_roi" model="okr.scale.template">
+        <field name="name">Mỗi đồng chi cho marketing đều mang lại bệnh nhân thật</field>
+        <field name="category_id" ref="okr_tpl_cat_marketing"/>
+        <field name="level">department</field>
+        <field name="okr_type">committed</field>
+        <field name="sequence">140</field>
+        <field name="keywords">CAC, ROAS, ngân sách, hiệu quả, show-up</field>
+        <field name="description" type="html"><p>Tối ưu ngân sách: đo lường đầy đủ từ quảng cáo đến doanh thu, cắt kênh kém hiệu quả, tập trung kênh mang lại khách.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Giảm chi phí thu hút một bệnh nhân mới (CAC)', 'metric_type': 'currency', 'unit': '', 'start_value': 1500000.0, 'target_value': 1100000.0, 'weight': 2.0, 'hint': 'Tổng chi phí marketing trong tháng / số bệnh nhân mới đến khám.'}),
+            Command.create({'sequence': 20, 'name': 'Nâng hiệu quả quảng cáo (ROAS)', 'metric_type': 'number', 'unit': 'lần', 'start_value': 3.0, 'target_value': 5.0, 'weight': 1.0, 'hint': 'Doanh thu từ bệnh nhân có nguồn quảng cáo / chi phí quảng cáo tương ứng.'}),
+            Command.create({'sequence': 30, 'name': 'Nâng tỷ lệ khách đến khám theo lịch hẹn (show-up)', 'metric_type': 'percent', 'unit': '%', 'start_value': 60.0, 'target_value': 75.0, 'weight': 1.0, 'hint': 'Số lịch hẹn từ lead có khách đến / tổng lịch hẹn từ lead.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_ops_flow" model="okr.scale.template">
+        <field name="name">Vận hành phòng khám trơn tru, đúng giờ, không để khách chờ đợi</field>
+        <field name="category_id" ref="okr_tpl_cat_operations"/>
+        <field name="level">department</field>
+        <field name="okr_type">committed</field>
+        <field name="sequence">150</field>
+        <field name="keywords">thời gian chờ, công suất ghế, lịch hẹn, đúng giờ, vận hành</field>
+        <field name="description" type="html"><p>Khách hàng đánh giá phòng khám từ lúc bước vào cửa: đúng giờ và ít chờ đợi là trải nghiệm tối thiểu.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Rút ngắn thời gian chờ trung bình của bệnh nhân', 'metric_type': 'number', 'unit': 'phút', 'start_value': 25.0, 'target_value': 10.0, 'weight': 2.0, 'hint': 'Từ lúc check-in tại lễ tân đến lúc bệnh nhân lên ghế, trung bình trên phần mềm trong tháng.'}),
+            Command.create({'sequence': 20, 'name': 'Nâng tỷ lệ lấp đầy ghế nha', 'metric_type': 'percent', 'unit': '%', 'start_value': 65.0, 'target_value': 85.0, 'weight': 1.0, 'hint': 'Số giờ ghế có điều trị / tổng số giờ ghế mở cửa trong tháng.'}),
+            Command.create({'sequence': 30, 'name': 'Tăng tỷ lệ lịch hẹn bắt đầu đúng giờ (±10 phút)', 'metric_type': 'percent', 'unit': '%', 'start_value': 70.0, 'target_value': 90.0, 'weight': 1.0, 'hint': 'Số lịch hẹn bắt đầu trong vòng 10 phút so với giờ hẹn / tổng lịch hẹn.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_ops_supply" model="okr.scale.template">
+        <field name="name">Vật tư luôn sẵn sàng cho điều trị, không lãng phí</field>
+        <field name="category_id" ref="okr_tpl_cat_operations"/>
+        <field name="level">department</field>
+        <field name="okr_type">committed</field>
+        <field name="sequence">160</field>
+        <field name="keywords">vật tư, kho, tồn kho, chi phí, cung ứng</field>
+        <field name="description" type="html"><p>Kho vật tư được kiểm soát tốt giúp bác sĩ yên tâm điều trị và giảm chi phí cho phòng khám.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Không còn hoãn điều trị do thiếu vật tư thiết yếu', 'metric_type': 'number', 'unit': 'lần', 'start_value': 6.0, 'target_value': 0.0, 'weight': 2.0, 'hint': 'Số lịch điều trị bị dời do thiếu vật tư, ghi nhận trong báo cáo vận hành tháng.'}),
+            Command.create({'sequence': 20, 'name': 'Giảm giá trị vật tư hết hạn, hư hỏng mỗi quý', 'metric_type': 'currency', 'unit': '', 'start_value': 30000000.0, 'target_value': 5000000.0, 'weight': 1.0, 'hint': 'Tổng giá trị vật tư phải hủy theo biên bản kiểm kê cuối quý.'}),
+            Command.create({'sequence': 30, 'name': 'Giảm tỷ lệ chi phí vật tư / doanh thu', 'metric_type': 'percent', 'unit': '%', 'start_value': 12.0, 'target_value': 10.0, 'weight': 1.0, 'hint': 'Tổng chi phí vật tư tiêu hao / doanh thu điều trị trong tháng.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_ops_expansion" model="okr.scale.template">
+        <field name="name">Mở rộng chuỗi phòng khám chuẩn hóa và nhân bản thành công</field>
+        <field name="category_id" ref="okr_tpl_cat_operations"/>
+        <field name="level">company</field>
+        <field name="okr_type">aspirational</field>
+        <field name="sequence">170</field>
+        <field name="keywords">mở rộng, chi nhánh mới, chuẩn hóa, nhân bản, khai trương</field>
+        <field name="description" type="html"><p>Mỗi chi nhánh mới đạt cùng một chuẩn chất lượng và hòa vốn nhanh nhờ mô hình vận hành chuẩn hóa.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Khai trương chi nhánh mới đúng tiến độ', 'metric_type': 'number', 'unit': 'chi nhánh', 'start_value': 0.0, 'target_value': 2.0, 'weight': 2.0, 'hint': 'Chi nhánh đi vào hoạt động đúng ngày khai trương đã duyệt.'}),
+            Command.create({'sequence': 20, 'name': 'Tăng tỷ lệ chi nhánh đạt chuẩn vận hành qua audit nội bộ', 'metric_type': 'percent', 'unit': '%', 'start_value': 60.0, 'target_value': 100.0, 'weight': 1.0, 'hint': 'Số chi nhánh đạt ≥ 85 điểm audit vận hành / tổng số chi nhánh.'}),
+            Command.create({'sequence': 30, 'name': 'Rút ngắn thời gian hòa vốn của chi nhánh mới', 'metric_type': 'number', 'unit': 'tháng', 'start_value': 18.0, 'target_value': 12.0, 'weight': 1.0, 'hint': 'Dự báo hòa vốn theo kế hoạch tài chính được cập nhật hàng quý.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_hr_engagement" model="okr.scale.template">
+        <field name="name">Xây dựng đội ngũ gắn kết, tự hào và phát triển không ngừng</field>
+        <field name="category_id" ref="okr_tpl_cat_hr"/>
+        <field name="level">company</field>
+        <field name="okr_type">committed</field>
+        <field name="sequence">180</field>
+        <field name="keywords">gắn kết, nghỉ việc, eNPS, đào tạo, turnover</field>
+        <field name="description" type="html"><p>Đội ngũ hạnh phúc tạo ra trải nghiệm bệnh nhân tốt. Giảm nghỉ việc và đầu tư vào đào tạo là ưu tiên hàng đầu.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Giảm tỷ lệ nghỉ việc năm', 'metric_type': 'percent', 'unit': '%', 'start_value': 25.0, 'target_value': 15.0, 'weight': 2.0, 'hint': 'Số nhân viên nghỉ việc trong 12 tháng gần nhất / số nhân viên bình quân.'}),
+            Command.create({'sequence': 20, 'name': 'Nâng chỉ số gắn kết nhân viên (eNPS)', 'metric_type': 'number', 'unit': 'điểm', 'start_value': 10.0, 'target_value': 30.0, 'weight': 1.0, 'hint': 'Khảo sát ẩn danh hàng quý: % nhân viên chấm 9–10 trừ % chấm 0–6.'}),
+            Command.create({'sequence': 30, 'name': 'Tăng số giờ đào tạo bình quân mỗi nhân viên trong quý', 'metric_type': 'number', 'unit': 'giờ', 'start_value': 6.0, 'target_value': 16.0, 'weight': 1.0, 'hint': 'Tổng giờ đào tạo ghi nhận / số nhân viên bình quân trong quý.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_hr_onboarding" model="okr.scale.template">
+        <field name="name">Nhân sự mới hòa nhập nhanh và làm việc tự tin ngay từ tháng đầu</field>
+        <field name="category_id" ref="okr_tpl_cat_hr"/>
+        <field name="level">department</field>
+        <field name="okr_type">committed</field>
+        <field name="sequence">190</field>
+        <field name="keywords">hội nhập, onboarding, nhân viên mới, SOP, trợ thủ</field>
+        <field name="description" type="html"><p>Chuẩn hóa chương trình hội nhập cho trợ thủ, lễ tân và bác sĩ mới để giữ chân người giỏi ngay từ đầu.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Nhân viên mới hoàn thành chương trình hội nhập trong 30 ngày', 'metric_type': 'percent', 'unit': '%', 'start_value': 60.0, 'target_value': 100.0, 'weight': 1.0, 'hint': 'Số nhân viên mới hoàn thành đủ các học phần hội nhập trong 30 ngày / số nhân viên mới.'}),
+            Command.create({'sequence': 20, 'name': 'Nâng điểm đánh giá năng lực sau thử việc (thang 100)', 'metric_type': 'number', 'unit': 'điểm', 'start_value': 70.0, 'target_value': 85.0, 'weight': 1.0, 'hint': 'Điểm trung bình bài đánh giá năng lực cuối kỳ thử việc.'}),
+            Command.create({'sequence': 30, 'name': 'Giảm tỷ lệ nhân viên mới nghỉ trong 90 ngày đầu', 'metric_type': 'percent', 'unit': '%', 'start_value': 20.0, 'target_value': 8.0, 'weight': 1.0, 'hint': 'Số nhân viên nghỉ trong 90 ngày đầu / số nhân viên mới tuyển trong kỳ.'}),
+            Command.create({'sequence': 40, 'name': 'Ban hành bộ SOP đào tạo trợ thủ nha khoa', 'metric_type': 'boolean', 'unit': '', 'start_value': 0.0, 'target_value': 1.0, 'weight': 1.0, 'hint': 'Đạt khi bộ SOP được duyệt và phổ biến cho tất cả chi nhánh.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_hr_talent" model="okr.scale.template">
+        <field name="name">Trở thành nơi làm việc mơ ước của bác sĩ nha khoa trẻ</field>
+        <field name="category_id" ref="okr_tpl_cat_hr"/>
+        <field name="level">department</field>
+        <field name="okr_type">aspirational</field>
+        <field name="sequence">200</field>
+        <field name="keywords">tuyển dụng, bác sĩ, nhân tài, employer branding</field>
+        <field name="description" type="html"><p>Thu hút bác sĩ giỏi nhờ thương hiệu tuyển dụng, lộ trình phát triển rõ ràng và quy trình tuyển dụng chuyên nghiệp.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Rút ngắn thời gian tuyển một vị trí bác sĩ', 'metric_type': 'number', 'unit': 'ngày', 'start_value': 60.0, 'target_value': 35.0, 'weight': 1.0, 'hint': 'Từ ngày mở vị trí đến ngày ứng viên nhận việc, trung bình các vị trí đóng trong quý.'}),
+            Command.create({'sequence': 20, 'name': 'Nâng tỷ lệ ứng viên chấp nhận đề nghị làm việc', 'metric_type': 'percent', 'unit': '%', 'start_value': 60.0, 'target_value': 80.0, 'weight': 1.0, 'hint': 'Số offer được chấp nhận / số offer đã gửi.'}),
+            Command.create({'sequence': 30, 'name': 'Duy trì nguồn ứng viên bác sĩ chất lượng', 'metric_type': 'number', 'unit': 'ứng viên', 'start_value': 5.0, 'target_value': 15.0, 'weight': 1.0, 'hint': 'Số ứng viên đạt vòng sơ loại chuyên môn đang có trong pipeline cuối tháng.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_fin_health" model="okr.scale.template">
+        <field name="name">Sức khỏe tài chính vững mạnh làm nền tảng cho tăng trưởng</field>
+        <field name="category_id" ref="okr_tpl_cat_finance"/>
+        <field name="level">company</field>
+        <field name="okr_type">committed</field>
+        <field name="sequence">210</field>
+        <field name="keywords">EBITDA, lợi nhuận, chi phí, công nợ, AR days</field>
+        <field name="description" type="html"><p>Tăng trưởng phải đi cùng lợi nhuận và dòng tiền lành mạnh để chuỗi tự tin đầu tư mở rộng.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Nâng biên lợi nhuận EBITDA', 'metric_type': 'percent', 'unit': '%', 'start_value': 15.0, 'target_value': 22.0, 'weight': 2.0, 'hint': 'EBITDA / doanh thu thuần theo báo cáo quản trị quý.'}),
+            Command.create({'sequence': 20, 'name': 'Giảm tỷ lệ chi phí vận hành / doanh thu', 'metric_type': 'percent', 'unit': '%', 'start_value': 70.0, 'target_value': 62.0, 'weight': 1.0, 'hint': 'Tổng chi phí vận hành (không gồm khấu hao) / doanh thu thuần.'}),
+            Command.create({'sequence': 30, 'name': 'Giảm số ngày phải thu bình quân (AR days)', 'metric_type': 'number', 'unit': 'ngày', 'start_value': 45.0, 'target_value': 25.0, 'weight': 1.0, 'hint': 'Công nợ phải thu bình quân / doanh thu bình quân ngày (bao gồm trả góp và bảo hiểm).'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_fin_cash" model="okr.scale.template">
+        <field name="name">Kiểm soát dòng tiền và công nợ chặt chẽ, minh bạch</field>
+        <field name="category_id" ref="okr_tpl_cat_finance"/>
+        <field name="level">department</field>
+        <field name="okr_type">committed</field>
+        <field name="sequence">220</field>
+        <field name="keywords">dòng tiền, công nợ, trả góp, đóng sổ, thanh toán</field>
+        <field name="description" type="html"><p>Dành cho phòng Kế toán – Tài chính: thu hồi công nợ đúng hạn, đóng sổ nhanh và số hóa thanh toán.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Giảm tỷ lệ công nợ trả góp quá hạn', 'metric_type': 'percent', 'unit': '%', 'start_value': 12.0, 'target_value': 5.0, 'weight': 2.0, 'hint': 'Giá trị công nợ trả góp quá hạn trên 30 ngày / tổng công nợ trả góp.'}),
+            Command.create({'sequence': 20, 'name': 'Rút ngắn thời gian đóng sổ kế toán tháng (ngày làm việc)', 'metric_type': 'number', 'unit': 'ngày', 'start_value': 12.0, 'target_value': 5.0, 'weight': 1.0, 'hint': 'Số ngày làm việc từ cuối tháng đến khi báo cáo quản trị được phát hành.'}),
+            Command.create({'sequence': 30, 'name': 'Tăng tỷ lệ thanh toán không dùng tiền mặt', 'metric_type': 'percent', 'unit': '%', 'start_value': 55.0, 'target_value': 80.0, 'weight': 1.0, 'hint': 'Giá trị thu qua chuyển khoản, thẻ, ví điện tử / tổng giá trị thu trong tháng.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_tech_digital" model="okr.scale.template">
+        <field name="name">Số hóa toàn diện hành trình của bệnh nhân</field>
+        <field name="category_id" ref="okr_tpl_cat_tech"/>
+        <field name="level">company</field>
+        <field name="okr_type">aspirational</field>
+        <field name="sequence">230</field>
+        <field name="keywords">chuyển đổi số, hồ sơ điện tử, EMR, đặt lịch online, Zalo OA</field>
+        <field name="description" type="html"><p>Từ đặt lịch, khám, điều trị đến chăm sóc sau điều trị đều thực hiện trên nền tảng số, giúp bệnh nhân tiện lợi và đội ngũ làm việc hiệu quả hơn.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Phủ hồ sơ bệnh án điện tử (EMR) trên mọi lượt khám', 'metric_type': 'percent', 'unit': '%', 'start_value': 50.0, 'target_value': 100.0, 'weight': 2.0, 'hint': 'Số lượt khám có hồ sơ điện tử đầy đủ / tổng lượt khám trong tháng.'}),
+            Command.create({'sequence': 20, 'name': 'Tăng tỷ lệ lịch hẹn đặt trực tuyến', 'metric_type': 'percent', 'unit': '%', 'start_value': 15.0, 'target_value': 40.0, 'weight': 1.0, 'hint': 'Lịch hẹn đặt qua website, Zalo OA, ứng dụng / tổng số lịch hẹn.'}),
+            Command.create({'sequence': 30, 'name': 'Tăng tỷ lệ bệnh nhân nhận nhắc lịch qua Zalo OA hoặc ứng dụng', 'metric_type': 'percent', 'unit': '%', 'start_value': 30.0, 'target_value': 70.0, 'weight': 1.0, 'hint': 'Số bệnh nhân đang hoạt động đã kết nối Zalo OA/ứng dụng / tổng bệnh nhân đang hoạt động.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_tech_data" model="okr.scale.template">
+        <field name="name">Ra quyết định nhanh hơn nhờ dữ liệu thời gian thực</field>
+        <field name="category_id" ref="okr_tpl_cat_tech"/>
+        <field name="level">department</field>
+        <field name="okr_type">committed</field>
+        <field name="sequence">240</field>
+        <field name="keywords">dữ liệu, dashboard, báo cáo, BI, KPI</field>
+        <field name="description" type="html"><p>Ban điều hành và quản lý chi nhánh cùng nhìn một bộ số liệu cập nhật, không còn chờ báo cáo thủ công.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Đưa vào vận hành dashboard KPI thời gian thực cho toàn chuỗi', 'metric_type': 'boolean', 'unit': '', 'start_value': 0.0, 'target_value': 1.0, 'weight': 2.0, 'hint': 'Đạt khi dashboard được nghiệm thu và mọi quản lý chi nhánh có quyền truy cập.'}),
+            Command.create({'sequence': 20, 'name': 'Quản lý chi nhánh sử dụng báo cáo KPI hằng tuần', 'metric_type': 'percent', 'unit': '%', 'start_value': 40.0, 'target_value': 100.0, 'weight': 1.0, 'hint': 'Số quản lý có lượt truy cập dashboard mỗi tuần / tổng số quản lý chi nhánh.'}),
+            Command.create({'sequence': 30, 'name': 'Rút ngắn thời gian tạo báo cáo vận hành tháng', 'metric_type': 'number', 'unit': 'ngày', 'start_value': 5.0, 'target_value': 0.5, 'weight': 1.0, 'hint': 'Thời gian từ cuối tháng đến khi báo cáo vận hành được gửi ban điều hành.'}),
+        ]"/>
+    </record>
+    <record id="okr_tpl_tech_security" model="okr.scale.template">
+        <field name="name">Hệ thống ổn định và dữ liệu bệnh nhân luôn được bảo mật tuyệt đối</field>
+        <field name="category_id" ref="okr_tpl_cat_tech"/>
+        <field name="level">department</field>
+        <field name="okr_type">committed</field>
+        <field name="sequence">250</field>
+        <field name="keywords">bảo mật, uptime, an toàn thông tin, dữ liệu bệnh nhân</field>
+        <field name="description" type="html"><p>Dữ liệu sức khỏe là tài sản nhạy cảm: hạ tầng ổn định và văn hóa bảo mật là trách nhiệm của mọi người.</p></field>
+        <field name="line_ids" eval="[
+            Command.create({'sequence': 10, 'name': 'Nâng thời gian hoạt động hệ thống (uptime)', 'metric_type': 'percent', 'unit': '%', 'start_value': 99.0, 'target_value': 99.9, 'weight': 1.0, 'hint': 'Tổng thời gian phần mềm quản lý phòng khám hoạt động / tổng thời gian trong tháng (theo công cụ giám sát).'}),
+            Command.create({'sequence': 20, 'name': 'Đưa số sự cố bảo mật dữ liệu về 0', 'metric_type': 'number', 'unit': 'sự cố', 'start_value': 2.0, 'target_value': 0.0, 'weight': 2.0, 'hint': 'Số sự cố rò rỉ hoặc truy cập trái phép được ghi nhận trong quý.'}),
+            Command.create({'sequence': 30, 'name': 'Nhân viên hoàn thành khóa đào tạo bảo mật thông tin', 'metric_type': 'percent', 'unit': '%', 'start_value': 30.0, 'target_value': 100.0, 'weight': 1.0, 'hint': 'Số nhân viên đạt bài kiểm tra cuối khóa / tổng số nhân viên.'}),
+        ]"/>
+    </record>
+</odoo>

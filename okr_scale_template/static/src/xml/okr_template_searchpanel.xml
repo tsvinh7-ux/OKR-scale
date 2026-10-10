@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <!-- Category icons in the side panel of the OKR template gallery (values enriched server side). -->
+    <t t-name="okr_scale_template.SearchPanelCategory" t-inherit="web.SearchPanel.Category" t-inherit-mode="extension">
+        <xpath expr="//span[hasclass('o_search_panel_label_title')]" position="before">
+            <i t-if="value.okr_tpl_icon"
+               t-attf-class="fa fa-fw {{ value.okr_tpl_icon }} o_okr_tpl_sp_icon o_okr_tpl_c_{{ value.okr_tpl_color or 0 }}"/>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_okr_tpl_category_user,okr.scale.template.category user,model_okr_scale_template_category,okr_scale.group_okr_user,1,0,0,0
+access_okr_tpl_category_manager,okr.scale.template.category manager,model_okr_scale_template_category,okr_scale.group_okr_manager,1,0,0,0
+access_okr_tpl_category_admin,okr.scale.template.category admin,model_okr_scale_template_category,okr_scale.group_okr_admin,1,1,1,1
+access_okr_tpl_user,okr.scale.template user,model_okr_scale_template,okr_scale.group_okr_user,1,0,0,0
+access_okr_tpl_manager,okr.scale.template manager,model_okr_scale_template,okr_scale.group_okr_manager,1,1,1,1
+access_okr_tpl_admin,okr.scale.template admin,model_okr_scale_template,okr_scale.group_okr_admin,1,1,1,1
+access_okr_tpl_line_user,okr.scale.template.line user,model_okr_scale_template_line,okr_scale.group_okr_user,1,0,0,0
+access_okr_tpl_line_manager,okr.scale.template.line manager,model_okr_scale_template_line,okr_scale.group_okr_manager,1,1,1,1
+access_okr_tpl_line_admin,okr.scale.template.line admin,model_okr_scale_template_line,okr_scale.group_okr_admin,1,1,1,1
+access_okr_tpl_apply_user,okr.scale.template.apply user,model_okr_scale_template_apply,okr_scale.group_okr_user,1,1,1,1
+access_okr_tpl_apply_line_user,okr.scale.template.apply.line user,model_okr_scale_template_apply_line,okr_scale.group_okr_user,1,1,1,1

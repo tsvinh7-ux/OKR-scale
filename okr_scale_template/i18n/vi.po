@@ -1,0 +1,774 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* okr_scale_template
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-10 17:10+0000\n"
+"PO-Revision-Date: 2026-10-10 17:10+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: okr_scale_template
+#. odoo-python
+#: code:addons/okr_scale_template/models/okr_template.py:0
+#, python-format
+msgid "%s (copy)"
+msgstr "%s (bản sao)"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_kanban
+msgid "<i class=\"fa fa-bullseye\"/> Other"
+msgstr "<i class=\"fa fa-bullseye\"/> Khác"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_kanban
+msgid "<i class=\"fa fa-check-circle\" title=\"Key result\"/>"
+msgstr "<i class=\"fa fa-check-circle\" title=\"Kết quả then chốt\"/>"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_form
+msgid ""
+"<i class=\"fa fa-lightbulb-o me-1\"/>\n"
+"                                Good key results are measurable outcomes, not tasks. A target lower than the start value means \"the lower the better\" (e.g. no-show rate, waiting time)."
+msgstr ""
+"<i class=\"fa fa-lightbulb-o me-1\"/>\n"
+"                                Kết quả then chốt tốt là kết quả đo lường được, không phải đầu việc. Giá trị mục tiêu thấp hơn giá trị ban đầu nghĩa là \"càng thấp càng tốt\" (ví dụ: tỷ lệ vắng hẹn, thời gian chờ)."
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
+msgid "<i class=\"fa fa-magic me-1\"/>Template ·"
+msgstr "<i class=\"fa fa-magic me-1\"/>Mẫu ·"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_kanban
+msgid "<i class=\"fa fa-rocket\"/>Stretch"
+msgstr "<i class=\"fa fa-rocket\"/>Thử thách"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_tpl_gallery_banner
+msgid "<span>Categories</span>"
+msgstr "<span>Danh mục</span>"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
+msgid ""
+"<span>Key results</span>\n"
+"                    <small>Adjust the start and target values to your context; untick what does not apply.</small>"
+msgstr ""
+"<span>Kết quả then chốt</span>\n"
+"                    <small>Điều chỉnh giá trị ban đầu và giá trị mục tiêu cho phù hợp thực tế; bỏ chọn những KR không áp dụng.</small>"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_tpl_gallery_banner
+msgid "<span>Objectives created</span>"
+msgstr "<span>Mục tiêu đã tạo</span>"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_tpl_gallery_banner
+msgid "<span>Templates</span>"
+msgstr "<span>Mẫu OKR</span>"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__active
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_category__active
+msgid "Active"
+msgstr "Đang hoạt động"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
+msgid "Add key results"
+msgstr "Thêm kết quả then chốt"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__parent_key_result_id
+msgid "Align to Key Result"
+msgstr "Căn chỉnh theo KR cấp trên"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_search
+msgid "Already used"
+msgstr "Đã được sử dụng"
+
+#. module: okr_scale_template
+#: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template_apply_line__metric_type__currency
+#: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template_line__metric_type__currency
+msgid "Amount"
+msgstr "Số tiền"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_category_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_category_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_search
+msgid "Archived"
+msgstr "Đã lưu trữ"
+
+#. module: okr_scale_template
+#: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template__okr_type__aspirational
+#: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template_apply__okr_type__aspirational
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_search
+msgid "Aspirational"
+msgstr "Kỳ vọng (thử thách)"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_kanban
+msgid "Aspirational: a score around 0.7 is a success"
+msgstr "Thử thách: đạt khoảng 0,7 điểm đã là thành công"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
+msgid "Automatic"
+msgstr "Tự động"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: okr_scale_template
+#: model_terms:ir.actions.act_window,help:okr_scale_template.okr_template_category_action
+msgid ""
+"Categories group the OKR templates of the library, e.g. Sales, Customer "
+"Care, Clinical."
+msgstr ""
+"Danh mục nhóm các mẫu OKR của thư viện, ví dụ: Kinh doanh, Chăm sóc khách "
+"hàng, Lâm sàng."
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__category_id
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__category_id
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_search
+msgid "Category"
+msgstr "Danh mục"
+
+#. module: okr_scale_template
+#. odoo-python
+#: code:addons/okr_scale_template/models/okr_objective.py:0
+#, python-format
+msgid "Choose a template for \"%s\""
+msgstr "Chọn mẫu cho \"%s\""
+
+#. module: okr_scale_template
+#. odoo-python
+#: code:addons/okr_scale_template/wizard/okr_template_apply.py:0
+#, python-format
+msgid "Choose the cycle of the objective."
+msgstr "Hãy chọn chu kỳ cho mục tiêu."
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__category_color
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_category__color
+msgid "Color"
+msgstr "Màu"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template__category_color
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_category__color
+msgid "Color of the category chip (0 to 11)."
+msgstr "Màu nhãn danh mục (0 đến 11)."
+
+#. module: okr_scale_template
+#: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template__okr_type__committed
+#: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template_apply__okr_type__committed
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_search
+msgid "Committed"
+msgstr "Cam kết"
+
+#. module: okr_scale_template
+#: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template__level__company
+#: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template_apply__level__company
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_search
+msgid "Company"
+msgstr "Công ty"
+
+#. module: okr_scale_template
+#: model_terms:ir.actions.act_window,help:okr_scale_template.okr_template_category_action
+msgid "Create a template category"
+msgstr "Tạo danh mục mẫu"
+
+#. module: okr_scale_template
+#: model:ir.model,name:okr_scale_template.model_okr_scale_template_apply
+msgid "Create an Objective from a Template"
+msgstr "Tạo mục tiêu từ mẫu"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
+msgid "Create draft objective"
+msgstr "Tạo mục tiêu nháp"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__source_objective_id
+msgid "Created From"
+msgstr "Tạo từ mục tiêu"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__create_uid
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__create_uid
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__create_uid
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_category__create_uid
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: okr_scale_template
+#. odoo-python
+#: code:addons/okr_scale_template/wizard/okr_template_apply.py:0
+#, python-format
+msgid "Created from the template \"%s\"."
+msgstr "Được tạo từ mẫu \"%s\"."
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__create_date
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__create_date
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__create_date
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_category__create_date
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__create_date
+msgid "Created on"
+msgstr "Được tạo vào"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__cycle_id
+msgid "Cycle"
+msgstr "Chu kỳ"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_tpl_gallery_banner
+msgid "DMAG"
+msgstr "DMAG"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_tpl_gallery_banner
+msgid "DMAG · OKR"
+msgstr "DMAG · OKR"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_line__hint
+msgid ""
+"Data source and calculation rule, so that everybody measures the same way."
+msgstr "Nguồn dữ liệu và cách tính, để mọi người đo lường thống nhất."
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__department_id
+#: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template__level__department
+#: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template_apply__level__department
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_search
+msgid "Department"
+msgstr "Phòng ban"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__description
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__template_description
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_category__description
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_form
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__display_name
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__display_name
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__display_name
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_category__display_name
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: okr_scale_template
+#: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template_apply_line__metric_type__boolean
+#: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template_line__metric_type__boolean
+msgid "Done / Not done"
+msgstr "Hoàn thành / Chưa hoàn thành"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__employee_id
+msgid "Employee"
+msgstr "Nhân viên"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_apply__objective_id
+msgid ""
+"Existing draft objective that receives the key results of the template."
+msgstr "Mục tiêu nháp có sẵn sẽ nhận các kết quả then chốt của mẫu."
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__objective_id
+msgid "Fill Objective"
+msgstr "Mục tiêu cần bổ sung"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template__category_icon
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_category__icon
+msgid "Font Awesome class, e.g. fa-heart."
+msgstr "Lớp biểu tượng Font Awesome, ví dụ: fa-heart."
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_objective_view_tree_template
+msgid "From template"
+msgstr "Từ mẫu"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_search
+msgid "Group By"
+msgstr "Nhóm theo"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__hint
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__hint
+msgid "How to measure"
+msgstr "Cách đo lường"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__id
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__id
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__id
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_category__id
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__category_icon
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_category__icon
+msgid "Icon"
+msgstr "Biểu tượng"
+
+#. module: okr_scale_template
+#: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template__level__individual
+#: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template_apply__level__individual
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_search
+msgid "Individual"
+msgstr "Cá nhân"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
+msgid "Inspiring, qualitative objective"
+msgstr "Mục tiêu định tính, truyền cảm hứng"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template__name
+msgid "Inspiring, qualitative objective proposed by this template."
+msgstr "Mục tiêu định tính, truyền cảm hứng do mẫu này đề xuất."
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__is_decreasing
+msgid "Is Decreasing"
+msgstr "Càng thấp càng tốt"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_kanban
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_tree
+msgid "KRs"
+msgstr "KR"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__include
+msgid "Keep"
+msgstr "Giữ"
+
+#. module: okr_scale_template
+#. odoo-python
+#: code:addons/okr_scale_template/wizard/okr_template_apply.py:0
+#, python-format
+msgid "Keep at least one key result."
+msgstr "Hãy giữ lại ít nhất một kết quả then chốt."
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__name
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__name
+msgid "Key Result"
+msgstr "Kết quả then chốt"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__line_count
+msgid "Key Result Count"
+msgstr "Số kết quả then chốt"
+
+#. module: okr_scale_template
+#: model:ir.model,name:okr_scale_template.model_okr_scale_template_apply_line
+msgid "Key Result to Create from a Template"
+msgstr "Kết quả then chốt tạo từ mẫu"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__line_ids
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__line_ids
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_form
+msgid "Key Results"
+msgstr "Kết quả then chốt"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_kanban
+msgid "Key results"
+msgstr "Kết quả then chốt"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__keywords
+msgid "Keywords"
+msgstr "Từ khóa"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__write_uid
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__write_uid
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__write_uid
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_category__write_uid
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__write_date
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__write_date
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__write_date
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_category__write_date
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_apply__owner_id
+msgid ""
+"Leave empty to let OKR choose: the employee, the department manager or you."
+msgstr "Để trống để hệ thống tự chọn: nhân viên, trưởng phòng hoặc chính bạn."
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__level
+msgid "Level"
+msgstr "Cấp độ"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__line_preview
+msgid "Line Preview"
+msgstr "Xem trước KR"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__metric_type
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__metric_type
+msgid "Metric Type"
+msgstr "Loại chỉ số"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_category__name
+msgid "Name"
+msgstr "Tên"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template__line_preview
+msgid "Names of the first key results, one per line (gallery cards)."
+msgstr "Tên các kết quả then chốt đầu tiên, mỗi dòng một tên (thẻ thư viện)."
+
+#. module: okr_scale_template
+#: model_terms:ir.actions.act_window,help:okr_scale_template.okr_template_action
+msgid "No template here yet"
+msgstr "Chưa có mẫu nào"
+
+#. module: okr_scale_template
+#: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template_apply_line__metric_type__number
+#: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template_line__metric_type__number
+msgid "Number"
+msgstr "Số"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template__usage_count
+msgid "Number of objectives created from this template."
+msgstr "Số mục tiêu đã được tạo từ mẫu này."
+
+#. module: okr_scale_template
+#: model:ir.model,name:okr_scale_template.model_okr_scale_objective
+msgid "OKR Objective"
+msgstr "Mục tiêu OKR"
+
+#. module: okr_scale_template
+#: model:ir.model,name:okr_scale_template.model_okr_scale_template
+msgid "OKR Template"
+msgstr "Mẫu OKR"
+
+#. module: okr_scale_template
+#: model:ir.model,name:okr_scale_template.model_okr_scale_template_category
+msgid "OKR Template Category"
+msgstr "Danh mục mẫu OKR"
+
+#. module: okr_scale_template
+#: model:ir.model,name:okr_scale_template.model_okr_scale_template_line
+msgid "OKR Template Key Result"
+msgstr "Kết quả then chốt của mẫu OKR"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_tpl_gallery_banner
+msgid "OKR Template Library"
+msgstr "Thư viện mẫu OKR"
+
+#. module: okr_scale_template
+#: model_terms:ir.actions.act_window,help:okr_scale_template.okr_template_action
+msgid ""
+"OKR managers can save any objective as a template to share good practices."
+msgstr ""
+"Quản lý OKR có thể lưu bất kỳ mục tiêu nào thành mẫu để chia sẻ cách làm "
+"hay."
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__name
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__name
+msgid "Objective"
+msgstr "Mục tiêu"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_kanban
+msgid "Objectives created from this template"
+msgstr "Số mục tiêu đã tạo từ mẫu này"
+
+#. module: okr_scale_template
+#. odoo-python
+#: code:addons/okr_scale_template/models/okr_objective.py:0
+#, python-format
+msgid "Only OKR managers can save an objective as a template."
+msgstr "Chỉ quản lý OKR mới có thể lưu mục tiêu thành mẫu."
+
+#. module: okr_scale_template
+#. odoo-python
+#: code:addons/okr_scale_template/wizard/okr_template_apply.py:0
+#, python-format
+msgid "Only draft objectives can be filled from a template."
+msgstr "Chỉ mục tiêu ở trạng thái nháp mới có thể bổ sung từ mẫu."
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
+msgid "Optional: contribute to an upper key result"
+msgstr "Không bắt buộc: đóng góp cho một KR cấp trên"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__owner_id
+msgid "Owner"
+msgstr "Người phụ trách"
+
+#. module: okr_scale_template
+#: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template_apply_line__metric_type__percent
+#: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template_line__metric_type__percent
+msgid "Percentage"
+msgstr "Phần trăm"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_apply__replace_title
+msgid "Replace the title of the objective by the one below."
+msgstr "Thay tiêu đề của mục tiêu bằng tiêu đề bên dưới."
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_objective_view_form_template
+msgid "Save as template"
+msgstr "Lưu thành mẫu"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__sequence
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__sequence
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_category__sequence
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__sequence
+msgid "Sequence"
+msgstr "Thứ tự"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__start_value
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__start_value
+msgid "Start"
+msgstr "Giá trị ban đầu"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_objective_view_form_template
+msgid "Start from a template"
+msgstr "Bắt đầu từ mẫu"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_tpl_gallery_banner
+msgid ""
+"Start from proven objectives for dental clinics, adjust the targets, done in"
+" one minute."
+msgstr ""
+"Bắt đầu từ các mục tiêu đã được kiểm chứng cho phòng khám nha khoa, điều "
+"chỉnh chỉ tiêu, xong trong một phút."
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__level
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_search
+msgid "Suggested Level"
+msgstr "Cấp đề xuất"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__target_value
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__target_value
+msgid "Target"
+msgstr "Giá trị mục tiêu"
+
+#. module: okr_scale_template
+#. odoo-python
+#: code:addons/okr_scale_template/models/okr_objective.py:0
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__template_id
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__template_id
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_search
+#, python-format
+msgid "Template"
+msgstr "Mẫu"
+
+#. module: okr_scale_template
+#: model:ir.actions.act_window,name:okr_scale_template.okr_template_category_action
+#: model:ir.ui.menu,name:okr_scale_template.okr_menu_template_categories
+msgid "Template Categories"
+msgstr "Danh mục mẫu"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_category__template_count
+msgid "Template Count"
+msgstr "Số mẫu"
+
+#. module: okr_scale_template
+#: model:ir.actions.act_window,name:okr_scale_template.okr_template_action
+#: model:ir.ui.menu,name:okr_scale_template.okr_menu_template_library
+msgid "Template Library"
+msgstr "Thư viện mẫu"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_category__template_ids
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_category_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_category_view_tree
+msgid "Templates"
+msgstr "Mẫu OKR"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
+msgid "The key results below will be added to the draft objective"
+msgstr "Các kết quả then chốt bên dưới sẽ được thêm vào mục tiêu nháp"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_line__is_decreasing
+msgid "The lower the better (e.g. no-show rate, waiting time)."
+msgstr "Càng thấp càng tốt (ví dụ: tỷ lệ vắng hẹn, thời gian chờ)."
+
+#. module: okr_scale_template
+#. odoo-python
+#: code:addons/okr_scale_template/models/okr_template.py:0
+#: code:addons/okr_scale_template/wizard/okr_template_apply.py:0
+#, python-format
+msgid "The target of \"%s\" must differ from its start value."
+msgstr "Giá trị mục tiêu của \"%s\" phải khác giá trị ban đầu."
+
+#. module: okr_scale_template
+#. odoo-python
+#: code:addons/okr_scale_template/models/okr_template.py:0
+#, python-format
+msgid "The weight of a key result cannot be negative."
+msgstr "Trọng số của kết quả then chốt không được âm."
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__okr_type
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__okr_type
+msgid "Type"
+msgstr "Loại"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__unit
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__unit
+msgid "Unit"
+msgstr "Đơn vị"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_line__unit
+msgid "Unit displayed next to values, e.g. patients, %, minutes."
+msgstr "Đơn vị hiển thị cạnh giá trị, ví dụ: bệnh nhân, %, phút."
+
+#. module: okr_scale_template
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_apply__parent_key_result_id
+msgid "Upper key result this objective contributes to."
+msgstr "Kết quả then chốt cấp trên mà mục tiêu này đóng góp."
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_tree
+msgid "Use"
+msgstr "Dùng"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_kanban
+msgid "Use <i class=\"fa fa-arrow-right ms-1\"/>"
+msgstr "Dùng mẫu <i class=\"fa fa-arrow-right ms-1\"/>"
+
+#. module: okr_scale_template
+#. odoo-python
+#: code:addons/okr_scale_template/models/okr_template.py:0
+#, python-format
+msgid "Use template"
+msgstr "Dùng mẫu"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__replace_title
+msgid "Use the template title"
+msgstr "Dùng tiêu đề của mẫu"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_form
+msgid "Use this template"
+msgstr "Dùng mẫu này"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__usage_count
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_form
+msgid "Used"
+msgstr "Lượt dùng"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__weight
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__weight
+msgid "Weight"
+msgstr "Trọng số"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_form
+msgid "Why does this objective matter? When should a team use it?"
+msgstr "Vì sao mục tiêu này quan trọng? Khi nào nên dùng?"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template__description
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_apply__template_description
+msgid "Why this objective matters and when to use it."
+msgstr "Vì sao mục tiêu này quan trọng và khi nào nên dùng."
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__wizard_id
+msgid "Wizard"
+msgstr "Trình hướng dẫn"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template__keywords
+msgid "Words used to find this template, comma separated."
+msgstr "Các từ dùng để tìm mẫu này, phân cách bằng dấu phẩy."
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
+msgid "Your objective"
+msgstr "Mục tiêu của bạn"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_category_view_form
+msgid "e.g. Customer Care"
+msgstr "ví dụ: Chăm sóc khách hàng"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_form
+msgid "e.g. Deliver a dental experience patients recommend"
+msgstr "ví dụ: Mang lại trải nghiệm nha khoa khiến bệnh nhân muốn giới thiệu"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_form
+msgid "e.g. NPS, reviews, referral"
+msgstr "ví dụ: NPS, đánh giá, giới thiệu"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_category_view_form
+msgid "fa-heart"
+msgstr "fa-heart"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_kanban
+msgid "more key result(s)"
+msgstr "kết quả then chốt khác"

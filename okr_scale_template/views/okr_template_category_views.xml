@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_template_category_view_tree" model="ir.ui.view">
+        <field name="name">okr.scale.template.category.tree</field>
+        <field name="model">okr.scale.template.category</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="icon"/>
+                <field name="color" widget="color_picker"/>
+                <field name="description" optional="show"/>
+                <field name="template_count" string="Templates"/>
+                <field name="active" column_invisible="True"/>
+                <button name="action_view_templates" type="object" string="Templates" icon="fa-th-large" class="btn-link"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="okr_template_category_view_form" model="ir.ui.view">
+        <field name="name">okr.scale.template.category.form</field>
+        <field name="model">okr.scale.template.category</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_templates" type="object" class="oe_stat_button" icon="fa-th-large">
+                            <field name="template_count" widget="statinfo" string="Templates"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. Customer Care"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="icon" placeholder="fa-heart"/>
+                            <field name="color" widget="color_picker"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                            <field name="sequence"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="okr_template_category_view_search" model="ir.ui.view">
+        <field name="name">okr.scale.template.category.search</field>
+        <field name="model">okr.scale.template.category</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="okr_template_category_action" model="ir.actions.act_window">
+        <field name="name">Template Categories</field>
+        <field name="res_model">okr.scale.template.category</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a template category</p>
+            <p>Categories group the OKR templates of the library, e.g. Sales, Customer Care, Clinical.</p>
+        </field>
+    </record>
+</odoo>
