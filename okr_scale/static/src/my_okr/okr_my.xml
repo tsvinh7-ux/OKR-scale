@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="okr_scale.MyWorkspace">
+        <div class="o_action o_okr_page o_okr_my">
+            <div class="o_okr_container" t-if="state.data">
+                <t t-set="data" t-value="state.data"/>
+                <div class="o_okr_hero d-flex flex-wrap align-items-center gap-4">
+                    <OkrAvatar userId="data.user.id" name="data.user.name" size="64"/>
+                    <div class="me-auto">
+                        <div class="o_okr_hero_eyebrow"><t t-esc="greeting"/></div>
+                        <h1><t t-esc="firstName"/> 👋</h1>
+                        <div class="o_okr_hero_sub" t-if="data.cycle">
+                            <t t-esc="data.cycle.name"/> · <b t-esc="data.cycle.days_left"/> days left
+                        </div>
+                        <div class="o_okr_hero_sub" t-else="">No running cycle.</div>
+                    </div>
+                    <div class="d-flex align-items-center gap-3" t-if="data.cycle">
+                        <OkrProgressRing value="data.stats.progress" size="84" stroke="8" light="true"/>
+                        <div class="small">
+                            <div class="opacity-75">My progress</div>
+                            <div class="opacity-75">Time elapsed <b t-esc="data.cycle.elapsed + '%'"/></div>
+                        </div>
+                    </div>
+                    <button class="btn btn-light fw-semibold" style="color: var(--okr-navy); border-radius: 10px;" t-on-click="newObjective">
+                        <i class="fa fa-plus me-1"/>New objective
+                    </button>
+                </div>
+
+                <!-- Tiles -->
+                <div class="row g-3 mb-4">
+                    <div class="col-6 col-lg-3">
+                        <div class="o_okr_card o_okr_kpi">
+                            <div class="o_okr_kpi_icon"><i class="fa fa-bullseye"/></div>
+                            <div><div class="o_okr_kpi_label">My objectives</div><div class="o_okr_kpi_value" t-esc="data.stats.objectives"/></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div t-attf-class="o_okr_card o_okr_kpi {{ data.stats.due ? 'o_okr_kpi_alert' : '' }}">
+                            <div class="o_okr_kpi_icon"><i class="fa fa-calendar-check-o"/></div>
+                            <div><div class="o_okr_kpi_label">Check-ins due</div><div class="o_okr_kpi_value" t-esc="data.stats.due"/></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="o_okr_card o_okr_kpi o_okr_clickable_card" t-on-click="() => this.open('okr_scale.okr_ranking_action')">
+                            <div class="o_okr_kpi_icon" style="color: var(--okr-gold); background: #FFF7DB;"><i class="fa fa-trophy"/></div>
+                            <div>
+                                <div class="o_okr_kpi_label">My rank</div>
+                                <div class="o_okr_kpi_value">
+                                    <t t-if="data.stats.rank">#<t t-esc="data.stats.rank"/><small class="text-muted fs-6"> / <t t-esc="data.stats.ranked"/></small></t>
+                                    <t t-else="">–</t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <t t-foreach="data.extra" t-as="tile" t-key="tile.key">
+                        <div class="col-6 col-lg-3">
+                            <div class="o_okr_card o_okr_kpi o_okr_clickable_card" t-on-click="() => tile.action and this.open(tile.action)">
+                                <div class="o_okr_kpi_icon"><i t-attf-class="fa {{ tile.icon or 'fa-star' }}"/></div>
+                                <div><div class="o_okr_kpi_label" t-esc="tile.label"/><div class="o_okr_kpi_value" t-esc="tile.value"/></div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+
+                <!-- Manager corner -->
+                <div t-if="data.manager" class="o_okr_card mb-4">
+                    <div class="o_okr_card_body d-flex flex-wrap align-items-center gap-3 pt-3">
+                        <div class="fw-semibold me-auto" style="color: var(--okr-navy)"><i class="fa fa-users me-2"/>My team</div>
+                        <button class="btn btn-light o_okr_pill" t-on-click="() => this.open('okr_scale.okr_objective_action_approve')">
+                            <i class="fa fa-check-square-o me-1"/>To approve <span class="badge rounded-pill text-bg-primary ms-1" t-esc="data.manager.to_approve"/>
+                        </button>
+                        <button class="btn btn-light o_okr_pill" t-on-click="() => this.open('okr_scale.okr_checkin_action_review')">
+                            <i class="fa fa-comments-o me-1"/>Check-ins to review <span class="badge rounded-pill text-bg-primary ms-1" t-esc="data.manager.to_review"/>
+                        </button>
+                        <span class="o_okr_pill btn btn-light disabled">
+                            <i class="fa fa-exclamation-triangle me-1 text-warning"/>At risk <span class="badge rounded-pill text-bg-warning ms-1" t-esc="data.manager.team_risky"/>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- My objectives -->
+                <div t-if="!data.objectives.length" class="o_okr_card">
+                    <div class="o_okr_empty py-5">
+                        <i class="fa fa-rocket"/>
+                        <div class="fs-5 fw-semibold mb-1" style="color: var(--okr-navy)">Set your first objective</div>
+                        <div class="mb-3">Ambitious and qualitative, measured by 2 to 5 key results.</div>
+                        <button class="btn btn-okr-primary px-4" t-on-click="newObjective"><i class="fa fa-plus me-1"/>New objective</button>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <t t-foreach="data.objectives" t-as="o" t-key="o.id">
+                        <div class="col-xl-6">
+                            <div class="o_okr_card o_okr_objective_card">
+                                <div class="d-flex align-items-center gap-3 p-3 pb-2 o_okr_clickable" t-on-click="() => this.openRecord('okr.scale.objective', o.id)">
+                                    <OkrProgressRing value="o.progress" status="o.status" size="60"/>
+                                    <div class="flex-grow-1 min-w-0">
+                                        <div class="o_okr_kanban_level" t-esc="o.level_label"/>
+                                        <div class="fw-bold fs-6 text-truncate" style="color: var(--okr-navy)" t-esc="o.name"/>
+                                        <div class="d-flex gap-2 mt-1">
+                                            <OkrStatusChip t-if="o.state === 'running'" status="o.status" label="o.status_label"/>
+                                            <span t-else="" class="o_okr_chip o_okr_chip_achieved" t-esc="o.state_label"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="px-3 pb-3">
+                                    <t t-foreach="o.key_results" t-as="kr" t-key="kr.id">
+                                        <div class="o_okr_kr_row">
+                                            <div class="flex-grow-1 min-w-0">
+                                                <div class="d-flex justify-content-between gap-2">
+                                                    <span class="text-truncate o_okr_clickable" t-on-click="() => this.openRecord('okr.scale.key.result', kr.id)">
+                                                        <i t-if="kr.due" class="fa fa-circle text-warning me-1" title="Check-in due"/>
+                                                        <t t-esc="kr.name"/>
+                                                    </span>
+                                                    <span class="small text-nowrap text-muted">
+                                                        <t t-if="kr.manual"><t t-esc="kr.current"/> / <t t-esc="kr.target"/> <t t-esc="kr.unit"/> · </t>
+                                                        <b style="color: var(--okr-navy)" t-esc="Math.round(kr.progress) + '%'"/>
+                                                    </span>
+                                                </div>
+                                                <div t-attf-class="o_okr_bar mt-1 o_okr_bar_{{ kr.status }}"><span t-attf-style="width: {{ kr.progress }}%"/></div>
+                                            </div>
+                                            <button t-if="kr.mine and kr.running" t-attf-class="btn btn-sm {{ kr.due ? 'btn-okr-primary' : 'btn-light' }} text-nowrap"
+                                                    t-on-click="() => this.checkin(kr)">
+                                                <i class="fa fa-bullseye me-1"/>Check-in
+                                            </button>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

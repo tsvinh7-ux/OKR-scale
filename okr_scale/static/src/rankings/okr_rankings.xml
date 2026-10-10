@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="okr_scale.PodiumCard">
+        <div t-attf-class="o_okr_podium_item o_okr_podium_{{ row.rank }}">
+            <div class="o_okr_podium_medal"><i class="fa fa-trophy"/></div>
+            <OkrAvatar userId="row.user_id" name="row.name" size="row.rank === 1 ? 84 : 68" ring="ring(row.rank)"/>
+            <div class="o_okr_podium_name" t-esc="row.name"/>
+            <div class="o_okr_podium_sub" t-esc="row.subtitle"/>
+            <div class="o_okr_podium_value"><t t-esc="row.value"/> <small t-esc="row.unit"/></div>
+            <div class="o_okr_podium_step"><span t-esc="row.rank"/></div>
+        </div>
+    </t>
+
+    <t t-name="okr_scale.Rankings">
+        <div class="o_action o_okr_page o_okr_rankings">
+            <div class="o_okr_container" t-if="state.data">
+                <t t-set="data" t-value="state.data"/>
+                <div class="o_okr_hero d-flex flex-wrap align-items-center gap-4">
+                    <div class="o_okr_hero_trophy"><i class="fa fa-trophy"/></div>
+                    <div class="me-auto">
+                        <div class="o_okr_hero_eyebrow">DMAG · OKR</div>
+                        <h1>Rankings</h1>
+                        <div class="o_okr_hero_sub" t-esc="data.score_help"/>
+                    </div>
+                    <div t-if="data.me" class="o_okr_me_chip">
+                        <span>Your rank</span>
+                        <b>#<t t-esc="data.me.rank"/></b>
+                        <span class="opacity-75"><t t-esc="data.me.score"/> pts</span>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <select class="form-select o_okr_select" t-on-change="onCycleChange">
+                            <option value="">All cycles</option>
+                            <t t-foreach="data.cycles" t-as="cycle" t-key="cycle.id">
+                                <option t-att-value="cycle.id" t-att-selected="cycle.id === state.cycleId" t-esc="cycle.name"/>
+                            </t>
+                        </select>
+                        <select class="form-select o_okr_select" t-on-change="onDepartmentChange">
+                            <option value="">All departments</option>
+                            <t t-foreach="data.departments" t-as="dept" t-key="dept.id">
+                                <option t-att-value="dept.id" t-att-selected="dept.id === state.departmentId" t-esc="dept.name"/>
+                            </t>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="o_okr_tabs">
+                    <t t-foreach="tabs" t-as="tab" t-key="tab.key">
+                        <button t-att-class="{'active': state.tab === tab.key}" t-on-click="() => this.state.tab = tab.key">
+                            <i t-attf-class="fa {{ tab.icon }} me-2"/><t t-esc="tab.label"/>
+                        </button>
+                    </t>
+                </div>
+
+                <!-- People -->
+                <t t-if="state.tab === 'people'">
+                    <div t-if="!data.people.length" class="o_okr_card"><div class="o_okr_empty"><i class="fa fa-trophy"/>No ranking yet for this cycle.</div></div>
+                    <t t-else="">
+                        <div class="o_okr_podium">
+                            <t t-foreach="podium(data.people)" t-as="p" t-key="p.user_id">
+                                <t t-call="okr_scale.PodiumCard">
+                                    <t t-set="row" t-value="{rank: p.rank, user_id: p.user_id, name: p.name, subtitle: p.department, value: p.score, unit: 'pts'}"/>
+                                </t>
+                            </t>
+                        </div>
+                        <div class="o_okr_card">
+                            <div class="o_okr_card_body pt-3">
+                                <div class="o_okr_rank_head d-none d-md-flex">
+                                    <span class="flex-grow-1">Person</span><span class="o_okr_rank_col">Key results</span>
+                                    <span class="o_okr_rank_col">Progress</span><span class="o_okr_rank_col">Check-in</span><span class="o_okr_rank_col">Score</span>
+                                </div>
+                                <t t-foreach="data.people" t-as="p" t-key="p.user_id">
+                                    <div t-attf-class="o_okr_list_row {{ data.me and data.me.user_id === p.user_id ? 'o_okr_row_me' : '' }}">
+                                        <span t-attf-class="o_okr_rank_badge o_okr_rank_{{ p.rank }}" t-esc="p.rank"/>
+                                        <OkrAvatar userId="p.user_id" name="p.name" size="36"/>
+                                        <div class="o_okr_list_main">
+                                            <div class="o_okr_list_title" t-esc="p.name"/>
+                                            <div class="o_okr_list_sub" t-esc="p.department"/>
+                                        </div>
+                                        <span class="o_okr_rank_col d-none d-md-block"><t t-esc="p.achieved"/>/<t t-esc="p.key_results"/> <i class="fa fa-check-circle text-muted"/></span>
+                                        <span class="o_okr_rank_col d-none d-md-block">
+                                            <div class="o_okr_bar mb-1"><span t-attf-style="width: {{ p.progress }}%"/></div><small t-esc="p.progress + '%'"/>
+                                        </span>
+                                        <span class="o_okr_rank_col d-none d-md-block"><t t-esc="p.checkin_rate"/>%</span>
+                                        <span class="o_okr_rank_col o_okr_score" t-esc="p.score"/>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+
+                <!-- Departments -->
+                <t t-if="state.tab === 'departments'">
+                    <div class="o_okr_card">
+                        <div class="o_okr_card_body pt-3">
+                            <div t-if="!data.departments_rank.length" class="o_okr_empty"><i class="fa fa-building-o"/>No department objectives yet.</div>
+                            <t t-foreach="data.departments_rank" t-as="d" t-key="d.id">
+                                <div class="o_okr_list_row">
+                                    <span t-attf-class="o_okr_rank_badge o_okr_rank_{{ d.rank }}" t-esc="d.rank"/>
+                                    <OkrProgressRing value="d.progress" size="48" stroke="5"/>
+                                    <div class="o_okr_list_main">
+                                        <div class="o_okr_list_title" t-esc="d.name"/>
+                                        <div class="o_okr_list_sub"><t t-esc="d.manager"/> · <t t-esc="d.objectives"/> objectives</div>
+                                    </div>
+                                    <span class="o_okr_rank_col d-none d-md-block"><i class="fa fa-calendar-check-o text-muted me-1"/><t t-esc="d.checkin_rate"/>%</span>
+                                    <span class="o_okr_rank_col o_okr_score" t-esc="d.score"/>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </t>
+
+                <!-- Objectives per level -->
+                <t t-if="state.tab === 'objectives'">
+                    <div class="row g-4">
+                        <t t-foreach="data.objectives" t-as="level" t-key="level.level">
+                            <div class="col-lg-4">
+                                <div class="o_okr_card">
+                                    <div class="o_okr_card_header"><span><i class="fa fa-bullseye me-2"/><t t-esc="level.label"/></span></div>
+                                    <div class="o_okr_card_body">
+                                        <div t-if="!level.rows.length" class="o_okr_empty"><i class="fa fa-flag-o"/>No public objective.</div>
+                                        <t t-foreach="level.rows" t-as="o" t-key="o.id">
+                                            <div class="o_okr_list_row o_okr_clickable px-2" t-on-click="() => this.openRecord('okr.scale.objective', o.id)">
+                                                <span t-attf-class="o_okr_rank_badge o_okr_rank_{{ o.rank }}" t-esc="o.rank"/>
+                                                <div class="o_okr_list_main">
+                                                    <div class="o_okr_list_title" t-esc="o.name"/>
+                                                    <div class="o_okr_list_sub"><t t-esc="o.owner"/><t t-if="o.department"> · <t t-esc="o.department"/></t></div>
+                                                </div>
+                                                <OkrProgressRing value="o.progress" status="o.status" size="44" stroke="5"/>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+
+                <!-- Key results -->
+                <t t-if="state.tab === 'key_results'">
+                    <div class="o_okr_card">
+                        <div class="o_okr_card_body pt-3">
+                            <div t-if="!data.key_results.length" class="o_okr_empty"><i class="fa fa-key"/>No public key result.</div>
+                            <t t-foreach="data.key_results" t-as="kr" t-key="kr.id">
+                                <div class="o_okr_list_row o_okr_clickable px-2" t-on-click="() => this.openRecord('okr.scale.key.result', kr.id)">
+                                    <span t-attf-class="o_okr_rank_badge o_okr_rank_{{ kr.rank }}" t-esc="kr.rank"/>
+                                    <OkrAvatar userId="kr.user_id" name="kr.owner" size="34"/>
+                                    <div class="o_okr_list_main">
+                                        <div class="o_okr_list_title" t-esc="kr.name"/>
+                                        <div class="o_okr_list_sub"><t t-esc="kr.owner"/> · <t t-esc="kr.objective"/></div>
+                                    </div>
+                                    <span t-if="kr.confidence" class="small text-muted d-none d-md-inline"><i class="fa fa-heartbeat me-1"/><t t-esc="kr.confidence"/>/10</span>
+                                    <OkrProgressRing value="kr.progress" status="kr.status" size="44" stroke="5"/>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </t>
+
+                <!-- Boards from other modules (recognition, points...) -->
+                <t t-set="board" t-value="extraBoard"/>
+                <t t-if="board">
+                    <div t-if="!board.rows.length" class="o_okr_card"><div class="o_okr_empty"><i t-attf-class="fa {{ board.icon or 'fa-star' }}"/>No data yet.</div></div>
+                    <t t-else="">
+                        <div class="o_okr_podium">
+                            <t t-foreach="podium(board.rows.map((r, i) => Object.assign({rank: i + 1, unit: board.unit}, r)))" t-as="r" t-key="r.user_id">
+                                <t t-call="okr_scale.PodiumCard"><t t-set="row" t-value="r"/></t>
+                            </t>
+                        </div>
+                        <div class="o_okr_card">
+                            <div class="o_okr_card_body pt-3">
+                                <t t-foreach="board.rows" t-as="r" t-key="r.user_id">
+                                    <div class="o_okr_list_row">
+                                        <span t-attf-class="o_okr_rank_badge o_okr_rank_{{ r_index + 1 }}" t-esc="r_index + 1"/>
+                                        <OkrAvatar userId="r.user_id" name="r.name" size="36"/>
+                                        <div class="o_okr_list_main">
+                                            <div class="o_okr_list_title" t-esc="r.name"/>
+                                            <div class="o_okr_list_sub" t-esc="r.subtitle"/>
+                                        </div>
+                                        <span class="o_okr_rank_col o_okr_score"><t t-esc="r.value"/> <small t-esc="board.unit"/></span>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>

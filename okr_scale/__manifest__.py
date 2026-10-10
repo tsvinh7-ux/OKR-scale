@@ -34,6 +34,7 @@ OKR Scale - core
             'okr_scale/static/src/**/*',
         ],
     },
+    'post_init_hook': 'post_init_hook',
     'application': True,
     'installable': True,
 }

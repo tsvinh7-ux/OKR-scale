@@ -1,0 +1,386 @@
+// Shared look of the OKR Scale screens (DMAG brand).
+.o_okr_page {
+    background: var(--okr-sky);
+    color: var(--okr-ink);
+    min-height: 100%;
+    overflow: auto;
+
+    .o_okr_container {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 24px 24px 48px;
+    }
+    a {
+        color: inherit;
+    }
+}
+
+.o_okr_hero {
+    position: relative;
+    overflow: hidden;
+    background: var(--okr-gradient);
+    color: #fff;
+    border-radius: calc(var(--okr-radius) + 6px);
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 12px 32px rgba(17, 52, 106, .22);
+
+    &::after {
+        // subtle grid motif echoing the DMAG mark
+        content: "";
+        position: absolute;
+        inset: 0 0 0 auto;
+        width: 45%;
+        background-image: linear-gradient(rgba(255, 255, 255, .07) 1px, transparent 1px),
+                          linear-gradient(90deg, rgba(255, 255, 255, .07) 1px, transparent 1px);
+        background-size: 28px 28px;
+        mask-image: linear-gradient(90deg, transparent, #000 60%);
+        pointer-events: none;
+    }
+    .o_okr_hero_eyebrow {
+        font-size: .78rem;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        opacity: .75;
+    }
+    h1 {
+        font-size: 1.85rem;
+        font-weight: 700;
+        margin: 4px 0 6px;
+        color: #fff;
+    }
+    .o_okr_hero_sub {
+        opacity: .85;
+    }
+    .o_okr_hero_mark {
+        width: 44px;
+        height: 44px;
+        background: #fff;
+        border-radius: 12px;
+        padding: 5px;
+        object-fit: contain;
+    }
+    .o_okr_select {
+        background-color: rgba(255, 255, 255, .14);
+        border: 1px solid rgba(255, 255, 255, .28);
+        color: #fff;
+        border-radius: 10px;
+        min-width: 11rem;
+        max-width: 16rem;
+        option {
+            color: var(--okr-ink);
+        }
+    }
+    .btn-okr-ghost {
+        background: rgba(255, 255, 255, .14);
+        border: 1px solid rgba(255, 255, 255, .28);
+        color: #fff;
+        border-radius: 10px;
+        &:hover {
+            background: rgba(255, 255, 255, .24);
+        }
+    }
+    > * {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.o_okr_card {
+    background: #fff;
+    border: 1px solid var(--okr-line);
+    border-radius: var(--okr-radius);
+    box-shadow: var(--okr-shadow);
+
+    .row > [class*="col"] > & {
+        height: 100%;
+    }
+    .o_okr_card_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 16px 20px 8px;
+        font-weight: 600;
+        font-size: 1rem;
+        color: var(--okr-navy);
+        .o_okr_card_hint {
+            font-weight: 400;
+            font-size: .8rem;
+            color: var(--okr-muted);
+        }
+    }
+    .o_okr_card_body {
+        padding: 8px 20px 18px;
+    }
+}
+
+.o_okr_kpi {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 20px;
+
+    .o_okr_kpi_icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: var(--okr-blue-100);
+        color: var(--okr-blue);
+        font-size: 1.15rem;
+        flex: none;
+    }
+    .o_okr_kpi_label {
+        color: var(--okr-muted);
+        font-size: .8rem;
+    }
+    .o_okr_kpi_value {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--okr-navy);
+        line-height: 1.1;
+    }
+}
+
+.o_okr_ring {
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+    flex: none;
+
+    svg {
+        position: absolute;
+        inset: 0;
+    }
+    circle {
+        transition: stroke-dashoffset .6s ease;
+    }
+    .o_okr_ring_track {
+        stroke: var(--okr-line);
+    }
+    .o_okr_ring_label {
+        font-weight: 700;
+        color: var(--okr-navy);
+    }
+    &.o_okr_ring_light {
+        .o_okr_ring_track {
+            stroke: rgba(255, 255, 255, .25);
+        }
+        .o_okr_ring_label {
+            color: #fff;
+        }
+    }
+}
+
+.o_okr_avatar {
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 3px rgba(17, 52, 106, .15);
+    flex: none;
+    &.o_okr_avatar_gold {
+        border: 3px solid var(--okr-gold);
+    }
+    &.o_okr_avatar_silver {
+        border: 3px solid var(--okr-silver);
+    }
+    &.o_okr_avatar_bronze {
+        border: 3px solid var(--okr-bronze);
+    }
+}
+
+.o_okr_chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: .75rem;
+    font-weight: 600;
+    white-space: nowrap;
+
+    &::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: currentColor;
+    }
+    &.o_okr_chip_on_track {
+        color: #0E6FC0;
+        background: var(--okr-blue-100);
+    }
+    &.o_okr_chip_achieved {
+        color: var(--okr-navy);
+        background: #E4EAF4;
+    }
+    &.o_okr_chip_at_risk {
+        color: #A86500;
+        background: #FFF3DC;
+    }
+    &.o_okr_chip_off_track {
+        color: #B42328;
+        background: #FDE7E8;
+    }
+}
+
+.o_okr_bar {
+    height: 8px;
+    background: var(--okr-line);
+    border-radius: 999px;
+    overflow: hidden;
+
+    > span {
+        display: block;
+        height: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--okr-navy), var(--okr-blue));
+        transition: width .6s ease;
+    }
+    &.o_okr_bar_at_risk > span {
+        background: var(--okr-warning);
+    }
+    &.o_okr_bar_off_track > span {
+        background: var(--okr-danger);
+    }
+}
+
+.o_okr_list_row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-top: 1px solid var(--okr-line);
+    &:first-child {
+        border-top: 0;
+    }
+    &.o_okr_clickable {
+        cursor: pointer;
+        border-radius: 10px;
+        &:hover {
+            background: var(--okr-sky);
+        }
+    }
+    .o_okr_list_main {
+        min-width: 0;
+        flex: 1;
+    }
+    .o_okr_list_title {
+        font-weight: 600;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .o_okr_list_sub {
+        color: var(--okr-muted);
+        font-size: .8rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.o_okr_rank_badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: .8rem;
+    background: var(--okr-sky);
+    color: var(--okr-navy);
+    flex: none;
+    &.o_okr_rank_1 {
+        background: var(--okr-gold);
+        color: #fff;
+    }
+    &.o_okr_rank_2 {
+        background: var(--okr-silver);
+        color: #fff;
+    }
+    &.o_okr_rank_3 {
+        background: var(--okr-bronze);
+        color: #fff;
+    }
+}
+
+.o_okr_empty {
+    color: var(--okr-muted);
+    text-align: center;
+    padding: 24px 8px;
+    i {
+        display: block;
+        font-size: 1.6rem;
+        margin-bottom: 6px;
+        color: var(--okr-blue);
+        opacity: .5;
+    }
+}
+
+.o_okr_tabs {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 5px;
+    background: #fff;
+    border: 1px solid var(--okr-line);
+    border-radius: 12px;
+    margin-bottom: 20px;
+
+    button {
+        border: 0;
+        background: transparent;
+        padding: 8px 16px;
+        border-radius: 9px;
+        font-weight: 600;
+        color: var(--okr-muted);
+        &.active {
+            background: var(--okr-navy);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(17, 52, 106, .25);
+        }
+    }
+}
+
+.btn-okr-primary {
+    background: var(--okr-blue);
+    border: 0;
+    color: #fff;
+    border-radius: 10px;
+    font-weight: 600;
+    &:hover {
+        background: #0F7AD4;
+        color: #fff;
+    }
+}
+
+// Backend views (kanban, hierarchy) in brand colors
+.o_okr_kanban .o_kanban_record {
+    border-radius: var(--okr-radius);
+    border: 1px solid var(--okr-line);
+    box-shadow: var(--okr-shadow);
+    .o_okr_kanban_title {
+        color: var(--okr-navy);
+        font-weight: 600;
+    }
+}
+.o_okr_kanban .o_okr_kanban_level {
+    font-size: .7rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--okr-blue);
+    font-weight: 700;
+}
+
+.o_okr_kanban .min-w-0 {
+    min-width: 0;
+}
+.o_hierarchy_node_header {
+    &.o_okr_node_on_track { background: var(--okr-blue-100); color: var(--okr-navy); }
+    &.o_okr_node_achieved { background: var(--okr-navy); color: #fff; }
+    &.o_okr_node_at_risk { background: #FFF3DC; color: #A86500; }
+    &.o_okr_node_off_track { background: #FDE7E8; color: #B42328; }
+}

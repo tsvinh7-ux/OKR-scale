@@ -1,0 +1,28 @@
+.o_okr_my {
+    .o_okr_kpi_alert .o_okr_kpi_icon {
+        background: #FFF3DC;
+        color: var(--okr-warning);
+    }
+    .o_okr_clickable_card,
+    .o_okr_clickable {
+        cursor: pointer;
+    }
+    .o_okr_clickable_card:hover {
+        border-color: var(--okr-blue);
+    }
+    .o_okr_pill {
+        border-radius: 999px;
+        border: 1px solid var(--okr-line);
+        background: #fff;
+    }
+    .o_okr_kr_row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 0;
+        border-top: 1px solid var(--okr-line);
+    }
+    .min-w-0 {
+        min-width: 0;
+    }
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="okr_scale.ProgressRing">
+        <div class="o_okr_ring" t-att-class="{'o_okr_ring_light': props.light}"
+             t-attf-style="width: {{ props.size }}px; height: {{ props.size }}px;">
+            <svg t-att-width="props.size" t-att-height="props.size" t-attf-viewBox="0 0 {{ props.size }} {{ props.size }}">
+                <circle class="o_okr_ring_track" t-att-cx="props.size / 2" t-att-cy="props.size / 2" t-att-r="radius"
+                        fill="none" t-att-stroke-width="props.stroke"/>
+                <circle t-att-cx="props.size / 2" t-att-cy="props.size / 2" t-att-r="radius" fill="none"
+                        t-att-stroke="color" t-att-stroke-width="props.stroke" stroke-linecap="round"
+                        t-att-stroke-dasharray="circumference" t-att-stroke-dashoffset="offset"
+                        t-attf-transform="rotate(-90 {{ props.size / 2 }} {{ props.size / 2 }})"/>
+            </svg>
+            <span class="o_okr_ring_label" t-attf-style="font-size: {{ Math.max(11, props.size / 4.2) }}px" t-esc="label"/>
+        </div>
+    </t>
+
+    <t t-name="okr_scale.Avatar">
+        <img class="o_okr_avatar" t-att-src="src" t-att-alt="props.name or ''" t-att-title="props.name or ''"
+             t-attf-class="{{ props.ring ? 'o_okr_avatar_' + props.ring : '' }}"
+             t-attf-style="width: {{ props.size }}px; height: {{ props.size }}px;"/>
+    </t>
+
+    <t t-name="okr_scale.StatusChip">
+        <span t-if="props.status" t-attf-class="o_okr_chip o_okr_chip_{{ props.status }}" t-esc="props.label"/>
+    </t>
+</templates>

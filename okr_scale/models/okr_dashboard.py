@@ -104,6 +104,7 @@ class OkrDashboard(models.AbstractModel):
             'recent_checkins': [{
                 'id': c.id,
                 'user': c.user_id.name,
+                'user_id': c.user_id.id,
                 'key_result': c.key_result_id.name,
                 'date': fields.Date.to_string(c.date),
                 'progress_before': round(c.progress_before, 1),

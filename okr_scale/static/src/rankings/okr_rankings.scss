@@ -1,0 +1,115 @@
+.o_okr_rankings {
+    .o_okr_hero_trophy {
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
+        display: grid;
+        place-items: center;
+        font-size: 1.6rem;
+        color: var(--okr-gold);
+        background: rgba(255, 255, 255, .14);
+    }
+    .o_okr_me_chip {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        padding: 10px 16px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, .14);
+        border: 1px solid rgba(255, 255, 255, .28);
+        b {
+            font-size: 1.4rem;
+        }
+    }
+    .o_okr_podium {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 20px;
+        margin: 8px 0 24px;
+    }
+    .o_okr_podium_item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 200px;
+        .o_okr_podium_medal {
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+        .o_okr_podium_name {
+            font-weight: 700;
+            margin-top: 10px;
+            color: var(--okr-navy);
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .o_okr_podium_sub {
+            font-size: .8rem;
+            color: var(--okr-muted);
+            min-height: 1.2em;
+        }
+        .o_okr_podium_value {
+            font-weight: 700;
+            color: var(--okr-blue);
+            margin: 4px 0 10px;
+        }
+        .o_okr_podium_step {
+            width: 100%;
+            border-radius: var(--okr-radius) var(--okr-radius) 0 0;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            font-size: 1.6rem;
+            font-weight: 800;
+            box-shadow: var(--okr-shadow);
+        }
+    }
+    .o_okr_podium_1 {
+        .o_okr_podium_medal { color: var(--okr-gold); font-size: 1.6rem; }
+        .o_okr_podium_step { height: 110px; background: var(--okr-gradient); }
+    }
+    .o_okr_podium_2 {
+        .o_okr_podium_medal { color: var(--okr-silver); }
+        .o_okr_podium_step { height: 80px; background: linear-gradient(135deg, #1A5BA8, #178BEC); }
+    }
+    .o_okr_podium_3 {
+        .o_okr_podium_medal { color: var(--okr-bronze); }
+        .o_okr_podium_step { height: 60px; background: linear-gradient(135deg, #3E7CC4, #6FB3F0); }
+    }
+    .o_okr_rank_head {
+        gap: 12px;
+        padding: 0 0 8px 76px;
+        font-size: .75rem;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        color: var(--okr-muted);
+    }
+    .o_okr_rank_col {
+        width: 110px;
+        text-align: right;
+        flex: none;
+    }
+    .o_okr_score {
+        font-weight: 800;
+        font-size: 1.05rem;
+        color: var(--okr-navy);
+    }
+    .o_okr_row_me {
+        background: var(--okr-blue-100);
+        border-radius: 10px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    @media (max-width: 767.98px) {
+        .o_okr_podium {
+            gap: 8px;
+        }
+        .o_okr_podium_item {
+            width: 32%;
+        }
+    }
+}

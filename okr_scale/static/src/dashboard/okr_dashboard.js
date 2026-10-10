@@ -4,27 +4,37 @@ import { Component, onWillStart, useState } from "@odoo/owl";
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
 import { _t } from "@web/core/l10n/translation";
+import { OkrAvatar, OkrProgressRing, OkrStatusChip, STATUS_COLORS } from "../components/okr_components";
+
+const KPI_ICONS = {
+    objectives: "fa-bullseye",
+    key_results: "fa-key",
+    progress: "fa-line-chart",
+    on_track: "fa-check-circle",
+    checkin_rate: "fa-calendar-check-o",
+};
 
 export class OkrDashboard extends Component {
     static template = "okr_scale.Dashboard";
+    static components = { OkrAvatar, OkrProgressRing, OkrStatusChip };
     static props = ["*"];
 
     setup() {
         this.orm = useService("orm");
         this.action = useService("action");
-        this.state = useState({ data: null, cycleId: false, departmentId: false, loading: true });
+        this.state = useState({ data: null, ranking: null, cycleId: false, departmentId: false });
         onWillStart(() => this.load());
     }
 
     async load() {
-        this.state.loading = true;
-        const data = await this.orm.call("okr.scale.dashboard", "get_dashboard_data", [], {
-            cycle_id: this.state.cycleId || false,
-            department_id: this.state.departmentId || false,
-        });
+        const kwargs = { cycle_id: this.state.cycleId || false, department_id: this.state.departmentId || false };
+        const [data, ranking] = await Promise.all([
+            this.orm.call("okr.scale.dashboard", "get_dashboard_data", [], kwargs),
+            this.orm.call("okr.scale.dashboard", "get_ranking_data", [], kwargs),
+        ]);
         this.state.data = data;
+        this.state.ranking = ranking;
         this.state.cycleId = data.cycle ? data.cycle.id : false;
-        this.state.loading = false;
     }
 
     async onCycleChange(ev) {
@@ -37,22 +47,30 @@ export class OkrDashboard extends Component {
         await this.load();
     }
 
-    get totalStatus() {
-        return this.state.data.status.reduce((total, s) => total + s.count, 0);
+    kpiIcon(kpi) {
+        return kpi.icon || KPI_ICONS[kpi.key] || "fa-star";
     }
 
-    statusPercent(status) {
-        const total = this.totalStatus;
-        return total ? (status.count * 100) / total : 0;
+    get donut() {
+        // Stacked donut segments of the objective statuses
+        const total = this.state.data.status.reduce((sum, s) => sum + s.count, 0);
+        const radius = 54;
+        const circumference = 2 * Math.PI * radius;
+        let offset = 0;
+        const segments = [];
+        for (const status of this.state.data.status) {
+            if (!status.count) {
+                continue;
+            }
+            const length = (status.count / total) * circumference;
+            segments.push({ key: status.key, color: STATUS_COLORS[status.key], length, gap: circumference - length, offset: -offset });
+            offset += length;
+        }
+        return { total, radius, segments };
     }
 
-    statusClass(status) {
-        return {
-            on_track: "bg-success",
-            achieved: "bg-primary",
-            at_risk: "bg-warning",
-            off_track: "bg-danger",
-        }[status] || "bg-secondary";
+    statusColor(status) {
+        return STATUS_COLORS[status] || "var(--okr-blue)";
     }
 
     objectiveDomain() {
@@ -71,22 +89,21 @@ export class OkrDashboard extends Component {
             type: "ir.actions.act_window",
             name,
             res_model: "okr.scale.objective",
-            views: [[false, "list"], [false, "form"]],
+            views: [[false, "kanban"], [false, "list"], [false, "form"]],
             domain: [...this.objectiveDomain(), ...extraDomain],
         });
     }
 
     openRecord(model, id) {
-        this.action.doAction({
-            type: "ir.actions.act_window",
-            res_model: model,
-            res_id: id,
-            views: [[false, "form"]],
-        });
+        this.action.doAction({ type: "ir.actions.act_window", res_model: model, res_id: id, views: [[false, "form"]] });
     }
 
     openTree() {
         this.action.doAction("okr_scale.okr_objective_action_tree");
+    }
+
+    openRankings() {
+        this.action.doAction("okr_scale.okr_ranking_action");
     }
 }
 

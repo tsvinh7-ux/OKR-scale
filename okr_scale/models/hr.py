@@ -15,6 +15,18 @@ class HrDepartment(models.Model):
         for department in self:
             department.okr_manager_user_ids = department.parent_id.okr_manager_user_ids | department.manager_id.user_id
 
+    @api.model_create_multi
+    def create(self, vals_list):
+        departments = super().create(vals_list)
+        self.env['res.users']._okr_sync_manager_group()
+        return departments
+
+    def write(self, vals):
+        res = super().write(vals)
+        if {'manager_id', 'active', 'parent_id'} & set(vals):
+            self.env['res.users']._okr_sync_manager_group()
+        return res
+
 
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
@@ -34,3 +46,15 @@ class HrEmployee(models.Model):
                 | employee.department_id.okr_manager_user_ids
             )
             employee.okr_manager_user_ids = managers - employee.user_id
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        employees = super().create(vals_list)
+        self.env['res.users']._okr_sync_manager_group()
+        return employees
+
+    def write(self, vals):
+        res = super().write(vals)
+        if {'parent_id', 'user_id', 'active', 'department_id'} & set(vals):
+            self.env['res.users']._okr_sync_manager_group()
+        return res

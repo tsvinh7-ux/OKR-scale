@@ -16,7 +16,7 @@
         <field name="name">Manager: team and department OKRs</field>
         <field name="category_id" ref="module_category_okr"/>
         <field name="implied_ids" eval="[(4, ref('group_okr_user'))]"/>
-        <field name="comment">Manage objectives of managed departments and of team members, review check-ins.</field>
+        <field name="comment">Approval and review menus. Given automatically to department managers and to employees having subordinates in the Employees app. Record access itself follows the HR hierarchy.</field>
     </record>
 
     <record id="group_okr_admin" model="res.groups">
@@ -68,7 +68,7 @@
     <record id="okr_objective_rule_manager" model="ir.rule">
         <field name="name">Objective: team and department objectives</field>
         <field name="model_id" ref="model_okr_scale_objective"/>
-        <field name="groups" eval="[(4, ref('group_okr_manager'))]"/>
+        <field name="groups" eval="[(4, ref('group_okr_user'))]"/>
         <field name="domain_force">['|', ('department_id.okr_manager_user_ids', 'in', [user.id]), ('employee_id.okr_manager_user_ids', 'in', [user.id])]</field>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="True"/>
@@ -112,7 +112,7 @@
     <record id="okr_key_result_rule_manager" model="ir.rule">
         <field name="name">Key Result: team and department key results</field>
         <field name="model_id" ref="model_okr_scale_key_result"/>
-        <field name="groups" eval="[(4, ref('group_okr_manager'))]"/>
+        <field name="groups" eval="[(4, ref('group_okr_user'))]"/>
         <field name="domain_force">['|', ('objective_id.department_id.okr_manager_user_ids', 'in', [user.id]), ('objective_id.employee_id.okr_manager_user_ids', 'in', [user.id])]</field>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="True"/>
@@ -167,7 +167,7 @@
     <record id="okr_checkin_rule_manager" model="ir.rule">
         <field name="name">Check-in: team and department check-ins</field>
         <field name="model_id" ref="model_okr_scale_checkin"/>
-        <field name="groups" eval="[(4, ref('group_okr_manager'))]"/>
+        <field name="groups" eval="[(4, ref('group_okr_user'))]"/>
         <field name="domain_force">['|', ('objective_id.department_id.okr_manager_user_ids', 'in', [user.id]), ('objective_id.employee_id.okr_manager_user_ids', 'in', [user.id])]</field>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="True"/>

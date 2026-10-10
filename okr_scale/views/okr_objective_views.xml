@@ -147,36 +147,32 @@
         <field name="name">okr.scale.objective.kanban</field>
         <field name="model">okr.scale.objective</field>
         <field name="arch" type="xml">
-            <kanban default_group_by="level" class="o_kanban_small_column" quick_create="false" group_create="false" records_draggable="false">
-                <field name="color"/>
+            <kanban default_group_by="level" class="o_okr_kanban" quick_create="false" group_create="false" records_draggable="false">
                 <field name="status"/>
                 <field name="progress"/>
                 <field name="key_result_count"/>
+                <field name="level"/>
                 <templates>
                     <t t-name="kanban-box">
-                        <div t-attf-class="oe_kanban_global_click {{ kanban_color(record.color.raw_value) }}">
-                            <div class="oe_kanban_content">
-                                <div class="o_kanban_record_top">
-                                    <strong class="o_kanban_record_title"><field name="name"/></strong>
+                        <div class="oe_kanban_global_click p-3">
+                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                <div class="min-w-0">
+                                    <div class="o_okr_kanban_level"><field name="cycle_id"/><t t-if="record.department_id.raw_value"> · <field name="department_id"/></t></div>
+                                    <div class="o_okr_kanban_title fs-6 mt-1"><field name="name"/></div>
                                 </div>
-                                <div class="text-muted small">
-                                    <field name="cycle_id"/> <t t-if="record.department_id.raw_value">· <field name="department_id"/></t>
-                                </div>
-                                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
-                                <div class="mt-2">
-                                    <field name="progress" widget="progressbar"/>
-                                </div>
-                                <div class="o_kanban_record_bottom mt-2">
-                                    <div class="oe_kanban_bottom_left">
-                                        <field name="status" widget="badge" decoration-success="status in ('on_track', 'achieved')"
-                                               decoration-warning="status == 'at_risk'" decoration-danger="status == 'off_track'"/>
-                                        <span class="ms-2 text-muted small"><t t-esc="record.key_result_count.raw_value"/> KR</span>
-                                    </div>
-                                    <div class="oe_kanban_bottom_right">
-                                        <field name="activity_ids" widget="kanban_activity"/>
-                                        <field name="owner_id" widget="many2one_avatar_user"/>
-                                    </div>
-                                </div>
+                                <field name="owner_id" widget="many2one_avatar_user"/>
+                            </div>
+                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            <div t-attf-class="o_okr_bar mt-3 o_okr_bar_{{ record.status.raw_value }}">
+                                <span t-attf-style="width: {{ Math.min(100, record.progress.raw_value) }}%"/>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                <span t-attf-class="o_okr_chip o_okr_chip_{{ record.status.raw_value }}"><field name="status"/></span>
+                                <span class="small text-muted">
+                                    <i class="fa fa-key me-1"/><t t-esc="record.key_result_count.raw_value"/>
+                                    <b class="ms-2" style="color: var(--okr-navy)"><t t-esc="Math.round(record.progress.raw_value)"/>%</b>
+                                </span>
+                                <field name="activity_ids" widget="kanban_activity"/>
                             </div>
                         </div>
                     </t>
@@ -197,7 +193,7 @@
                 <templates>
                     <t t-name="hierarchy-box">
                         <div t-attf-class="o_hierarchy_node_header d-flex justify-content-center align-items-center text-center px-1
-                                            {{ record.status.raw_value == 'off_track' ? 'bg-danger-subtle' : record.status.raw_value == 'at_risk' ? 'bg-warning-subtle' : 'bg-success-subtle' }}">
+                                            o_okr_node_{{ record.status.raw_value }}">
                             <field name="name"/>
                         </div>
                         <div class="o_hierarchy_node_body d-flex flex-column px-2 pb-1">
