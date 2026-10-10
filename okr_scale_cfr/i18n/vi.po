@@ -1,0 +1,1150 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* okr_scale_cfr
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-10 09:17+0000\n"
+"PO-Revision-Date: 2026-10-10 09:17+0000\n"
+"Last-Translator: DMAG\n"
+"Language-Team: Vietnamese\n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/wizard/okr_feedback_request.py:0
+#, python-format
+msgid "%(requester)s asks for your feedback about %(recipient)s"
+msgstr "%(requester)s đề nghị bạn phản hồi về %(recipient)s"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_recognition.py:0
+#, python-format
+msgid "%s recognized you:"
+msgstr "%s đã ghi nhận bạn:"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "1:1 %(manager)s / %(employee)s"
+msgstr "Trao đổi 1:1 %(manager)s / %(employee)s"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_kanban
+msgid "<i class=\"fa fa-bullseye me-1\" title=\"Objective\"/>"
+msgstr "<i class=\"fa fa-bullseye me-1\" title=\"Mục tiêu\"/>"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_kanban
+msgid "<i class=\"fa fa-lock\" title=\"Private\"/> Private"
+msgstr "<i class=\"fa fa-lock\" title=\"Riêng tư\"/> Riêng tư"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_kanban
+msgid "<i class=\"fa fa-long-arrow-right text-muted\" title=\"To\"/>"
+msgstr "<i class=\"fa fa-long-arrow-right text-muted\" title=\"Gửi đến\"/>"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "<span class=\"o_stat_text\">Meeting</span>"
+msgstr "<span class=\"o_stat_text\">Cuộc họp</span>"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_form
+msgid "<strong>Request: </strong>"
+msgstr "<strong>Yêu cầu: </strong>"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "A conversation needs two different participants."
+msgstr "Một buổi trao đổi cần hai người tham gia khác nhau."
+
+#. module: okr_scale_cfr
+#: model:ir.model.constraint,message:okr_scale_cfr.constraint_okr_scale_core_value_name_uniq
+msgid "A core value with this name already exists."
+msgstr "Đã tồn tại một giá trị cốt lõi với tên này."
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__recipient_id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__recipient_id
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_search
+msgid "About"
+msgstr "Về"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_search
+msgid "About me"
+msgstr "Về tôi"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__action_items
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "Action Items"
+msgstr "Việc cần làm"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__message_needaction
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__message_needaction
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__message_needaction
+msgid "Action Needed"
+msgstr "Cần có hành động"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__active
+msgid "Active"
+msgstr "Đang hoạt động"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__activity_ids
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__activity_ids
+msgid "Activities"
+msgstr "Hoạt động"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__activity_exception_decoration
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Biểu tượng ngoại lệ hoạt động"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__activity_state
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__activity_state
+msgid "Activity State"
+msgstr "Trạng thái hoạt động"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__activity_type_icon
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Biểu tượng loại hoạt động"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__agenda
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "Agenda"
+msgstr "Chương trình"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_feedback.py:0
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__anonymous
+#, python-format
+msgid "Anonymous"
+msgstr "Ẩn danh"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_core_value_view_search
+msgid "Archived"
+msgstr "Đã lưu trữ"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__giver_ids
+msgid "Ask Feedback From"
+msgstr "Xin phản hồi từ"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__message_attachment_count
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__message_attachment_count
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__message_attachment_count
+msgid "Attachment Count"
+msgstr "Số tệp đính kèm"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__author_id
+msgid "Author"
+msgstr "Người viết"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_form
+msgid "Be specific: describe the situation, the behaviour and its impact..."
+msgstr "Hãy cụ thể: mô tả tình huống, hành vi và tác động của nó..."
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "Blockers"
+msgstr "Vướng mắc"
+
+#. module: okr_scale_cfr
+#: model:ir.ui.menu,name:okr_scale_cfr.okr_menu_cfr
+msgid "CFR"
+msgstr "CFR"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_request_view_form
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_conversation__state__cancelled
+msgid "Cancelled"
+msgstr "Đã hủy"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "Career and development"
+msgstr "Sự nghiệp và phát triển"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/wizard/okr_feedback_request.py:0
+#, python-format
+msgid ""
+"Choose at least one person other than the person the feedback is about."
+msgstr "Hãy chọn ít nhất một người khác với người được phản hồi."
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__color
+msgid "Color"
+msgstr "Màu sắc"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__company_id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__company_id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__company_id
+msgid "Company"
+msgstr "Công ty"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_feedback__feedback_type__constructive
+msgid "Constructive"
+msgstr "Góp ý xây dựng"
+
+#. module: okr_scale_cfr
+#: model:ir.actions.act_window,name:okr_scale_cfr.okr_conversation_action
+#: model:ir.ui.menu,name:okr_scale_cfr.okr_menu_conversation
+msgid "Conversations"
+msgstr "Trao đổi 1:1"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
+msgid "Core Value"
+msgstr "Giá trị cốt lõi"
+
+#. module: okr_scale_cfr
+#: model:ir.actions.act_window,name:okr_scale_cfr.okr_core_value_action
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__core_value_ids
+#: model:ir.ui.menu,name:okr_scale_cfr.okr_menu_core_values
+msgid "Core Values"
+msgstr "Giá trị cốt lõi"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__create_uid
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__create_uid
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__create_uid
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__create_date
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__create_date
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__create_date
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__create_date
+msgid "Created on"
+msgstr "Được tạo vào"
+
+#. module: okr_scale_cfr
+#: model:okr.scale.core.value,name:okr_scale_cfr.core_value_customer
+msgid "Customer First"
+msgstr "Khách hàng là trên hết"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__date
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__date
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__date
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
+msgid "Date"
+msgstr "Ngày"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_core_value_action
+msgid "Define the core values of your company"
+msgstr "Xác định các giá trị cốt lõi của công ty bạn"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__description
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__display_name
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__display_name
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__display_name
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__display_name
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_conversation__state__done
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_search
+msgid "Done"
+msgstr "Hoàn thành"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_feedback__state__draft
+msgid "Draft"
+msgstr "Nháp"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__duration
+msgid "Duration"
+msgstr "Thời lượng"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__duration
+msgid "Duration in hours."
+msgstr "Thời lượng tính bằng giờ."
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_core_value__icon
+msgid "Emoji displayed next to the value, e.g. 🤝"
+msgstr "Biểu tượng cảm xúc hiển thị cạnh giá trị, ví dụ 🤝"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__employee_user_id
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_search
+msgid "Employee"
+msgstr "Nhân viên"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_recognition__visibility__public
+msgid "Everyone"
+msgstr "Mọi người"
+
+#. module: okr_scale_cfr
+#: model:ir.actions.act_window,name:okr_scale_cfr.okr_feedback_action
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__content
+#: model:ir.ui.menu,name:okr_scale_cfr.okr_menu_feedback
+msgid "Feedback"
+msgstr "Phản hồi"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__message_follower_ids
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__message_follower_ids
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__message_follower_ids
+msgid "Followers"
+msgstr "Người theo dõi"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__message_partner_ids
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__message_partner_ids
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Người theo dõi (Đối tác)"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__activity_type_icon
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Biểu tượng Font Awesome, ví dụ fa-tasks"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__author_display
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__sender_id
+msgid "From"
+msgstr "Từ"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_form
+msgid "Give Feedback"
+msgstr "Gửi phản hồi"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_objective.py:0
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_objective_view_form_inherit_cfr
+#, python-format
+msgid "Give Kudos"
+msgstr "Gửi lời khen"
+
+#. module: okr_scale_cfr
+#: model:mail.activity.type,summary:okr_scale_cfr.mail_activity_okr_feedback
+msgid "Give feedback"
+msgstr "Gửi phản hồi"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_feedback_action
+msgid ""
+"Give feedback to a colleague, or request feedback on your work and your OKRs.\n"
+"                Anonymous feedback never reveals its author to the recipient."
+msgstr ""
+"Gửi phản hồi cho đồng nghiệp, hoặc xin phản hồi về công việc và OKR của bạn."
+" Phản hồi ẩn danh không bao giờ tiết lộ người viết cho người nhận."
+
+#. module: okr_scale_cfr
+#: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_recognition_action
+msgid "Give your first kudos"
+msgstr "Gửi lời khen đầu tiên của bạn"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_feedback__state__given
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_search
+msgid "Given"
+msgstr "Đã gửi"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__given_date
+msgid "Given Date"
+msgstr "Ngày gửi"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
+msgid "Given by me"
+msgstr "Tôi đã gửi"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
+msgid "Group By"
+msgstr "Nhóm theo"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__has_message
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__has_message
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__has_message
+msgid "Has Message"
+msgstr "Có tin nhắn"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_search
+msgid "I lead"
+msgstr "Tôi chủ trì"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__id
+msgid "ID"
+msgstr "ID"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__activity_exception_icon
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__icon
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__activity_exception_icon
+msgid "Icon"
+msgstr "Biểu tượng"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__activity_exception_icon
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Biểu tượng chỉ báo một hoạt động ngoại lệ."
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__message_needaction
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__message_needaction
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_recognition__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Nếu được chọn, các tin nhắn mới cần bạn chú ý."
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__message_has_error
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__message_has_sms_error
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__message_has_error
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__message_has_sms_error
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_recognition__message_has_error
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_recognition__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Nếu được chọn, một số tin nhắn bị lỗi gửi."
+
+#. module: okr_scale_cfr
+#: model:okr.scale.core.value,name:okr_scale_cfr.core_value_innovation
+msgid "Innovation"
+msgstr "Đổi mới sáng tạo"
+
+#. module: okr_scale_cfr
+#: model:okr.scale.core.value,name:okr_scale_cfr.core_value_integrity
+msgid "Integrity"
+msgstr "Chính trực"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__is_author
+msgid "Is Author"
+msgstr "Là người viết"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__message_is_follower
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__message_is_follower
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__message_is_follower
+msgid "Is Follower"
+msgstr "Là người theo dõi"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__key_result_id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__key_result_id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__key_result_id
+msgid "Key Result"
+msgstr "Kết quả then chốt"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_objective_view_form_inherit_cfr
+msgid "Kudos"
+msgstr "Lời khen"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_recognition.py:0
+#, python-format
+msgid "Kudos from %(sender)s to %(receivers)s"
+msgstr "Lời khen từ %(sender)s gửi %(receivers)s"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__write_uid
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__write_uid
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__write_uid
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__write_date
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__write_date
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__write_date
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_kanban
+msgid "Like"
+msgstr "Thích"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__like_user_ids
+msgid "Liked By"
+msgstr "Được thích bởi"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__liked_by_me
+msgid "Liked By Me"
+msgstr "Tôi đã thích"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__like_count
+msgid "Likes"
+msgstr "Lượt thích"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__manager_id
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_search
+msgid "Manager"
+msgstr "Quản lý"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "Mark as Done"
+msgstr "Đánh dấu hoàn thành"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__calendar_event_id
+msgid "Meeting"
+msgstr "Cuộc họp"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "Meeting scheduled in the calendar."
+msgstr "Đã lên lịch cuộc họp trên lịch."
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__message
+msgid "Message"
+msgstr "Lời nhắn"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__message_has_error
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__message_has_error
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__message_has_error
+msgid "Message Delivery error"
+msgstr "Lỗi gửi tin nhắn"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__message_ids
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__message_ids
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__message_ids
+msgid "Messages"
+msgstr "Tin nhắn"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
+msgid "Month"
+msgstr "Tháng"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__my_activity_date_deadline
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Hạn chót hoạt động của tôi"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_search
+msgid "My requests"
+msgstr "Yêu cầu của tôi"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_dashboard.py:0
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__name
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__name
+#, python-format
+msgid "Name"
+msgstr "Tên"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_feedback.py:0
+#, python-format
+msgid "New feedback from %(author)s about %(recipient)s."
+msgstr "Phản hồi mới từ %(author)s về %(recipient)s."
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__activity_calendar_event_id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Sự kiện lịch cho hoạt động tiếp theo"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__activity_date_deadline
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Hạn chót hoạt động tiếp theo"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__activity_summary
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__activity_summary
+msgid "Next Activity Summary"
+msgstr "Tóm tắt hoạt động tiếp theo"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__activity_type_id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__activity_type_id
+msgid "Next Activity Type"
+msgstr "Loại hoạt động tiếp theo"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__notes
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "Notes"
+msgstr "Ghi chú"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__message_needaction_counter
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__message_needaction_counter
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Số hành động"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__message_has_error_counter
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__message_has_error_counter
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__message_has_error_counter
+msgid "Number of errors"
+msgstr "Số lỗi"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__message_needaction_counter
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__message_needaction_counter
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_recognition__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Số tin nhắn cần xử lý"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__message_has_error_counter
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__message_has_error_counter
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_recognition__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Số tin nhắn bị lỗi gửi"
+
+#. module: okr_scale_cfr
+#: model:ir.model,name:okr_scale_cfr.model_okr_scale_conversation
+msgid "OKR Conversation"
+msgstr "Trao đổi 1:1 OKR"
+
+#. module: okr_scale_cfr
+#: model:ir.model,name:okr_scale_cfr.model_okr_scale_core_value
+msgid "OKR Core Value"
+msgstr "Giá trị cốt lõi OKR"
+
+#. module: okr_scale_cfr
+#: model:ir.model,name:okr_scale_cfr.model_okr_scale_dashboard
+msgid "OKR Dashboard"
+msgstr "Bảng điều khiển OKR"
+
+#. module: okr_scale_cfr
+#: model:ir.model,name:okr_scale_cfr.model_okr_scale_feedback
+msgid "OKR Feedback"
+msgstr "Phản hồi OKR"
+
+#. module: okr_scale_cfr
+#: model:mail.activity.type,name:okr_scale_cfr.mail_activity_okr_feedback
+msgid "OKR Feedback Request"
+msgstr "Yêu cầu phản hồi OKR"
+
+#. module: okr_scale_cfr
+#: model:ir.model,name:okr_scale_cfr.model_okr_scale_objective
+msgid "OKR Objective"
+msgstr "Mục tiêu OKR"
+
+#. module: okr_scale_cfr
+#: model:ir.model,name:okr_scale_cfr.model_okr_scale_recognition
+msgid "OKR Recognition"
+msgstr "Ghi nhận OKR"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__objective_id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__objective_id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__objective_id
+msgid "Objective"
+msgstr "Mục tiêu"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__objective_ids
+msgid "Objectives"
+msgstr "Mục tiêu"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__objective_ids
+msgid "Objectives discussed during the conversation."
+msgstr "Các mục tiêu được thảo luận trong buổi trao đổi."
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_recognition.py:0
+#, python-format
+msgid "Only internal users can receive a recognition."
+msgstr "Chỉ người dùng nội bộ mới có thể nhận lời khen."
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_feedback.py:0
+#, python-format
+msgid "Only the author can give this feedback."
+msgstr "Chỉ người viết mới có thể gửi phản hồi này."
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_feedback.py:0
+#, python-format
+msgid "Operation not supported"
+msgstr "Thao tác không được hỗ trợ"
+
+#. module: okr_scale_cfr
+#: model:okr.scale.core.value,name:okr_scale_cfr.core_value_ownership
+msgid "Ownership"
+msgstr "Tinh thần làm chủ"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__recipient_id
+msgid "Person who receives the feedback."
+msgstr "Người nhận phản hồi."
+
+#. module: okr_scale_cfr
+#: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_conversation_action
+msgid "Plan your first 1:1 conversation"
+msgstr "Lên kế hoạch buổi trao đổi 1:1 đầu tiên"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_conversation__state__planned
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_search
+msgid "Planned"
+msgstr "Đã lên kế hoạch"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_feedback__feedback_type__praise
+msgid "Praise"
+msgstr "Khen ngợi"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
+msgid "Private"
+msgstr "Riêng tư"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "Progress on OKRs"
+msgstr "Tiến độ OKR"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_recognition__visibility
+msgid "Public recognitions are displayed on the wall of the whole company."
+msgstr "Lời khen công khai được hiển thị trên bảng ghi nhận của toàn công ty."
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
+msgid "Received by me"
+msgstr "Tôi nhận được"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
+msgid "Receiver"
+msgstr "Người nhận"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__recognition_count
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_objective__recognition_count
+msgid "Recognition Count"
+msgstr "Số lời khen"
+
+#. module: okr_scale_cfr
+#: model:ir.actions.act_window,name:okr_scale_cfr.okr_recognition_action
+#: model:ir.ui.menu,name:okr_scale_cfr.okr_menu_recognition
+msgid "Recognition Wall"
+msgstr "Bảng ghi nhận"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_dashboard.py:0
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_objective__recognition_ids
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_core_value_view_tree
+#, python-format
+msgid "Recognitions"
+msgstr "Lời khen"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_dashboard.py:0
+#, python-format
+msgid "Recognitions (this cycle)"
+msgstr "Lời khen (chu kỳ này)"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_core_value_action
+msgid "Recognitions are tagged with the core values they illustrate."
+msgstr "Lời khen được gắn với các giá trị cốt lõi mà chúng thể hiện."
+
+#. module: okr_scale_cfr
+#: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_conversation_action
+msgid ""
+"Regular conversations between managers and team members keep OKRs alive:\n"
+"                review progress, remove blockers and talk about development."
+msgstr ""
+"Trao đổi thường xuyên giữa quản lý và thành viên giúp OKR luôn sống động: rà"
+" soát tiến độ, tháo gỡ vướng mắc và trao đổi về phát triển."
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__request_message
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__message
+msgid "Request"
+msgstr "Yêu cầu"
+
+#. module: okr_scale_cfr
+#: model:ir.actions.act_window,name:okr_scale_cfr.okr_feedback_request_action
+#: model:ir.ui.menu,name:okr_scale_cfr.okr_menu_feedback_request
+msgid "Request Feedback"
+msgstr "Xin phản hồi"
+
+#. module: okr_scale_cfr
+#: model:ir.model,name:okr_scale_cfr.model_okr_scale_feedback_request
+msgid "Request OKR Feedback"
+msgstr "Xin phản hồi OKR"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_feedback__state__requested
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_search
+msgid "Requested"
+msgstr "Đã yêu cầu"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__requested_by_id
+msgid "Requested By"
+msgstr "Người yêu cầu"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "Reset to Planned"
+msgstr "Đặt lại thành Đã lên kế hoạch"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__activity_user_id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__activity_user_id
+msgid "Responsible User"
+msgstr "Người phụ trách"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__message_has_sms_error
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__message_has_sms_error
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Lỗi gửi SMS"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_form
+msgid "Say thank you and tell what made the difference..."
+msgstr "Hãy nói lời cảm ơn và cho biết điều gì đã tạo nên khác biệt..."
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "Schedule in Calendar"
+msgstr "Lên lịch họp"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_request_view_form
+msgid "Send Request"
+msgstr "Gửi yêu cầu"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
+msgid "Sender"
+msgstr "Người gửi"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_recognition__visibility__private
+msgid "Sender and receivers"
+msgstr "Người gửi và người nhận"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__sequence
+msgid "Sequence"
+msgstr "Thứ tự"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_feedback_action
+msgid "Share continuous feedback"
+msgstr "Chia sẻ phản hồi liên tục"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__state
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__state
+msgid "State"
+msgstr "Trạng thái"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_search
+msgid "Status"
+msgstr "Trạng thái"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__activity_state
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Trạng thái dựa trên hoạt động\n"
+"Quá hạn: Đã quá ngày đến hạn\n"
+"Hôm nay: Hoạt động diễn ra hôm nay\n"
+"Đã lên kế hoạch: Hoạt động trong tương lai."
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_feedback__feedback_type__suggestion
+msgid "Suggestion"
+msgstr "Đề xuất"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "Support needed"
+msgstr "Hỗ trợ cần thiết"
+
+#. module: okr_scale_cfr
+#: model:okr.scale.core.value,name:okr_scale_cfr.core_value_teamwork
+msgid "Teamwork"
+msgstr "Tinh thần đồng đội"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_recognition_action
+msgid ""
+"Thank a colleague for their help and link the recognition to a core value or"
+" an OKR."
+msgstr ""
+"Cảm ơn đồng nghiệp vì sự giúp đỡ và liên kết lời khen với một giá trị cốt "
+"lõi hoặc một OKR."
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "The duration cannot be negative."
+msgstr "Thời lượng không được âm."
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__anonymous
+msgid "The recipient will not see who wrote this feedback."
+msgstr "Người nhận sẽ không biết ai đã viết phản hồi này."
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
+msgid "This Month"
+msgstr "Tháng này"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__receiver_ids
+msgid "To"
+msgstr "Gửi đến"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_search
+msgid "To answer"
+msgstr "Cần trả lời"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_dashboard.py:0
+#, python-format
+msgid "Top recognized people"
+msgstr "Người được ghi nhận nhiều nhất"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__feedback_type
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__feedback_type
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_search
+msgid "Type"
+msgstr "Loại"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__activity_exception_decoration
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Loại hoạt động ngoại lệ trên bản ghi."
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_form
+msgid "Unlike"
+msgstr "Bỏ thích"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__visibility
+msgid "Visibility"
+msgstr "Phạm vi hiển thị"
+
+#. module: okr_scale_cfr
+#: model:okr.scale.core.value,description:okr_scale_cfr.core_value_integrity
+msgid "We are honest, transparent and keep our promises."
+msgstr "Chúng tôi trung thực, minh bạch và giữ lời hứa."
+
+#. module: okr_scale_cfr
+#: model:okr.scale.core.value,description:okr_scale_cfr.core_value_teamwork
+msgid "We help each other and win together."
+msgstr "Chúng tôi giúp đỡ lẫn nhau và cùng nhau chiến thắng."
+
+#. module: okr_scale_cfr
+#: model:okr.scale.core.value,description:okr_scale_cfr.core_value_customer
+msgid ""
+"We start from the needs of our customers and go the extra mile for them."
+msgstr ""
+"Chúng tôi bắt đầu từ nhu cầu của khách hàng và luôn nỗ lực hơn nữa vì họ."
+
+#. module: okr_scale_cfr
+#: model:okr.scale.core.value,description:okr_scale_cfr.core_value_ownership
+msgid "We take responsibility for our results and follow through."
+msgstr "Chúng tôi chịu trách nhiệm về kết quả của mình và theo đuổi đến cùng."
+
+#. module: okr_scale_cfr
+#: model:okr.scale.core.value,description:okr_scale_cfr.core_value_innovation
+msgid "We try new ideas, learn fast and keep improving."
+msgstr ""
+"Chúng tôi thử nghiệm ý tưởng mới, học hỏi nhanh và không ngừng cải tiến."
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "What can I or the team do to help you?"
+msgstr "Tôi hoặc nhóm có thể làm gì để hỗ trợ bạn?"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "What is slowing you down or keeping you from reaching your targets?"
+msgstr "Điều gì đang làm bạn chậm lại hoặc cản trở bạn đạt mục tiêu?"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "What was discussed..."
+msgstr "Những gì đã được thảo luận..."
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback_request__message
+msgid "What would you like to get feedback on?"
+msgstr "Bạn muốn nhận phản hồi về điều gì?"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "What would you like to learn or grow into next?"
+msgstr "Bạn muốn học hỏi hoặc phát triển theo hướng nào tiếp theo?"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "Where do you stand on your key results since our last talk?"
+msgstr "Kết quả then chốt của bạn tiến triển ra sao kể từ lần trao đổi trước?"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_form
+msgid "Who do you want to thank?"
+msgstr "Bạn muốn cảm ơn ai?"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "Who does what, by when..."
+msgstr "Ai làm gì, trước khi nào..."
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_feedback.py:0
+#, python-format
+msgid "Write your feedback before sending it."
+msgstr "Hãy viết phản hồi trước khi gửi."
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_search
+msgid "Written by me"
+msgstr "Tôi đã viết"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_feedback.py:0
+#, python-format
+msgid "You cannot give feedback to yourself."
+msgstr "Bạn không thể tự phản hồi cho chính mình."
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_recognition.py:0
+#, python-format
+msgid "You cannot recognize yourself."
+msgstr "Bạn không thể tự khen chính mình."
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_request_view_form
+msgid "e.g. How did I handle the customer presentation last week?"
+msgstr ""
+"ví dụ: Tôi đã xử lý buổi thuyết trình với khách hàng tuần trước như thế nào?"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "e.g. Weekly 1:1"
+msgstr "ví dụ: Trao đổi 1:1 hàng tuần"

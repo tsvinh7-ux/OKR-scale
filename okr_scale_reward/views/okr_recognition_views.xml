@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_recognition_view_kanban_inherit_reward" model="ir.ui.view">
+        <field name="name">okr.scale.recognition.kanban.inherit.reward</field>
+        <field name="model">okr.scale.recognition</field>
+        <field name="inherit_id" ref="okr_scale_cfr.okr_recognition_view_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='okr_recognition_badges']" position="inside">
+                <field name="points" invisible="1"/>
+                <span t-if="record.points.raw_value" class="badge text-bg-warning me-1">
+                    <i class="fa fa-star" title="Points"/> +<t t-esc="record.points.value"/> pts
+                </span>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="okr_recognition_view_tree_inherit_reward" model="ir.ui.view">
+        <field name="name">okr.scale.recognition.tree.inherit.reward</field>
+        <field name="model">okr.scale.recognition</field>
+        <field name="inherit_id" ref="okr_scale_cfr.okr_recognition_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="like_count" position="before">
+                <field name="points" optional="show"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="okr_recognition_view_form_inherit_reward" model="ir.ui.view">
+        <field name="name">okr.scale.recognition.form.inherit.reward</field>
+        <field name="model">okr.scale.recognition</field>
+        <field name="inherit_id" ref="okr_scale_cfr.okr_recognition_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='okr_links']" position="inside">
+                <field name="points" readonly="id"/>
+                <field name="sender_budget_left" invisible="id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

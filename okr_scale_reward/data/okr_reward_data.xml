@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="seq_okr_redemption" model="ir.sequence">
+            <field name="name">OKR Reward Redemption</field>
+            <field name="code">okr.scale.redemption</field>
+            <field name="prefix">RDM/%(year)s/</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <!-- Reward program defaults: a missing parameter (or 0) disables the corresponding reward -->
+        <record id="param_monthly_allowance" model="ir.config_parameter">
+            <field name="key">okr_scale_reward.monthly_allowance</field>
+            <field name="value">100</field>
+        </record>
+        <record id="param_max_points_per_recognition" model="ir.config_parameter">
+            <field name="key">okr_scale_reward.max_points_per_recognition</field>
+            <field name="value">50</field>
+        </record>
+        <record id="param_checkin_points" model="ir.config_parameter">
+            <field name="key">okr_scale_reward.checkin_points</field>
+            <field name="value">5</field>
+        </record>
+        <record id="param_kr_achieved_points" model="ir.config_parameter">
+            <field name="key">okr_scale_reward.kr_achieved_points</field>
+            <field name="value">50</field>
+        </record>
+        <record id="param_objective_achieved_points" model="ir.config_parameter">
+            <field name="key">okr_scale_reward.objective_achieved_points</field>
+            <field name="value">100</field>
+        </record>
+
+        <record id="reward_category_gift" model="okr.scale.reward.category">
+            <field name="name">Gifts</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="reward_category_voucher" model="okr.scale.reward.category">
+            <field name="name">Vouchers</field>
+            <field name="sequence">2</field>
+        </record>
+        <record id="reward_category_experience" model="okr.scale.reward.category">
+            <field name="name">Experiences</field>
+            <field name="sequence">3</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_reward_redeem_view_form" model="ir.ui.view">
+        <field name="name">okr.scale.reward.redeem.form</field>
+        <field name="model">okr.scale.reward.redeem</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="image_128" widget="image" class="oe_avatar"/>
+                <div class="oe_title">
+                    <h2><field name="item_id" readonly="1" options="{'no_open': True}"/></h2>
+                </div>
+                <group>
+                    <group>
+                        <field name="points_cost"/>
+                        <field name="limited_stock" invisible="1"/>
+                        <field name="stock_qty" invisible="not limited_stock"/>
+                        <field name="quantity"/>
+                        <field name="total_points"/>
+                    </group>
+                    <group>
+                        <field name="balance"/>
+                        <field name="balance_after" decoration-danger="balance_after &lt; 0" decoration-bf="1"/>
+                    </group>
+                </group>
+                <field name="note" placeholder="Delivery details, size, colour..."/>
+                <div class="alert alert-warning" role="alert" invisible="balance_after &gt;= 0">
+                    You do not have enough points for this reward.
+                </div>
+                <footer>
+                    <button name="action_confirm" type="object" string="Confirm Redemption" class="btn-primary"
+                            invisible="balance_after &lt; 0"/>
+                    <button special="cancel" string="Cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

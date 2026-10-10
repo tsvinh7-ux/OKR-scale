@@ -1,0 +1,1376 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* okr_scale_reward
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-10 09:17+0000\n"
+"PO-Revision-Date: 2026-10-10 09:17+0000\n"
+"Last-Translator: DMAG\n"
+"Language-Team: Vietnamese\n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_recognition_view_kanban_inherit_reward
+msgid "<i class=\"fa fa-star\" title=\"Points\"/> +"
+msgstr "<i class=\"fa fa-star\" title=\"Điểm\"/> +"
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_recognition.py:0
+#, python-format
+msgid ""
+"A recognition that gave points cannot be deleted. Ask an OKR administrator."
+msgstr "Không thể xóa lời khen đã tặng điểm. Hãy liên hệ quản trị viên OKR."
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_key_result__okr_reward_granted
+msgid "Achievement Points Granted"
+msgstr "Đã cộng điểm hoàn thành"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__message_needaction
+msgid "Action Needed"
+msgstr "Cần có hành động"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__active
+msgid "Active"
+msgstr "Đang hoạt động"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__activity_ids
+msgid "Activities"
+msgstr "Hoạt động"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Biểu tượng ngoại lệ hoạt động"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__activity_state
+msgid "Activity State"
+msgstr "Trạng thái hoạt động"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Biểu tượng loại hoạt động"
+
+#. module: okr_scale_reward
+#: model:ir.actions.act_window,name:okr_scale_reward.okr_redemption_action_all
+#: model:ir.ui.menu,name:okr_scale_reward.okr_menu_all_redemptions
+msgid "All Redemptions"
+msgstr "Tất cả yêu cầu đổi quà"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__approve_date
+msgid "Approval Date"
+msgstr "Ngày duyệt"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_redemption_view_form
+msgid "Approve"
+msgstr "Duyệt"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_redemption__state__approved
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_redemption_view_search
+msgid "Approved"
+msgstr "Đã duyệt"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__approver_id
+msgid "Approved By"
+msgstr "Người duyệt"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_search
+msgid "Archived"
+msgstr "Đã lưu trữ"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__message_attachment_count
+msgid "Attachment Count"
+msgstr "Số tệp đính kèm"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_search
+msgid "Available"
+msgstr "Còn hàng"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__stock_qty
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__stock_qty
+msgid "Available Quantity"
+msgstr "Số lượng còn lại"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_point_transaction_view_tree
+msgid "Balance"
+msgstr "Số dư"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__balance_after
+msgid "Balance After"
+msgstr "Số dư sau khi đổi"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__can_redeem
+msgid "Can Redeem"
+msgstr "Có thể đổi"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_point_grant_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_redeem_view_form
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_redemption_view_form
+msgid "Cancel Request"
+msgstr "Hủy yêu cầu"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_redemption_view_form
+msgid "Cancel this request? Your points will be refunded."
+msgstr "Hủy yêu cầu này? Điểm của bạn sẽ được hoàn lại."
+
+#. module: okr_scale_reward
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_redemption__state__cancelled
+msgid "Cancelled"
+msgstr "Đã hủy"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__category_id
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_search
+msgid "Category"
+msgstr "Danh mục"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_point_transaction__source_ref__okr_scale_checkin
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_point_transaction__transaction_type__checkin
+msgid "Check-in"
+msgstr "Check-in"
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_checkin.py:0
+#, python-format
+msgid "Check-in on \"%s\""
+msgstr "Check-in cho \"%s\""
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_transaction__company_id
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__company_id
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__company_id
+msgid "Company"
+msgstr "Công ty"
+
+#. module: okr_scale_reward
+#: model:ir.model,name:okr_scale_reward.model_res_config_settings
+msgid "Config Settings"
+msgstr "Cài đặt cấu hình"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_redeem_view_form
+msgid "Confirm Redemption"
+msgstr "Xác nhận đổi quà"
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_recognition.py:0
+#, python-format
+msgid "Correction: recognition from %s deleted"
+msgstr "Điều chỉnh: lời khen từ %s đã bị xóa"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__points_cost
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__points_cost
+msgid "Cost (points)"
+msgstr "Giá (điểm)"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_transaction__created_by_id
+msgid "Created By"
+msgstr "Người tạo"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_grant__create_uid
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_transaction__create_uid
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__create_uid
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_category__create_uid
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__create_uid
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_grant__create_date
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_transaction__create_date
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__create_date
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_category__create_date
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__create_date
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__create_date
+msgid "Created on"
+msgstr "Được tạo vào"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__balance
+msgid "Current Balance"
+msgstr "Số dư hiện tại"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_transaction__date
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_point_transaction_view_search
+msgid "Date"
+msgstr "Ngày"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_redemption__state__delivered
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_redemption_view_search
+msgid "Delivered"
+msgstr "Đã trao"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__deliver_date
+msgid "Delivery Date"
+msgstr "Ngày trao quà"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_redemption__note
+#: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_reward_redeem__note
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_redeem_view_form
+msgid "Delivery details, size, colour..."
+msgstr "Thông tin nhận quà, kích cỡ, màu sắc..."
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_form
+msgid "Describe the reward..."
+msgstr "Mô tả phần quà..."
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_transaction__description
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__description
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_grant__display_name
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_transaction__display_name
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__display_name
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_category__display_name
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__display_name
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: okr_scale_reward
+#: model_terms:ir.actions.act_window,help:okr_scale_reward.okr_point_transaction_action_my
+msgid ""
+"Earn points with recognitions from your colleagues, regular check-ins and achieved OKRs,\n"
+"                then exchange them for gifts in the reward store. The total of the list is your balance."
+msgstr ""
+"Tích điểm thưởng nhờ lời khen của đồng nghiệp, check-in đều đặn và hoàn "
+"thành OKR, sau đó đổi lấy quà trong cửa hàng quà tặng. Tổng của danh sách "
+"chính là số dư của bạn."
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_point_transaction_view_search
+msgid "Earned"
+msgstr "Đã nhận"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__user_id
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_redemption_view_search
+msgid "Employee"
+msgstr "Nhân viên"
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/wizard/okr_point_grant.py:0
+#, python-format
+msgid "Enter a number of points."
+msgstr "Hãy nhập số điểm."
+
+#. module: okr_scale_reward
+#: model:okr.scale.reward.category,name:okr_scale_reward.reward_category_experience
+msgid "Experiences"
+msgstr "Trải nghiệm"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__message_follower_ids
+msgid "Followers"
+msgstr "Người theo dõi"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Người theo dõi (Đối tác)"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_redemption__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Biểu tượng Font Awesome, ví dụ fa-tasks"
+
+#. module: okr_scale_reward
+#: model:okr.scale.reward.category,name:okr_scale_reward.reward_category_gift
+msgid "Gifts"
+msgstr "Quà tặng"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.res_config_settings_view_form
+msgid ""
+"Gifts employees can redeem with their points. Set a value to 0 to disable a "
+"reward."
+msgstr ""
+"Những phần quà nhân viên có thể đổi bằng điểm. Đặt giá trị bằng 0 để tắt một"
+" loại điểm thưởng."
+
+#. module: okr_scale_reward
+#: model:ir.actions.act_window,name:okr_scale_reward.okr_point_grant_action
+#: model:ir.ui.menu,name:okr_scale_reward.okr_menu_point_grant
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_point_grant_view_form
+msgid "Grant Points"
+msgstr "Cộng điểm"
+
+#. module: okr_scale_reward
+#: model:ir.model,name:okr_scale_reward.model_okr_scale_point_grant
+msgid "Grant Reward Points"
+msgstr "Cộng điểm thưởng"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_res_config_settings__okr_reward_checkin_points
+msgid ""
+"Granted for a submitted check-in, at most once per key result and check-in "
+"period."
+msgstr ""
+"Được cộng khi gửi check-in, tối đa một lần cho mỗi kết quả then chốt trong "
+"mỗi kỳ check-in."
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_res_config_settings__okr_reward_kr_achieved_points
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.res_config_settings_view_form
+msgid "Granted once to the owner when a key result reaches its target."
+msgstr ""
+"Được cộng một lần cho người phụ trách khi kết quả then chốt đạt mục tiêu."
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_res_config_settings__okr_reward_objective_achieved_points
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.res_config_settings_view_form
+msgid ""
+"Granted once to the owner when an objective is closed with a final score of "
+"at least 0.7."
+msgstr ""
+"Được cộng một lần cho người phụ trách khi mục tiêu được đóng với điểm cuối "
+"kỳ từ 0.7 trở lên."
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.res_config_settings_view_form
+msgid ""
+"Granted to the author of a submitted check-in, at most once per key result "
+"and check-in period."
+msgstr ""
+"Được cộng cho người gửi check-in, tối đa một lần cho mỗi kết quả then chốt "
+"trong mỗi kỳ check-in."
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_point_transaction_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_redemption_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_search
+msgid "Group By"
+msgstr "Nhóm theo"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__has_message
+msgid "Has Message"
+msgstr "Có tin nhắn"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_grant__id
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_transaction__id
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__id
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_category__id
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__id
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__id
+msgid "ID"
+msgstr "ID"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__activity_exception_icon
+msgid "Icon"
+msgstr "Biểu tượng"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_redemption__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Biểu tượng chỉ báo một hoạt động ngoại lệ."
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_redemption__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Nếu được chọn, các tin nhắn mới cần bạn chú ý."
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_redemption__message_has_error
+#: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_redemption__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Nếu được chọn, một số tin nhắn bị lỗi gửi."
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__image_1920
+msgid "Image"
+msgstr "Hình ảnh"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__image_1024
+msgid "Image 1024"
+msgstr "Hình ảnh 1024"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__image_128
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__image_128
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__image_128
+msgid "Image 128"
+msgstr "Hình ảnh 128"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__image_256
+msgid "Image 256"
+msgstr "Hình ảnh 256"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__image_512
+msgid "Image 512"
+msgstr "Hình ảnh 512"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__message_is_follower
+msgid "Is Follower"
+msgstr "Là người theo dõi"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_point_transaction__source_ref__okr_scale_key_result
+msgid "Key Result"
+msgstr "Kết quả then chốt"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_point_transaction__transaction_type__kr_achieved
+msgid "Key Result Achieved"
+msgstr "Hoàn thành kết quả then chốt"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.res_config_settings_view_form
+msgid "Key result achieved"
+msgstr "Hoàn thành kết quả then chốt"
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_key_result.py:0
+#, python-format
+msgid "Key result achieved: %s"
+msgstr "Hoàn thành kết quả then chốt: %s"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_grant__write_uid
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_transaction__write_uid
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__write_uid
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_category__write_uid
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__write_uid
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_grant__write_date
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_transaction__write_date
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__write_date
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_category__write_date
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__write_date
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_dashboard.py:0
+#: model:ir.actions.act_window,name:okr_scale_reward.okr_point_transaction_action_leaderboard
+#: model:ir.ui.menu,name:okr_scale_reward.okr_menu_leaderboard
+#, python-format
+msgid "Leaderboard"
+msgstr "Bảng xếp hạng"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_reward_item__company_id
+msgid "Leave empty to offer this reward in every company."
+msgstr "Để trống để áp dụng phần quà này cho mọi công ty."
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__limited_stock
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__limited_stock
+msgid "Limited Stock"
+msgstr "Số lượng có hạn"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_point_transaction__transaction_type__manual
+msgid "Manual"
+msgstr "Thủ công"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_redemption_view_form
+msgid "Mark as Delivered"
+msgstr "Đánh dấu đã trao"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_res_config_settings__okr_reward_max_points_per_recognition
+msgid "Max Points per Recognition"
+msgstr "Điểm tối đa mỗi lời khen"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.res_config_settings_view_form
+msgid "Maximum per recognition"
+msgstr "Tối đa mỗi lời khen"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_res_config_settings__okr_reward_max_points_per_recognition
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.res_config_settings_view_form
+msgid "Maximum points given to each receiver of a recognition."
+msgstr "Số điểm tối đa tặng cho mỗi người nhận của một lời khen."
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__message_has_error
+msgid "Message Delivery error"
+msgstr "Lỗi gửi tin nhắn"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__message_ids
+msgid "Messages"
+msgstr "Tin nhắn"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_point_transaction_view_search
+msgid "Month"
+msgstr "Tháng"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_res_config_settings__okr_reward_monthly_allowance
+msgid "Monthly Giving Allowance"
+msgstr "Hạn mức tặng điểm hàng tháng"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.res_config_settings_view_form
+msgid "Monthly giving allowance"
+msgstr "Hạn mức tặng điểm hàng tháng"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Hạn chót hoạt động của tôi"
+
+#. module: okr_scale_reward
+#: model:ir.actions.act_window,name:okr_scale_reward.okr_point_transaction_action_my
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__user_balance
+#: model:ir.ui.menu,name:okr_scale_reward.okr_menu_my_points
+msgid "My Points"
+msgstr "Điểm của tôi"
+
+#. module: okr_scale_reward
+#: model:ir.actions.act_window,name:okr_scale_reward.okr_redemption_action_my
+#: model:ir.ui.menu,name:okr_scale_reward.okr_menu_my_redemptions
+msgid "My Redemptions"
+msgstr "Quà đã đổi của tôi"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
+msgid "My points:"
+msgstr "Điểm của tôi:"
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_dashboard.py:0
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_category__name
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__name
+#, python-format
+msgid "Name"
+msgstr "Tên"
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_redemption.py:0
+#: code:addons/okr_scale_reward/models/okr_redemption.py:0
+#, python-format
+msgid "New"
+msgstr "Mới"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Sự kiện lịch cho hoạt động tiếp theo"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Hạn chót hoạt động tiếp theo"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__activity_summary
+msgid "Next Activity Summary"
+msgstr "Tóm tắt hoạt động tiếp theo"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__activity_type_id
+msgid "Next Activity Type"
+msgstr "Loại hoạt động tiếp theo"
+
+#. module: okr_scale_reward
+#: model_terms:ir.actions.act_window,help:okr_scale_reward.okr_point_transaction_action_my
+msgid "No points yet"
+msgstr "Chưa có điểm thưởng"
+
+#. module: okr_scale_reward
+#: model_terms:ir.actions.act_window,help:okr_scale_reward.okr_redemption_action_my
+msgid "No redemption yet"
+msgstr "Chưa đổi quà nào"
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_redemption.py:0
+#, python-format
+msgid ""
+"Not enough points: \"%(item)s\" costs %(cost)s points and your balance is "
+"%(balance)s."
+msgstr ""
+"Không đủ điểm: \"%(item)s\" cần %(cost)s điểm trong khi số dư của bạn là "
+"%(balance)s."
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__note
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__note
+msgid "Note"
+msgstr "Ghi chú"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Số hành động"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__message_has_error_counter
+msgid "Number of errors"
+msgstr "Số lỗi"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_redemption__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Số tin nhắn cần xử lý"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_redemption__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Số tin nhắn bị lỗi gửi"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.res_config_settings_view_form
+msgid "OKR"
+msgstr "OKR"
+
+#. module: okr_scale_reward
+#: model:ir.model,name:okr_scale_reward.model_okr_scale_checkin
+msgid "OKR Check-in"
+msgstr "Check-in OKR"
+
+#. module: okr_scale_reward
+#: model:ir.model,name:okr_scale_reward.model_okr_scale_dashboard
+msgid "OKR Dashboard"
+msgstr "Bảng điều khiển OKR"
+
+#. module: okr_scale_reward
+#: model:ir.model,name:okr_scale_reward.model_okr_scale_key_result
+msgid "OKR Key Result"
+msgstr "Kết quả then chốt OKR"
+
+#. module: okr_scale_reward
+#: model:ir.model,name:okr_scale_reward.model_okr_scale_objective
+msgid "OKR Objective"
+msgstr "Mục tiêu OKR"
+
+#. module: okr_scale_reward
+#: model:ir.model,name:okr_scale_reward.model_okr_scale_point_transaction
+msgid "OKR Point Transaction"
+msgstr "Giao dịch điểm thưởng OKR"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.res_config_settings_view_form
+msgid "OKR Points"
+msgstr "Điểm thưởng OKR"
+
+#. module: okr_scale_reward
+#: model:ir.model,name:okr_scale_reward.model_okr_scale_recognition
+msgid "OKR Recognition"
+msgstr "Ghi nhận OKR"
+
+#. module: okr_scale_reward
+#: model:ir.model,name:okr_scale_reward.model_okr_scale_reward_item
+msgid "OKR Reward"
+msgstr "Quà tặng OKR"
+
+#. module: okr_scale_reward
+#: model:ir.model,name:okr_scale_reward.model_okr_scale_reward_category
+msgid "OKR Reward Category"
+msgstr "Danh mục quà tặng OKR"
+
+#. module: okr_scale_reward
+#: model:ir.model,name:okr_scale_reward.model_okr_scale_redemption
+msgid "OKR Reward Redemption"
+msgstr "Đổi quà OKR"
+
+#. module: okr_scale_reward
+#: model_terms:ir.actions.act_window,help:okr_scale_reward.okr_reward_item_action_store
+msgid ""
+"OKR administrators add the gifts that employees can get in exchange for "
+"their points."
+msgstr ""
+"Quản trị viên OKR thêm các phần quà mà nhân viên có thể đổi bằng điểm "
+"thưởng."
+
+#. module: okr_scale_reward
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_point_transaction__source_ref__okr_scale_objective
+msgid "Objective"
+msgstr "Mục tiêu"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_point_transaction__transaction_type__objective_achieved
+msgid "Objective Achieved"
+msgstr "Hoàn thành mục tiêu"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.res_config_settings_view_form
+msgid "Objective achieved"
+msgstr "Hoàn thành mục tiêu"
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_objective.py:0
+#, python-format
+msgid "Objective achieved: %s (score %.2f)"
+msgstr "Hoàn thành mục tiêu: %s (điểm %.2f)"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.res_config_settings_view_form
+msgid "On-time check-in"
+msgstr "Check-in đúng hạn"
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_redemption.py:0
+#, python-format
+msgid "Only %(qty)s \"%(item)s\" left in stock."
+msgstr "Chỉ còn %(qty)s \"%(item)s\"."
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/wizard/okr_point_grant.py:0
+#, python-format
+msgid "Only OKR administrators can grant points."
+msgstr "Chỉ quản trị viên OKR mới được cộng điểm."
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_redemption.py:0
+#, python-format
+msgid "Only OKR administrators can process reward redemptions."
+msgstr "Chỉ quản trị viên OKR mới được xử lý yêu cầu đổi quà."
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_reward_item__product_id
+msgid "Optional product used to purchase or track this gift."
+msgstr "Sản phẩm (tùy chọn) dùng để mua hoặc theo dõi phần quà này."
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
+msgid "Out of stock"
+msgstr "Hết hàng"
+
+#. module: okr_scale_reward
+#: model_terms:ir.actions.act_window,help:okr_scale_reward.okr_redemption_action_my
+msgid "Pick a gift in the reward store and redeem it with your points."
+msgstr ""
+"Chọn một phần quà trong cửa hàng quà tặng và đổi bằng điểm thưởng của bạn."
+
+#. module: okr_scale_reward
+#: model:ir.actions.act_window,name:okr_scale_reward.okr_point_transaction_action
+#: model:ir.ui.menu,name:okr_scale_reward.okr_menu_point_transactions
+msgid "Point Transactions"
+msgstr "Giao dịch điểm thưởng"
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_point_transaction.py:0
+#, python-format
+msgid ""
+"Point transactions cannot be deleted. Record a correction transaction "
+"instead."
+msgstr "Không thể xóa giao dịch điểm. Hãy tạo một giao dịch điều chỉnh."
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_point_transaction.py:0
+#, python-format
+msgid ""
+"Point transactions cannot be modified. Record a correction transaction "
+"instead."
+msgstr "Không thể sửa giao dịch điểm. Hãy tạo một giao dịch điều chỉnh."
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_dashboard.py:0
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_grant__points
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_transaction__points
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_recognition__points
+#, python-format
+msgid "Points"
+msgstr "Điểm"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_res_users__okr_points_given_this_month
+msgid "Points Given This Month"
+msgstr "Điểm đã tặng tháng này"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_checkin__okr_points_granted
+msgid "Points Granted"
+msgstr "Đã cộng điểm"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_checkin__okr_reward_date
+msgid "Points Granted On"
+msgstr "Ngày cộng điểm"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_recognition__sender_budget_left
+#: model:ir.model.fields,field_description:okr_scale_reward.field_res_users__okr_give_budget_left
+msgid "Points Left to Give"
+msgstr "Điểm còn có thể tặng"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_res_users__okr_point_balance
+msgid "Points available to redeem in the reward store."
+msgstr "Số điểm có thể dùng để đổi quà trong cửa hàng quà tặng."
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_recognition.py:0
+#, python-format
+msgid "Points can only be given when the recognition is sent."
+msgstr "Chỉ có thể tặng điểm khi gửi lời khen."
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.res_config_settings_view_form
+msgid ""
+"Points each employee can give to colleagues with recognitions every month. "
+"Giving points does not reduce the giver's own wallet."
+msgstr ""
+"Số điểm mỗi nhân viên có thể tặng đồng nghiệp qua lời khen mỗi tháng. Việc "
+"tặng điểm không làm giảm ví điểm của người tặng."
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_res_config_settings__okr_reward_monthly_allowance
+msgid ""
+"Points each user can give with recognitions every month. It does not reduce "
+"their own wallet."
+msgstr ""
+"Số điểm mỗi người dùng có thể tặng qua lời khen mỗi tháng. Không làm giảm ví"
+" điểm của chính họ."
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_dashboard.py:0
+#, python-format
+msgid "Points granted (this cycle)"
+msgstr "Điểm thưởng đã cộng (chu kỳ này)"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_res_config_settings__okr_reward_kr_achieved_points
+msgid "Points per Achieved Key Result"
+msgstr "Điểm cho mỗi kết quả then chốt hoàn thành"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_res_config_settings__okr_reward_checkin_points
+msgid "Points per Check-in"
+msgstr "Điểm cho mỗi check-in"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_res_config_settings__okr_reward_objective_achieved_points
+msgid "Points per Successful Objective"
+msgstr "Điểm cho mỗi mục tiêu thành công"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__product_id
+msgid "Product"
+msgstr "Sản phẩm"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__quantity
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__quantity
+msgid "Quantity"
+msgstr "Số lượng"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_grant__reason
+msgid "Reason"
+msgstr "Lý do"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_point_transaction__source_ref__okr_scale_recognition
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_point_transaction__transaction_type__recognition
+msgid "Recognition"
+msgstr "Lời khen"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.res_config_settings_view_form
+msgid "Recognition Points"
+msgstr "Điểm tặng kèm lời khen"
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_recognition.py:0
+#, python-format
+msgid "Recognition from %s"
+msgstr "Lời khen từ %s"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
+msgid "Redeem"
+msgstr "Đổi quà"
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_reward_item.py:0
+#, python-format
+msgid "Redeem %s"
+msgstr "Đổi %s"
+
+#. module: okr_scale_reward
+#: model:ir.model,name:okr_scale_reward.model_okr_scale_reward_redeem
+msgid "Redeem a Reward"
+msgstr "Đổi quà"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_point_transaction__source_ref__okr_scale_redemption
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_point_transaction__transaction_type__redemption
+msgid "Redemption"
+msgstr "Đổi quà"
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_redemption.py:0
+#, python-format
+msgid "Redemption %(ref)s: %(qty)s x %(item)s"
+msgstr "Đổi quà %(ref)s: %(qty)s x %(item)s"
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_redemption.py:0
+#, python-format
+msgid "Redemption %s cannot be cancelled anymore."
+msgstr "Yêu cầu đổi quà %s không thể hủy được nữa."
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__redemption_count
+msgid "Redemption Count"
+msgstr "Số lượt đổi quà"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__redemption_ids
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_tree
+msgid "Redemptions"
+msgstr "Lượt đổi quà"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__name
+msgid "Reference"
+msgstr "Mã tham chiếu"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_point_transaction__transaction_type__refund
+msgid "Refund"
+msgstr "Hoàn điểm"
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_redemption.py:0
+#, python-format
+msgid "Refund %(ref)s: %(reason)s"
+msgstr "Hoàn điểm %(ref)s: %(reason)s"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_redemption_view_form
+msgid "Reject"
+msgstr "Từ chối"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_redemption__state__rejected
+msgid "Rejected"
+msgstr "Đã từ chối"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__reason
+msgid "Rejection Reason"
+msgstr "Lý do từ chối"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_res_users__okr_give_budget_left
+msgid "Remaining monthly allowance to give points with recognitions."
+msgstr "Hạn mức còn lại trong tháng để tặng điểm qua lời khen."
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__request_date
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_redemption_view_search
+msgid "Request Date"
+msgstr "Ngày yêu cầu"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_redemption__state__requested
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_redemption_view_search
+msgid "Requested"
+msgstr "Đã yêu cầu"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__activity_user_id
+msgid "Responsible User"
+msgstr "Người phụ trách"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__item_id
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__item_id
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_redemption_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
+msgid "Reward"
+msgstr "Phần quà"
+
+#. module: okr_scale_reward
+#: model:ir.actions.act_window,name:okr_scale_reward.okr_reward_category_action
+#: model:ir.ui.menu,name:okr_scale_reward.okr_menu_reward_categories
+msgid "Reward Categories"
+msgstr "Danh mục quà tặng"
+
+#. module: okr_scale_reward
+#: model:ir.actions.act_window,name:okr_scale_reward.okr_reward_item_action
+#: model:ir.ui.menu,name:okr_scale_reward.okr_menu_reward_items
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.res_config_settings_view_form
+msgid "Reward Items"
+msgstr "Danh sách quà tặng"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_res_users__okr_point_balance
+msgid "Reward Points"
+msgstr "Điểm thưởng"
+
+#. module: okr_scale_reward
+#: model:ir.actions.act_window,name:okr_scale_reward.okr_reward_item_action_store
+#: model:ir.ui.menu,name:okr_scale_reward.okr_menu_reward_store
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.res_config_settings_view_form
+msgid "Reward Store"
+msgstr "Cửa hàng quà tặng"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_recognition__points
+msgid ""
+"Reward points given to each receiver. They are taken from your monthly "
+"giving allowance, not from your own wallet."
+msgstr ""
+"Điểm thưởng tặng cho mỗi người nhận. Điểm được trừ vào hạn mức tặng điểm "
+"hàng tháng, không trừ vào ví điểm của bạn."
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_redemption.py:0
+#, python-format
+msgid "Reward requested: %(item)s for %(user)s"
+msgstr "Yêu cầu đổi quà: %(item)s cho %(user)s"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_category__item_ids
+#: model:ir.ui.menu,name:okr_scale_reward.okr_menu_reward_config
+#: model:ir.ui.menu,name:okr_scale_reward.okr_menu_rewards
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.res_config_settings_view_form
+msgid "Rewards"
+msgstr "Điểm thưởng & Quà tặng"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Lỗi gửi SMS"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_category__sequence
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__sequence
+msgid "Sequence"
+msgstr "Thứ tự"
+
+#. module: okr_scale_reward
+#: model:ir.actions.act_window,name:okr_scale_reward.okr_reward_settings_action
+#: model:ir.ui.menu,name:okr_scale_reward.okr_menu_reward_settings
+msgid "Settings"
+msgstr "Cài đặt"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_transaction__source_ref
+msgid "Source"
+msgstr "Nguồn"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_transaction__res_id
+msgid "Source ID"
+msgstr "ID nguồn"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_transaction__res_model
+msgid "Source Model"
+msgstr "Model nguồn"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_point_transaction_view_search
+msgid "Spent"
+msgstr "Đã dùng"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__state
+msgid "State"
+msgstr "Trạng thái"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_redemption_view_search
+msgid "Status"
+msgstr "Trạng thái"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_redemption__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Trạng thái dựa trên hoạt động\n"
+"Quá hạn: Đã quá ngày đến hạn\n"
+"Hôm nay: Hoạt động diễn ra hôm nay\n"
+"Đã lên kế hoạch: Hoạt động trong tương lai."
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_objective__okr_reward_granted
+msgid "Success Points Granted"
+msgstr "Đã cộng điểm thành công"
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_reward_item.py:0
+#: model:ir.model.constraint,message:okr_scale_reward.constraint_okr_scale_reward_item_stock_qty_positive
+#, python-format
+msgid "The available quantity cannot be negative."
+msgstr "Số lượng còn lại không được âm."
+
+#. module: okr_scale_reward
+#: model:ir.model.constraint,message:okr_scale_reward.constraint_okr_scale_reward_item_points_cost_positive
+msgid "The cost of a reward must be positive."
+msgstr "Giá của phần quà phải lớn hơn 0."
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_recognition.py:0
+#, python-format
+msgid "The points and receivers of a recognition cannot be changed once sent."
+msgstr "Không thể thay đổi điểm và người nhận của lời khen sau khi đã gửi."
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_recognition.py:0
+#, python-format
+msgid "The points of a recognition cannot be negative."
+msgstr "Điểm của lời khen không được âm."
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_redemption_view_form
+msgid "The points will be refunded to the employee. Continue?"
+msgstr "Điểm sẽ được hoàn lại cho nhân viên. Tiếp tục?"
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_redemption.py:0
+#: code:addons/okr_scale_reward/wizard/okr_reward_redeem.py:0
+#, python-format
+msgid "The quantity must be positive."
+msgstr "Số lượng phải lớn hơn 0."
+
+#. module: okr_scale_reward
+#: model_terms:ir.actions.act_window,help:okr_scale_reward.okr_reward_item_action_store
+msgid "The reward store is empty"
+msgstr "Cửa hàng quà tặng đang trống"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_point_transaction_view_search
+msgid "This Month"
+msgstr "Tháng này"
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_redemption.py:0
+#, python-format
+msgid "This reward is not available anymore."
+msgstr "Phần quà này không còn khả dụng."
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_redemption_view_search
+msgid "To Process"
+msgstr "Cần xử lý"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_redemption_view_tree
+msgid "Total"
+msgstr "Tổng"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_recognition__points_total
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__points
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__total_points
+msgid "Total Points"
+msgstr "Tổng điểm"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_reward_item__limited_stock
+#: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_reward_redeem__limited_stock
+msgid "Track the number of gifts still available."
+msgstr "Theo dõi số lượng quà còn lại."
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_transaction__transaction_type
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_point_transaction_view_search
+msgid "Type"
+msgstr "Loại"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_redemption__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Loại hoạt động ngoại lệ trên bản ghi."
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_point_grant__points
+msgid "Use a negative number to correct a previous grant."
+msgstr "Dùng số âm để điều chỉnh lần cộng điểm trước."
+
+#. module: okr_scale_reward
+#: model:ir.model,name:okr_scale_reward.model_res_users
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_transaction__user_id
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_point_transaction_view_search
+msgid "User"
+msgstr "Người dùng"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_grant__user_ids
+msgid "Users"
+msgstr "Người dùng"
+
+#. module: okr_scale_reward
+#: model:okr.scale.reward.category,name:okr_scale_reward.reward_category_voucher
+msgid "Vouchers"
+msgstr "Phiếu quà tặng"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_recognition__sender_budget_left
+msgid "What remains of your monthly giving allowance."
+msgstr "Phần còn lại của hạn mức tặng điểm hàng tháng của bạn."
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_recognition.py:0
+#, python-format
+msgid "You can give at most %s points per person with a recognition."
+msgstr "Bạn chỉ có thể tặng tối đa %s điểm cho mỗi người trong một lời khen."
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_redemption.py:0
+#, python-format
+msgid "You can only cancel your own requests."
+msgstr "Bạn chỉ có thể hủy yêu cầu của chính mình."
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_redeem_view_form
+msgid "You do not have enough points for this reward."
+msgstr "Bạn không đủ điểm để đổi phần quà này."
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_recognition.py:0
+#, python-format
+msgid ""
+"Your monthly allowance is %(allowance)s points: you can still give %(left)s "
+"points this month but this recognition needs %(needed)s."
+msgstr ""
+"Hạn mức hàng tháng của bạn là %(allowance)s điểm: tháng này bạn chỉ còn có "
+"thể tặng %(left)s điểm nhưng lời khen này cần %(needed)s điểm."
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_redemption.py:0
+#, python-format
+msgid "Your reward has been delivered. Enjoy!"
+msgstr "Phần quà của bạn đã được trao. Chúc bạn vui vẻ!"
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_redemption.py:0
+#, python-format
+msgid "Your reward request has been approved."
+msgstr "Yêu cầu đổi quà của bạn đã được duyệt."
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_redemption.py:0
+#, python-format
+msgid "Your reward request has been rejected and your points refunded."
+msgstr "Yêu cầu đổi quà của bạn đã bị từ chối và điểm đã được hoàn lại."
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_redemption.py:0
+#, python-format
+msgid "cancelled"
+msgstr "đã hủy"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_form
+msgid "e.g. Company hoodie"
+msgstr "ví dụ: Áo hoodie công ty"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_point_grant_view_form
+msgid "e.g. Winner of the innovation contest"
+msgstr "ví dụ: Đạt giải cuộc thi sáng tạo"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
+msgid "left"
+msgstr "còn lại"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_recognition_view_kanban_inherit_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
+msgid "pts"
+msgstr "điểm"
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_redemption.py:0
+#, python-format
+msgid "rejected"
+msgstr "bị từ chối"

@@ -1,0 +1,1137 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* okr_scale_cfr
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-10 09:17+0000\n"
+"PO-Revision-Date: 2026-10-10 09:17+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/wizard/okr_feedback_request.py:0
+#, python-format
+msgid "%(requester)s asks for your feedback about %(recipient)s"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_recognition.py:0
+#, python-format
+msgid "%s recognized you:"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "1:1 %(manager)s / %(employee)s"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_kanban
+msgid "<i class=\"fa fa-bullseye me-1\" title=\"Objective\"/>"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_kanban
+msgid "<i class=\"fa fa-lock\" title=\"Private\"/> Private"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_kanban
+msgid "<i class=\"fa fa-long-arrow-right text-muted\" title=\"To\"/>"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "<span class=\"o_stat_text\">Meeting</span>"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_form
+msgid "<strong>Request: </strong>"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "A conversation needs two different participants."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.constraint,message:okr_scale_cfr.constraint_okr_scale_core_value_name_uniq
+msgid "A core value with this name already exists."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__recipient_id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__recipient_id
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_search
+msgid "About"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_search
+msgid "About me"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__action_items
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "Action Items"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__message_needaction
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__message_needaction
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__active
+msgid "Active"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__activity_ids
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__activity_exception_decoration
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__activity_state
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__activity_type_icon
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__agenda
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "Agenda"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_feedback.py:0
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__anonymous
+#, python-format
+msgid "Anonymous"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_core_value_view_search
+msgid "Archived"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__giver_ids
+msgid "Ask Feedback From"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__message_attachment_count
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__message_attachment_count
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__author_id
+msgid "Author"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_form
+msgid "Be specific: describe the situation, the behaviour and its impact..."
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "Blockers"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.ui.menu,name:okr_scale_cfr.okr_menu_cfr
+msgid "CFR"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_request_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_conversation__state__cancelled
+msgid "Cancelled"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "Career and development"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/wizard/okr_feedback_request.py:0
+#, python-format
+msgid ""
+"Choose at least one person other than the person the feedback is about."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__color
+msgid "Color"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__company_id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__company_id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__company_id
+msgid "Company"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_feedback__feedback_type__constructive
+msgid "Constructive"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.actions.act_window,name:okr_scale_cfr.okr_conversation_action
+#: model:ir.ui.menu,name:okr_scale_cfr.okr_menu_conversation
+msgid "Conversations"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
+msgid "Core Value"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.actions.act_window,name:okr_scale_cfr.okr_core_value_action
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__core_value_ids
+#: model:ir.ui.menu,name:okr_scale_cfr.okr_menu_core_values
+msgid "Core Values"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__create_uid
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__create_uid
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__create_uid
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__create_date
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__create_date
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__create_date
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:okr.scale.core.value,name:okr_scale_cfr.core_value_customer
+msgid "Customer First"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__date
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__date
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__date
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
+msgid "Date"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_core_value_action
+msgid "Define the core values of your company"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__description
+msgid "Description"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__display_name
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__display_name
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__display_name
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__display_name
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_conversation__state__done
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_search
+msgid "Done"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_feedback__state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__duration
+msgid "Duration"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__duration
+msgid "Duration in hours."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_core_value__icon
+msgid "Emoji displayed next to the value, e.g. 🤝"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__employee_user_id
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_search
+msgid "Employee"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_recognition__visibility__public
+msgid "Everyone"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.actions.act_window,name:okr_scale_cfr.okr_feedback_action
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__content
+#: model:ir.ui.menu,name:okr_scale_cfr.okr_menu_feedback
+msgid "Feedback"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__message_follower_ids
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__message_follower_ids
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__message_partner_ids
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__message_partner_ids
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__activity_type_icon
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__author_display
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__sender_id
+msgid "From"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_form
+msgid "Give Feedback"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_objective.py:0
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_objective_view_form_inherit_cfr
+#, python-format
+msgid "Give Kudos"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:mail.activity.type,summary:okr_scale_cfr.mail_activity_okr_feedback
+msgid "Give feedback"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_feedback_action
+msgid ""
+"Give feedback to a colleague, or request feedback on your work and your OKRs.\n"
+"                Anonymous feedback never reveals its author to the recipient."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_recognition_action
+msgid "Give your first kudos"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_feedback__state__given
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_search
+msgid "Given"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__given_date
+msgid "Given Date"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
+msgid "Given by me"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
+msgid "Group By"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__has_message
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__has_message
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_search
+msgid "I lead"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__id
+msgid "ID"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__activity_exception_icon
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__icon
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__activity_exception_icon
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__message_needaction
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__message_needaction
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_recognition__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__message_has_error
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__message_has_sms_error
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__message_has_error
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__message_has_sms_error
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_recognition__message_has_error
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_recognition__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:okr.scale.core.value,name:okr_scale_cfr.core_value_innovation
+msgid "Innovation"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:okr.scale.core.value,name:okr_scale_cfr.core_value_integrity
+msgid "Integrity"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__is_author
+msgid "Is Author"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__message_is_follower
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__message_is_follower
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__key_result_id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__key_result_id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__key_result_id
+msgid "Key Result"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_objective_view_form_inherit_cfr
+msgid "Kudos"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_recognition.py:0
+#, python-format
+msgid "Kudos from %(sender)s to %(receivers)s"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__write_uid
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__write_uid
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__write_uid
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__write_date
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__write_date
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__write_date
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_kanban
+msgid "Like"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__like_user_ids
+msgid "Liked By"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__liked_by_me
+msgid "Liked By Me"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__like_count
+msgid "Likes"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__manager_id
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_search
+msgid "Manager"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "Mark as Done"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__calendar_event_id
+msgid "Meeting"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "Meeting scheduled in the calendar."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__message
+msgid "Message"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__message_has_error
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__message_has_error
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__message_ids
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__message_ids
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
+msgid "Month"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__my_activity_date_deadline
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_search
+msgid "My requests"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_dashboard.py:0
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__name
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__name
+#, python-format
+msgid "Name"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_feedback.py:0
+#, python-format
+msgid "New feedback from %(author)s about %(recipient)s."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__activity_calendar_event_id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__activity_date_deadline
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__activity_summary
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__activity_type_id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__notes
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "Notes"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__message_needaction_counter
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__message_needaction_counter
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__message_has_error_counter
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__message_has_error_counter
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__message_needaction_counter
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__message_needaction_counter
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_recognition__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__message_has_error_counter
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__message_has_error_counter
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_recognition__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model,name:okr_scale_cfr.model_okr_scale_conversation
+msgid "OKR Conversation"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model,name:okr_scale_cfr.model_okr_scale_core_value
+msgid "OKR Core Value"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model,name:okr_scale_cfr.model_okr_scale_dashboard
+msgid "OKR Dashboard"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model,name:okr_scale_cfr.model_okr_scale_feedback
+msgid "OKR Feedback"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:mail.activity.type,name:okr_scale_cfr.mail_activity_okr_feedback
+msgid "OKR Feedback Request"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model,name:okr_scale_cfr.model_okr_scale_objective
+msgid "OKR Objective"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model,name:okr_scale_cfr.model_okr_scale_recognition
+msgid "OKR Recognition"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__objective_id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__objective_id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__objective_id
+msgid "Objective"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__objective_ids
+msgid "Objectives"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__objective_ids
+msgid "Objectives discussed during the conversation."
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_recognition.py:0
+#, python-format
+msgid "Only internal users can receive a recognition."
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_feedback.py:0
+#, python-format
+msgid "Only the author can give this feedback."
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_feedback.py:0
+#, python-format
+msgid "Operation not supported"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:okr.scale.core.value,name:okr_scale_cfr.core_value_ownership
+msgid "Ownership"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__recipient_id
+msgid "Person who receives the feedback."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_conversation_action
+msgid "Plan your first 1:1 conversation"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_conversation__state__planned
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_search
+msgid "Planned"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_feedback__feedback_type__praise
+msgid "Praise"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
+msgid "Private"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "Progress on OKRs"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_recognition__visibility
+msgid "Public recognitions are displayed on the wall of the whole company."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
+msgid "Received by me"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
+msgid "Receiver"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__recognition_count
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_objective__recognition_count
+msgid "Recognition Count"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.actions.act_window,name:okr_scale_cfr.okr_recognition_action
+#: model:ir.ui.menu,name:okr_scale_cfr.okr_menu_recognition
+msgid "Recognition Wall"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_dashboard.py:0
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_objective__recognition_ids
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_core_value_view_tree
+#, python-format
+msgid "Recognitions"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_dashboard.py:0
+#, python-format
+msgid "Recognitions (this cycle)"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_core_value_action
+msgid "Recognitions are tagged with the core values they illustrate."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_conversation_action
+msgid ""
+"Regular conversations between managers and team members keep OKRs alive:\n"
+"                review progress, remove blockers and talk about development."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__request_message
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__message
+msgid "Request"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.actions.act_window,name:okr_scale_cfr.okr_feedback_request_action
+#: model:ir.ui.menu,name:okr_scale_cfr.okr_menu_feedback_request
+msgid "Request Feedback"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model,name:okr_scale_cfr.model_okr_scale_feedback_request
+msgid "Request OKR Feedback"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_feedback__state__requested
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_search
+msgid "Requested"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__requested_by_id
+msgid "Requested By"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "Reset to Planned"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__activity_user_id
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__message_has_sms_error
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__message_has_sms_error
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_form
+msgid "Say thank you and tell what made the difference..."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "Schedule in Calendar"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_request_view_form
+msgid "Send Request"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
+msgid "Sender"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_recognition__visibility__private
+msgid "Sender and receivers"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_feedback_action
+msgid "Share continuous feedback"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__state
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__state
+msgid "State"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_search
+msgid "Status"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__activity_state
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_feedback__feedback_type__suggestion
+msgid "Suggestion"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "Support needed"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:okr.scale.core.value,name:okr_scale_cfr.core_value_teamwork
+msgid "Teamwork"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_recognition_action
+msgid ""
+"Thank a colleague for their help and link the recognition to a core value or"
+" an OKR."
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "The duration cannot be negative."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__anonymous
+msgid "The recipient will not see who wrote this feedback."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
+msgid "This Month"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__receiver_ids
+msgid "To"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_search
+msgid "To answer"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_dashboard.py:0
+#, python-format
+msgid "Top recognized people"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__feedback_type
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__feedback_type
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_search
+msgid "Type"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__activity_exception_decoration
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_form
+msgid "Unlike"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__visibility
+msgid "Visibility"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:okr.scale.core.value,description:okr_scale_cfr.core_value_integrity
+msgid "We are honest, transparent and keep our promises."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:okr.scale.core.value,description:okr_scale_cfr.core_value_teamwork
+msgid "We help each other and win together."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:okr.scale.core.value,description:okr_scale_cfr.core_value_customer
+msgid ""
+"We start from the needs of our customers and go the extra mile for them."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:okr.scale.core.value,description:okr_scale_cfr.core_value_ownership
+msgid "We take responsibility for our results and follow through."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:okr.scale.core.value,description:okr_scale_cfr.core_value_innovation
+msgid "We try new ideas, learn fast and keep improving."
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "What can I or the team do to help you?"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "What is slowing you down or keeping you from reaching your targets?"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "What was discussed..."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback_request__message
+msgid "What would you like to get feedback on?"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "What would you like to learn or grow into next?"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "Where do you stand on your key results since our last talk?"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_form
+msgid "Who do you want to thank?"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "Who does what, by when..."
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_feedback.py:0
+#, python-format
+msgid "Write your feedback before sending it."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_search
+msgid "Written by me"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_feedback.py:0
+#, python-format
+msgid "You cannot give feedback to yourself."
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_recognition.py:0
+#, python-format
+msgid "You cannot recognize yourself."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_request_view_form
+msgid "e.g. How did I handle the customer presentation last week?"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "e.g. Weekly 1:1"
+msgstr ""

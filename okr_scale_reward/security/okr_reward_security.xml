@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_point_transaction_rule_user" model="ir.rule">
+        <field name="name">Point transaction: own transactions</field>
+        <field name="model_id" ref="model_okr_scale_point_transaction"/>
+        <field name="groups" eval="[(4, ref('okr_scale.group_okr_user'))]"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+    </record>
+
+    <record id="okr_point_transaction_rule_admin" model="ir.rule">
+        <field name="name">Point transaction: all</field>
+        <field name="model_id" ref="model_okr_scale_point_transaction"/>
+        <field name="groups" eval="[(4, ref('okr_scale.group_okr_admin'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+    <record id="okr_redemption_rule_user" model="ir.rule">
+        <field name="name">Redemption: own redemptions</field>
+        <field name="model_id" ref="model_okr_scale_redemption"/>
+        <field name="groups" eval="[(4, ref('okr_scale.group_okr_user'))]"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+    </record>
+
+    <record id="okr_redemption_rule_admin" model="ir.rule">
+        <field name="name">Redemption: all</field>
+        <field name="model_id" ref="model_okr_scale_redemption"/>
+        <field name="groups" eval="[(4, ref('okr_scale.group_okr_admin'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+    <record id="okr_point_transaction_rule_company" model="ir.rule">
+        <field name="name">okr.scale.point.transaction: multi-company</field>
+        <field name="model_id" ref="model_okr_scale_point_transaction"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="okr_reward_item_rule_company" model="ir.rule">
+        <field name="name">okr.scale.reward.item: multi-company</field>
+        <field name="model_id" ref="model_okr_scale_reward_item"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="okr_redemption_rule_company" model="ir.rule">
+        <field name="name">okr.scale.redemption: multi-company</field>
+        <field name="model_id" ref="model_okr_scale_redemption"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>

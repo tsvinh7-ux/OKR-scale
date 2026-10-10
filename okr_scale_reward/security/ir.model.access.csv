@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_okr_scale_point_transaction_user,okr.scale.point.transaction group_okr_user,model_okr_scale_point_transaction,okr_scale.group_okr_user,1,0,0,0
+access_okr_scale_point_transaction_admin,okr.scale.point.transaction group_okr_admin,model_okr_scale_point_transaction,okr_scale.group_okr_admin,1,0,0,0
+access_okr_scale_reward_category_user,okr.scale.reward.category group_okr_user,model_okr_scale_reward_category,okr_scale.group_okr_user,1,0,0,0
+access_okr_scale_reward_category_admin,okr.scale.reward.category group_okr_admin,model_okr_scale_reward_category,okr_scale.group_okr_admin,1,1,1,1
+access_okr_scale_reward_item_user,okr.scale.reward.item group_okr_user,model_okr_scale_reward_item,okr_scale.group_okr_user,1,0,0,0
+access_okr_scale_reward_item_admin,okr.scale.reward.item group_okr_admin,model_okr_scale_reward_item,okr_scale.group_okr_admin,1,1,1,1
+access_okr_scale_redemption_user,okr.scale.redemption group_okr_user,model_okr_scale_redemption,okr_scale.group_okr_user,1,0,1,0
+access_okr_scale_redemption_admin,okr.scale.redemption group_okr_admin,model_okr_scale_redemption,okr_scale.group_okr_admin,1,1,1,1
+access_okr_scale_reward_redeem_user,okr.scale.reward.redeem group_okr_user,model_okr_scale_reward_redeem,okr_scale.group_okr_user,1,1,1,1
+access_okr_scale_point_grant_admin,okr.scale.point.grant group_okr_admin,model_okr_scale_point_grant,okr_scale.group_okr_admin,1,1,1,1

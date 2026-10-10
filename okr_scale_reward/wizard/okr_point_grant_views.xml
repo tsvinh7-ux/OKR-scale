@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_point_grant_view_form" model="ir.ui.view">
+        <field name="name">okr.scale.point.grant.form</field>
+        <field name="model">okr.scale.point.grant</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="user_ids" widget="many2many_avatar_user" options="{'no_create': True}"/>
+                    <field name="points"/>
+                    <field name="reason" placeholder="e.g. Winner of the innovation contest"/>
+                </group>
+                <footer>
+                    <button name="action_grant" type="object" string="Grant Points" class="btn-primary"/>
+                    <button special="cancel" string="Cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="okr_point_grant_action" model="ir.actions.act_window">
+        <field name="name">Grant Points</field>
+        <field name="res_model">okr.scale.point.grant</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

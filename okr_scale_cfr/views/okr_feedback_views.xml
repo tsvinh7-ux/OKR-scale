@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_feedback_view_tree" model="ir.ui.view">
+        <field name="name">okr.scale.feedback.tree</field>
+        <field name="model">okr.scale.feedback</field>
+        <field name="arch" type="xml">
+            <tree decoration-info="state == 'requested'" decoration-muted="state == 'draft'">
+                <field name="date"/>
+                <field name="author_display"/>
+                <field name="author_id" groups="okr_scale.group_okr_admin" optional="hide" widget="many2one_avatar_user"/>
+                <field name="recipient_id" widget="many2one_avatar_user"/>
+                <field name="feedback_type" widget="badge" decoration-success="feedback_type == 'praise'"
+                       decoration-warning="feedback_type == 'constructive'" decoration-info="feedback_type == 'suggestion'"/>
+                <field name="objective_id" optional="show"/>
+                <field name="requested_by_id" optional="hide"/>
+                <field name="anonymous" optional="hide"/>
+                <field name="state" widget="badge" decoration-info="state == 'requested'" decoration-success="state == 'given'"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="okr_feedback_view_form" model="ir.ui.view">
+        <field name="name">okr.scale.feedback.form</field>
+        <field name="model">okr.scale.feedback</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="is_author" invisible="1"/>
+                <header>
+                    <button name="action_give" type="object" string="Give Feedback" class="btn-primary"
+                            invisible="state == 'given' or not is_author"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,given"/>
+                </header>
+                <sheet>
+                    <div class="alert alert-info" role="alert" invisible="state != 'requested' or not request_message">
+                        <strong>Request: </strong><field name="request_message" class="d-inline"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="author_display" invisible="not id"/>
+                            <field name="author_id" groups="okr_scale.group_okr_admin" widget="many2one_avatar_user"
+                                   readonly="id"/>
+                            <field name="recipient_id" widget="many2one_avatar_user" options="{'no_create': True}"
+                                   readonly="state != 'draft'"/>
+                            <field name="feedback_type" widget="radio" readonly="state == 'given'"/>
+                            <field name="anonymous" readonly="state == 'given'"/>
+                        </group>
+                        <group>
+                            <field name="objective_id" options="{'no_create': True}" readonly="state != 'draft'"/>
+                            <field name="key_result_id" options="{'no_create': True}" readonly="state != 'draft'"/>
+                            <field name="requested_by_id" invisible="not requested_by_id"/>
+                            <field name="date"/>
+                            <field name="given_date" invisible="state != 'given'"/>
+                            <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                        </group>
+                    </group>
+                    <field name="content" readonly="state == 'given'"
+                           placeholder="Be specific: describe the situation, the behaviour and its impact..."/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="okr_feedback_view_search" model="ir.ui.view">
+        <field name="name">okr.scale.feedback.search</field>
+        <field name="model">okr.scale.feedback</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="recipient_id"/>
+                <field name="objective_id"/>
+                <field name="content"/>
+                <filter name="received" string="About me" domain="[('recipient_id', '=', uid), ('state', '=', 'given')]"/>
+                <filter name="given" string="Written by me" domain="[('is_author', '=', True)]"/>
+                <filter name="to_answer" string="To answer" domain="[('is_author', '=', True), ('state', '=', 'requested')]"/>
+                <filter name="my_requests" string="My requests" domain="[('requested_by_id', '=', uid)]"/>
+                <separator/>
+                <filter name="state_given" string="Given" domain="[('state', '=', 'given')]"/>
+                <filter name="state_requested" string="Requested" domain="[('state', '=', 'requested')]"/>
+                <filter name="date" string="Date" date="date"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_recipient" string="About" context="{'group_by': 'recipient_id'}"/>
+                    <filter name="group_type" string="Type" context="{'group_by': 'feedback_type'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="okr_feedback_action" model="ir.actions.act_window">
+        <field name="name">Feedback</field>
+        <field name="res_model">okr.scale.feedback</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Share continuous feedback</p>
+            <p>Give feedback to a colleague, or request feedback on your work and your OKRs.
+                Anonymous feedback never reveals its author to the recipient.</p>
+        </field>
+    </record>
+</odoo>

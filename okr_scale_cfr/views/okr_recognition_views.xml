@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_recognition_view_kanban" model="ir.ui.view">
+        <field name="name">okr.scale.recognition.kanban</field>
+        <field name="model">okr.scale.recognition</field>
+        <field name="arch" type="xml">
+            <kanban class="o_okr_recognition_wall" default_order="date desc, id desc" quick_create="false">
+                <field name="id"/>
+                <field name="sender_id"/>
+                <field name="visibility"/>
+                <field name="liked_by_me"/>
+                <field name="like_count"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_content">
+                                <div class="o_kanban_record_top mb-2">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <field name="sender_id" widget="many2one_avatar_user"/>
+                                        <i class="fa fa-long-arrow-right text-muted" title="To"/>
+                                        <field name="receiver_ids" widget="many2many_avatar_user"/>
+                                    </div>
+                                    <span class="ms-auto text-muted small"><field name="date" widget="date"/></span>
+                                </div>
+                                <div class="o_kanban_record_body">
+                                    <div name="okr_recognition_badges" class="mb-1">
+                                        <span t-if="record.visibility.raw_value == 'private'" class="badge text-bg-secondary me-1">
+                                            <i class="fa fa-lock" title="Private"/> Private
+                                        </span>
+                                    </div>
+                                    <field name="message"/>
+                                    <field name="core_value_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                    <div t-if="record.objective_id.raw_value" class="text-muted small">
+                                        <i class="fa fa-bullseye me-1" title="Objective"/><field name="objective_id"/>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_record_bottom mt-2">
+                                    <div class="oe_kanban_bottom_left">
+                                        <button name="action_toggle_like" type="object" class="btn btn-sm btn-link p-0">
+                                            <i t-attf-class="fa {{ record.liked_by_me.raw_value ? 'fa-heart text-danger' : 'fa-heart-o' }}" title="Like"/>
+                                            <span class="ms-1" t-esc="record.like_count.value"/>
+                                        </button>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="okr_recognition_view_tree" model="ir.ui.view">
+        <field name="name">okr.scale.recognition.tree</field>
+        <field name="model">okr.scale.recognition</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date"/>
+                <field name="sender_id" widget="many2one_avatar_user"/>
+                <field name="receiver_ids" widget="many2many_avatar_user"/>
+                <field name="core_value_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="objective_id" optional="show"/>
+                <field name="key_result_id" optional="hide"/>
+                <field name="visibility" optional="show"/>
+                <field name="like_count" optional="show"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="okr_recognition_view_form" model="ir.ui.view">
+        <field name="name">okr.scale.recognition.form</field>
+        <field name="model">okr.scale.recognition</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_toggle_like" type="object" string="Like" icon="fa-heart-o"
+                            invisible="not id or liked_by_me"/>
+                    <button name="action_toggle_like" type="object" string="Unlike" icon="fa-heart"
+                            invisible="not id or not liked_by_me"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="sender_id" widget="many2one_avatar_user"/>
+                            <field name="receiver_ids" widget="many2many_avatar_user" options="{'no_create': True}"
+                                   placeholder="Who do you want to thank?"/>
+                            <field name="core_value_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create': True}"/>
+                        </group>
+                        <group name="okr_links">
+                            <field name="objective_id" options="{'no_create': True}"/>
+                            <field name="key_result_id" options="{'no_create': True}"/>
+                            <field name="visibility" widget="radio"/>
+                            <field name="date"/>
+                            <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                        </group>
+                    </group>
+                    <field name="message" placeholder="Say thank you and tell what made the difference..."/>
+                    <group invisible="not id">
+                        <field name="liked_by_me" invisible="1"/>
+                        <field name="like_count"/>
+                        <field name="like_user_ids" widget="many2many_avatar_user"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="okr_recognition_view_search" model="ir.ui.view">
+        <field name="name">okr.scale.recognition.search</field>
+        <field name="model">okr.scale.recognition</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="receiver_ids"/>
+                <field name="sender_id"/>
+                <field name="core_value_ids"/>
+                <field name="objective_id"/>
+                <field name="message"/>
+                <filter name="received" string="Received by me" domain="[('receiver_ids', 'in', [uid])]"/>
+                <filter name="given" string="Given by me" domain="[('sender_id', '=', uid)]"/>
+                <separator/>
+                <filter name="this_month" string="This Month"
+                        domain="[('date', '&gt;=', (context_today() + relativedelta(day=1)).strftime('%Y-%m-%d'))]"/>
+                <filter name="date" string="Date" date="date"/>
+                <separator/>
+                <filter name="private" string="Private" domain="[('visibility', '=', 'private')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_core_value" string="Core Value" context="{'group_by': 'core_value_ids'}"/>
+                    <filter name="group_receiver" string="Receiver" context="{'group_by': 'receiver_ids'}"/>
+                    <filter name="group_sender" string="Sender" context="{'group_by': 'sender_id'}"/>
+                    <filter name="group_date" string="Month" context="{'group_by': 'date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="okr_recognition_action" model="ir.actions.act_window">
+        <field name="name">Recognition Wall</field>
+        <field name="res_model">okr.scale.recognition</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Give your first kudos</p>
+            <p>Thank a colleague for their help and link the recognition to a core value or an OKR.</p>
+        </field>
+    </record>
+</odoo>

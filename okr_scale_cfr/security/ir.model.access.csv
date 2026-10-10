@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_okr_scale_core_value_user,okr.scale.core.value group_okr_user,model_okr_scale_core_value,okr_scale.group_okr_user,1,0,0,0
+access_okr_scale_core_value_admin,okr.scale.core.value group_okr_admin,model_okr_scale_core_value,okr_scale.group_okr_admin,1,1,1,1
+access_okr_scale_recognition_user,okr.scale.recognition group_okr_user,model_okr_scale_recognition,okr_scale.group_okr_user,1,1,1,1
+access_okr_scale_recognition_admin,okr.scale.recognition group_okr_admin,model_okr_scale_recognition,okr_scale.group_okr_admin,1,1,1,1
+access_okr_scale_feedback_user,okr.scale.feedback group_okr_user,model_okr_scale_feedback,okr_scale.group_okr_user,1,1,1,1
+access_okr_scale_feedback_admin,okr.scale.feedback group_okr_admin,model_okr_scale_feedback,okr_scale.group_okr_admin,1,1,1,1
+access_okr_scale_feedback_request_user,okr.scale.feedback.request group_okr_user,model_okr_scale_feedback_request,okr_scale.group_okr_user,1,1,1,1
+access_okr_scale_conversation_user,okr.scale.conversation group_okr_user,model_okr_scale_conversation,okr_scale.group_okr_user,1,1,0,0
+access_okr_scale_conversation_manager,okr.scale.conversation group_okr_manager,model_okr_scale_conversation,okr_scale.group_okr_manager,1,1,1,1
+access_okr_scale_conversation_admin,okr.scale.conversation group_okr_admin,model_okr_scale_conversation,okr_scale.group_okr_admin,1,1,1,1

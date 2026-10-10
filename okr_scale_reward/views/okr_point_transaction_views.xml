@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_point_transaction_view_tree" model="ir.ui.view">
+        <field name="name">okr.scale.point.transaction.tree</field>
+        <field name="model">okr.scale.point.transaction</field>
+        <field name="arch" type="xml">
+            <tree create="false" edit="false" delete="false" decoration-danger="points &lt; 0" decoration-success="points &gt; 0">
+                <field name="date"/>
+                <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="transaction_type" widget="badge"/>
+                <field name="description"/>
+                <field name="source_ref" optional="hide"/>
+                <field name="created_by_id" optional="hide" widget="many2one_avatar_user"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+                <field name="points" sum="Balance"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="okr_point_transaction_view_form" model="ir.ui.view">
+        <field name="name">okr.scale.point.transaction.form</field>
+        <field name="model">okr.scale.point.transaction</field>
+        <field name="arch" type="xml">
+            <form create="false" edit="false" delete="false">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="user_id" widget="many2one_avatar_user"/>
+                            <field name="points"/>
+                            <field name="transaction_type"/>
+                            <field name="description"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                            <field name="source_ref"/>
+                            <field name="created_by_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="okr_point_transaction_view_search" model="ir.ui.view">
+        <field name="name">okr.scale.point.transaction.search</field>
+        <field name="model">okr.scale.point.transaction</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="user_id"/>
+                <field name="description"/>
+                <filter name="earned" string="Earned" domain="[('points', '&gt;', 0), ('transaction_type', 'not in', ('redemption', 'refund'))]"/>
+                <filter name="spent" string="Spent" domain="[('transaction_type', 'in', ('redemption', 'refund'))]"/>
+                <separator/>
+                <filter name="this_month" string="This Month"
+                        domain="[('date', '&gt;=', (context_today() + relativedelta(day=1)).strftime('%Y-%m-%d'))]"/>
+                <filter name="date" string="Date" date="date"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_user" string="User" context="{'group_by': 'user_id'}"/>
+                    <filter name="group_type" string="Type" context="{'group_by': 'transaction_type'}"/>
+                    <filter name="group_month" string="Month" context="{'group_by': 'date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="okr_point_transaction_view_graph" model="ir.ui.view">
+        <field name="name">okr.scale.point.transaction.graph</field>
+        <field name="model">okr.scale.point.transaction</field>
+        <field name="arch" type="xml">
+            <graph type="bar" order="desc">
+                <field name="user_id"/>
+                <field name="points" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="okr_point_transaction_view_pivot" model="ir.ui.view">
+        <field name="name">okr.scale.point.transaction.pivot</field>
+        <field name="model">okr.scale.point.transaction</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="user_id" type="row"/>
+                <field name="transaction_type" type="col"/>
+                <field name="points" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="okr_point_transaction_action_my" model="ir.actions.act_window">
+        <field name="name">My Points</field>
+        <field name="res_model">okr.scale.point.transaction</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('user_id', '=', uid)]</field>
+        <field name="context">{'create': False}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No points yet</p>
+            <p>Earn points with recognitions from your colleagues, regular check-ins and achieved OKRs,
+                then exchange them for gifts in the reward store. The total of the list is your balance.</p>
+        </field>
+    </record>
+
+    <record id="okr_point_transaction_action" model="ir.actions.act_window">
+        <field name="name">Point Transactions</field>
+        <field name="res_model">okr.scale.point.transaction</field>
+        <field name="view_mode">tree,pivot,graph,form</field>
+        <field name="context">{'create': False}</field>
+    </record>
+
+    <record id="okr_point_transaction_action_leaderboard" model="ir.actions.act_window">
+        <field name="name">Leaderboard</field>
+        <field name="res_model">okr.scale.point.transaction</field>
+        <field name="view_mode">graph,pivot,tree</field>
+        <field name="domain">[('points', '&gt;', 0), ('transaction_type', 'not in', ('redemption', 'refund'))]</field>
+        <field name="context">{'search_default_this_month': 1, 'create': False}</field>
+    </record>
+</odoo>

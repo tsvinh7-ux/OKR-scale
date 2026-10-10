@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="mail_activity_okr_feedback" model="mail.activity.type">
+            <field name="name">OKR Feedback Request</field>
+            <field name="summary">Give feedback</field>
+            <field name="icon">fa-comments</field>
+            <field name="res_model">okr.scale.feedback</field>
+            <field name="delay_count">7</field>
+        </record>
+
+        <record id="core_value_customer" model="okr.scale.core.value">
+            <field name="name">Customer First</field>
+            <field name="description">We start from the needs of our customers and go the extra mile for them.</field>
+            <field name="icon">🎯</field>
+            <field name="color">1</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="core_value_ownership" model="okr.scale.core.value">
+            <field name="name">Ownership</field>
+            <field name="description">We take responsibility for our results and follow through.</field>
+            <field name="icon">💪</field>
+            <field name="color">2</field>
+            <field name="sequence">2</field>
+        </record>
+        <record id="core_value_teamwork" model="okr.scale.core.value">
+            <field name="name">Teamwork</field>
+            <field name="description">We help each other and win together.</field>
+            <field name="icon">🤝</field>
+            <field name="color">4</field>
+            <field name="sequence">3</field>
+        </record>
+        <record id="core_value_innovation" model="okr.scale.core.value">
+            <field name="name">Innovation</field>
+            <field name="description">We try new ideas, learn fast and keep improving.</field>
+            <field name="icon">💡</field>
+            <field name="color">3</field>
+            <field name="sequence">4</field>
+        </record>
+        <record id="core_value_integrity" model="okr.scale.core.value">
+            <field name="name">Integrity</field>
+            <field name="description">We are honest, transparent and keep our promises.</field>
+            <field name="icon">🛡️</field>
+            <field name="color">10</field>
+            <field name="sequence">5</field>
+        </record>
+    </data>
+</odoo>

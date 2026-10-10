@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_redemption_view_tree" model="ir.ui.view">
+        <field name="name">okr.scale.redemption.tree</field>
+        <field name="model">okr.scale.redemption</field>
+        <field name="arch" type="xml">
+            <tree create="false" decoration-muted="state in ('rejected', 'cancelled')" decoration-info="state == 'requested'">
+                <field name="name"/>
+                <field name="request_date"/>
+                <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="item_id"/>
+                <field name="quantity"/>
+                <field name="points" sum="Total"/>
+                <field name="activity_ids" widget="list_activity" optional="show"/>
+                <field name="state" widget="badge" decoration-info="state == 'requested'" decoration-warning="state == 'approved'"
+                       decoration-success="state == 'delivered'" decoration-danger="state == 'rejected'"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="okr_redemption_view_form" model="ir.ui.view">
+        <field name="name">okr.scale.redemption.form</field>
+        <field name="model">okr.scale.redemption</field>
+        <field name="arch" type="xml">
+            <form create="false">
+                <header>
+                    <button name="action_approve" type="object" string="Approve" class="btn-primary"
+                            invisible="state != 'requested'" groups="okr_scale.group_okr_admin"/>
+                    <button name="action_deliver" type="object" string="Mark as Delivered" class="btn-primary"
+                            invisible="state != 'approved'" groups="okr_scale.group_okr_admin"/>
+                    <button name="action_reject" type="object" string="Reject" invisible="state not in ('requested', 'approved')"
+                            groups="okr_scale.group_okr_admin"
+                            confirm="The points will be refunded to the employee. Continue?"/>
+                    <button name="action_cancel" type="object" string="Cancel Request" invisible="state != 'requested'"
+                            confirm="Cancel this request? Your points will be refunded."/>
+                    <field name="state" widget="statusbar" statusbar_visible="requested,approved,delivered"/>
+                </header>
+                <sheet>
+                    <field name="image_128" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="user_id" widget="many2one_avatar_user"/>
+                            <field name="item_id"/>
+                            <field name="quantity"/>
+                            <field name="points"/>
+                        </group>
+                        <group>
+                            <field name="request_date"/>
+                            <field name="approver_id" invisible="not approver_id"/>
+                            <field name="approve_date" invisible="not approve_date"/>
+                            <field name="deliver_date" invisible="not deliver_date"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="note" readonly="1"/>
+                        <field name="reason" readonly="state not in ('requested', 'approved')"
+                               invisible="state not in ('requested', 'approved', 'rejected')"
+                               groups="okr_scale.group_okr_admin"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="okr_redemption_view_search" model="ir.ui.view">
+        <field name="name">okr.scale.redemption.search</field>
+        <field name="model">okr.scale.redemption</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="item_id"/>
+                <filter name="to_process" string="To Process" domain="[('state', 'in', ('requested', 'approved'))]"/>
+                <filter name="requested" string="Requested" domain="[('state', '=', 'requested')]"/>
+                <filter name="approved" string="Approved" domain="[('state', '=', 'approved')]"/>
+                <filter name="delivered" string="Delivered" domain="[('state', '=', 'delivered')]"/>
+                <separator/>
+                <filter name="request_date" string="Request Date" date="request_date"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_user" string="Employee" context="{'group_by': 'user_id'}"/>
+                    <filter name="group_item" string="Reward" context="{'group_by': 'item_id'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="okr_redemption_action_my" model="ir.actions.act_window">
+        <field name="name">My Redemptions</field>
+        <field name="res_model">okr.scale.redemption</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('user_id', '=', uid)]</field>
+        <field name="context">{'create': False}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No redemption yet</p>
+            <p>Pick a gift in the reward store and redeem it with your points.</p>
+        </field>
+    </record>
+
+    <record id="okr_redemption_action_all" model="ir.actions.act_window">
+        <field name="name">All Redemptions</field>
+        <field name="res_model">okr.scale.redemption</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_to_process': 1, 'create': False}</field>
+    </record>
+</odoo>
