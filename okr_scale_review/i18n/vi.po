@@ -1,0 +1,1549 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* okr_scale_review
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-10 17:21+0000\n"
+"PO-Revision-Date: 2026-10-10 17:21+0000\n"
+"Last-Translator: DMAG\n"
+"Language-Team: Vietnamese\n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#, python-format
+msgid "%s objective(s) in the red zone need attention."
+msgstr "%s mục tiêu trong vùng đỏ cần được xử lý."
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "/ target"
+msgstr "/ mục tiêu"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,help:okr_scale_review.field_okr_scale_review__snapshot_avg_score
+msgid ""
+"0.0 - 1.0. Final score of graded objectives; during the cycle, projected "
+"score of running ones (progress / time elapsed)."
+msgstr ""
+"0.0 - 1.0. Điểm chốt của các mục tiêu đã chấm; trong chu kỳ là điểm dự phóng"
+" của mục tiêu đang chạy (tiến độ / thời gian đã qua)."
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#, python-format
+msgid ""
+"0.6 - 0.7 is a success for a stretch goal; a steady 1.0 means the bar was "
+"too low."
+msgstr ""
+"0.6 - 0.7 là thành công với mục tiêu thách thức; luôn đạt 1.0 nghĩa là đặt "
+"mục tiêu quá thấp."
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "<i class=\"fa fa-check-square-o me-2\"/>Decisions &amp; Next Actions"
+msgstr ""
+"<i class=\"fa fa-check-square-o me-2\"/>Quyết định &amp; Hành động tiếp theo"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "<i class=\"fa fa-lightbulb-o me-2\"/>Lessons Learned"
+msgstr "<i class=\"fa fa-lightbulb-o me-2\"/>Bài học kinh nghiệm"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "<i class=\"fa fa-thumbs-o-up me-2\"/>What Went Well"
+msgstr "<i class=\"fa fa-thumbs-o-up me-2\"/>Điều làm tốt"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "<i class=\"fa fa-wrench me-2\"/>What To Improve"
+msgstr "<i class=\"fa fa-wrench me-2\"/>Điều cần cải thiện"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid ""
+"<span class=\"o_okr_review_snap_hint\">&lt; 0.4 · 0.4 - 0.69 · ≥ 0.7</span>"
+msgstr ""
+"<span class=\"o_okr_review_snap_hint\">&lt; 0.4 · 0.4 - 0.69 · ≥ 0.7</span>"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "<span class=\"o_okr_review_snap_hint\">0.0 - 1.0 · 0.7 = sweet spot</span>"
+msgstr "<span class=\"o_okr_review_snap_hint\">0.0 - 1.0 · 0.7 = điểm ngọt</span>"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "<span class=\"o_okr_review_snap_label\">Average Progress</span>"
+msgstr "<span class=\"o_okr_review_snap_label\">Tiến độ trung bình</span>"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "<span class=\"o_okr_review_snap_label\">Average Score</span>"
+msgstr "<span class=\"o_okr_review_snap_label\">Điểm trung bình</span>"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "<span class=\"o_okr_review_snap_label\">Key Results Achieved</span>"
+msgstr "<span class=\"o_okr_review_snap_label\">KR đã đạt</span>"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "<span class=\"o_okr_review_snap_label\">Score Bands</span>"
+msgstr "<span class=\"o_okr_review_snap_label\">Dải điểm</span>"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "<span class=\"o_okr_review_snap_label\">Status</span>"
+msgstr "<span class=\"o_okr_review_snap_label\">Tình trạng</span>"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "<span>Figures updated on</span>"
+msgstr "<span>Số liệu cập nhật lúc</span>"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "<span>· they are frozen when the review is closed.</span>"
+msgstr "<span>· số liệu được chốt khi kết thúc buổi đánh giá.</span>"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#, python-format
+msgid "A difficult cycle"
+msgstr "Một chu kỳ khó khăn"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#, python-format
+msgid "A successful cycle"
+msgstr "Một chu kỳ thành công"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__snapshot_achieved
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "Achieved"
+msgstr "Đã đạt"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__message_needaction
+msgid "Action Needed"
+msgstr "Tác vụ cần thiết"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_cycle__activity_ids
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__activity_ids
+msgid "Activities"
+msgstr "Hoạt động"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_cycle__activity_exception_decoration
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Hoạt động ngoại lệ"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_cycle__activity_state
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__activity_state
+msgid "Activity State"
+msgstr "Trạng thái hoạt động"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_cycle__activity_type_icon
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Biểu tượng loại hoạt động"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__snapshot_at_risk
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "At Risk"
+msgstr "Có rủi ro"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__message_attachment_count
+msgid "Attachment Count"
+msgstr "Số lượng tệp đính kèm"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__snapshot_avg_progress
+msgid "Average Progress"
+msgstr "Tiến độ trung bình"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__snapshot_avg_score
+msgid "Average Score"
+msgstr "Điểm trung bình"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Average progress"
+msgstr "Tiến độ trung bình"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_carry_over_view_form
+msgid "Cancel"
+msgstr "Huỷ"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Carried"
+msgstr "Đã chuyển"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_key_result__carried_from_id
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_objective__carried_from_id
+msgid "Carried Over From"
+msgstr "Chuyển tiếp từ"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_key_result__carried_to_ids
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_objective__carried_to_ids
+msgid "Carried Over To"
+msgstr "Đã chuyển sang"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/wizard/okr_carry_over.py:0
+#, python-format
+msgid "Carried over from %(objective)s (cycle %(cycle)s)."
+msgstr "Chuyển tiếp từ %(objective)s (chu kỳ %(cycle)s)."
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/wizard/okr_carry_over.py:0
+#, python-format
+msgid "Carried over to %s"
+msgstr "Đã chuyển sang %s"
+
+#. module: okr_scale_review
+#: model:ir.model,name:okr_scale_review.model_okr_scale_carry_over
+msgid "Carry Key Results Over to the Next Cycle"
+msgstr "Chuyển KR sang chu kỳ tiếp theo"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_carry_over_view_form
+msgid "Carry Over"
+msgstr "Chuyển tiếp"
+
+#. module: okr_scale_review
+#: model:ir.actions.act_window,name:okr_scale_review.okr_carry_over_action
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_carry_over_view_form
+msgid "Carry Over to the Next Cycle"
+msgstr "Chuyển sang chu kỳ tiếp theo"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Carry over to next cycle"
+msgstr "Chuyển sang chu kỳ sau"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Carry over unfinished key results"
+msgstr "Chuyển tiếp các KR chưa hoàn thành"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Check-in discipline"
+msgstr "Kỷ luật check-in"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review.py:0
+#, python-format
+msgid "Choose a cycle first."
+msgstr "Hãy chọn một chu kỳ trước."
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/wizard/okr_carry_over.py:0
+#, python-format
+msgid "Choose another cycle to carry the key results over to."
+msgstr "Hãy chọn một chu kỳ khác để chuyển các KR sang."
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "Close Review"
+msgstr "Kết thúc đánh giá"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Colors:"
+msgstr "Màu:"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#, python-format
+msgid ""
+"Committed objectives are promises: anything below 1.0 must be explained."
+msgstr ""
+"Mục tiêu cam kết là lời hứa: mọi kết quả dưới 1.0 đều cần được giải thích."
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Committed vs aspirational"
+msgstr "Cam kết và thách thức"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__company_id
+msgid "Company"
+msgstr "Công ty"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review.py:0
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_search
+#, python-format
+msgid "Company-wide"
+msgstr "Toàn công ty"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_carry_over__create_uid
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_carry_over__create_date
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__create_date
+msgid "Created on"
+msgstr "Được tạo vào"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_carry_over_view_form
+msgid "Current (new start)"
+msgstr "Hiện tại (khởi điểm mới)"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__cycle_id
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_search
+#, python-format
+msgid "Cycle"
+msgstr "Chu kỳ"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/wizard/okr_carry_over.py:0
+#, python-format
+msgid "Cycle %s is closed."
+msgstr "Chu kỳ %s đã đóng."
+
+#. module: okr_scale_review
+#. odoo-javascript
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_cycle.py:0
+#: code:addons/okr_scale_review/models/okr_review.py:0
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#: model:ir.actions.client,name:okr_scale_review.okr_cycle_review_action
+#: model:ir.ui.menu,name:okr_scale_review.okr_menu_cycle_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_cycle_view_form_review
+#, python-format
+msgid "Cycle Review"
+msgstr "Đánh giá chu kỳ"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Cycle ended"
+msgstr "Chu kỳ đã kết thúc"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "DMAG"
+msgstr "DMAG"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "DMAG · OKR · Cycle Review"
+msgstr "DMAG · OKR · Đánh giá chu kỳ"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__date
+msgid "Date"
+msgstr "Ngày"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__decisions
+msgid "Decisions & Next Actions"
+msgstr "Quyết định & Hành động tiếp theo"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid ""
+"Delivered · 0.7 = sweet spot for aspirational, 1.0 expected for committed"
+msgstr "Đạt · 0.7 = điểm ngọt cho mục tiêu thách thức, cam kết cần đạt 1.0"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__department_id
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_search
+#, python-format
+msgid "Department"
+msgstr "Phòng ban"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Departments at a glance"
+msgstr "Toàn cảnh các phòng ban"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_carry_over__display_name
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: okr_scale_review
+#: model:ir.model.fields.selection,name:okr_scale_review.selection__okr_scale_review__state__done
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_search
+msgid "Done"
+msgstr "Hoàn tất"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_carry_over_view_form
+msgid ""
+"Each objective is copied once into the target cycle as a <b>draft</b>, with the selected key results.\n"
+"                    Their new start value is the current value reached, the target is unchanged."
+msgstr ""
+"Mỗi mục tiêu được sao chép một lần sang chu kỳ đích ở trạng thái <b>nháp</b>, kèm các KR đã chọn.\n"
+"                    Giá trị khởi điểm mới là giá trị hiện tại đã đạt, chỉ tiêu giữ nguyên."
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#, python-format
+msgid "Early in the cycle: projections are only indicative."
+msgstr "Đầu chu kỳ: điểm dự phóng chỉ mang tính tham khảo."
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#: model:ir.model.fields.selection,name:okr_scale_review.selection__okr_scale_review__review_type__final
+#: model:mail.activity.type,summary:okr_scale_review.mail_activity_okr_final_review
+#, python-format
+msgid "End-of-cycle retrospective"
+msgstr "Nhìn lại cuối chu kỳ"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#, python-format
+msgid "Every commitment is delivered."
+msgstr "Mọi cam kết đều đã hoàn thành."
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Every key result is achieved."
+msgstr "Mọi KR đều đã đạt."
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Every objective reaches the sweet spot."
+msgstr "Mọi mục tiêu đều đạt điểm ngọt."
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__facilitator_id
+msgid "Facilitator"
+msgstr "Người điều phối"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__snapshot_date
+msgid "Figures Updated On"
+msgstr "Số liệu cập nhật lúc"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Final"
+msgstr "Chốt"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_cycle__final_review_reminded
+msgid "Final Review Reminded"
+msgstr "Đã nhắc đánh giá cuối chu kỳ"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.js:0
+#, python-format
+msgid "Final grade of closed objectives, progress ÷ 100 for the others."
+msgstr ""
+"Điểm chốt của mục tiêu đã đóng, tiến độ ÷ 100 với các mục tiêu còn lại."
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_cycle.py:0
+#, python-format
+msgid "Final review: %s"
+msgstr "Đánh giá cuối chu kỳ: %s"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__message_follower_ids
+msgid "Followers"
+msgstr "Người theo dõi"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Người theo dõi (Đối tác)"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,help:okr_scale_review.field_okr_scale_cycle__activity_type_icon
+#: model:ir.model.fields,help:okr_scale_review.field_okr_scale_review__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Font biểu tượng, ví dụ: fa-tasks"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_carry_over__source_cycle_id
+msgid "From Cycle"
+msgstr "Từ chu kỳ"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#, python-format
+msgid "Good progress, but the average score stays under 0.7."
+msgstr "Có tiến triển tốt nhưng điểm trung bình vẫn dưới 0.7."
+
+#. module: okr_scale_review
+#: model:ir.model.fields.selection,name:okr_scale_review.selection__okr_scale_review__snapshot_band__green
+msgid "Green"
+msgstr "Xanh"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_search
+msgid "Group By"
+msgstr "Nhóm theo"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_cycle.py:0
+#, python-format
+msgid ""
+"Half of the cycle is over: look back at the scores, unblock what is off "
+"track and adjust the plan with your team."
+msgstr ""
+"Đã qua một nửa chu kỳ: cùng đội nhóm nhìn lại điểm số, gỡ vướng cho các mục "
+"tiêu chệch hướng và điều chỉnh kế hoạch."
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__has_message
+msgid "Has Message"
+msgstr "Có tin nhắn"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#, python-format
+msgid "Heading to a great cycle"
+msgstr "Đang hướng tới một chu kỳ tuyệt vời"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Highlights"
+msgstr "Điểm sáng"
+
+#. module: okr_scale_review
+#: model_terms:ir.actions.act_window,help:okr_scale_review.okr_review_action
+msgid ""
+"Hold a mid-cycle review to adjust the course, and an end-of-cycle retrospective to grade the\n"
+"               objectives, share lessons learned and carry unfinished key results over."
+msgstr ""
+"Tổ chức đánh giá giữa chu kỳ để điều chỉnh hướng đi, và buổi nhìn lại cuối chu kỳ để chấm điểm\n"
+"               mục tiêu, chia sẻ bài học kinh nghiệm và chuyển tiếp các KR chưa hoàn thành."
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_search
+msgid "I take part"
+msgstr "Tôi tham gia"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_carry_over__id
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__id
+msgid "ID"
+msgstr "ID"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_cycle__activity_exception_icon
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__activity_exception_icon
+msgid "Icon"
+msgstr "Biểu tượng"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,help:okr_scale_review.field_okr_scale_cycle__activity_exception_icon
+#: model:ir.model.fields,help:okr_scale_review.field_okr_scale_review__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Biểu tượng cho thấy một hoạt động ngoại lệ."
+
+#. module: okr_scale_review
+#: model:ir.model.fields,help:okr_scale_review.field_okr_scale_review__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Nếu chọn, bạn cần chú ý tới các tin nhắn mới."
+
+#. module: okr_scale_review
+#: model:ir.model.fields,help:okr_scale_review.field_okr_scale_review__message_has_error
+#: model:ir.model.fields,help:okr_scale_review.field_okr_scale_review__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Nếu chọn, một số tin nhắn sẽ có lỗi gửi."
+
+#. module: okr_scale_review
+#: model:ir.model.fields.selection,name:okr_scale_review.selection__okr_scale_review__state__draft
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_search
+msgid "In Progress"
+msgstr "Đang thực hiện"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__message_is_follower
+msgid "Is Follower"
+msgstr "Là người theo dõi"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_carry_over__key_result_ids
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__snapshot_kr_count
+msgid "Key Results"
+msgstr "Kết quả then chốt"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__snapshot_kr_achieved
+msgid "Key Results Achieved"
+msgstr "KR đã đạt"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Key results achieved"
+msgstr "KR đã đạt"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/wizard/okr_carry_over.py:0
+#, python-format
+msgid "Key results added from %(objective)s (cycle %(cycle)s)."
+msgstr "Đã thêm KR từ %(objective)s (chu kỳ %(cycle)s)."
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/wizard/okr_carry_over.py:0
+#, python-format
+msgid "Key results carried over to cycle %s:"
+msgstr "Các KR đã được chuyển sang chu kỳ %s:"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_carry_over__write_uid
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_carry_over__write_date
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,help:okr_scale_review.field_okr_scale_review__department_id
+msgid ""
+"Leave empty for a company-wide review. A department review covers its sub-"
+"departments too."
+msgstr ""
+"Để trống cho buổi đánh giá toàn công ty. Đánh giá phòng ban bao gồm cả các "
+"phòng ban con."
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#, python-format
+msgid "Lesson learned"
+msgstr "Bài học"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__lessons
+msgid "Lessons Learned"
+msgstr "Bài học kinh nghiệm"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Lowest scores under 0.7"
+msgstr "Điểm thấp nhất dưới 0.7"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__message_has_error
+msgid "Message Delivery error"
+msgstr "Lỗi gửi tin nhắn"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__message_ids
+msgid "Messages"
+msgstr "Tin nhắn"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_search
+msgid "Mid-cycle"
+msgstr "Giữa chu kỳ"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_cycle__mid_review_reminded
+msgid "Mid-cycle Review Reminded"
+msgstr "Đã nhắc đánh giá giữa chu kỳ"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#: model:ir.model.fields.selection,name:okr_scale_review.selection__okr_scale_review__review_type__mid
+#: model:mail.activity.type,summary:okr_scale_review.mail_activity_okr_mid_review
+#, python-format
+msgid "Mid-cycle review"
+msgstr "Đánh giá giữa chu kỳ"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_cycle.py:0
+#, python-format
+msgid "Mid-cycle review: %s"
+msgstr "Đánh giá giữa chu kỳ: %s"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_cycle__my_activity_date_deadline
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Thời hạn hoạt động của tôi"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__name
+msgid "Name"
+msgstr "Tên"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Needs attention"
+msgstr "Vấn đề cần xử lý"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "New end-of-cycle retrospective"
+msgstr "Tạo buổi nhìn lại cuối chu kỳ"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "New mid-cycle review"
+msgstr "Tạo buổi đánh giá giữa chu kỳ"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_cycle__activity_date_deadline
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Thời hạn cho hoạt động tiếp theo"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_cycle__activity_summary
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__activity_summary
+msgid "Next Activity Summary"
+msgstr "Tóm tắt hoạt động tiếp theo"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_cycle__activity_type_id
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__activity_type_id
+msgid "Next Activity Type"
+msgstr "Loại hoạt động tiếp theo"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Next cycle:"
+msgstr "Chu kỳ sau:"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "No department objectives in this scope."
+msgstr "Không có mục tiêu phòng ban trong phạm vi này."
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "No next cycle yet: create it first"
+msgstr "Chưa có chu kỳ sau: hãy tạo trước"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#, python-format
+msgid "No objective of this type."
+msgstr "Không có mục tiêu loại này."
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "No review meeting for this cycle yet."
+msgstr "Chưa có buổi đánh giá nào cho chu kỳ này."
+
+#. module: okr_scale_review
+#: model_terms:ir.actions.act_window,help:okr_scale_review.okr_review_action
+msgid "No review meeting yet"
+msgstr "Chưa có buổi đánh giá nào"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "No running or closed cycle yet."
+msgstr "Chưa có chu kỳ đang chạy hoặc đã đóng."
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#, python-format
+msgid "No running or closed objective in this scope."
+msgstr "Không có mục tiêu đang chạy hoặc đã đóng trong phạm vi này."
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#, python-format
+msgid "Nothing to review yet"
+msgstr "Chưa có gì để đánh giá"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Nothing to show yet."
+msgstr "Chưa có dữ liệu."
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Số lượng tác vụ"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__message_has_error_counter
+msgid "Number of errors"
+msgstr "Số lượng lỗi"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,help:okr_scale_review.field_okr_scale_review__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Số tin nhắn cần xử lý"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,help:okr_scale_review.field_okr_scale_review__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Số tin nhắn bị gửi lỗi"
+
+#. module: okr_scale_review
+#: model:ir.model,name:okr_scale_review.model_okr_scale_cycle
+msgid "OKR Cycle"
+msgstr "Chu kỳ OKR"
+
+#. module: okr_scale_review
+#: model:ir.model,name:okr_scale_review.model_okr_scale_review
+msgid "OKR Cycle Review"
+msgstr "Đánh giá chu kỳ OKR"
+
+#. module: okr_scale_review
+#: model:ir.model,name:okr_scale_review.model_okr_scale_review_board
+msgid "OKR Cycle Review Board"
+msgstr "Bảng đánh giá chu kỳ OKR"
+
+#. module: okr_scale_review
+#: model:mail.activity.type,name:okr_scale_review.mail_activity_okr_final_review
+msgid "OKR Final Review"
+msgstr "OKR: Đánh giá cuối chu kỳ"
+
+#. module: okr_scale_review
+#: model:ir.model,name:okr_scale_review.model_okr_scale_key_result
+msgid "OKR Key Result"
+msgstr "Kết quả then chốt OKR"
+
+#. module: okr_scale_review
+#: model:mail.activity.type,name:okr_scale_review.mail_activity_okr_mid_review
+msgid "OKR Mid-cycle Review"
+msgstr "OKR: Đánh giá giữa chu kỳ"
+
+#. module: okr_scale_review
+#: model:ir.model,name:okr_scale_review.model_okr_scale_objective
+msgid "OKR Objective"
+msgstr "Mục tiêu OKR"
+
+#. module: okr_scale_review
+#: model:ir.actions.server,name:okr_scale_review.ir_cron_okr_review_reminder_ir_actions_server
+msgid "OKR: cycle review reminders"
+msgstr "OKR: nhắc đánh giá chu kỳ"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_carry_over__objective_count
+msgid "Objective Count"
+msgstr "Số mục tiêu"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,help:okr_scale_review.field_okr_scale_objective__carried_from_id
+msgid "Objective of a previous cycle this objective continues."
+msgstr "Mục tiêu của chu kỳ trước mà mục tiêu này tiếp nối."
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.js:0
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__snapshot_objective_count
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+#, python-format
+msgid "Objectives"
+msgstr "Mục tiêu"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__objective_ids
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "Objectives Reviewed"
+msgstr "Các mục tiêu được đánh giá"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "Objectives off track, blockers, what slowed the team down..."
+msgstr "Mục tiêu chệch hướng, vướng mắc, điều làm đội nhóm chậm lại..."
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__snapshot_off_track
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "Off Track"
+msgstr "Chệch hướng"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Off course"
+msgstr "Chệch hướng"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__snapshot_on_track
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "On Track"
+msgstr "Đúng tiến độ"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "On track"
+msgstr "Đúng tiến độ"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review.py:0
+#, python-format
+msgid ""
+"Only OKR administrators and department managers can start a review meeting."
+msgstr ""
+"Chỉ quản trị viên OKR và quản lý phòng ban mới có thể bắt đầu buổi đánh giá."
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review.py:0
+#, python-format
+msgid "Only OKR administrators can manage company-wide reviews."
+msgstr ""
+"Chỉ quản trị viên OKR mới quản lý được các buổi đánh giá toàn công ty."
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review.py:0
+#, python-format
+msgid "Only the managers of department %s can manage its reviews."
+msgstr ""
+"Chỉ quản lý của phòng ban %s mới quản lý được các buổi đánh giá của phòng "
+"ban này."
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid ""
+"Only the owner, their managers and OKR administrators can carry it over"
+msgstr ""
+"Chỉ người phụ trách, quản lý của họ và quản trị viên OKR mới chuyển tiếp "
+"được"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "Open Cycle Review"
+msgstr "Mở đánh giá chu kỳ"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#, python-format
+msgid "Partially achieved"
+msgstr "Đạt một phần"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__participant_ids
+msgid "Participants"
+msgstr "Người tham gia"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#, python-format
+msgid "Planning"
+msgstr "Lập kế hoạch"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Progress"
+msgstr "Tiến độ"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Progress made"
+msgstr "Có tiến triển"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#, python-format
+msgid "Progressing, below the sweet spot"
+msgstr "Đang tiến triển, dưới điểm ngọt"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.js:0
+#, python-format
+msgid "Projected score"
+msgstr "Điểm dự phóng"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.js:0
+#, python-format
+msgid ""
+"Projected score = progress ÷ time elapsed, capped at 1.0: the score each "
+"objective is heading to at the current pace. Closed objectives keep their "
+"final grade."
+msgstr ""
+"Điểm dự phóng = tiến độ ÷ thời gian đã qua, tối đa 1.0: điểm mỗi mục tiêu sẽ"
+" đạt nếu giữ nhịp hiện tại. Mục tiêu đã đóng giữ điểm chốt."
+
+#. module: okr_scale_review
+#: model:ir.model.fields.selection,name:okr_scale_review.selection__okr_scale_review__snapshot_band__red
+msgid "Red"
+msgstr "Đỏ"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Red zone"
+msgstr "Vùng đỏ"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "Refresh Figures"
+msgstr "Cập nhật số liệu"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "Reopen"
+msgstr "Mở lại"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review.py:0
+#, python-format
+msgid "Reset the review to \"In Progress\" before changing its scope."
+msgstr "Hãy đưa buổi đánh giá về \"Đang thực hiện\" trước khi đổi phạm vi."
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_cycle__activity_user_id
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__activity_user_id
+msgid "Responsible User"
+msgstr "Người phụ trách"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "Retrospective"
+msgstr "Nhìn lại"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_search
+msgid "Retrospectives"
+msgstr "Nhìn lại cuối chu kỳ"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_cycle__review_count
+msgid "Review Count"
+msgstr "Số buổi đánh giá"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review.py:0
+#, python-format
+msgid "Review closed. Average score %(score).2f over %(count)s objectives."
+msgstr ""
+"Đã kết thúc đánh giá. Điểm trung bình %(score).2f trên %(count)s mục tiêu."
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Review meetings"
+msgstr "Các buổi đánh giá"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.js:0
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#: model:ir.actions.act_window,name:okr_scale_review.okr_review_action
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_cycle__review_ids
+#: model:ir.ui.menu,name:okr_scale_review.okr_menu_reviews
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_cycle_view_form_review
+#, python-format
+msgid "Reviews"
+msgstr "Đánh giá"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Lỗi gửi SMS"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.js:0
+#, python-format
+msgid "Score"
+msgstr "Điểm"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__snapshot_band_yellow
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "Score 0.4 - 0.69"
+msgstr "Điểm 0.4 - 0.69"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__snapshot_band_red
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "Score < 0.4"
+msgstr "Điểm < 0.4"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__snapshot_band_green
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "Score >= 0.7"
+msgstr "Điểm >= 0.7"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__snapshot_band
+msgid "Score Band"
+msgstr "Dải điểm"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Score by level"
+msgstr "Điểm theo cấp"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#, python-format
+msgid "Scores are low: re-plan, unblock or narrow down the scope."
+msgstr "Điểm thấp: cần lập lại kế hoạch, gỡ vướng hoặc thu hẹp phạm vi."
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "See all"
+msgstr "Xem tất cả"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Select all"
+msgstr "Chọn tất cả"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/wizard/okr_carry_over.py:0
+#, python-format
+msgid ""
+"Select at least one unfinished key result that was not carried over yet."
+msgstr "Hãy chọn ít nhất một KR chưa hoàn thành và chưa được chuyển tiếp."
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.js:0
+#, python-format
+msgid "Select the key results to carry over first."
+msgstr "Hãy chọn các KR cần chuyển tiếp trước."
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#, python-format
+msgid "Self-assessment"
+msgstr "Tự đánh giá"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid ""
+"Self-assessments and lessons learned written on the objectives will appear "
+"here."
+msgstr ""
+"Phần tự đánh giá và bài học kinh nghiệm ghi trên các mục tiêu sẽ hiển thị "
+"tại đây."
+
+#. module: okr_scale_review
+#: model:ir.model.fields,help:okr_scale_review.field_okr_scale_cycle__final_review_reminded
+msgid "Set once the end-of-cycle review activities have been scheduled."
+msgstr ""
+"Được đánh dấu khi các hoạt động đánh giá cuối chu kỳ đã được lên lịch."
+
+#. module: okr_scale_review
+#: model:ir.model.fields,help:okr_scale_review.field_okr_scale_cycle__mid_review_reminded
+msgid "Set once the mid-cycle review activities have been scheduled."
+msgstr ""
+"Được đánh dấu khi các hoạt động đánh giá giữa chu kỳ đã được lên lịch."
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Show all ("
+msgstr "Xem tất cả ("
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Show less"
+msgstr "Thu gọn"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Start a review meeting"
+msgstr "Bắt đầu buổi đánh giá"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid ""
+"Start value = value reached · target unchanged · objective created as draft"
+msgstr ""
+"Khởi điểm = giá trị đã đạt · chỉ tiêu giữ nguyên · mục tiêu tạo ở trạng thái"
+" nháp"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__state
+msgid "State"
+msgstr "Trạng thái"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,help:okr_scale_review.field_okr_scale_cycle__activity_state
+#: model:ir.model.fields,help:okr_scale_review.field_okr_scale_review__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Trạng thái dựa trên hoạt động\n"
+"Quá hạn: Hạn chót hạn đã qua\n"
+"Hôm nay: Hôm nay là ngày phải thực hiện\n"
+"Kế hoạch: Cần thực hiện trong tương lai."
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#, python-format
+msgid "Stretch goals fully achieved: aim higher next cycle."
+msgstr "Mục tiêu thách thức đạt trọn vẹn: hãy đặt cao hơn ở chu kỳ sau."
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review_board.py:0
+#, python-format
+msgid "The average score reaches the 0.7 sweet spot."
+msgstr "Điểm trung bình đạt điểm ngọt 0.7."
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_cycle.py:0
+#, python-format
+msgid ""
+"The cycle has ended: grade the objectives, share what went well and the "
+"lessons learned, then carry unfinished key results over to the next cycle."
+msgstr ""
+"Chu kỳ đã kết thúc: chấm điểm mục tiêu, chia sẻ điều làm tốt và bài học kinh"
+" nghiệm, rồi chuyển các KR chưa hoàn thành sang chu kỳ sau."
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Time elapsed"
+msgstr "Thời gian đã qua"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_carry_over__target_cycle_id
+msgid "To Cycle"
+msgstr "Sang chu kỳ"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Top 5 by score"
+msgstr "Top 5 theo điểm"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__review_type
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_search
+msgid "Type"
+msgstr "Loại"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,help:okr_scale_review.field_okr_scale_cycle__activity_exception_decoration
+#: model:ir.model.fields,help:okr_scale_review.field_okr_scale_review__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Loại hoạt động ngoại lệ trong bản ghi."
+
+#. module: okr_scale_review
+#: model:ir.model.fields,help:okr_scale_review.field_okr_scale_key_result__carried_from_id
+msgid "Unfinished key result of a previous cycle this key result continues."
+msgstr "KR chưa hoàn thành của chu kỳ trước mà KR này tiếp nối."
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__to_improve
+msgid "What To Improve"
+msgstr "Điều cần cải thiện"
+
+#. module: okr_scale_review
+#: model:ir.model.fields,field_description:okr_scale_review.field_okr_scale_review__went_well
+msgid "What Went Well"
+msgstr "Điều làm tốt"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "What the teams learned"
+msgstr "Các đội đã học được gì"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid ""
+"What we learned about our goals, our estimates and our way of working..."
+msgstr ""
+"Điều chúng ta học được về mục tiêu, cách ước lượng và cách làm việc..."
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "Who does what by when; key results to carry over, stop or re-plan..."
+msgstr "Ai làm gì, khi nào; KR cần chuyển tiếp, dừng hoặc lập lại kế hoạch..."
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "Whole company"
+msgstr "Toàn công ty"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "Wins, objectives that reached the sweet spot, practices to keep..."
+msgstr "Thành tựu, mục tiêu đạt điểm ngọt, cách làm nên duy trì..."
+
+#. module: okr_scale_review
+#: model:ir.model.fields.selection,name:okr_scale_review.selection__okr_scale_review__snapshot_band__yellow
+msgid "Yellow"
+msgstr "Vàng"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/wizard/okr_carry_over.py:0
+#, python-format
+msgid "You are not allowed to carry \"%s\" over to another cycle."
+msgstr "Bạn không được phép chuyển \"%s\" sang chu kỳ khác."
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "days in total"
+msgstr "ngày tổng cộng"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "days left"
+msgstr "ngày còn lại"
+
+#. module: okr_scale_review
+#: model_terms:ir.ui.view,arch_db:okr_scale_review.okr_review_view_form
+msgid "e.g. Mid-cycle review Q4 - Sales"
+msgstr "VD: Đánh giá giữa chu kỳ Q4 - Kinh doanh"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "graded"
+msgstr "đã chấm điểm"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "objectives scoring under 0.4"
+msgstr "mục tiêu có điểm dưới 0.4"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "objectives ·"
+msgstr "mục tiêu ·"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "of the expected check-ins"
+msgstr "số check-in kỳ vọng"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "on track or achieved"
+msgstr "đúng tiến độ hoặc đã đạt"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "over the whole cycle"
+msgstr "trên toàn chu kỳ"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "pts"
+msgstr "điểm"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "reached the target"
+msgstr "đạt chỉ tiêu"
+
+#. module: okr_scale_review
+#. odoo-python
+#: code:addons/okr_scale_review/models/okr_review.py:0
+#, python-format
+msgid "score"
+msgstr "điểm"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "selected"
+msgstr "đã chọn"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "unfinished in total"
+msgstr "chưa hoàn thành"
+
+#. module: okr_scale_review
+#. odoo-javascript
+#: code:addons/okr_scale_review/static/src/cycle_review/cycle_review.xml:0
+#, python-format
+msgid "vs time elapsed"
+msgstr "so với thời gian đã qua"

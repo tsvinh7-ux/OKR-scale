@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Read: company-wide reviews, reviews of the user's departments, of the departments they manage,
+         and the reviews they take part in -->
+    <record id="okr_review_rule_user_read" model="ir.rule">
+        <field name="name">Review: company-wide and own departments</field>
+        <field name="model_id" ref="model_okr_scale_review"/>
+        <field name="groups" eval="[(4, ref('okr_scale.group_okr_user'))]"/>
+        <field name="domain_force">['|', '|', '|', '|', ('department_id', '=', False), ('department_id.member_ids.user_id', '=', user.id), ('department_id.okr_manager_user_ids', 'in', [user.id]), ('participant_ids', 'in', [user.id]), ('facilitator_id', '=', user.id)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Write: managers handle the reviews of the departments they manage (HR hierarchy) -->
+    <record id="okr_review_rule_manager" model="ir.rule">
+        <field name="name">Review: managed departments</field>
+        <field name="model_id" ref="model_okr_scale_review"/>
+        <field name="groups" eval="[(4, ref('okr_scale.group_okr_manager'))]"/>
+        <field name="domain_force">[('department_id', '!=', False), ('department_id.okr_manager_user_ids', 'in', [user.id])]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="okr_review_rule_admin" model="ir.rule">
+        <field name="name">Review: all</field>
+        <field name="model_id" ref="model_okr_scale_review"/>
+        <field name="groups" eval="[(4, ref('okr_scale.group_okr_admin'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+    <record id="okr_review_rule_company" model="ir.rule">
+        <field name="name">okr.scale.review: multi-company</field>
+        <field name="model_id" ref="model_okr_scale_review"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>

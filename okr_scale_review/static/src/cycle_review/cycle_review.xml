@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="okr_scale_review.ScoreGauge">
+        <t t-set="g" t-value="geometry"/>
+        <div class="o_rev_gauge" t-attf-style="width: {{ g.w }}px;">
+            <svg t-att-width="g.w" t-att-height="g.h" t-attf-viewBox="0 0 {{ g.w }} {{ g.h }}">
+                <t t-foreach="segments" t-as="seg" t-key="seg.key">
+                    <path t-att-d="g.path" fill="none" pathLength="100" t-att-stroke="'var(--rev-' + seg.key + '-soft)'"
+                          t-att-stroke-width="g.stroke" t-attf-stroke-dasharray="{{ seg.len }} 200"
+                          t-att-stroke-dashoffset="-seg.start"/>
+                </t>
+                <path t-if="!props.empty and value > 0" t-att-d="g.path" fill="none" pathLength="100" t-att-stroke="color"
+                      t-att-stroke-width="g.stroke" stroke-linecap="round" class="o_rev_gauge_value"
+                      t-attf-stroke-dasharray="{{ value }} 200"/>
+                <t t-set="t7" t-value="tick(0.7)"/>
+                <line t-att-x1="t7.x1" t-att-y1="t7.y1" t-att-x2="t7.x2" t-att-y2="t7.y2" class="o_rev_gauge_tick"/>
+            </svg>
+            <div class="o_rev_gauge_center">
+                <div class="o_rev_gauge_value_text" t-att-style="'color: ' + color" t-esc="props.empty ? '–' : props.score.toFixed(2)"/>
+            </div>
+            <div class="o_rev_gauge_ends"><span>0.0</span><span class="o_rev_gauge_sweet">0.7</span><span>1.0</span></div>
+        </div>
+    </t>
+
+    <t t-name="okr_scale_review.BandBar">
+        <div class="o_rev_bandbar" t-att-title="'&lt; 0.4: ' + bands.red + ' · 0.4 - 0.69: ' + bands.yellow + ' · ≥ 0.7: ' + bands.green">
+            <span t-foreach="['red', 'yellow', 'green']" t-as="band" t-key="band" t-attf-class="o_rev_bandbar_{{ band }}"
+                  t-attf-style="width: {{ bandWidth(bands, band) }}%"/>
+        </div>
+    </t>
+
+    <t t-name="okr_scale_review.CycleReview">
+        <div class="o_action o_okr_page o_okr_cycle_review">
+            <div class="o_okr_container" t-if="state.data">
+                <t t-set="data" t-value="state.data"/>
+                <!-- Hero -->
+                <div class="o_okr_hero o_rev_hero">
+                    <div class="d-flex flex-wrap align-items-center gap-4">
+                        <img src="/okr_scale/static/src/img/dmag_mark.png" class="o_okr_hero_mark" alt="DMAG"/>
+                        <div class="me-auto o_rev_hero_title">
+                            <div class="o_okr_hero_eyebrow">DMAG · OKR · Cycle Review</div>
+                            <h1 t-if="data.cycle" t-esc="data.cycle.name"/>
+                            <h1 t-else="">Cycle Review</h1>
+                            <div class="o_okr_hero_sub d-flex flex-wrap align-items-center gap-2" t-if="data.cycle">
+                                <span t-attf-class="o_rev_phase o_rev_phase_{{ data.phase }}">
+                                    <i t-attf-class="fa {{ data.phase === 'final' ? 'fa-flag-checkered' : data.phase === 'mid' ? 'fa-balance-scale' : 'fa-pencil' }} me-1"/>
+                                    <t t-esc="data.phase_label"/>
+                                </span>
+                                <span><t t-esc="data.cycle.date_start"/> → <t t-esc="data.cycle.date_end"/></span>
+                                <span class="o_rev_dot">·</span>
+                                <span t-esc="data.cycle.state_label"/>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 o_rev_hero_time" t-if="data.cycle">
+                            <OkrProgressRing value="data.cycle.elapsed" size="76" stroke="7" light="true"/>
+                            <div>
+                                <div class="o_rev_hero_time_label">Time elapsed</div>
+                                <div class="o_rev_hero_time_value">
+                                    <t t-if="data.cycle.days_left"><b t-esc="data.cycle.days_left"/> days left</t>
+                                    <t t-else="">Cycle ended</t>
+                                </div>
+                                <div class="o_rev_hero_time_label"><t t-esc="data.cycle.days_total"/> days in total</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2 align-items-center mt-4">
+                        <select class="form-select o_okr_select" t-on-change="onCycleChange" aria-label="Cycle">
+                            <t t-foreach="data.cycles" t-as="cycle" t-key="cycle.id">
+                                <option t-att-value="cycle.id" t-att-selected="cycle.id === state.cycleId" t-esc="cycle.name"/>
+                            </t>
+                        </select>
+                        <select class="form-select o_okr_select" t-on-change="onDepartmentChange" aria-label="Department">
+                            <option value="">Whole company</option>
+                            <t t-foreach="data.departments" t-as="dept" t-key="dept.id">
+                                <option t-att-value="dept.id" t-att-selected="dept.id === state.departmentId" t-esc="dept.name"/>
+                            </t>
+                        </select>
+                        <div class="ms-auto d-flex flex-wrap gap-2">
+                            <button class="btn btn-okr-ghost" t-on-click="openReviews" t-if="data.cycle">
+                                <i class="fa fa-comments-o me-1"/>Reviews <span class="o_rev_count" t-esc="data.reviews.length"/>
+                            </button>
+                            <button class="btn o_rev_btn_light" t-if="data.cycle and data.can_review" t-on-click="() => this.startReview(data.suggested_review_type)">
+                                <i class="fa fa-play-circle me-1"/>Start a review meeting
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div t-if="!data.cycle" class="o_okr_card o_okr_empty py-5"><i class="fa fa-calendar-o"/>No running or closed cycle yet.</div>
+
+                <t t-if="data.cycle">
+                    <!-- Overall score + KPIs -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-xl-5">
+                            <div t-attf-class="o_okr_card o_rev_overall o_rev_band_{{ data.verdict.band or 'none' }}">
+                                <div class="o_okr_card_header">
+                                    <span><t t-esc="scoreLabel"/> <i class="fa fa-info-circle o_rev_help" t-att-title="scoreHelp"/></span>
+                                    <span class="o_okr_card_hint" t-esc="data.phase_label"/>
+                                </div>
+                                <div class="o_okr_card_body">
+                                    <div class="d-flex flex-wrap align-items-center gap-4">
+                                        <OkrScoreGauge score="data.overall.score" band="data.overall.band" empty="!data.overall.count" width="210"/>
+                                        <div class="o_rev_verdict flex-grow-1">
+                                            <span t-if="data.verdict.band" t-attf-class="o_rev_band_chip o_rev_band_chip_{{ data.verdict.band }}">
+                                                <t t-if="data.verdict.band === 'green'">≥ 0.7</t>
+                                                <t t-elif="data.verdict.band === 'yellow'">0.4 – 0.69</t>
+                                                <t t-else="">&lt; 0.4</t>
+                                            </span>
+                                            <div class="o_rev_verdict_title" t-esc="data.verdict.title"/>
+                                            <div class="o_rev_verdict_text" t-esc="data.verdict.text"/>
+                                        </div>
+                                    </div>
+                                    <!-- Score scale legend -->
+                                    <div class="o_rev_scale mt-3">
+                                        <div class="o_rev_scale_bar">
+                                            <span class="o_rev_scale_red"/>
+                                            <span class="o_rev_scale_yellow"/>
+                                            <span class="o_rev_scale_green"/>
+                                            <i t-if="data.overall.count" class="o_rev_scale_marker" t-attf-style="left: {{ data.overall.score * 100 }}%"
+                                               t-att-title="fmtScore(data.overall.score)"/>
+                                        </div>
+                                        <div class="o_rev_scale_ticks">
+                                            <span style="left: 0%">0.0</span>
+                                            <span style="left: 40%">0.4</span>
+                                            <span style="left: 70%">0.7</span>
+                                            <span style="left: 100%">1.0</span>
+                                        </div>
+                                        <div class="o_rev_scale_legend">
+                                            <span><i class="o_rev_dot_red"/>Off course</span>
+                                            <span><i class="o_rev_dot_yellow"/>Progress made</span>
+                                            <span><i class="o_rev_dot_green"/>Delivered · 0.7 = sweet spot for aspirational, 1.0 expected for committed</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-7">
+                            <div class="row g-3 h-100">
+                                <div class="col-6 col-md-4">
+                                    <div class="o_okr_card o_rev_kpi o_okr_clickable" t-on-click="() => this.openObjectives()">
+                                        <div class="o_rev_kpi_label"><i class="fa fa-bullseye"/>Objectives</div>
+                                        <div class="o_rev_kpi_value" t-esc="data.overall.count"/>
+                                        <div class="o_rev_kpi_sub"><t t-esc="data.overall.graded"/> graded</div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-4">
+                                    <div class="o_okr_card o_rev_kpi">
+                                        <div class="o_rev_kpi_label"><i class="fa fa-line-chart"/>Average progress</div>
+                                        <div class="o_rev_kpi_value"><t t-esc="Math.round(data.overall.progress)"/><small>%</small></div>
+                                        <div class="o_rev_kpi_sub">
+                                            <t t-if="data.phase === 'mid'">
+                                                <span t-attf-class="o_rev_pace {{ pace >= -10 ? 'o_rev_pace_ok' : 'o_rev_pace_late' }}">
+                                                    <i t-attf-class="fa {{ pace >= 0 ? 'fa-arrow-up' : 'fa-arrow-down' }}"/> <t t-esc="Math.abs(pace)"/> pts
+                                                </span>
+                                                vs time elapsed
+                                            </t>
+                                            <t t-else="">over the whole cycle</t>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-4">
+                                    <div class="o_okr_card o_rev_kpi">
+                                        <div class="o_rev_kpi_label"><i class="fa fa-check-circle"/>On track</div>
+                                        <div class="o_rev_kpi_value"><t t-esc="Math.round(data.overall.on_track_pct)"/><small>%</small></div>
+                                        <div class="o_rev_kpi_sub">on track or achieved</div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-4">
+                                    <div class="o_okr_card o_rev_kpi">
+                                        <div class="o_rev_kpi_label"><i class="fa fa-key"/>Key results achieved</div>
+                                        <div class="o_rev_kpi_value"><t t-esc="data.overall.kr_achieved"/><small> / <t t-esc="data.overall.key_results"/></small></div>
+                                        <div class="o_okr_bar mt-2"><span t-attf-style="width: {{ data.overall.key_results ? data.overall.kr_achieved * 100 / data.overall.key_results : 0 }}%"/></div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-4">
+                                    <div class="o_okr_card o_rev_kpi">
+                                        <div class="o_rev_kpi_label"><i class="fa fa-calendar-check-o"/>Check-in discipline</div>
+                                        <div class="o_rev_kpi_value"><t t-esc="Math.round(data.overall.checkin_rate)"/><small>%</small></div>
+                                        <div class="o_rev_kpi_sub">of the expected check-ins</div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-4">
+                                    <div t-attf-class="o_okr_card o_rev_kpi o_okr_clickable {{ data.overall.bands.red ? 'o_rev_kpi_alert' : '' }}"
+                                         t-on-click="() => this.openObjectives([['status', 'in', ['at_risk', 'off_track']]])">
+                                        <div class="o_rev_kpi_label"><i class="fa fa-exclamation-triangle"/>Red zone</div>
+                                        <div class="o_rev_kpi_value" t-esc="data.overall.bands.red"/>
+                                        <div class="o_rev_kpi_sub">objectives scoring under 0.4</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Per level -->
+                    <div class="o_rev_section_title">Score by level</div>
+                    <div class="row g-3 mb-4">
+                        <t t-foreach="data.levels" t-as="level" t-key="level.key">
+                            <div class="col-md-4">
+                                <div class="o_okr_card o_rev_level o_okr_clickable" t-on-click="() => this.openObjectives([['level', '=', level.key]], level.label)">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <div class="o_rev_level_name" t-esc="level.label"/>
+                                            <div class="o_rev_kpi_sub"><t t-esc="level.count"/> objectives · <t t-esc="level.graded"/> graded</div>
+                                        </div>
+                                        <div class="text-end">
+                                            <div class="o_rev_level_score" t-att-style="'color: ' + (level.count ? bandColor(level.band) : 'var(--okr-silver)')"
+                                                 t-esc="level.count ? fmtScore(level.score) : '–'"/>
+                                            <div class="o_rev_kpi_sub" t-esc="scoreLabel"/>
+                                        </div>
+                                    </div>
+                                    <t t-call="okr_scale_review.BandBar"><t t-set="bands" t-value="level.bands"/></t>
+                                    <div class="o_rev_level_foot">
+                                        <span><i class="o_rev_dot_red"/><t t-esc="level.bands.red"/></span>
+                                        <span><i class="o_rev_dot_yellow"/><t t-esc="level.bands.yellow"/></span>
+                                        <span><i class="o_rev_dot_green"/><t t-esc="level.bands.green"/></span>
+                                        <span class="ms-auto">Progress <b t-esc="fmtPct(level.progress)"/></span>
+                                        <span t-if="level.final_score !== null">Final <b t-esc="fmtScore(level.final_score)"/></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+
+                    <div class="row g-3 mb-4">
+                        <!-- Committed vs aspirational -->
+                        <div class="col-xl-4">
+                            <div class="o_okr_card">
+                                <div class="o_okr_card_header">Committed vs aspirational</div>
+                                <div class="o_okr_card_body">
+                                    <t t-foreach="data.types" t-as="type" t-key="type.key">
+                                        <div class="o_rev_type">
+                                            <div class="d-flex justify-content-between align-items-baseline">
+                                                <div>
+                                                    <span class="o_rev_type_name" t-esc="type.label"/>
+                                                    <span class="o_rev_kpi_sub ms-1">· <t t-esc="type.count"/></span>
+                                                </div>
+                                                <div>
+                                                    <b class="o_rev_type_score" t-att-style="'color: ' + (type.count ? bandColor(type.band) : 'var(--okr-silver)')"
+                                                       t-esc="type.count ? fmtScore(type.score) : '–'"/>
+                                                    <span class="o_rev_kpi_sub"> / target <t t-esc="type.target.toFixed(1)"/></span>
+                                                </div>
+                                            </div>
+                                            <div class="o_rev_type_track">
+                                                <span t-attf-style="width: {{ type.score * 100 }}%; background: {{ bandColor(type.band) }}"/>
+                                                <i class="o_rev_type_target" t-attf-style="left: {{ type.target * 100 }}%"/>
+                                            </div>
+                                            <div class="d-flex justify-content-between o_rev_kpi_sub">
+                                                <span><b t-esc="type.reached"/> / <t t-esc="type.count"/> reached the target</span>
+                                                <b t-esc="fmtPct(type.reached_pct)"/>
+                                            </div>
+                                            <div class="o_rev_type_verdict" t-esc="type.verdict"/>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Department heat map -->
+                        <div class="col-xl-8">
+                            <div class="o_okr_card">
+                                <div class="o_okr_card_header">Departments at a glance
+                                    <span class="o_okr_card_hint">Colors: <i class="o_rev_dot_red"/>&lt; 40 <i class="o_rev_dot_yellow ms-2"/>40 – 69 <i class="o_rev_dot_green ms-2"/>≥ 70</span>
+                                </div>
+                                <div class="o_okr_card_body">
+                                    <div t-if="!data.departments_table.length" class="o_okr_empty"><i class="fa fa-building-o"/>No department objectives in this scope.</div>
+                                    <div t-else="" class="o_rev_heat_wrap">
+                                        <table class="o_rev_heat">
+                                            <thead>
+                                                <tr>
+                                                    <th>Department</th>
+                                                    <th class="text-center">Objectives</th>
+                                                    <th class="text-center" t-esc="scoreLabel"/>
+                                                    <th class="text-center">Progress</th>
+                                                    <th class="text-center">On track</th>
+                                                    <th class="text-center">Check-in discipline</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr t-foreach="data.departments_table" t-as="dept" t-key="dept.id"
+                                                    t-on-click="() => this.openObjectives([['department_id', 'child_of', dept.id]], dept.name)">
+                                                    <td class="o_rev_heat_name">
+                                                        <div t-esc="dept.name"/>
+                                                        <t t-call="okr_scale_review.BandBar"><t t-set="bands" t-value="dept.bands"/></t>
+                                                    </td>
+                                                    <td class="text-center fw-semibold" t-esc="dept.count"/>
+                                                    <td><span t-attf-class="o_rev_cell o_rev_cell_{{ dept.band }} o_rev_cell_strong" t-esc="fmtScore(dept.score)"/></td>
+                                                    <td><span t-attf-class="o_rev_cell o_rev_cell_{{ dept.progress_band }}" t-esc="fmtPct(dept.progress)"/></td>
+                                                    <td><span t-attf-class="o_rev_cell o_rev_cell_{{ dept.on_track_band }}" t-esc="fmtPct(dept.on_track)"/></td>
+                                                    <td><span t-attf-class="o_rev_cell o_rev_cell_{{ dept.discipline_band }}" t-esc="fmtPct(dept.discipline)"/></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Highlights / lowlights -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-lg-6">
+                            <div class="o_okr_card o_rev_list o_rev_list_high">
+                                <div class="o_okr_card_header"><span><i class="fa fa-star me-2"/>Highlights</span><span class="o_okr_card_hint">Top 5 by score</span></div>
+                                <div class="o_okr_card_body">
+                                    <div t-if="!data.highlights.length" class="o_okr_empty"><i class="fa fa-star-o"/>Nothing to show yet.</div>
+                                    <t t-foreach="data.highlights" t-as="obj" t-key="obj.id">
+                                        <t t-call="okr_scale_review.ObjectiveRow"/>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="o_okr_card o_rev_list o_rev_list_low">
+                                <div class="o_okr_card_header"><span><i class="fa fa-exclamation-circle me-2"/>Needs attention</span><span class="o_okr_card_hint">Lowest scores under 0.7</span></div>
+                                <div class="o_okr_card_body">
+                                    <div t-if="!data.lowlights.length" class="o_okr_empty"><i class="fa fa-smile-o"/>Every objective reaches the sweet spot.</div>
+                                    <t t-foreach="data.lowlights" t-as="obj" t-key="obj.id">
+                                        <t t-call="okr_scale_review.ObjectiveRow"/>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lessons learned wall -->
+                    <div class="o_rev_section_title">What the teams learned</div>
+                    <div t-if="!data.quotes.length" class="o_okr_card o_okr_empty mb-4">
+                        <i class="fa fa-quote-left"/>Self-assessments and lessons learned written on the objectives will appear here.
+                    </div>
+                    <div t-else="" class="o_rev_quotes mb-2">
+                        <t t-foreach="visibleQuotes" t-as="quote" t-key="quote.key">
+                            <div t-attf-class="o_rev_quote o_rev_quote_{{ quote.kind }}" t-on-click="() => this.openRecord('okr.scale.objective', quote.objective_id)">
+                                <div class="o_rev_quote_kind" t-esc="quote.kind_label"/>
+                                <div class="o_rev_quote_text" t-esc="quote.text"/>
+                                <div class="o_rev_quote_author">
+                                    <OkrAvatar userId="quote.user_id" name="quote.owner" size="26"/>
+                                    <div class="min-w-0">
+                                        <div class="fw-semibold text-truncate" t-esc="quote.owner"/>
+                                        <div class="o_rev_kpi_sub text-truncate" t-esc="quote.objective"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                    <div class="text-center mb-4" t-if="data.quotes.length > 6">
+                        <button class="btn btn-link" t-on-click="() => this.state.quotesExpanded = !this.state.quotesExpanded">
+                            <t t-if="state.quotesExpanded">Show less</t><t t-else="">Show all (<t t-esc="data.quotes.length"/>)</t>
+                        </button>
+                    </div>
+
+                    <div class="row g-3">
+                        <!-- Carry-over -->
+                        <div class="col-xl-8">
+                            <div class="o_okr_card o_rev_carry">
+                                <div class="o_okr_card_header flex-wrap">
+                                    <span><i class="fa fa-share me-2"/>Carry over unfinished key results</span>
+                                    <span class="o_okr_card_hint">
+                                        <t t-if="data.carry_over.next_cycle">Next cycle: <b t-esc="data.carry_over.next_cycle.name"/></t>
+                                        <t t-else="">No next cycle yet: create it first</t>
+                                    </span>
+                                </div>
+                                <div class="o_okr_card_body">
+                                    <div t-if="!data.carry_over.key_results.length" class="o_okr_empty"><i class="fa fa-check"/>Every key result is achieved.</div>
+                                    <t t-else="">
+                                        <div class="o_rev_carry_head">
+                                            <label class="o_rev_check" t-if="selectableKrs.length">
+                                                <input type="checkbox" class="form-check-input" t-att-checked="allSelected" t-on-change="toggleAll"/>
+                                                <span>Select all</span>
+                                            </label>
+                                            <span class="o_rev_kpi_sub ms-auto">Start value = value reached · target unchanged · objective created as draft</span>
+                                        </div>
+                                        <div class="o_rev_carry_list">
+                                            <t t-foreach="data.carry_over.key_results" t-as="kr" t-key="kr.id">
+                                                <label t-attf-class="o_rev_carry_row {{ (!kr.allowed or kr.carried) ? 'o_rev_disabled' : '' }} {{ state.selected[kr.id] ? 'o_rev_selected' : '' }}">
+                                                    <input type="checkbox" class="form-check-input" t-att-checked="state.selected[kr.id]"
+                                                           t-att-disabled="!kr.allowed or kr.carried" t-on-change="() => this.toggleKr(kr)"/>
+                                                    <OkrAvatar userId="kr.user_id" name="kr.owner" size="28"/>
+                                                    <div class="o_okr_list_main">
+                                                        <div class="o_okr_list_title" t-esc="kr.name"/>
+                                                        <div class="o_okr_list_sub"><t t-esc="kr.objective"/> · <t t-esc="kr.owner"/></div>
+                                                    </div>
+                                                    <div class="o_rev_carry_values d-none d-md-block">
+                                                        <t t-esc="fmtNumber(kr.current)"/> <i class="fa fa-long-arrow-right mx-1"/> <b t-esc="fmtNumber(kr.target)"/> <small t-esc="kr.unit"/>
+                                                    </div>
+                                                    <div class="o_rev_carry_bar">
+                                                        <div class="o_okr_bar"><span t-attf-style="width: {{ kr.progress }}%"/></div>
+                                                        <small t-esc="fmtPct(kr.progress)"/>
+                                                    </div>
+                                                    <span t-if="kr.carried" class="o_rev_tag o_rev_tag_done"><i class="fa fa-check me-1"/>Carried</span>
+                                                    <span t-elif="!kr.allowed" class="o_rev_tag" title="Only the owner, their managers and OKR administrators can carry it over"><i class="fa fa-lock"/></span>
+                                                </label>
+                                            </t>
+                                        </div>
+                                        <div class="o_rev_carry_foot">
+                                            <span class="o_rev_kpi_sub">
+                                                <b t-esc="selectedIds.length"/> selected
+                                                <t t-if="data.carry_over.total > data.carry_over.key_results.length"> · <t t-esc="data.carry_over.total"/> unfinished in total</t>
+                                            </span>
+                                            <button class="btn btn-okr-primary" t-att-disabled="!selectedIds.length" t-on-click="carryOver">
+                                                <i class="fa fa-share me-1"/>Carry over to next cycle
+                                            </button>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Reviews -->
+                        <div class="col-xl-4">
+                            <div class="o_okr_card">
+                                <div class="o_okr_card_header"><span><i class="fa fa-comments-o me-2"/>Review meetings</span>
+                                    <a href="#" class="o_okr_card_hint" t-on-click.prevent="openReviews">See all</a>
+                                </div>
+                                <div class="o_okr_card_body">
+                                    <div t-if="!data.reviews.length" class="o_okr_empty"><i class="fa fa-comments-o"/>No review meeting for this cycle yet.</div>
+                                    <t t-foreach="data.reviews" t-as="review" t-key="review.id">
+                                        <div class="o_okr_list_row o_okr_clickable px-2" t-on-click="() => this.openRecord('okr.scale.review', review.id)">
+                                            <span t-attf-class="o_rev_review_icon o_rev_review_{{ review.review_type }}">
+                                                <i t-attf-class="fa {{ review.review_type === 'final' ? 'fa-flag-checkered' : 'fa-balance-scale' }}"/>
+                                            </span>
+                                            <div class="o_okr_list_main">
+                                                <div class="o_okr_list_title" t-esc="review.type_label"/>
+                                                <div class="o_okr_list_sub"><t t-esc="review.department"/> · <t t-esc="review.date"/></div>
+                                            </div>
+                                            <span t-attf-class="o_rev_tag {{ review.state === 'done' ? 'o_rev_tag_done' : '' }}" t-esc="review.state_label"/>
+                                        </div>
+                                    </t>
+                                    <div class="d-grid gap-2 mt-3" t-if="data.can_review">
+                                        <button class="btn btn-outline-primary o_rev_btn_outline" t-on-click="() => this.startReview('mid')">
+                                            <i class="fa fa-balance-scale me-1"/>New mid-cycle review
+                                        </button>
+                                        <button class="btn btn-outline-primary o_rev_btn_outline" t-on-click="() => this.startReview('final')">
+                                            <i class="fa fa-flag-checkered me-1"/>New end-of-cycle retrospective
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="okr_scale_review.ObjectiveRow">
+        <div class="o_okr_list_row o_okr_clickable px-2" t-on-click="() => this.openRecord('okr.scale.objective', obj.id)">
+            <span t-attf-class="o_rev_score_pill o_rev_score_pill_{{ obj.band }}" t-esc="fmtScore(obj.score)"/>
+            <div class="o_okr_list_main">
+                <div class="o_okr_list_title" t-esc="obj.name"/>
+                <div class="o_okr_list_sub">
+                    <t t-esc="obj.level_label"/><t t-if="obj.department"> · <t t-esc="obj.department"/></t> · <t t-esc="obj.owner"/>
+                </div>
+            </div>
+            <OkrAvatar userId="obj.user_id" name="obj.owner" size="28"/>
+            <OkrStatusChip t-if="obj.state === 'running'" status="obj.status" label="obj.status_label"/>
+        </div>
+    </t>
+</templates>

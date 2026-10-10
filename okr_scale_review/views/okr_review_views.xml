@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_review_view_tree" model="ir.ui.view">
+        <field name="name">okr.scale.review.tree</field>
+        <field name="model">okr.scale.review</field>
+        <field name="arch" type="xml">
+            <tree decoration-muted="state == 'done'">
+                <field name="date"/>
+                <field name="name"/>
+                <field name="review_type" widget="badge" decoration-info="review_type == 'mid'" decoration-primary="review_type == 'final'"/>
+                <field name="cycle_id" optional="show"/>
+                <field name="department_id" optional="show"/>
+                <field name="facilitator_id" widget="many2one_avatar_user" optional="show"/>
+                <field name="snapshot_objective_count" optional="show"/>
+                <field name="snapshot_avg_progress" widget="progressbar" optional="show"/>
+                <field name="snapshot_band" column_invisible="True"/>
+                <field name="snapshot_avg_score" decoration-danger="snapshot_band == 'red'"
+                       decoration-warning="snapshot_band == 'yellow'" decoration-success="snapshot_band == 'green'"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+                <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state == 'done'"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="okr_review_view_form" model="ir.ui.view">
+        <field name="name">okr.scale.review.form</field>
+        <field name="model">okr.scale.review</field>
+        <field name="arch" type="xml">
+            <form class="o_okr_review_form">
+                <header>
+                    <button name="action_done" string="Close Review" type="object" class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_refresh_snapshot" string="Refresh Figures" type="object"
+                            invisible="state != 'draft'"/>
+                    <button name="action_open_board" string="Open Cycle Review" type="object" icon="fa-line-chart"/>
+                    <button name="action_draft" string="Reopen" type="object" invisible="state != 'done'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_objectives" type="object" class="oe_stat_button" icon="fa-bullseye">
+                            <field name="snapshot_objective_count" widget="statinfo" string="Objectives"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. Mid-cycle review Q4 - Sales"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="cycle_id" readonly="state == 'done'" options="{'no_create': True}"/>
+                            <field name="review_type" widget="radio" options="{'horizontal': true}" readonly="state == 'done'"/>
+                            <field name="department_id" placeholder="Company-wide" readonly="state == 'done'"
+                                   options="{'no_create': True}"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                            <field name="facilitator_id" widget="many2one_avatar_user"/>
+                            <field name="participant_ids" widget="many2many_avatar_user"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <!-- Snapshot of the figures -->
+                    <div class="o_okr_review_snapshot">
+                        <div class="o_okr_review_snap_cell">
+                            <span class="o_okr_review_snap_label">Average Score</span>
+                            <field name="snapshot_band" invisible="1"/>
+                            <field name="snapshot_avg_score" class="o_okr_review_snap_value"
+                                   decoration-danger="snapshot_band == 'red'" decoration-warning="snapshot_band == 'yellow'"
+                                   decoration-success="snapshot_band == 'green'"/>
+                            <span class="o_okr_review_snap_hint">0.0 - 1.0 · 0.7 = sweet spot</span>
+                        </div>
+                        <div class="o_okr_review_snap_cell">
+                            <span class="o_okr_review_snap_label">Average Progress</span>
+                            <field name="snapshot_avg_progress" widget="progressbar" class="o_okr_review_snap_bar"/>
+                        </div>
+                        <div class="o_okr_review_snap_cell">
+                            <span class="o_okr_review_snap_label">Key Results Achieved</span>
+                            <div class="o_okr_review_snap_value">
+                                <field name="snapshot_kr_achieved" class="d-inline"/> / <field name="snapshot_kr_count" class="d-inline"/>
+                            </div>
+                        </div>
+                        <div class="o_okr_review_snap_cell">
+                            <span class="o_okr_review_snap_label">Score Bands</span>
+                            <div class="o_okr_review_bands">
+                                <span class="o_okr_band_pill o_okr_band_red" title="Score &lt; 0.4"><field name="snapshot_band_red" class="d-inline"/></span>
+                                <span class="o_okr_band_pill o_okr_band_yellow" title="Score 0.4 - 0.69"><field name="snapshot_band_yellow" class="d-inline"/></span>
+                                <span class="o_okr_band_pill o_okr_band_green" title="Score &gt;= 0.7"><field name="snapshot_band_green" class="d-inline"/></span>
+                            </div>
+                            <span class="o_okr_review_snap_hint">&lt; 0.4 · 0.4 - 0.69 · ≥ 0.7</span>
+                        </div>
+                        <div class="o_okr_review_snap_cell">
+                            <span class="o_okr_review_snap_label">Status</span>
+                            <div class="o_okr_review_bands">
+                                <span class="o_okr_chip o_okr_chip_on_track" title="On Track"><field name="snapshot_on_track" class="d-inline"/> On Track</span>
+                                <span class="o_okr_chip o_okr_chip_at_risk" title="At Risk"><field name="snapshot_at_risk" class="d-inline"/> At Risk</span>
+                                <span class="o_okr_chip o_okr_chip_off_track" title="Off Track"><field name="snapshot_off_track" class="d-inline"/> Off Track</span>
+                                <span class="o_okr_chip o_okr_chip_achieved" title="Achieved"><field name="snapshot_achieved" class="d-inline"/> Achieved</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-muted small mb-3 d-flex flex-wrap align-items-baseline gap-1">
+                        <span>Figures updated on</span>
+                        <field name="snapshot_date" class="d-inline-block w-auto"/>
+                        <span>· they are frozen when the review is closed.</span>
+                    </div>
+                    <notebook>
+                        <page string="Retrospective" name="retro">
+                            <div class="row g-3 o_okr_review_retro">
+                                <div class="col-lg-6">
+                                    <div class="o_okr_retro_block o_okr_retro_well">
+                                        <h5><i class="fa fa-thumbs-o-up me-2"/>What Went Well</h5>
+                                        <field name="went_well" placeholder="Wins, objectives that reached the sweet spot, practices to keep..."/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="o_okr_retro_block o_okr_retro_improve">
+                                        <h5><i class="fa fa-wrench me-2"/>What To Improve</h5>
+                                        <field name="to_improve" placeholder="Objectives off track, blockers, what slowed the team down..."/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="o_okr_retro_block o_okr_retro_lessons">
+                                        <h5><i class="fa fa-lightbulb-o me-2"/>Lessons Learned</h5>
+                                        <field name="lessons" placeholder="What we learned about our goals, our estimates and our way of working..."/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="o_okr_retro_block o_okr_retro_decisions">
+                                        <h5><i class="fa fa-check-square-o me-2"/>Decisions &amp; Next Actions</h5>
+                                        <field name="decisions" placeholder="Who does what by when; key results to carry over, stop or re-plan..."/>
+                                    </div>
+                                </div>
+                            </div>
+                        </page>
+                        <page string="Objectives Reviewed" name="objectives">
+                            <field name="objective_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="level"/>
+                                    <field name="okr_type"/>
+                                    <field name="owner_id" widget="many2one_avatar_user"/>
+                                    <field name="department_id"/>
+                                    <field name="progress" widget="progressbar"/>
+                                    <field name="final_score"/>
+                                    <field name="status" widget="badge" decoration-success="status in ('on_track', 'achieved')"
+                                           decoration-warning="status == 'at_risk'" decoration-danger="status == 'off_track'"/>
+                                    <field name="state" optional="hide"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="okr_review_view_search" model="ir.ui.view">
+        <field name="name">okr.scale.review.search</field>
+        <field name="model">okr.scale.review</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="cycle_id"/>
+                <field name="department_id"/>
+                <field name="facilitator_id"/>
+                <filter name="mid" string="Mid-cycle" domain="[('review_type', '=', 'mid')]"/>
+                <filter name="final" string="Retrospectives" domain="[('review_type', '=', 'final')]"/>
+                <separator/>
+                <filter name="company_wide" string="Company-wide" domain="[('department_id', '=', False)]"/>
+                <filter name="mine" string="I take part" domain="['|', ('facilitator_id', '=', uid), ('participant_ids', 'in', [uid])]"/>
+                <separator/>
+                <filter name="draft" string="In Progress" domain="[('state', '=', 'draft')]"/>
+                <filter name="done" string="Done" domain="[('state', '=', 'done')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_cycle" string="Cycle" context="{'group_by': 'cycle_id'}"/>
+                    <filter name="group_department" string="Department" context="{'group_by': 'department_id'}"/>
+                    <filter name="group_type" string="Type" context="{'group_by': 'review_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="okr_review_action" model="ir.actions.act_window">
+        <field name="name">Reviews</field>
+        <field name="res_model">okr.scale.review</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No review meeting yet</p>
+            <p>Hold a mid-cycle review to adjust the course, and an end-of-cycle retrospective to grade the
+               objectives, share lessons learned and carry unfinished key results over.</p>
+        </field>
+    </record>
+
+    <record id="okr_cycle_review_action" model="ir.actions.client">
+        <field name="name">Cycle Review</field>
+        <field name="tag">okr_scale_review.cycle_review</field>
+    </record>
+</odoo>

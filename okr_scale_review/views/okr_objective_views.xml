@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_objective_view_form_review" model="ir.ui.view">
+        <field name="name">okr.scale.objective.form.review</field>
+        <field name="model">okr.scale.objective</field>
+        <field name="inherit_id" ref="okr_scale.okr_objective_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='okr_type']" position="after">
+                <field name="carried_from_id" invisible="not carried_from_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="okr_key_result_view_form_review" model="ir.ui.view">
+        <field name="name">okr.scale.key.result.form.review</field>
+        <field name="model">okr.scale.key.result</field>
+        <field name="inherit_id" ref="okr_scale.okr_key_result_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='objective_id']" position="after">
+                <field name="carried_from_id" invisible="not carried_from_id"/>
+                <field name="carried_to_ids" widget="many2many_tags" invisible="not carried_to_ids"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

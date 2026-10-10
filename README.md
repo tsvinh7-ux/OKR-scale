@@ -5,9 +5,11 @@ Community, dựng mới từ đầu, tách module để cài đặt và nâng c�
 
 | Module | Chức năng | Phụ thuộc |
 |---|---|---|
-| `okr_scale` | Lõi: chu kỳ, mục tiêu 3 cấp, KR, căn chỉnh, check-in, duyệt, chấm điểm, phân quyền theo sơ đồ tổ chức (ứng dụng Nhân viên), Không gian OKR cá nhân, Dashboard tổng, Bảng xếp hạng | `hr`, `mail`, `web_hierarchy` |
+| `okr_scale` | Lõi: chu kỳ, mục tiêu 3 cấp (màn hình riêng Công ty / Phòng ban / Cá nhân), KR có người chịu chính và bên hỗ trợ, căn chỉnh, **check-in tuần chiều thứ 6** và bảng đội, biểu đồ tiến độ thực tế vs kỳ vọng, duyệt, chấm điểm, phân quyền theo sơ đồ tổ chức, Không gian OKR, Dashboard với khu "Vấn đề cần xử lý", Bảng xếp hạng, email + thông báo Odoo (nhắc check-in, bản tin thứ Hai) | `hr`, `mail`, `web_hierarchy` |
 | `okr_scale_project` | Liên kết KR với Dự án / Nhiệm vụ, tiến độ KR tự đồng bộ từ nhiệm vụ | `okr_scale`, `project` |
-| `okr_scale_cfr` | CFR: Trao đổi 1:1, Phản hồi minh bạch (ẩn danh chỉ khi bật trong Thiết lập), Bảng ghi nhận / lời khen, Giá trị cốt lõi | `okr_scale`, `calendar` |
+| `okr_scale_cfr` | CFR: Trao đổi 1:1 gắn với OKR (tổng quan KR, check-in từ buổi trước, lịch định kỳ, tự nhắc khi tự tin thấp), Phản hồi minh bạch, Bảng ghi nhận / lời khen, Giá trị cốt lõi | `okr_scale`, `calendar` |
+| `okr_scale_template` | Thư viện OKR mẫu cho nha khoa (25 mẫu, 8 nhóm), dùng mẫu / lưu thành mẫu | `okr_scale` |
+| `okr_scale_review` | Đánh giá giữa kỳ & tổng kết cuối chu kỳ: điểm theo cấp và phòng ban, cam kết vs thử thách, bài học, chuyển KR chưa xong sang chu kỳ sau | `okr_scale` |
 | `okr_scale_reward` | Điểm thưởng (sổ cái), ngân sách tặng điểm hàng tháng, điểm tự động, Cửa hàng đổi quà | `okr_scale_cfr`, `product` |
 | `okr_scale_reward_stock` | Quản lý quà tặng qua Kho: sản phẩm lưu kho, phiếu xuất khi duyệt đổi quà, cho phép đặt trước khi chưa có hàng | `okr_scale_reward`, `stock` |
 | `okr_scale_portal` | Chia sẻ OKR cho từng tài khoản portal (khách hàng B2B) với quyền Chỉ xem / Có thể cập nhật, như Project | `okr_scale`, `portal` |
@@ -22,8 +24,8 @@ Community, dựng mới từ đầu, tách module để cài đặt và nâng c�
 ## Phát triển & kiểm thử
 
 ```bash
-odoo-bin -c odoo.conf -d test_okr -i okr_scale,okr_scale_project,okr_scale_cfr,okr_scale_reward,okr_scale_reward_stock,okr_scale_portal \
-  --test-tags /okr_scale,/okr_scale_project,/okr_scale_cfr,/okr_scale_reward,/okr_scale_reward_stock,/okr_scale_portal --stop-after-init
+odoo-bin -c odoo.conf -d test_okr -i okr_scale,okr_scale_project,okr_scale_cfr,okr_scale_reward,okr_scale_reward_stock,okr_scale_portal,okr_scale_template,okr_scale_review \
+  --test-tags /okr_scale,/okr_scale_project,/okr_scale_cfr,/okr_scale_reward,/okr_scale_reward_stock,/okr_scale_portal,/okr_scale_template,/okr_scale_review --stop-after-init
 ```
 
 Nguyên tắc để dễ nâng cấp lên Odoo 18/19: chỉ dùng kế thừa chuẩn (`_inherit`,

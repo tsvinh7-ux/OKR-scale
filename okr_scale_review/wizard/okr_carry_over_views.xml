@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_carry_over_view_form" model="ir.ui.view">
+        <field name="name">okr.scale.carry.over.form</field>
+        <field name="model">okr.scale.carry.over</field>
+        <field name="arch" type="xml">
+            <form string="Carry Over to the Next Cycle">
+                <div class="alert alert-info mb-3" role="alert">
+                    Each objective is copied once into the target cycle as a <b>draft</b>, with the selected key results.
+                    Their new start value is the current value reached, the target is unchanged.
+                </div>
+                <group>
+                    <group>
+                        <field name="source_cycle_id" readonly="1" force_save="1"/>
+                    </group>
+                    <group>
+                        <field name="target_cycle_id" options="{'no_create': True}"/>
+                    </group>
+                </group>
+                <field name="key_result_ids" options="{'no_create': True}">
+                    <tree>
+                        <field name="name"/>
+                        <field name="objective_id"/>
+                        <field name="owner_id" widget="many2one_avatar_user"/>
+                        <field name="current_value" string="Current (new start)"/>
+                        <field name="target_value"/>
+                        <field name="unit" optional="hide"/>
+                        <field name="progress" widget="progressbar"/>
+                    </tree>
+                </field>
+                <footer>
+                    <button name="action_confirm" type="object" string="Carry Over" class="btn-primary" data-hotkey="q"/>
+                    <button special="cancel" string="Cancel" data-hotkey="x"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="okr_carry_over_action" model="ir.actions.act_window">
+        <field name="name">Carry Over to the Next Cycle</field>
+        <field name="res_model">okr.scale.carry.over</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

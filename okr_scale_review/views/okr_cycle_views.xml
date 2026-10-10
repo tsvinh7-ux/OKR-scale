@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_cycle_view_form_review" model="ir.ui.view">
+        <field name="name">okr.scale.cycle.form.review</field>
+        <field name="model">okr.scale.cycle</field>
+        <field name="inherit_id" ref="okr_scale.okr_cycle_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/field[@name='state']" position="before">
+                <button name="action_open_cycle_review" string="Cycle Review" type="object" icon="fa-line-chart"
+                        groups="okr_scale.group_okr_manager" invisible="state == 'draft'"/>
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_reviews" type="object" class="oe_stat_button" icon="fa-comments-o">
+                    <field name="review_count" widget="statinfo" string="Reviews"/>
+                </button>
+            </xpath>
+            <xpath expr="//group/group[2]" position="inside">
+                <field name="mid_review_reminded" groups="base.group_no_one"/>
+                <field name="final_review_reminded" groups="base.group_no_one"/>
+            </xpath>
+            <xpath expr="//field[@name='message_follower_ids']" position="after">
+                <field name="activity_ids"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

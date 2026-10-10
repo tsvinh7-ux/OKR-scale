@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="okr_menu_cycle_review" name="Cycle Review" parent="okr_scale.okr_menu_reporting"
+              action="okr_cycle_review_action" sequence="5" groups="okr_scale.group_okr_manager"/>
+    <menuitem id="okr_menu_reviews" name="Reviews" parent="okr_scale.okr_menu_okrs"
+              action="okr_review_action" sequence="20"/>
+</odoo>
