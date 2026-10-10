@@ -1,0 +1,1764 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* okr_scale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-10 09:03+0000\n"
+"PO-Revision-Date: 2026-10-10 09:03+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_checkin.py:0
+#, python-format
+msgid ""
+"%(user)s checked in: progress %(before).0f%% → %(after).0f%%, confidence "
+"%(conf)s/10."
+msgstr ""
+"%(user)s đã check-in: tiến độ %(before).0f%% → %(after).0f%%, mức độ tự tin %(conf)s/10."
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_checkin__confidence
+msgid "1 = no chance to reach the target, 10 = certain."
+msgstr "1 = không có khả năng đạt mục tiêu, 10 = chắc chắn đạt."
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
+msgid ""
+"<span class=\"o_stat_text\">Aligned</span>\n"
+"                                <span class=\"o_stat_text\">Objectives</span>"
+msgstr ""
+"<span class=\"o_stat_text\">Mục tiêu</span>\n"
+"                                <span class=\"o_stat_text\">căn chỉnh</span>"
+
+#. module: okr_scale
+#: model_terms:ir.actions.act_window,help:okr_scale.okr_cycle_action
+msgid ""
+"A cycle is a year or a quarter during which objectives are pursued and "
+"checked in on."
+msgstr ""
+"Chu kỳ là một năm hoặc một quý, trong đó các mục tiêu được theo đuổi và check-in định kỳ."
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_objective.py:0
+#, python-format
+msgid "A department objective needs a department."
+msgstr "Mục tiêu cấp phòng ban phải có phòng ban."
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__achieved
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_key_result__status__achieved
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__status__achieved
+msgid "Achieved"
+msgstr "Đã đạt"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__message_needaction
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_needaction
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_needaction
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_needaction
+msgid "Action Needed"
+msgstr "Cần xử lý"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__active
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__active
+msgid "Active"
+msgstr "Đang hoạt động"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__activity_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__activity_ids
+msgid "Activities"
+msgstr "Hoạt động"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__activity_exception_decoration
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Biểu tượng hoạt động ngoại lệ"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__activity_state
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__activity_state
+msgid "Activity State"
+msgstr "Trạng thái hoạt động"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__activity_type_icon
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Biểu tượng loại hoạt động"
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_objective.py:0
+#, python-format
+msgid "Add at least one key result to \"%s\" before submitting it."
+msgstr "Hãy thêm ít nhất một kết quả then chốt cho \"%s\" trước khi gửi."
+
+#. module: okr_scale
+#: model:res.groups,name:okr_scale.group_okr_admin
+msgid "Administrator: company OKRs"
+msgstr "Quản trị viên: OKR cấp công ty"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_form
+msgid "Aligned"
+msgstr "Đã căn chỉnh"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__parent_key_result_id
+msgid "Aligned Key Result"
+msgstr "KR cấp trên"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__aligned_objective_count
+msgid "Aligned Objective Count"
+msgstr "Số mục tiêu căn chỉnh"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__aligned_objective_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__child_ids
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_form
+msgid "Aligned Objectives"
+msgstr "Mục tiêu căn chỉnh"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__parent_id
+msgid "Aligned To"
+msgstr "Căn chỉnh theo"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#, python-format
+msgid "All cycles"
+msgstr "Tất cả chu kỳ"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#, python-format
+msgid "All departments"
+msgstr "Tất cả phòng ban"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_key_result__metric_type__currency
+msgid "Amount"
+msgstr "Số tiền"
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_objective.py:0
+#, python-format
+msgid "An individual objective needs an employee."
+msgstr "Mục tiêu cá nhân phải có nhân viên."
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_objective.py:0
+#, python-format
+msgid "An objective cannot be aligned to itself or to one of its children."
+msgstr "Không thể căn chỉnh một mục tiêu theo chính nó hoặc theo một mục tiêu con của nó."
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__approval_date
+msgid "Approval Date"
+msgstr "Ngày duyệt"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
+msgid "Approve"
+msgstr "Duyệt"
+
+#. module: okr_scale
+#: model:mail.activity.type,summary:okr_scale.mail_activity_okr_approval
+msgid "Approve objective"
+msgstr "Duyệt mục tiêu"
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_objective.py:0
+#, python-format
+msgid "Approve objective: %s"
+msgstr "Duyệt mục tiêu: %s"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__approved_by_id
+msgid "Approved By"
+msgstr "Người duyệt"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_cycle_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_cycle_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+msgid "Archived"
+msgstr "Đã lưu trữ"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__okr_type__aspirational
+msgid "Aspirational"
+msgstr "Kỳ vọng (thử thách)"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_key_result__status__at_risk
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__status__at_risk
+msgid "At Risk"
+msgstr "Có rủi ro"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+msgid "At Risk / Off Track"
+msgstr "Có rủi ro / Chậm tiến độ"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__message_attachment_count
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_attachment_count
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_attachment_count
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_attachment_count
+msgid "Attachment Count"
+msgstr "Số tệp đính kèm"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__user_id
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_search
+msgid "Author"
+msgstr "Tác giả"
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_dashboard.py:0
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__progress
+#, python-format
+msgid "Average Progress"
+msgstr "Tiến độ trung bình"
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__confidence
+msgid "Average confidence (1-10) of the key results."
+msgstr "Mức độ tự tin trung bình (1-10) của các kết quả then chốt."
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__state__cancelled
+msgid "Cancelled"
+msgstr "Đã hủy"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_tree
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
+msgid "Check-in"
+msgstr "Check-in"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_search
+msgid "Check-in Due"
+msgstr "Đến hạn check-in"
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_checkin.py:0
+#, python-format
+msgid "Check-in submitted"
+msgstr "Đã gửi check-in"
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_key_result.py:0
+#, python-format
+msgid "Check-in: %s"
+msgstr "Check-in: %s"
+
+#. module: okr_scale
+#: model:ir.actions.act_window,name:okr_scale.okr_checkin_action
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__checkin_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__checkin_ids
+#: model:ir.ui.menu,name:okr_scale.okr_menu_checkins
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
+msgid "Check-ins"
+msgstr "Check-in"
+
+#. module: okr_scale
+#: model:ir.actions.act_window,name:okr_scale.okr_checkin_action_review
+#: model:ir.ui.menu,name:okr_scale.okr_menu_review
+msgid "Check-ins to Review"
+msgstr "Check-in cần xem xét"
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_dashboard.py:0
+#, python-format
+msgid "Checked-in this week"
+msgstr "Đã check-in tuần này"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__checkin_count
+msgid "Checkin Count"
+msgstr "Số lần check-in"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__checkin_due
+msgid "Checkin Due"
+msgstr "Đến hạn check-in"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__checkin_frequency
+msgid "Checkin Frequency"
+msgstr "Tần suất check-in"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_cycle_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
+msgid "Close & Grade"
+msgstr "Đóng & chấm điểm"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__state__closed
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__state__done
+msgid "Closed"
+msgstr "Đã đóng"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__color
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_tag__color
+msgid "Color"
+msgstr "Màu sắc"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__okr_type__committed
+msgid "Committed"
+msgstr "Cam kết"
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__okr_type
+msgid ""
+"Committed: must be fully achieved (expected score 1.0).\n"
+"Aspirational: stretch goal, a score around 0.7 is a success."
+msgstr ""
+"Cam kết: phải đạt đầy đủ (điểm kỳ vọng 1.0).\n"
+"Kỳ vọng (thử thách): mục tiêu vươn xa, đạt điểm khoảng 0.7 là thành công."
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__company_id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__company_id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__company_id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__company_id
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__level__company
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+msgid "Company"
+msgstr "Công ty"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#, python-format
+msgid "Company objectives"
+msgstr "Mục tiêu cấp công ty"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__confidence
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__confidence
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__confidence
+#, python-format
+msgid "Confidence"
+msgstr "Mức độ tự tin"
+
+#. module: okr_scale
+#: model:ir.ui.menu,name:okr_scale.okr_menu_config
+msgid "Configuration"
+msgstr "Cấu hình"
+
+#. module: okr_scale
+#: model_terms:ir.actions.act_window,help:okr_scale.okr_cycle_action
+msgid "Create your first OKR cycle"
+msgstr "Tạo chu kỳ OKR đầu tiên của bạn"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__create_uid
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__create_uid
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__create_uid
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__create_uid
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_tag__create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__create_date
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__create_date
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__create_date
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__create_date
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_tag__create_date
+msgid "Created on"
+msgstr "Được tạo vào"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__currency_id
+msgid "Currency"
+msgstr "Tiền tệ"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__current_value
+msgid "Current"
+msgstr "Hiện tại"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__cycle_type__custom
+msgid "Custom"
+msgstr "Tùy chỉnh"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__cycle_id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__cycle_id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__cycle_id
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+msgid "Cycle"
+msgstr "Chu kỳ"
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_cycle.py:0
+#, python-format
+msgid "Cycle %s must be inside its parent cycle %s."
+msgstr "Chu kỳ %s phải nằm trong chu kỳ cha %s."
+
+#. module: okr_scale
+#: model:ir.actions.act_window,name:okr_scale.okr_cycle_action
+#: model:ir.ui.menu,name:okr_scale.okr_menu_cycles
+msgid "Cycles"
+msgstr "Chu kỳ"
+
+#. module: okr_scale
+#: model:ir.ui.menu,name:okr_scale.okr_menu_dashboard
+msgid "Dashboard"
+msgstr "Bảng điều khiển"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__date
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_search
+#, python-format
+msgid "Date"
+msgstr "Ngày"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__deadline
+msgid "Deadline"
+msgstr "Hạn chót"
+
+#. module: okr_scale
+#: model:ir.model,name:okr_scale.model_hr_department
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__department_id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__department_id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__department_id
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__level__department
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__visibility__department
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+msgid "Department"
+msgstr "Phòng ban"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__description
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__description
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_form
+msgid "Discard"
+msgstr "Hủy bỏ"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__display_name
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__display_name
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__display_name
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__display_name
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_tag__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_key_result__metric_type__boolean
+msgid "Done / Not done"
+msgstr "Hoàn thành / Chưa hoàn thành"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_checkin__state__draft
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__state__draft
+msgid "Draft"
+msgstr "Nháp"
+
+#. module: okr_scale
+#: model:ir.model,name:okr_scale.model_hr_employee
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__employee_id
+msgid "Employee"
+msgstr "Nhân viên"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__date_end
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__date_end
+msgid "End Date"
+msgstr "Ngày kết thúc"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__checkin_frequency__biweekly
+msgid "Every 2 weeks"
+msgstr "2 tuần một lần"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_cycle_view_form
+msgid ""
+"Every running objective of this cycle will be closed and graded with its "
+"current progress. Continue?"
+msgstr ""
+"Tất cả mục tiêu đang thực hiện của chu kỳ này sẽ được đóng và chấm điểm theo tiến độ hiện tại. Tiếp tục?"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__visibility__public
+msgid "Everyone"
+msgstr "Mọi người"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#, python-format
+msgid "Everything is on track 🎉"
+msgstr "Mọi thứ đều đúng tiến độ 🎉"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__expected_progress
+msgid "Expected Progress"
+msgstr "Tiến độ kỳ vọng"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__final_score
+msgid "Final Score"
+msgstr "Điểm cuối kỳ"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__message_follower_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_follower_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_follower_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_follower_ids
+msgid "Followers"
+msgstr "Người theo dõi"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__message_partner_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_partner_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_partner_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Người theo dõi (Đối tác)"
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__activity_type_icon
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Biểu tượng Font Awesome, ví dụ: fa-tasks"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_key_result__progress_method__objectives
+msgid "From aligned objectives"
+msgstr "Từ các mục tiêu căn chỉnh"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_checkin__mood__good
+msgid "Good"
+msgstr "Tốt"
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__final_score
+msgid "Grade given at the end of the cycle, from 0.0 to 1.0."
+msgstr "Điểm được chấm vào cuối chu kỳ, từ 0.0 đến 1.0."
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
+msgid "Grading"
+msgstr "Chấm điểm"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_checkin__mood__great
+msgid "Great"
+msgstr "Rất tốt"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+msgid "Group By"
+msgstr "Nhóm theo"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__has_message
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__has_message
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__has_message
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__has_message
+msgid "Has Message"
+msgstr "Có tin nhắn"
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__confidence
+msgid ""
+"How confident the owner is to reach the target (1-10), reported at each "
+"check-in."
+msgstr ""
+"Mức độ tự tin của người phụ trách về khả năng đạt mục tiêu (1-10), được báo cáo ở mỗi lần check-in."
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_form
+msgid "How is this key result measured?"
+msgstr "Kết quả then chốt này được đo lường như thế nào?"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_tag__id
+msgid "ID"
+msgstr "ID"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__activity_exception_icon
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__activity_exception_icon
+msgid "Icon"
+msgstr "Biểu tượng"
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__activity_exception_icon
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Biểu tượng cho biết hoạt động ngoại lệ."
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_checkin__message_needaction
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_cycle__message_needaction
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__message_needaction
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Nếu được chọn, có tin nhắn mới cần bạn chú ý."
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_checkin__message_has_error
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_checkin__message_has_sms_error
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_cycle__message_has_error
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_cycle__message_has_sms_error
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__message_has_error
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__message_has_sms_error
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__message_has_error
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Nếu được chọn, một số tin nhắn bị lỗi gửi."
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__level__individual
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+msgid "Individual"
+msgstr "Cá nhân"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__message_is_follower
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_is_follower
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_is_follower
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_is_follower
+msgid "Is Follower"
+msgstr "Là người theo dõi"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__is_my_team
+msgid "Is My Team"
+msgstr "Là nhóm của tôi"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_kanban
+msgid "KR"
+msgstr "KR"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_tree
+msgid "KRs"
+msgstr "KR"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__key_result_id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__name
+#, python-format
+msgid "Key Result"
+msgstr "Kết quả then chốt"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__key_result_count
+msgid "Key Result Count"
+msgstr "Số kết quả then chốt"
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_dashboard.py:0
+#: model:ir.actions.act_window,name:okr_scale.okr_key_result_action
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__key_result_ids
+#: model:ir.ui.menu,name:okr_scale.okr_menu_key_results
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
+#, python-format
+msgid "Key Results"
+msgstr "Kết quả then chốt"
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_cycle__checkin_frequency
+msgid ""
+"Key result owners are reminded when no check-in was submitted during this "
+"period."
+msgstr ""
+"Người phụ trách kết quả then chốt sẽ được nhắc nhở khi không có check-in nào được gửi trong khoảng thời gian này."
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#, python-format
+msgid "Key results needing attention"
+msgstr "Kết quả then chốt cần chú ý"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__last_checkin_date
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__last_checkin_date
+msgid "Last Checkin Date"
+msgstr "Ngày check-in gần nhất"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__write_uid
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__write_uid
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__write_uid
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__write_uid
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_tag__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__write_date
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__write_date
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__write_date
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__write_date
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_tag__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#, python-format
+msgid "Latest check-ins"
+msgstr "Check-in gần đây"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__lessons_learned
+msgid "Lessons Learned"
+msgstr "Bài học kinh nghiệm"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__level
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__level
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+msgid "Level"
+msgstr "Cấp độ"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__level_sequence
+msgid "Level Sequence"
+msgstr "Thứ tự cấp độ"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_search
+msgid "Low Confidence"
+msgstr "Mức độ tự tin thấp"
+
+#. module: okr_scale
+#: model:ir.ui.menu,name:okr_scale.okr_menu_manage
+msgid "Manage"
+msgstr "Quản lý"
+
+#. module: okr_scale
+#: model:res.groups,comment:okr_scale.group_okr_admin
+msgid "Manage cycles, company objectives and every OKR."
+msgstr "Quản lý chu kỳ, mục tiêu cấp công ty và mọi OKR."
+
+#. module: okr_scale
+#: model:res.groups,comment:okr_scale.group_okr_manager
+msgid ""
+"Manage objectives of managed departments and of team members, review check-"
+"ins."
+msgstr ""
+"Quản lý mục tiêu của các phòng ban được phân công và của thành viên trong nhóm, xem xét check-in."
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__manager_feedback
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_form
+msgid "Manager Feedback"
+msgstr "Phản hồi của quản lý"
+
+#. module: okr_scale
+#: model:res.groups,name:okr_scale.group_okr_manager
+msgid "Manager: team and department OKRs"
+msgstr "Quản lý: OKR của nhóm và phòng ban"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_key_result__progress_method__manual
+msgid "Manual (check-ins)"
+msgstr "Thủ công (qua check-in)"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_form
+msgid "Mark as Reviewed"
+msgstr "Đánh dấu đã xem xét"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__progress_method
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__progress_method
+msgid "Measured By"
+msgstr "Đo lường bởi"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__message_has_error
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_has_error
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_has_error
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_has_error
+msgid "Message Delivery error"
+msgstr "Lỗi gửi tin nhắn"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__message_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_ids
+msgid "Messages"
+msgstr "Tin nhắn"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__metric_type
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__metric_type
+msgid "Metric Type"
+msgstr "Loại chỉ số"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__checkin_frequency__monthly
+msgid "Monthly"
+msgstr "Hàng tháng"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__mood
+msgid "Mood"
+msgstr "Tâm trạng"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__my_activity_date_deadline
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Hạn chót hoạt động của tôi"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_search
+msgid "My Check-ins"
+msgstr "Check-in của tôi"
+
+#. module: okr_scale
+#: model:ir.actions.act_window,name:okr_scale.okr_key_result_action_my
+#: model:ir.ui.menu,name:okr_scale.okr_menu_my_key_results
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_search
+msgid "My Key Results"
+msgstr "Kết quả then chốt của tôi"
+
+#. module: okr_scale
+#: model:ir.ui.menu,name:okr_scale.okr_menu_my
+msgid "My OKRs"
+msgstr "OKR của tôi"
+
+#. module: okr_scale
+#: model:ir.actions.act_window,name:okr_scale.okr_objective_action_my
+#: model:ir.ui.menu,name:okr_scale.okr_menu_my_objectives
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+msgid "My Objectives"
+msgstr "Mục tiêu của tôi"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+msgid "My Team"
+msgstr "Nhóm của tôi"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__name
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_tag__name
+msgid "Name"
+msgstr "Tên"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_checkin__mood__neutral
+msgid "Neutral"
+msgstr "Bình thường"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__new_value
+msgid "New Value"
+msgstr "Giá trị mới"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__activity_date_deadline
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Hạn chót hoạt động tiếp theo"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__activity_summary
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__activity_summary
+msgid "Next Activity Summary"
+msgstr "Tóm tắt hoạt động tiếp theo"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__activity_type_id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__activity_type_id
+msgid "Next Activity Type"
+msgstr "Loại hoạt động tiếp theo"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#, python-format
+msgid "No check-in yet."
+msgstr "Chưa có check-in nào."
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#, python-format
+msgid "No company objectives."
+msgstr "Chưa có mục tiêu cấp công ty."
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#, python-format
+msgid "No data."
+msgstr "Không có dữ liệu."
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#, python-format
+msgid "No department objectives yet."
+msgstr "Chưa có mục tiêu cấp phòng ban."
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_key_result__metric_type__number
+msgid "Number"
+msgstr "Số"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__message_needaction_counter
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_needaction_counter
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_needaction_counter
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Số lượng hành động"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__message_has_error_counter
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_has_error_counter
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_has_error_counter
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_has_error_counter
+msgid "Number of errors"
+msgstr "Số lỗi"
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_checkin__message_needaction_counter
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_cycle__message_needaction_counter
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__message_needaction_counter
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Số tin nhắn cần xử lý"
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_checkin__message_has_error_counter
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_cycle__message_has_error_counter
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__message_has_error_counter
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Số tin nhắn bị lỗi gửi"
+
+#. module: okr_scale
+#: model:ir.module.category,name:okr_scale.module_category_okr
+#: model:ir.ui.menu,name:okr_scale.okr_menu_root
+msgid "OKR"
+msgstr "OKR"
+
+#. module: okr_scale
+#: model:mail.activity.type,name:okr_scale.mail_activity_okr_approval
+msgid "OKR Approval"
+msgstr "Duyệt OKR"
+
+#. module: okr_scale
+#: model:ir.model,name:okr_scale.model_okr_scale_checkin
+#: model:mail.activity.type,name:okr_scale.mail_activity_okr_checkin
+msgid "OKR Check-in"
+msgstr "Check-in OKR"
+
+#. module: okr_scale
+#: model:ir.model,name:okr_scale.model_okr_scale_cycle
+msgid "OKR Cycle"
+msgstr "Chu kỳ OKR"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#: model:ir.actions.client,name:okr_scale.okr_dashboard_action
+#: model:ir.model,name:okr_scale.model_okr_scale_dashboard
+#, python-format
+msgid "OKR Dashboard"
+msgstr "Bảng điều khiển OKR"
+
+#. module: okr_scale
+#: model:ir.model,name:okr_scale.model_okr_scale_key_result
+msgid "OKR Key Result"
+msgstr "Kết quả then chốt OKR"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_hr_department__okr_manager_user_ids
+#: model:ir.model.fields,field_description:okr_scale.field_hr_employee__okr_manager_user_ids
+msgid "OKR Managers"
+msgstr "Quản lý OKR"
+
+#. module: okr_scale
+#: model:ir.model,name:okr_scale.model_okr_scale_objective
+msgid "OKR Objective"
+msgstr "Mục tiêu OKR"
+
+#. module: okr_scale
+#: model:ir.model,name:okr_scale.model_okr_scale_tag
+msgid "OKR Tag"
+msgstr "Thẻ OKR"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#: model:ir.actions.act_window,name:okr_scale.okr_objective_action_tree
+#: model:ir.ui.menu,name:okr_scale.okr_menu_tree
+#, python-format
+msgid "OKR Tree"
+msgstr "Cây OKR"
+
+#. module: okr_scale
+#: model:ir.actions.server,name:okr_scale.ir_cron_okr_checkin_reminder_ir_actions_server
+msgid "OKR: check-in reminders"
+msgstr "OKR: nhắc nhở check-in"
+
+#. module: okr_scale
+#: model:ir.actions.server,name:okr_scale.ir_cron_okr_status_ir_actions_server
+msgid "OKR: refresh statuses"
+msgstr "OKR: làm mới trạng thái"
+
+#. module: okr_scale
+#: model:ir.ui.menu,name:okr_scale.okr_menu_okrs
+msgid "OKRs"
+msgstr "OKR"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__objective_id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__objective_id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__name
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_search
+msgid "Objective"
+msgstr "Mục tiêu"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__objective_count
+msgid "Objective Count"
+msgstr "Số mục tiêu"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__objective_state
+msgid "Objective Status"
+msgstr "Trạng thái mục tiêu"
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_objective.py:0
+#, python-format
+msgid "Objective sent back to draft by %s."
+msgstr "Mục tiêu đã được %s trả lại về trạng thái nháp."
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#, python-format
+msgid "Objective status"
+msgstr "Trạng thái mục tiêu"
+
+#. module: okr_scale
+#. odoo-javascript
+#. odoo-python
+#: code:addons/okr_scale/models/okr_dashboard.py:0
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.js:0
+#: model:ir.actions.act_window,name:okr_scale.okr_objective_action
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__objective_ids
+#: model:ir.ui.menu,name:okr_scale.okr_menu_objectives
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_cycle_view_form
+#, python-format
+msgid "Objectives"
+msgstr "Mục tiêu"
+
+#. module: okr_scale
+#: model:ir.actions.act_window,name:okr_scale.okr_objective_action_analysis
+#: model:ir.ui.menu,name:okr_scale.okr_menu_analysis
+msgid "Objectives Analysis"
+msgstr "Phân tích mục tiêu"
+
+#. module: okr_scale
+#: model:ir.module.category,description:okr_scale.module_category_okr
+msgid "Objectives and Key Results"
+msgstr "Mục tiêu và Kết quả then chốt"
+
+#. module: okr_scale
+#: model_terms:ir.actions.act_window,help:okr_scale.okr_objective_action
+msgid ""
+"Objectives are ambitious, qualitative goals. Each one is measured by 2 to 5 "
+"key results."
+msgstr ""
+"Mục tiêu là các đích đến định tính, đầy tham vọng. Mỗi mục tiêu được đo lường bằng 2 đến 5 kết quả then chốt."
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_cycle__require_approval
+msgid "Objectives must be approved by a manager before they start running."
+msgstr "Mục tiêu phải được quản lý duyệt trước khi bắt đầu thực hiện."
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__is_my_team
+msgid ""
+"Objectives of the departments and employees managed by the current user."
+msgstr ""
+"Mục tiêu của các phòng ban và nhân viên do người dùng hiện tại quản lý."
+
+#. module: okr_scale
+#: model:ir.actions.act_window,name:okr_scale.okr_objective_action_approve
+#: model:ir.ui.menu,name:okr_scale.okr_menu_approve
+msgid "Objectives to Approve"
+msgstr "Mục tiêu chờ duyệt"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_form
+msgid "Obstacles, help needed"
+msgstr "Vướng mắc, cần hỗ trợ"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_key_result__status__off_track
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__status__off_track
+msgid "Off Track"
+msgstr "Chậm tiến độ"
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_dashboard.py:0
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_key_result__status__on_track
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__status__on_track
+#, python-format
+msgid "On Track"
+msgstr "Đúng tiến độ"
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_objective.py:0
+#, python-format
+msgid "Only OKR administrators can manage company objectives (%s)."
+msgstr "Chỉ quản trị viên OKR mới có thể quản lý mục tiêu cấp công ty (%s)."
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_checkin.py:0
+#, python-format
+msgid "Only managers can review check-ins."
+msgstr "Chỉ quản lý mới có thể xem xét check-in."
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_objective.py:0
+#, python-format
+msgid "Only the managers of department %s can manage its objectives."
+msgstr "Chỉ quản lý của phòng ban %s mới có thể quản lý các mục tiêu của phòng ban này."
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_checkin.py:0
+#, python-format
+msgid "Only the owners and managers of \"%s\" can check in on it."
+msgstr "Chỉ người phụ trách và quản lý của \"%s\" mới có thể check-in cho kết quả này."
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+msgid "Open Cycles"
+msgstr "Chu kỳ đang mở"
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_key_result.py:0
+#: code:addons/okr_scale/models/okr_objective.py:0
+#, python-format
+msgid "Operation not supported"
+msgstr "Thao tác không được hỗ trợ"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__owner_id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__owner_id
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+#, python-format
+msgid "Owner"
+msgstr "Người phụ trách"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__visibility__private
+msgid "Owner and managers"
+msgstr "Người phụ trách và quản lý"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__parent_id
+msgid "Parent Cycle"
+msgstr "Chu kỳ cha"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__parent_path
+msgid "Parent Path"
+msgstr "Đường dẫn cha"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_key_result__metric_type__percent
+msgid "Percentage"
+msgstr "Phần trăm"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_cycle_view_form
+msgid "Period"
+msgstr "Thời gian"
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__owner_id
+msgid "Person responsible for checking in on this key result."
+msgstr "Người chịu trách nhiệm check-in cho kết quả then chốt này."
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__next_steps
+msgid "Plan for the next period"
+msgstr "Kế hoạch cho kỳ tiếp theo"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__state__draft
+msgid "Planning"
+msgstr "Lập kế hoạch"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__value_before
+msgid "Previous Value"
+msgstr "Giá trị trước"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_form
+msgid "Priorities until the next check-in"
+msgstr "Ưu tiên cho đến lần check-in tiếp theo"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__progress_after
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__progress
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__progress
+#, python-format
+msgid "Progress"
+msgstr "Tiến độ"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__progress_before
+msgid "Progress Before"
+msgstr "Tiến độ trước"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#, python-format
+msgid "Progress by department"
+msgstr "Tiến độ theo phòng ban"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__cycle_type__quarter
+msgid "Quarter"
+msgstr "Quý"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_cycle_view_search
+msgid "Quarters"
+msgstr "Quý"
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__weight
+msgid "Relative importance of this key result inside its objective."
+msgstr "Mức độ quan trọng tương đối của kết quả then chốt này trong mục tiêu."
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_cycle_view_form
+msgid "Reopen"
+msgstr "Mở lại"
+
+#. module: okr_scale
+#: model:ir.ui.menu,name:okr_scale.okr_menu_reporting
+msgid "Reporting"
+msgstr "Báo cáo"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__require_approval
+msgid "Require Approval"
+msgstr "Yêu cầu phê duyệt"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
+msgid "Reset to Draft"
+msgstr "Đặt lại về Nháp"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__activity_user_id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__activity_user_id
+msgid "Responsible User"
+msgstr "Người dùng phụ trách"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_form
+msgid "Results obtained since the last check-in"
+msgstr "Kết quả đạt được kể từ lần check-in trước"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__review_date
+msgid "Review Date"
+msgstr "Ngày xem xét"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_checkin__state__reviewed
+msgid "Reviewed"
+msgstr "Đã xem xét"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__reviewer_id
+msgid "Reviewer"
+msgstr "Người xem xét"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__state__open
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__state__running
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_cycle_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+msgid "Running"
+msgstr "Đang thực hiện"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__message_has_sms_error
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_has_sms_error
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_has_sms_error
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Lỗi gửi SMS"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_form
+msgid "Save as Draft"
+msgstr "Lưu nháp"
+
+#. module: okr_scale
+#: model:res.groups,comment:okr_scale.group_okr_user
+msgid ""
+"See visible OKRs, manage own individual objectives and check in on own key "
+"results."
+msgstr ""
+"Xem các OKR được phép, quản lý mục tiêu cá nhân của mình và check-in cho các kết quả then chốt của mình."
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__self_assessment
+msgid "Self Assessment"
+msgstr "Tự đánh giá"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
+msgid "Send Back"
+msgstr "Trả lại"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__sequence
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__sequence
+msgid "Sequence"
+msgstr "Thứ tự"
+
+#. module: okr_scale
+#: model_terms:ir.actions.act_window,help:okr_scale.okr_objective_action
+msgid "Set your first objective"
+msgstr "Đặt mục tiêu đầu tiên của bạn"
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__expected_progress
+msgid "Share of the cycle already elapsed."
+msgstr "Tỷ lệ thời gian đã trôi qua của chu kỳ."
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__start_value
+msgid "Start"
+msgstr "Giá trị ban đầu"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_cycle_view_form
+msgid "Start Cycle"
+msgstr "Bắt đầu chu kỳ"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__date_start
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__date_start
+msgid "Start Date"
+msgstr "Ngày bắt đầu"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__state
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__state
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__state
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+msgid "State"
+msgstr "Trạng thái"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__status
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__status
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+msgid "Status"
+msgstr "Trạng thái"
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__activity_state
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Trạng thái dựa trên hoạt động\n"
+"Quá hạn: Đã quá hạn chót\n"
+"Hôm nay: Hoạt động diễn ra hôm nay\n"
+"Đã lên kế hoạch: Hoạt động trong tương lai."
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_checkin__mood__struggling
+msgid "Struggling"
+msgstr "Gặp khó khăn"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__child_ids
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_cycle_view_form
+msgid "Sub Cycles"
+msgstr "Chu kỳ con"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
+msgid "Submit"
+msgstr "Gửi"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_form
+msgid "Submit Check-in"
+msgstr "Gửi check-in"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_checkin__state__submitted
+msgid "Submitted"
+msgstr "Đã gửi"
+
+#. module: okr_scale
+#: model:ir.model.constraint,message:okr_scale.constraint_okr_scale_tag_name_uniq
+msgid "Tag name already exists!"
+msgstr "Tên thẻ đã tồn tại!"
+
+#. module: okr_scale
+#: model:ir.actions.act_window,name:okr_scale.okr_tag_action
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__tag_ids
+#: model:ir.ui.menu,name:okr_scale.okr_menu_tags
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
+msgid "Tags"
+msgstr "Thẻ"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__target_value
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__target_value
+msgid "Target"
+msgstr "Giá trị mục tiêu"
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_cycle.py:0
+#, python-format
+msgid "The end date of cycle %s must be after its start date."
+msgstr "Ngày kết thúc của chu kỳ %s phải sau ngày bắt đầu."
+
+#. module: okr_scale
+#: model:ir.model.constraint,message:okr_scale.constraint_okr_scale_objective_final_score_range
+msgid "The final score must be between 0.0 and 1.0."
+msgstr "Điểm cuối kỳ phải nằm trong khoảng từ 0.0 đến 1.0."
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_key_result.py:0
+#, python-format
+msgid ""
+"The objective \"%s\" is running: only its managers can change the target, "
+"weight or measure of its key results."
+msgstr ""
+"Mục tiêu \"%s\" đang được thực hiện: chỉ quản lý mới có thể thay đổi giá trị mục tiêu, trọng số hoặc cách đo lường của các kết quả then chốt."
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_key_result.py:0
+#, python-format
+msgid "The target of \"%s\" must differ from its start value."
+msgstr "Giá trị mục tiêu của \"%s\" phải khác giá trị ban đầu."
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_key_result.py:0
+#, python-format
+msgid "The weight of a key result cannot be negative."
+msgstr "Trọng số của kết quả then chốt không được âm."
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#, python-format
+msgid "Time elapsed:"
+msgstr "Thời gian đã trôi qua:"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__state__to_approve
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+msgid "To Approve"
+msgstr "Chờ duyệt"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_search
+msgid "To Review"
+msgstr "Cần xem xét"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__cycle_type
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__okr_type
+msgid "Type"
+msgstr "Loại"
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__activity_exception_decoration
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Loại hoạt động ngoại lệ trên bản ghi."
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__unit
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__unit
+msgid "Unit"
+msgstr "Đơn vị"
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_checkin__unit
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__unit
+msgid "Unit displayed next to values, e.g. customers, leads, hours."
+msgstr "Đơn vị hiển thị bên cạnh giá trị, ví dụ: khách hàng, khách hàng tiềm năng, giờ."
+
+#. module: okr_scale
+#: model:mail.activity.type,summary:okr_scale.mail_activity_okr_checkin
+msgid "Update your key result"
+msgstr "Cập nhật kết quả then chốt của bạn"
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__parent_key_result_id
+msgid ""
+"Upper key result this objective contributes to. Key results measured \"From "
+"aligned objectives\" take their progress from these objectives."
+msgstr ""
+"Kết quả then chốt cấp trên mà mục tiêu này đóng góp vào. Các kết quả then chốt được đo lường \"Từ các mục tiêu căn chỉnh\" sẽ lấy tiến độ từ các mục tiêu này."
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__parent_id
+msgid "Upper objective this objective contributes to."
+msgstr "Mục tiêu cấp trên mà mục tiêu này đóng góp vào."
+
+#. module: okr_scale
+#: model:res.groups,name:okr_scale.group_okr_user
+msgid "User: own OKRs"
+msgstr "Người dùng: OKR của bản thân"
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_hr_employee__okr_manager_user_ids
+msgid ""
+"Users in the management chain of this employee (direct managers and "
+"department managers). Used by OKR record rules."
+msgstr ""
+"Những người dùng trong chuỗi quản lý của nhân viên này (quản lý trực tiếp và quản lý phòng ban). Được dùng bởi các quy tắc bản ghi OKR."
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_hr_department__okr_manager_user_ids
+msgid ""
+"Users managing this department or one of its parent departments. Used by OKR"
+" record rules."
+msgstr ""
+"Những người dùng quản lý phòng ban này hoặc một trong các phòng ban cấp trên. Được dùng bởi các quy tắc bản ghi OKR."
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__visibility
+msgid "Visibility"
+msgstr "Phạm vi hiển thị"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_search
+msgid "Week"
+msgstr "Tuần"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__checkin_frequency__weekly
+msgid "Weekly"
+msgstr "Hàng tuần"
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_key_result.py:0
+#, python-format
+msgid "Weekly check-in: %s"
+msgstr "Check-in hàng tuần: %s"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__weight
+msgid "Weight"
+msgstr "Trọng số"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__achievements
+msgid "What did you achieve?"
+msgstr "Bạn đã đạt được những gì?"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__blockers
+msgid "What is blocking you?"
+msgstr "Bạn đang gặp vướng mắc gì?"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#, python-format
+msgid "Who"
+msgstr "Ai"
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__visibility
+msgid ""
+"Who can see this objective. Managers in the hierarchy and OKR administrators"
+" always can."
+msgstr ""
+"Ai có thể xem mục tiêu này. Quản lý trong cơ cấu tổ chức và quản trị viên OKR luôn có quyền xem."
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
+msgid "Why does this objective matter? What does success look like?"
+msgstr "Vì sao mục tiêu này quan trọng? Thành công trông như thế nào?"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_search
+msgid "With Blockers"
+msgstr "Có vướng mắc"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__cycle_type__year
+msgid "Year"
+msgstr "Năm"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_cycle_view_search
+msgid "Years"
+msgstr "Năm"
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_objective.py:0
+#, python-format
+msgid "You are not allowed to approve \"%s\"."
+msgstr "Bạn không có quyền duyệt \"%s\"."
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_objective.py:0
+#, python-format
+msgid "You are not allowed to reject \"%s\"."
+msgstr "Bạn không có quyền từ chối \"%s\"."
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_checkin.py:0
+#, python-format
+msgid "You can only check in on key results of running objectives."
+msgstr "Bạn chỉ có thể check-in cho kết quả then chốt của các mục tiêu đang thực hiện."
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_objective.py:0
+#, python-format
+msgid ""
+"You can only manage your own individual objectives or those of your team."
+msgstr ""
+"Bạn chỉ có thể quản lý mục tiêu cá nhân của mình hoặc của nhóm mình."
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#, python-format
+msgid "at risk"
+msgstr "có rủi ro"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
+msgid "e.g. Become the leading supplier in the region"
+msgstr "ví dụ: Trở thành nhà cung cấp hàng đầu trong khu vực"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_cycle_view_form
+msgid "e.g. Q1 2027"
+msgstr "ví dụ: Q1 2027"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_form
+msgid "e.g. Sign 20 new B2B customers"
+msgstr "ví dụ: Ký kết 20 khách hàng B2B mới"
