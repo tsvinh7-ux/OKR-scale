@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- Invitation posted by the share wizard (rendered with message_post_with_source) -->
+    <template id="okr_share_invitation" name="OKR: portal invitation">
+        <div style="margin: 0px; padding: 0px; font-size: 14px; color: #1B2A41;">
+            <p>Hello <t t-out="partner.name"/>,</p>
+            <p>
+                <t t-out="user.name"/> invited you to follow the objective
+                <strong t-out="objective.name"/> on the customer portal of <t t-out="objective.company_id.name"/>.
+            </p>
+            <p t-if="access_mode == 'edit'">You can follow the progress, check in on the key results and discuss with the team.</p>
+            <p t-else="">You can follow the progress and discuss with the team.</p>
+            <p t-if="note" style="white-space: pre-wrap; border-left: 3px solid #178BEC; padding-left: 12px; color: #6B7A90;" t-out="note"/>
+            <p style="margin: 24px 0px;">
+                <a t-att-href="share_link"
+                   style="background-color: #11346A; padding: 10px 20px; text-decoration: none; color: #ffffff; border-radius: 8px; font-weight: bold;">
+                    <t t-if="signup">Activate my account</t>
+                    <t t-else="">Open the objective</t>
+                </a>
+            </p>
+            <p t-if="signup" style="color: #6B7A90; font-size: 12px;">
+                The link lets you choose your password, then opens the objective.
+            </p>
+        </div>
+    </template>
+
     <data noupdate="1">
         <record id="mail_template_okr_portal_checkin_reminder" model="mail.template">
             <field name="name">OKR: portal check-in reminder</field>
@@ -21,7 +45,7 @@
         Current progress: <t t-out="'%.0f' % object.progress">40</t>%.
         <br/><br/>
         <a t-att-href="object.objective_id.get_base_url() + object.objective_id.access_url"
-           style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size: 13px;">
+           style="background-color: #11346A; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 8px; font-size: 13px;">
             Check in now
         </a>
         <br/><br/>

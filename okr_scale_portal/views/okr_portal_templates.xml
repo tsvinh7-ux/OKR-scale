@@ -18,7 +18,7 @@
         </xpath>
         <div id="portal_client_category" position="inside">
             <t t-call="portal.portal_docs_entry">
-                <t t-set="icon" t-value="'/okr_scale_portal/static/src/img/okr.svg'"/>
+                <t t-set="icon" t-value="'/okr_scale/static/src/img/dmag_mark.png'"/>
                 <t t-set="title">OKRs</t>
                 <t t-set="url" t-value="'/my/okrs'"/>
                 <t t-set="text">Follow the objectives and key results shared with you</t>
@@ -27,19 +27,57 @@
         </div>
     </template>
 
-    <!-- Reusable bits -->
-    <template id="okr_status_badge" name="OKR status badge">
-        <t t-set="badge_color" t-value="{'on_track': 'success', 'achieved': 'info', 'at_risk': 'warning', 'off_track': 'danger'}.get(record.status, 'secondary')"/>
-        <span t-if="record.status" t-attf-class="badge rounded-pill text-bg-#{badge_color}" t-field="record.status"/>
+    <!-- ================================================================
+         Reusable bits
+         ================================================================ -->
+    <template id="okr_status_chip" name="OKR status chip">
+        <span t-if="record.status" t-attf-class="o_okr_chip o_okr_status_#{record.status}">
+            <span class="o_okr_chip_dot"/><span t-field="record.status"/>
+        </span>
     </template>
 
-    <template id="okr_progress_bar" name="OKR progress bar">
-        <t t-set="bar_color" t-value="{'on_track': 'success', 'achieved': 'info', 'at_risk': 'warning', 'off_track': 'danger'}.get(record.status, 'primary')"/>
-        <div class="progress" style="height: 1.1rem; min-width: 6rem;" role="progressbar"
-             t-att-aria-valuenow="int(record.progress)" aria-valuemin="0" aria-valuemax="100">
-            <div t-attf-class="progress-bar bg-#{bar_color}" t-attf-style="width: #{int(min(max(record.progress, 0), 100))}%;"/>
+    <template id="okr_state_chip" name="OKR objective state chip">
+        <span t-if="record.state == 'done'" class="o_okr_chip o_okr_chip_muted"><i class="fa fa-flag-checkered me-1"/>Closed</span>
+        <span t-else="" class="o_okr_chip o_okr_chip_live"><span class="o_okr_chip_dot"/>Running</span>
+    </template>
+
+    <template id="okr_access_badge" name="OKR access badge">
+        <span t-if="access_mode == 'edit'" class="o_okr_access o_okr_access_edit" title="You can check in on the key results">
+            <i class="fa fa-pencil me-1"/>Can update
+        </span>
+        <span t-elif="access_mode == 'read'" class="o_okr_access o_okr_access_read" title="You can follow the progress and discuss">
+            <i class="fa fa-eye me-1"/>View only
+        </span>
+    </template>
+
+    <!-- Circular progress ring (pure SVG). Params: pct, ring_size (px), ring_class -->
+    <template id="okr_progress_ring" name="OKR progress ring">
+        <t t-set="ring_pct" t-value="int(round(min(max(pct or 0.0, 0.0), 100.0)))"/>
+        <div t-attf-class="o_okr_ring #{ring_class or ''}" t-attf-style="--okr-ring-size: #{ring_size or 72}px;"
+             role="progressbar" t-att-aria-valuenow="ring_pct" aria-valuemin="0" aria-valuemax="100">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+                <circle class="o_okr_ring_track" cx="60" cy="60" r="52"/>
+                <circle class="o_okr_ring_value" cx="60" cy="60" r="52"
+                        t-attf-stroke-dasharray="#{'%.2f' % (ring_pct * 3.2673)} 400"/>
+            </svg>
+            <span class="o_okr_ring_label"><t t-out="ring_pct"/><small>%</small></span>
         </div>
-        <small class="text-muted"><t t-out="'%.0f' % record.progress"/>%</small>
+    </template>
+
+    <!-- Initials avatar. Params: person (res.users or res.partner) -->
+    <template id="okr_avatar" name="OKR initials avatar">
+        <t t-set="avatar_words" t-value="(person.name or '?').split()"/>
+        <span t-attf-class="o_okr_avatar o_okr_avatar_#{person.id % 5} #{avatar_class or ''}" t-att-title="person.name">
+            <t t-out="(avatar_words[0][:1] + (avatar_words[-1][:1] if len(avatar_words) &gt; 1 else '')).upper()"/>
+        </span>
+    </template>
+
+    <template id="okr_confidence" name="OKR confidence dot">
+        <t t-set="conf_level" t-value="int(confidence or 0)"/>
+        <span t-if="conf_level" t-attf-class="o_okr_confidence #{'o_okr_conf_high' if conf_level &gt;= 7 else 'o_okr_conf_mid' if conf_level &gt;= 4 else 'o_okr_conf_low'}"
+              title="Confidence">
+            <span class="o_okr_conf_dot"/><t t-out="conf_level"/>/10
+        </span>
     </template>
 
     <template id="okr_kr_value" name="OKR key result value">
@@ -47,78 +85,195 @@
             <t t-if="value &gt;= 1">Done</t>
             <t t-else="">Not done</t>
         </t>
+        <t t-elif="kr.metric_type == 'percent'"><span t-out="value" t-options="{'widget': 'float', 'precision': 0 if value == int(value) else 2}"/>%</t>
         <t t-else="">
             <span t-out="value" t-options="{'widget': 'float', 'precision': 0 if value == int(value) else 2}"/>
-            <t t-if="kr.metric_type == 'percent'">%</t>
-            <t t-elif="kr.metric_type == 'currency'" t-out="kr.currency_id.symbol"/>
+            <t t-if="kr.metric_type == 'currency'" t-out="kr.currency_id.symbol"/>
             <t t-elif="kr.unit" t-out="kr.unit"/>
         </t>
     </template>
 
-    <!-- My OKRs -->
+    <!-- ================================================================
+         My OKRs
+         ================================================================ -->
     <template id="portal_my_okrs" name="My OKRs">
         <t t-call="portal.portal_layout">
-            <t t-set="breadcrumbs_searchbar" t-value="True"/>
-            <t t-call="portal.portal_searchbar">
-                <t t-set="title">OKRs</t>
-                <div t-if="okr_cycles" class="ms-lg-2">
-                    <span class="small me-1 navbar-text">Cycle:</span>
-                    <div class="btn-group">
-                        <button id="portal_searchbar_okr_cycle" data-bs-toggle="dropdown" class="btn btn-secondary dropdown-toggle">
-                            <t t-if="okr_selected_cycle" t-out="okr_selected_cycle.name"/>
-                            <t t-else="">All cycles</t>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="portal_searchbar_okr_cycle">
-                            <a t-att-href="default_url + '?' + keep_query('sortby', 'filterby')"
-                               t-attf-class="dropdown-item#{'' if okr_selected_cycle else ' active'}">All cycles</a>
-                            <t t-foreach="okr_cycles" t-as="cycle">
-                                <a t-att-href="default_url + '?' + keep_query('sortby', 'filterby', cycle=cycle.id)"
-                                   t-attf-class="dropdown-item#{' active' if cycle == okr_selected_cycle else ''}">
-                                    <span t-out="cycle.name"/>
-                                </a>
-                            </t>
+            <div class="o_okr_portal pb-5">
+                <section class="o_okr_hero mb-4">
+                    <div class="o_okr_hero_body">
+                        <div class="d-flex align-items-center gap-3">
+                            <span class="o_okr_hero_mark"><img src="/okr_scale/static/src/img/dmag_mark.png" alt="DMAG"/></span>
+                            <div>
+                                <div class="o_okr_eyebrow">Objectives &amp; Key Results</div>
+                                <h1 class="o_okr_hero_title">Shared OKRs</h1>
+                            </div>
+                        </div>
+                        <p class="o_okr_hero_lead mb-0">Follow the progress of the objectives we share with you, update your key results and discuss with our team.</p>
+                    </div>
+                </section>
+
+                <div class="o_okr_toolbar mb-4">
+                    <nav class="o_okr_pills" aria-label="Filter">
+                        <t t-foreach="searchbar_filters.items()" t-as="flt">
+                            <a t-att-href="default_url + '?' + keep_query('sortby', 'cycle', filterby=flt[0])"
+                               t-attf-class="o_okr_pill #{'active' if filterby == flt[0] else ''}">
+                                <t t-out="flt[1]['label']"/>
+                                <span class="o_okr_pill_count" t-out="okr_filter_counts.get(flt[0], 0)"/>
+                            </a>
+                        </t>
+                    </nav>
+                    <div class="d-flex gap-2 ms-md-auto">
+                        <div t-if="okr_cycles" class="dropdown">
+                            <button class="o_okr_select dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-calendar-o me-2"/>
+                                <t t-if="okr_selected_cycle" t-out="okr_selected_cycle.name"/>
+                                <t t-else="">All cycles</t>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a t-att-href="default_url + '?' + keep_query('sortby', 'filterby')"
+                                   t-attf-class="dropdown-item#{'' if okr_selected_cycle else ' active'}">All cycles</a>
+                                <t t-foreach="okr_cycles" t-as="cycle">
+                                    <a t-att-href="default_url + '?' + keep_query('sortby', 'filterby', cycle=cycle.id)"
+                                       t-attf-class="dropdown-item#{' active' if cycle == okr_selected_cycle else ''}" t-out="cycle.name"/>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="o_okr_select dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-sort-amount-desc me-2"/><t t-out="searchbar_sortings[sortby]['label']"/>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <t t-foreach="searchbar_sortings.items()" t-as="srt">
+                                    <a t-att-href="default_url + '?' + keep_query('filterby', 'cycle', sortby=srt[0])"
+                                       t-attf-class="dropdown-item#{' active' if sortby == srt[0] else ''}" t-out="srt[1]['label']"/>
+                                </t>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </t>
-            <div t-if="not objectives" class="alert alert-info" role="alert">
-                There are no objectives shared with you yet.
+
+                <div t-if="not objectives" class="o_okr_empty">
+                    <span class="o_okr_empty_icon"><i class="fa fa-bullseye"/></span>
+                    <h5 class="mt-3 mb-1">No objective shared with you yet</h5>
+                    <p class="text-muted mb-0">Objectives appear here as soon as our team shares them with you.</p>
+                </div>
+
+                <div t-if="objectives" class="row g-3 g-lg-4">
+                    <div t-foreach="objectives" t-as="objective" class="col-12 col-md-6 col-xl-4">
+                        <a t-att-href="objective.access_url" class="o_okr_card o_okr_card_link h-100">
+                            <div class="d-flex justify-content-between align-items-start gap-2 mb-3">
+                                <div class="d-flex flex-wrap gap-2">
+                                    <t t-if="objective.state == 'done'" t-call="okr_scale_portal.okr_state_chip"><t t-set="record" t-value="objective"/></t>
+                                    <t t-call="okr_scale_portal.okr_access_badge">
+                                        <t t-set="access_mode" t-value="okr_access_modes.get(objective.id)"/>
+                                    </t>
+                                </div>
+                                <span class="o_okr_cycle text-nowrap"><i class="fa fa-calendar-o me-1"/><t t-out="objective.cycle_id.name"/></span>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="flex-grow-1 min-w-0">
+                                    <h3 class="o_okr_card_title" t-field="objective.name"/>
+                                    <div class="d-flex align-items-center gap-2 mt-2">
+                                        <t t-call="okr_scale_portal.okr_avatar">
+                                            <t t-set="person" t-value="objective.owner_id"/>
+                                            <t t-set="avatar_class" t-value="'o_okr_avatar_sm'"/>
+                                        </t>
+                                        <span class="small text-muted text-truncate" t-out="objective.owner_id.name"/>
+                                    </div>
+                                </div>
+                                <t t-call="okr_scale_portal.okr_progress_ring">
+                                    <t t-set="pct" t-value="objective.progress"/>
+                                    <t t-set="ring_size" t-value="76"/>
+                                    <t t-set="ring_class" t-value="'o_okr_ring_%s' % (objective.status or 'none')"/>
+                                </t>
+                            </div>
+                            <div class="o_okr_card_footer">
+                                <t t-call="okr_scale_portal.okr_status_chip"><t t-set="record" t-value="objective"/></t>
+                                <span class="small text-muted">
+                                    <i class="fa fa-key me-1"/><t t-out="len(objective.key_result_ids)"/> key results
+                                </span>
+                                <span class="o_okr_card_arrow ms-auto"><i class="fa fa-arrow-right"/></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div t-if="pager and pager.get('page_count', 0) &gt; 1" class="mt-4 d-flex justify-content-center">
+                    <t t-call="portal.pager"/>
+                </div>
             </div>
-            <t t-if="objectives" t-call="portal.portal_table">
-                <thead>
-                    <tr class="active">
-                        <th>Objective</th>
-                        <th class="d-none d-md-table-cell">Cycle</th>
-                        <th class="d-none d-md-table-cell">Owner</th>
-                        <th style="width: 22%;">Progress</th>
-                        <th class="text-end">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr t-foreach="objectives" t-as="objective">
-                        <td>
-                            <a t-att-href="objective.access_url"><span t-field="objective.name"/></a>
-                            <div t-if="objective.state == 'done'" class="small text-muted">Closed</div>
-                        </td>
-                        <td class="d-none d-md-table-cell"><span t-field="objective.cycle_id.name"/></td>
-                        <td class="d-none d-md-table-cell"><span t-field="objective.owner_id.name"/></td>
-                        <td>
-                            <t t-call="okr_scale_portal.okr_progress_bar">
-                                <t t-set="record" t-value="objective"/>
-                            </t>
-                        </td>
-                        <td class="text-end">
-                            <t t-call="okr_scale_portal.okr_status_badge">
-                                <t t-set="record" t-value="objective"/>
-                            </t>
-                        </td>
-                    </tr>
-                </tbody>
-            </t>
         </t>
     </template>
 
-    <!-- Objective detail -->
+    <!-- ================================================================
+         Objective detail
+         ================================================================ -->
+    <template id="okr_checkin_form" name="OKR portal check-in form">
+        <form t-att-action="'/my/okr/kr/%s/checkin' % kr.id" method="post" class="o_okr_checkin_form">
+            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h6 class="mb-0 fw-semibold"><i class="fa fa-bullseye o_okr_text_blue me-2"/>New check-in</h6>
+                <button type="button" class="btn-close" data-bs-toggle="collapse"
+                        t-att-data-bs-target="'#okr_checkin_form_%s' % kr.id" aria-label="Close"/>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-5" t-if="kr.progress_method == 'manual'">
+                    <label class="form-label" t-att-for="'okr_new_value_%s' % kr.id">New value</label>
+                    <select t-if="kr.metric_type == 'boolean'" class="form-select form-select-lg" name="new_value"
+                            t-att-id="'okr_new_value_%s' % kr.id">
+                        <option value="0" t-att-selected="kr.current_value &lt; 1">Not done</option>
+                        <option value="1" t-att-selected="kr.current_value &gt;= 1">Done</option>
+                    </select>
+                    <div t-else="" class="input-group input-group-lg">
+                        <input type="text" inputmode="decimal" class="form-control" name="new_value" required="required"
+                               maxlength="32" t-att-id="'okr_new_value_%s' % kr.id" t-att-value="'%g' % kr.current_value"/>
+                        <span t-if="kr.unit or kr.metric_type in ('percent', 'currency')" class="input-group-text">
+                            <t t-out="'%' if kr.metric_type == 'percent' else kr.currency_id.symbol if kr.metric_type == 'currency' else kr.unit"/>
+                        </span>
+                    </div>
+                    <div class="form-text">
+                        Target: <t t-call="okr_scale_portal.okr_kr_value"><t t-set="value" t-value="kr.target_value"/></t>
+                    </div>
+                </div>
+                <div t-attf-class="#{'col-md-7' if kr.progress_method == 'manual' else 'col-12'}">
+                    <span class="form-label d-block" t-att-id="'okr_confidence_label_%s' % kr.id">How confident are you to reach the target?</span>
+                    <div class="o_okr_conf_picker" role="radiogroup" t-att-aria-labelledby="'okr_confidence_label_%s' % kr.id">
+                        <t t-foreach="range(1, 11)" t-as="level">
+                            <input type="radio" class="btn-check" name="confidence" t-att-value="level"
+                                   t-att-id="'okr_conf_%s_%s' % (kr.id, level)" autocomplete="off"
+                                   t-att-checked="str(level) == (kr.confidence or '7')"/>
+                            <label t-attf-class="o_okr_conf_pill #{'o_okr_conf_high' if level &gt;= 7 else 'o_okr_conf_mid' if level &gt;= 4 else 'o_okr_conf_low'}"
+                                   t-att-for="'okr_conf_%s_%s' % (kr.id, level)" t-out="level"/>
+                        </t>
+                    </div>
+                    <div class="d-flex justify-content-between form-text">
+                        <span>1 = unlikely</span><span>10 = certain</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label" t-att-for="'okr_achievements_%s' % kr.id">What did you achieve?</label>
+                    <textarea class="form-control" name="achievements" rows="3" maxlength="2000"
+                              placeholder="Results, deliveries, figures..." t-att-id="'okr_achievements_%s' % kr.id"/>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label" t-att-for="'okr_blockers_%s' % kr.id">What is blocking you?</label>
+                    <textarea class="form-control" name="blockers" rows="3" maxlength="2000"
+                              placeholder="Risks, dependencies, support needed..." t-att-id="'okr_blockers_%s' % kr.id"/>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label" t-att-for="'okr_next_steps_%s' % kr.id">Plan for the next period</label>
+                    <textarea class="form-control" name="next_steps" rows="3" maxlength="2000"
+                              placeholder="Next actions and priorities..." t-att-id="'okr_next_steps_%s' % kr.id"/>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end gap-2 mt-3">
+                <button type="button" class="btn btn-light" data-bs-toggle="collapse"
+                        t-att-data-bs-target="'#okr_checkin_form_%s' % kr.id">Cancel</button>
+                <button type="submit" class="btn btn-primary o_okr_btn_primary px-4">Submit check-in</button>
+            </div>
+        </form>
+    </template>
+
     <template id="portal_my_okr" name="My OKR">
         <t t-call="portal.portal_layout">
             <t t-set="o_portal_fullwidth_alert" groups="okr_scale.group_okr_user">
@@ -127,203 +282,187 @@
                 </t>
             </t>
             <t t-set="objective" t-value="okr_objective"/>
+            <div t-attf-class="o_okr_portal pb-5 #{'o_okr_readonly' if okr_access_mode == 'read' else ''}">
 
-            <div t-if="okr_checkin_done" class="alert alert-success alert-dismissible" role="alert">
-                Thank you, your check-in has been recorded.
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"/>
-            </div>
-            <div t-if="okr_checkin_error" class="alert alert-danger alert-dismissible" role="alert">
-                <t t-out="okr_checkin_error"/>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"/>
-            </div>
+                <div t-if="okr_checkin_done" class="o_okr_alert o_okr_alert_success alert alert-dismissible fade show" role="alert">
+                    <i class="fa fa-check-circle me-2"/>Thank you, your check-in has been recorded.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"/>
+                </div>
+                <div t-if="okr_checkin_error" class="o_okr_alert o_okr_alert_danger alert alert-dismissible fade show" role="alert">
+                    <i class="fa fa-exclamation-circle me-2"/><t t-out="okr_checkin_error"/>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"/>
+                </div>
 
-            <div class="card mb-4" id="okr_objective_header">
-                <div class="card-body">
-                    <div class="d-flex flex-wrap justify-content-between align-items-start gap-2">
-                        <div>
-                            <h3 class="mb-1" t-field="objective.name"/>
-                            <div class="text-muted small">
-                                <span t-field="objective.cycle_id.name"/>
-                                <t t-if="objective.cycle_id.date_start">
-                                    (<span t-field="objective.cycle_id.date_start"/> - <span t-field="objective.cycle_id.date_end"/>)
+                <!-- Hero -->
+                <section class="o_okr_hero o_okr_hero_detail mb-4" id="okr_objective_header">
+                    <div class="o_okr_hero_body d-flex flex-column flex-md-row align-items-md-center gap-4">
+                        <div class="flex-grow-1 min-w-0">
+                            <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+                                <span class="o_okr_hero_chip"><i class="fa fa-calendar-o me-1"/><t t-out="objective.cycle_id.name"/></span>
+                                <span t-if="objective.state == 'done'" class="o_okr_hero_chip"><i class="fa fa-flag-checkered me-1"/>Closed</span>
+                                <span t-else="" class="o_okr_hero_chip"><span class="o_okr_chip_dot o_okr_dot_live"/>Running</span>
+                                <span t-if="objective.status" class="o_okr_hero_chip"><span t-attf-class="o_okr_chip_dot o_okr_dot_#{objective.status}"/><span t-field="objective.status"/></span>
+                                <t t-call="okr_scale_portal.okr_access_badge">
+                                    <t t-set="access_mode" t-value="okr_access_mode"/>
                                 </t>
                             </div>
-                        </div>
-                        <div class="text-end">
-                            <t t-call="okr_scale_portal.okr_status_badge">
-                                <t t-set="record" t-value="objective"/>
-                            </t>
-                            <span t-if="objective.state == 'done'" class="badge rounded-pill text-bg-secondary ms-1">Closed</span>
-                        </div>
-                    </div>
-                    <div class="row mt-3 g-3">
-                        <div class="col-6 col-md-3">
-                            <div class="small text-muted">Owner</div>
-                            <span t-field="objective.owner_id.name"/>
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <div class="small text-muted">Customer</div>
-                            <span t-field="objective.partner_id.name"/>
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <div class="small text-muted">Last check-in</div>
-                            <span t-if="objective.last_checkin_date" t-field="objective.last_checkin_date"/>
-                            <span t-else="" class="text-muted">-</span>
-                        </div>
-                        <div class="col-6 col-md-3" t-if="objective.state == 'done' and objective.final_score">
-                            <div class="small text-muted">Final score</div>
-                            <span t-out="'%.2f' % objective.final_score"/>
-                        </div>
-                    </div>
-                    <div class="mt-3">
-                        <div class="small text-muted">Progress</div>
-                        <t t-call="okr_scale_portal.okr_progress_bar">
-                            <t t-set="record" t-value="objective"/>
-                        </t>
-                    </div>
-                    <div t-if="not is_html_empty(objective.description)" class="mt-3" t-field="objective.description"/>
-                </div>
-            </div>
-
-            <h4>Key Results</h4>
-            <t t-call="portal.portal_table">
-                <thead>
-                    <tr class="active">
-                        <th>Key Result</th>
-                        <th class="d-none d-md-table-cell">Owner</th>
-                        <th class="text-end">Current / Target</th>
-                        <th style="width: 18%;">Progress</th>
-                        <th class="text-center d-none d-md-table-cell">Confidence</th>
-                        <th class="d-none d-lg-table-cell">Last check-in</th>
-                        <th/>
-                    </tr>
-                </thead>
-                <tbody>
-                    <t t-foreach="okr_key_results" t-as="kr">
-                        <tr t-att-id="'kr-%s' % kr.id">
-                            <td>
-                                <span t-field="kr.name"/>
-                                <div class="mt-1">
-                                    <t t-call="okr_scale_portal.okr_status_badge">
-                                        <t t-set="record" t-value="kr"/>
+                            <h1 class="o_okr_hero_title" t-field="objective.name"/>
+                            <div class="o_okr_hero_meta">
+                                <span class="d-inline-flex align-items-center gap-2">
+                                    <t t-call="okr_scale_portal.okr_avatar">
+                                        <t t-set="person" t-value="objective.owner_id"/>
+                                        <t t-set="avatar_class" t-value="'o_okr_avatar_sm o_okr_avatar_light'"/>
                                     </t>
-                                </div>
-                            </td>
-                            <td class="d-none d-md-table-cell"><span t-field="kr.owner_id.name"/></td>
-                            <td class="text-end text-nowrap">
-                                <t t-call="okr_scale_portal.okr_kr_value"><t t-set="value" t-value="kr.current_value"/></t>
-                                /
-                                <t t-call="okr_scale_portal.okr_kr_value"><t t-set="value" t-value="kr.target_value"/></t>
-                            </td>
-                            <td>
-                                <t t-call="okr_scale_portal.okr_progress_bar">
-                                    <t t-set="record" t-value="kr"/>
-                                </t>
-                            </td>
-                            <td class="text-center d-none d-md-table-cell">
-                                <t t-if="kr.confidence"><t t-out="kr.confidence"/>/10</t>
-                            </td>
-                            <td class="d-none d-lg-table-cell">
-                                <span t-if="kr.last_checkin_date" t-field="kr.last_checkin_date"/>
-                            </td>
-                            <td class="text-end">
-                                <button t-if="kr.id in okr_checkin_kr_ids" type="button" class="btn btn-sm btn-primary text-nowrap"
-                                        data-bs-toggle="collapse" t-att-data-bs-target="'#okr_checkin_form_%s' % kr.id"
-                                        t-att-aria-controls="'okr_checkin_form_%s' % kr.id" aria-expanded="false">
-                                    <i class="fa fa-bullseye me-1"/>Check-in
-                                </button>
-                            </td>
-                        </tr>
-                        <tr t-if="kr.id in okr_checkin_kr_ids" t-att-id="'okr_checkin_form_%s' % kr.id"
-                            t-att-class="'collapse show' if okr_error_kr_id == str(kr.id) else 'collapse'">
-                            <td colspan="7" class="bg-light">
-                                <form t-att-action="'/my/okr/kr/%s/checkin' % kr.id" method="post" class="p-2 o_okr_portal_checkin_form">
-                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-                                    <div class="row g-3">
-                                        <div class="col-md-4" t-if="kr.progress_method == 'manual'">
-                                            <label class="form-label" t-att-for="'okr_new_value_%s' % kr.id">New value</label>
-                                            <select t-if="kr.metric_type == 'boolean'" class="form-select" name="new_value"
-                                                    t-att-id="'okr_new_value_%s' % kr.id">
-                                                <option value="0" t-att-selected="kr.current_value &lt; 1">Not done</option>
-                                                <option value="1" t-att-selected="kr.current_value &gt;= 1">Done</option>
-                                            </select>
-                                            <div t-else="" class="input-group">
-                                                <input type="text" inputmode="decimal" class="form-control" name="new_value" required="required"
-                                                       maxlength="32" t-att-id="'okr_new_value_%s' % kr.id" t-att-value="'%g' % kr.current_value"/>
-                                                <span t-if="kr.unit or kr.metric_type == 'percent'" class="input-group-text">
-                                                    <t t-out="'%' if kr.metric_type == 'percent' else kr.unit"/>
+                                    <span><span class="opacity-75">Owner</span> <strong t-out="objective.owner_id.name"/></span>
+                                </span>
+                                <span t-if="objective.cycle_id.date_start" class="text-nowrap">
+                                    <i class="fa fa-clock-o me-1 opacity-75"/>
+                                    <span t-field="objective.cycle_id.date_start"/> – <span t-field="objective.cycle_id.date_end"/>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="o_okr_hero_ring">
+                            <t t-call="okr_scale_portal.okr_progress_ring">
+                                <t t-set="pct" t-value="objective.progress"/>
+                                <t t-set="ring_size" t-value="148"/>
+                                <t t-set="ring_class" t-value="'o_okr_ring_light'"/>
+                            </t>
+                            <div class="o_okr_hero_ring_caption">Progress</div>
+                        </div>
+                    </div>
+                    <div class="o_okr_hero_stats">
+                        <div>
+                            <div class="o_okr_stat_label">Key results</div>
+                            <div class="o_okr_stat_value" t-out="len(okr_key_results)"/>
+                        </div>
+                        <div>
+                            <div class="o_okr_stat_label">Time elapsed</div>
+                            <div class="o_okr_stat_value"><t t-out="'%.0f' % objective.expected_progress"/>%</div>
+                        </div>
+                        <div>
+                            <div class="o_okr_stat_label">Confidence</div>
+                            <div class="o_okr_stat_value">
+                                <t t-if="objective.confidence"><t t-out="'%.1f' % objective.confidence"/><small>/10</small></t>
+                                <t t-else="">-</t>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="o_okr_stat_label">Last check-in</div>
+                            <div class="o_okr_stat_value o_okr_stat_date">
+                                <span t-if="objective.last_checkin_date" t-field="objective.last_checkin_date"/>
+                                <t t-else="">-</t>
+                            </div>
+                        </div>
+                        <div t-if="objective.state == 'done' and objective.final_score">
+                            <div class="o_okr_stat_label">Final score</div>
+                            <div class="o_okr_stat_value" t-out="'%.2f' % objective.final_score"/>
+                        </div>
+                    </div>
+                </section>
+
+                <div t-if="okr_access_mode == 'read'" class="o_okr_note mb-4">
+                    <i class="fa fa-eye me-2"/>You have view-only access: follow the progress and use the discussion to share your feedback.
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-8">
+                        <div t-if="not is_html_empty(objective.description)" class="o_okr_card mb-4">
+                            <h2 class="o_okr_section_title">About this objective</h2>
+                            <div class="o_okr_description" t-field="objective.description"/>
+                        </div>
+
+                        <div class="d-flex align-items-end justify-content-between mb-3">
+                            <h2 class="o_okr_section_title mb-0">Key results</h2>
+                            <span class="small text-muted"><t t-out="len(okr_key_results)"/> key results</span>
+                        </div>
+                        <div class="o_okr_kr_list">
+                            <t t-foreach="okr_key_results" t-as="kr">
+                                <t t-set="kr_can_checkin" t-value="kr.id in okr_checkin_kr_ids"/>
+                                <div class="o_okr_kr" t-att-id="'kr-%s' % kr.id">
+                                    <div class="o_okr_kr_main">
+                                        <span class="o_okr_kr_index" t-out="kr_index + 1"/>
+                                        <div class="flex-grow-1 min-w-0">
+                                            <div class="d-flex flex-wrap align-items-start justify-content-between gap-2">
+                                                <h3 class="o_okr_kr_title" t-field="kr.name"/>
+                                                <t t-call="okr_scale_portal.okr_status_chip"><t t-set="record" t-value="kr"/></t>
+                                            </div>
+                                            <div class="d-flex align-items-center gap-3 mt-2">
+                                                <div t-attf-class="o_okr_bar flex-grow-1 o_okr_bar_#{kr.status or 'none'}">
+                                                    <span t-attf-style="width: #{int(min(max(kr.progress, 0), 100))}%;"/>
+                                                </div>
+                                                <span class="o_okr_kr_pct"><t t-out="'%.0f' % kr.progress"/>%</span>
+                                            </div>
+                                            <div class="o_okr_kr_meta">
+                                                <span class="d-inline-flex align-items-center gap-1" t-if="kr.owner_id">
+                                                    <t t-call="okr_scale_portal.okr_avatar">
+                                                        <t t-set="person" t-value="kr.owner_id"/>
+                                                        <t t-set="avatar_class" t-value="'o_okr_avatar_xs'"/>
+                                                    </t>
+                                                    <span t-out="kr.owner_id.name"/>
                                                 </span>
+                                                <span class="text-nowrap" title="Current / Target">
+                                                    <strong><t t-call="okr_scale_portal.okr_kr_value"><t t-set="value" t-value="kr.current_value"/></t></strong>
+                                                    <span class="text-muted">/ <t t-call="okr_scale_portal.okr_kr_value"><t t-set="value" t-value="kr.target_value"/></t></span>
+                                                </span>
+                                                <t t-call="okr_scale_portal.okr_confidence"><t t-set="confidence" t-value="kr.confidence"/></t>
+                                                <span class="text-nowrap text-muted">
+                                                    <i class="fa fa-history me-1"/>
+                                                    <span t-if="kr.last_checkin_date" t-field="kr.last_checkin_date"/>
+                                                    <t t-else="">No check-in yet</t>
+                                                </span>
+                                                <button t-if="kr_can_checkin" type="button" class="btn btn-sm o_okr_btn_soft ms-md-auto"
+                                                        data-bs-toggle="collapse" t-att-data-bs-target="'#okr_checkin_form_%s' % kr.id"
+                                                        t-att-aria-controls="'okr_checkin_form_%s' % kr.id"
+                                                        t-att-aria-expanded="'true' if okr_error_kr_id == str(kr.id) else 'false'">
+                                                    <i class="fa fa-pencil me-1"/>Check in
+                                                </button>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <label class="form-label" t-att-for="'okr_confidence_%s' % kr.id">Confidence (1-10)</label>
-                                            <select class="form-select" name="confidence" t-att-id="'okr_confidence_%s' % kr.id">
-                                                <t t-foreach="range(1, 11)" t-as="level">
-                                                    <option t-att-value="level" t-att-selected="str(level) == (kr.confidence or '5')" t-out="level"/>
-                                                </t>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label class="form-label" t-att-for="'okr_achievements_%s' % kr.id">What did you achieve?</label>
-                                            <textarea class="form-control" name="achievements" rows="2" maxlength="2000"
-                                                      t-att-id="'okr_achievements_%s' % kr.id"/>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label" t-att-for="'okr_blockers_%s' % kr.id">What is blocking you?</label>
-                                            <textarea class="form-control" name="blockers" rows="2" maxlength="2000"
-                                                      t-att-id="'okr_blockers_%s' % kr.id"/>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label" t-att-for="'okr_next_steps_%s' % kr.id">Plan for the next period</label>
-                                            <textarea class="form-control" name="next_steps" rows="2" maxlength="2000"
-                                                      t-att-id="'okr_next_steps_%s' % kr.id"/>
+                                    </div>
+                                    <div t-if="kr_can_checkin" t-att-id="'okr_checkin_form_%s' % kr.id"
+                                         t-att-class="'collapse show' if okr_error_kr_id == str(kr.id) else 'collapse'">
+                                        <div class="o_okr_kr_form">
+                                            <t t-call="okr_scale_portal.okr_checkin_form"/>
                                         </div>
                                     </div>
-                                    <div class="mt-3 text-end">
-                                        <button type="submit" class="btn btn-primary">Submit check-in</button>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="o_okr_card o_okr_sticky" id="okr_checkin_history">
+                            <h2 class="o_okr_section_title">Recent check-ins</h2>
+                            <p t-if="not okr_checkins" class="text-muted small mb-0">No check-in yet.</p>
+                            <ol t-else="" class="o_okr_timeline">
+                                <li t-foreach="okr_checkins" t-as="checkin">
+                                    <span t-attf-class="o_okr_timeline_dot #{'o_okr_conf_high' if int(checkin.confidence or 0) &gt;= 7 else 'o_okr_conf_mid' if int(checkin.confidence or 0) &gt;= 4 else 'o_okr_conf_low'}"/>
+                                    <div class="d-flex justify-content-between gap-2 small text-muted">
+                                        <span t-field="checkin.date"/>
+                                        <span><t t-out="checkin.confidence"/>/10</span>
                                     </div>
-                                </form>
-                            </td>
-                        </tr>
-                    </t>
-                </tbody>
-            </t>
+                                    <div class="fw-semibold o_okr_timeline_title" t-out="checkin.key_result_id.name"/>
+                                    <div class="small">
+                                        <span class="text-muted" t-out="checkin.user_id.name"/>
+                                        <span class="o_okr_delta">
+                                            <t t-out="'%.0f' % checkin.progress_before"/>% <i class="fa fa-long-arrow-right mx-1"/> <t t-out="'%.0f' % checkin.progress_after"/>%
+                                        </span>
+                                    </div>
+                                    <div t-if="checkin.achievements or checkin.blockers or checkin.next_steps" class="o_okr_timeline_notes">
+                                        <div t-if="checkin.achievements"><span class="o_okr_note_label">Achieved</span> <span t-field="checkin.achievements"/></div>
+                                        <div t-if="checkin.blockers"><span class="o_okr_note_label o_okr_note_label_warn">Blockers</span> <span t-field="checkin.blockers"/></div>
+                                        <div t-if="checkin.next_steps"><span class="o_okr_note_label">Next steps</span> <span t-field="checkin.next_steps"/></div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
 
-            <div t-if="okr_checkins" class="mt-4" id="okr_checkin_history">
-                <h4>Recent check-ins</h4>
-                <t t-call="portal.portal_table">
-                    <thead>
-                        <tr class="active">
-                            <th>Date</th>
-                            <th>Key Result</th>
-                            <th class="d-none d-md-table-cell">Author</th>
-                            <th class="text-end">Progress</th>
-                            <th class="text-center d-none d-md-table-cell">Confidence</th>
-                            <th class="d-none d-lg-table-cell">Comment</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr t-foreach="okr_checkins" t-as="checkin">
-                            <td class="text-nowrap"><span t-field="checkin.date"/></td>
-                            <td><span t-field="checkin.key_result_id.name"/></td>
-                            <td class="d-none d-md-table-cell"><span t-field="checkin.user_id.name"/></td>
-                            <td class="text-end text-nowrap">
-                                <t t-out="'%.0f' % checkin.progress_before"/>% → <t t-out="'%.0f' % checkin.progress_after"/>%
-                            </td>
-                            <td class="text-center d-none d-md-table-cell"><t t-out="checkin.confidence"/>/10</td>
-                            <td class="d-none d-lg-table-cell small">
-                                <div t-if="checkin.achievements"><strong>Achieved:</strong> <span t-field="checkin.achievements"/></div>
-                                <div t-if="checkin.blockers"><strong>Blockers:</strong> <span t-field="checkin.blockers"/></div>
-                                <div t-if="checkin.next_steps"><strong>Next steps:</strong> <span t-field="checkin.next_steps"/></div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </t>
-            </div>
-
-            <div class="mt-4 mb-5" id="okr_discussion">
-                <h4>Discussion</h4>
-                <t t-call="portal.message_thread"/>
+                <div class="o_okr_card mt-4" id="okr_discussion">
+                    <h2 class="o_okr_section_title">Discussion</h2>
+                    <t t-call="portal.message_thread"/>
+                </div>
             </div>
         </t>
     </template>

@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!--
-        Portal users (B2B customers) only read objectives shared with their company,
-        once they are running or closed. They never write through the ORM: check-ins
-        go through the portal controller, which checks the rights and uses sudo.
+        Portal users only read the objectives shared with them personally
+        (collaborator, or owner of one of its key results), once they are
+        running or closed. Nothing is shared company-wide: another contact of the
+        same customer sees nothing until invited. Portal users never write through
+        the ORM: check-ins go through the portal controller, which checks the
+        access mode of the collaborator and uses sudo.
     -->
     <record id="okr_objective_rule_portal" model="ir.rule">
-        <field name="name">Objective: shared with my company (portal)</field>
+        <field name="name">Objective: shared with me (portal)</field>
         <field name="model_id" ref="okr_scale.model_okr_scale_objective"/>
         <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
-        <field name="domain_force">[('portal_shared', '=', True), ('state', 'in', ('running', 'done')), '|', ('partner_id', 'child_of', user.commercial_partner_id.id), ('key_result_ids.owner_id', '=', user.id)]</field>
+        <field name="domain_force">[('portal_shared', '=', True), ('state', 'in', ('running', 'done')), '|', ('collaborator_ids.partner_id', '=', user.partner_id.id), ('key_result_ids.owner_id', '=', user.id)]</field>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="False"/>
         <field name="perm_create" eval="False"/>
@@ -17,10 +20,10 @@
     </record>
 
     <record id="okr_key_result_rule_portal" model="ir.rule">
-        <field name="name">Key Result: of objectives shared with my company (portal)</field>
+        <field name="name">Key Result: of objectives shared with me (portal)</field>
         <field name="model_id" ref="okr_scale.model_okr_scale_key_result"/>
         <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
-        <field name="domain_force">[('objective_id', 'any', [('portal_shared', '=', True), ('state', 'in', ('running', 'done')), '|', ('partner_id', 'child_of', user.commercial_partner_id.id), ('key_result_ids.owner_id', '=', user.id)])]</field>
+        <field name="domain_force">[('objective_id', 'any', [('portal_shared', '=', True), ('state', 'in', ('running', 'done')), '|', ('collaborator_ids.partner_id', '=', user.partner_id.id), ('key_result_ids.owner_id', '=', user.id)])]</field>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="False"/>
         <field name="perm_create" eval="False"/>
@@ -28,10 +31,10 @@
     </record>
 
     <record id="okr_checkin_rule_portal" model="ir.rule">
-        <field name="name">Check-in: of objectives shared with my company (portal)</field>
+        <field name="name">Check-in: of objectives shared with me (portal)</field>
         <field name="model_id" ref="okr_scale.model_okr_scale_checkin"/>
         <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
-        <field name="domain_force">[('state', '!=', 'draft'), ('objective_id', 'any', [('portal_shared', '=', True), ('state', 'in', ('running', 'done')), '|', ('partner_id', 'child_of', user.commercial_partner_id.id), ('key_result_ids.owner_id', '=', user.id)])]</field>
+        <field name="domain_force">[('state', '!=', 'draft'), ('objective_id', 'any', [('portal_shared', '=', True), ('state', 'in', ('running', 'done')), '|', ('collaborator_ids.partner_id', '=', user.partner_id.id), ('key_result_ids.owner_id', '=', user.id)])]</field>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="False"/>
         <field name="perm_create" eval="False"/>
@@ -39,10 +42,21 @@
     </record>
 
     <record id="okr_cycle_rule_portal" model="ir.rule">
-        <field name="name">Cycle: of objectives shared with my company (portal)</field>
+        <field name="name">Cycle: of objectives shared with me (portal)</field>
         <field name="model_id" ref="okr_scale.model_okr_scale_cycle"/>
         <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
-        <field name="domain_force">[('objective_ids', 'any', [('portal_shared', '=', True), ('state', 'in', ('running', 'done')), '|', ('partner_id', 'child_of', user.commercial_partner_id.id), ('key_result_ids.owner_id', '=', user.id)])]</field>
+        <field name="domain_force">[('objective_ids', 'any', [('portal_shared', '=', True), ('state', 'in', ('running', 'done')), '|', ('collaborator_ids.partner_id', '=', user.partner_id.id), ('key_result_ids.owner_id', '=', user.id)])]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="okr_collaborator_rule_portal" model="ir.rule">
+        <field name="name">Objective collaborator: my own collaborations (portal)</field>
+        <field name="model_id" ref="model_okr_scale_objective_collaborator"/>
+        <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
+        <field name="domain_force">[('partner_id', '=', user.partner_id.id), ('objective_id.portal_shared', '=', True)]</field>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="False"/>
         <field name="perm_create" eval="False"/>

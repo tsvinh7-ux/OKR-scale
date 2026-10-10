@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-10 09:12+0000\n"
-"PO-Revision-Date: 2026-10-10 09:12+0000\n"
+"POT-Creation-Date: 2026-10-10 10:02+0000\n"
+"PO-Revision-Date: 2026-10-10 10:02+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,12 +16,59 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "% <i class=\"fa fa-long-arrow-right mx-1\"/>"
+msgstr ""
+
+#. module: okr_scale_portal
+#. odoo-python
+#: code:addons/okr_scale_portal/models/okr_collaborator.py:0
+#, python-format
+msgid ""
+"%(partner)s owns key results of \"%(objective)s\": reassign them before "
+"removing the collaborator or making it read-only."
+msgstr ""
+
+#. module: okr_scale_portal
 #. odoo-python
 #: code:addons/okr_scale_portal/models/okr_key_result.py:0
 #, python-format
 msgid ""
 "%(user)s checked in on \"%(kr)s\" from the customer portal: progress "
 "%(progress).0f%%."
+msgstr ""
+
+#. module: okr_scale_portal
+#. odoo-python
+#: code:addons/okr_scale_portal/wizard/okr_share_wizard.py:0
+#, python-format
+msgid ""
+"%s has no valid e-mail address: it is required to create the portal account."
+msgstr ""
+
+#. module: okr_scale_portal
+#. odoo-python
+#: code:addons/okr_scale_portal/wizard/okr_share_wizard.py:0
+#, python-format
+msgid ""
+"%s is an employee: employees do not need to be invited, they see objectives "
+"according to the OKR visibility."
+msgstr ""
+
+#. module: okr_scale_portal
+#. odoo-python
+#: code:addons/okr_scale_portal/models/okr_collaborator.py:0
+#, python-format
+msgid ""
+"%s is an employee: employees see objectives according to the OKR visibility,"
+" they cannot be portal collaborators."
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_wizard_view_form
+msgid ""
+".\n"
+"                    They receive a link to choose their password. You can revoke the portal access at any time."
 msgstr ""
 
 #. module: okr_scale_portal
@@ -36,7 +83,7 @@ msgid ""
 "        <br>\n"
 "        Current progress: <t t-out=\"'%.0f' % object.progress\">40</t>%.\n"
 "        <br><br>\n"
-"        <a t-att-href=\"object.objective_id.get_base_url() + object.objective_id.access_url\" style=\"background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size: 13px;\">\n"
+"        <a t-att-href=\"object.objective_id.get_base_url() + object.objective_id.access_url\" style=\"background-color: #11346A; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 8px; font-size: 13px;\">\n"
 "            Check in now\n"
 "        </a>\n"
 "        <br><br>\n"
@@ -49,8 +96,78 @@ msgid ""
 msgstr ""
 
 #. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
+msgid "<i class=\"fa fa-bullseye o_okr_text_blue me-2\"/>New check-in"
+msgstr ""
+
+#. module: okr_scale_portal
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-msgid "<i class=\"fa fa-bullseye me-1\"/>Check-in"
+msgid ""
+"<i class=\"fa fa-check-circle me-2\"/>Thank you, your check-in has been "
+"recorded."
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_access_badge
+msgid "<i class=\"fa fa-eye me-1\"/>View only"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid ""
+"<i class=\"fa fa-eye me-2\"/>You have view-only access: follow the progress "
+"and use the discussion to share your feedback."
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_state_chip
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "<i class=\"fa fa-flag-checkered me-1\"/>Closed"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_access_badge
+msgid "<i class=\"fa fa-pencil me-1\"/>Can update"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "<i class=\"fa fa-pencil me-1\"/>Check in"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_progress_ring
+msgid "<small>%</small>"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "<small>/10</small>"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "<span class=\"o_okr_chip_dot o_okr_dot_live\"/>Running"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_state_chip
+msgid "<span class=\"o_okr_chip_dot\"/>Running"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "<span class=\"o_okr_note_label o_okr_note_label_warn\">Blockers</span>"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "<span class=\"o_okr_note_label\">Achieved</span>"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "<span class=\"o_okr_note_label\">Next steps</span>"
 msgstr ""
 
 #. module: okr_scale_portal
@@ -61,28 +178,63 @@ msgid ""
 msgstr ""
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
-msgid "<span class=\"small me-1 navbar-text\">Cycle:</span>"
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "<span class=\"opacity-75\">Owner</span>"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
+msgid "<span>1 = unlikely</span><span>10 = certain</span>"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model:ir.model.constraint,message:okr_scale_portal.constraint_okr_scale_objective_collaborator_unique_collaborator
+msgid "A contact can only be added once as collaborator of an objective."
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_wizard_view_form
+msgid "A portal account will be created for:"
+msgstr ""
+
+#. module: okr_scale_portal
+#. odoo-python
+#: code:addons/okr_scale_portal/wizard/okr_share_wizard.py:0
+#, python-format
+msgid ""
+"A user with the login %(email)s already exists: %(partner)s cannot get a "
+"portal account with the same e-mail."
 msgstr ""
 
 #. module: okr_scale_portal
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-msgid "<strong>Achieved:</strong>"
+msgid "About this objective"
 msgstr ""
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-msgid "<strong>Blockers:</strong>"
-msgstr ""
-
-#. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-msgid "<strong>Next steps:</strong>"
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__access_mode
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__access_mode
+msgid "Access"
 msgstr ""
 
 #. module: okr_scale_portal
 #: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective__access_warning
 msgid "Access warning"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_invitation
+msgid "Activate my account"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_wizard_view_form
+msgid "Add a personal message to the invitation (optional)"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_wizard_view_form
+msgid "Add customer contacts..."
 msgstr ""
 
 #. module: okr_scale_portal
@@ -98,15 +250,26 @@ msgid "All cycles"
 msgstr ""
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-msgid "Author"
+#: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_objective__partner_id
+msgid ""
+"B2B customer this objective is about. Informative (grouping, reporting): "
+"only the collaborators invited with the Share button see the objective on "
+"the portal."
 msgstr ""
 
 #. module: okr_scale_portal
-#: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_objective__partner_id
-msgid ""
-"B2B customer (commercial entity) this objective is shared with. All portal "
-"users of this customer can see the objective once it is shared."
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective__can_share
+msgid "Can Share"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_collaborator_view_search
+msgid "Can edit"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
+msgid "Cancel"
 msgstr ""
 
 #. module: okr_scale_portal
@@ -122,6 +285,7 @@ msgid "Check-ins are only possible on running objectives."
 msgstr ""
 
 #. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
 msgid "Close"
 msgstr ""
@@ -129,15 +293,28 @@ msgstr ""
 #. module: okr_scale_portal
 #. odoo-python
 #: code:addons/okr_scale_portal/controllers/portal.py:0
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
 #, python-format
 msgid "Closed"
 msgstr ""
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-msgid "Comment"
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__partner_id
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_collaborator_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_objective_view_search_portal
+msgid "Collaborator"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective__collaborator_count
+msgid "Collaborator Count"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model:ir.actions.act_window,name:okr_scale_portal.okr_collaborator_action
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective__collaborator_ids
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_objective_view_form_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_objective_view_tree_portal
+msgid "Collaborators"
 msgstr ""
 
 #. module: okr_scale_portal
@@ -148,13 +325,33 @@ msgid "Comments are limited to %s characters."
 msgstr ""
 
 #. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__company_id
+msgid "Company"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_confidence
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
 msgid "Confidence"
 msgstr ""
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-msgid "Confidence (1-10)"
+#: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_key_result__portal_collaborator_partner_ids
+msgid ""
+"Contacts the objective is shared with: their portal users may own this key "
+"result."
+msgstr ""
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__create_uid
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__create_date
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__create_date
+msgid "Created on"
 msgstr ""
 
 #. module: okr_scale_portal
@@ -165,7 +362,6 @@ msgstr ""
 #. module: okr_scale_portal
 #: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective__partner_id
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_objective_view_search_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
 msgid "Customer"
 msgstr ""
 
@@ -180,20 +376,15 @@ msgid "Customer Portal URL"
 msgstr ""
 
 #. module: okr_scale_portal
-#: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_key_result__portal_partner_id
+#: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_share_wizard__partner_ids
 msgid ""
-"Customer whose portal users may own this key result (objective shared on the"
-" portal)."
+"Customer contacts to invite. Contacts without a portal account get one, with"
+" a link to choose their password."
 msgstr ""
 
 #. module: okr_scale_portal
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
-msgid "Cycle"
-msgstr ""
-
-#. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-msgid "Date"
+msgid "DMAG"
 msgstr ""
 
 #. module: okr_scale_portal
@@ -202,14 +393,43 @@ msgid "Date of the last check-in reminder e-mailed to the portal owner."
 msgstr ""
 
 #. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_wizard_view_form
+msgid "Discard"
+msgstr ""
+
+#. module: okr_scale_portal
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
 msgid "Discussion"
 msgstr ""
 
 #. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__display_name
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_kr_value
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
 msgid "Done"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model:ir.model.fields.selection,name:okr_scale_portal.selection__okr_scale_objective_collaborator__access_mode__edit
+#: model:ir.model.fields.selection,name:okr_scale_portal.selection__okr_scale_share_wizard__access_mode__edit
+msgid "Edit"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_wizard_view_form
+msgid ""
+"Edit collaborators can also check in on every key result of the objective from their portal\n"
+"                    and attach files to the discussion."
+msgstr ""
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__partner_email
+msgid "Email"
 msgstr ""
 
 #. module: okr_scale_portal
@@ -217,6 +437,11 @@ msgstr ""
 #: code:addons/okr_scale_portal/controllers/portal.py:0
 #, python-format
 msgid "Enter a valid number for the new value."
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
+msgid "Filter"
 msgstr ""
 
 #. module: okr_scale_portal
@@ -230,13 +455,43 @@ msgid "Follow the objectives and key results shared with you"
 msgstr ""
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-msgid "Key Result"
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
+msgid ""
+"Follow the progress of the objectives we share with you, update your key "
+"results and discuss with our team."
 msgstr ""
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-msgid "Key Results"
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_collaborator_view_search
+msgid "Group By"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_invitation
+msgid "Hello"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
+msgid "How confident are you to reach the target?"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__id
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: okr_scale_portal
+#. odoo-python
+#: code:addons/okr_scale_portal/wizard/okr_share_wizard.py:0
+#, python-format
+msgid "Invitation to follow the objective \"%s\""
+msgstr ""
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__partner_ids
+msgid "Invite"
 msgstr ""
 
 #. module: okr_scale_portal
@@ -244,13 +499,30 @@ msgstr ""
 #: code:addons/okr_scale_portal/models/okr_key_result.py:0
 #, python-format
 msgid ""
-"Key result \"%(kr)s\": %(user)s is a portal user. Portal users can only own "
-"key results of objectives shared on the portal with their own company."
+"Key result \"%(kr)s\": %(user)s is not an employee. Only portal users can "
+"own key results of objectives shared on the portal."
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "Key results"
 msgstr ""
 
 #. module: okr_scale_portal
 #: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_key_result__portal_reminder_date
 msgid "Last Portal Reminder"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__write_uid
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__write_date
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__write_date
+msgid "Last Updated on"
 msgstr ""
 
 #. module: okr_scale_portal
@@ -276,7 +548,12 @@ msgid "Name"
 msgstr ""
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__new_user_partner_ids
+msgid "New portal accounts"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
 msgid "New value"
 msgstr ""
 
@@ -288,9 +565,39 @@ msgid "Newest"
 msgstr ""
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_kr_value
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
+msgid "Next actions and priorities..."
+msgstr ""
+
+#. module: okr_scale_portal
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "No check-in yet"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "No check-in yet."
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.actions.act_window,help:okr_scale_portal.okr_collaborator_action
+msgid "No collaborator yet"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
+msgid "No objective shared with you yet"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_kr_value
 msgid "Not done"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__note
+msgid "Note"
 msgstr ""
 
 #. module: okr_scale_portal
@@ -309,6 +616,11 @@ msgid "OKR Objective"
 msgstr ""
 
 #. module: okr_scale_portal
+#: model:ir.model,name:okr_scale_portal.model_okr_scale_objective_collaborator
+msgid "OKR Objective Collaborator (portal sharing)"
+msgstr ""
+
+#. module: okr_scale_portal
 #: model:mail.template,name:okr_scale_portal.mail_template_okr_portal_checkin_reminder
 msgid "OKR: portal check-in reminder"
 msgstr ""
@@ -316,29 +628,54 @@ msgstr ""
 #. module: okr_scale_portal
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_breadcrumbs
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_home
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
 msgid "OKRs"
 msgstr ""
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__objective_id
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__objective_id
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_collaborator_view_search
 msgid "Objective"
 msgstr ""
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
-msgid "Owner"
+msgid "Objectives &amp; Key Results"
 msgstr ""
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
+msgid "Objectives appear here as soon as our team shares them with you."
+msgstr ""
+
+#. module: okr_scale_portal
+#. odoo-python
+#: code:addons/okr_scale_portal/controllers/portal.py:0
+#, python-format
+msgid ""
+"Only collaborators with edit access can attach files to this objective."
+msgstr ""
+
+#. module: okr_scale_portal
+#. odoo-python
+#: code:addons/okr_scale_portal/models/okr_objective.py:0
+#, python-format
+msgid "Only the owner and the managers of \"%s\" can share it with customers."
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_invitation
+msgid "Open the objective"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_share_wizard__note
+msgid "Personal message added to the invitation e-mail."
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
 msgid "Plan for the next period"
-msgstr ""
-
-#. module: okr_scale_portal
-#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective__portal_access
-msgid "Portal Access"
 msgstr ""
 
 #. module: okr_scale_portal
@@ -347,22 +684,63 @@ msgid "Portal Access URL"
 msgstr ""
 
 #. module: okr_scale_portal
-#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_key_result__portal_partner_id
-msgid "Portal Customer"
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_key_result__portal_collaborator_partner_ids
+msgid "Portal Collaborators"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__user_id
+msgid "Portal User"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_objective__collaborator_ids
+msgid "Portal contacts the objective is shared with, with their access mode."
 msgstr ""
 
 #. module: okr_scale_portal
 #. odoo-python
 #: code:addons/okr_scale_portal/controllers/portal.py:0
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
 #, python-format
 msgid "Progress"
 msgstr ""
 
 #. module: okr_scale_portal
+#: model:ir.model.fields.selection,name:okr_scale_portal.selection__okr_scale_objective_collaborator__access_mode__read
+#: model:ir.model.fields.selection,name:okr_scale_portal.selection__okr_scale_share_wizard__access_mode__read
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_collaborator_view_search
+msgid "Read-only"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_wizard_view_form
+msgid ""
+"Read-only collaborators follow the objective, its key results and check-ins on their portal\n"
+"                    and can discuss with your team in the chatter."
+msgstr ""
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_objective_collaborator__access_mode
+#: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_share_wizard__access_mode
+msgid ""
+"Read-only: follows the progress and discusses in the chatter.\n"
+"Edit: can also check in on every key result of the objective and attach files."
+msgstr ""
+
+#. module: okr_scale_portal
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
 msgid "Recent check-ins"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
+msgid "Results, deliveries, figures..."
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
+msgid "Risks, dependencies, support needed..."
 msgstr ""
 
 #. module: okr_scale_portal
@@ -375,7 +753,8 @@ msgstr ""
 #. module: okr_scale_portal
 #: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_objective__portal_shared
 msgid ""
-"Running and closed objectives are visible on the portal of the customer."
+"Running and closed objectives are visible on the portal of their "
+"collaborators."
 msgstr ""
 
 #. module: okr_scale_portal
@@ -384,15 +763,13 @@ msgid "Security Token"
 msgstr ""
 
 #. module: okr_scale_portal
-#. odoo-python
-#: code:addons/okr_scale_portal/models/okr_objective.py:0
-#, python-format
-msgid "Select a customer before sharing \"%s\" on the portal."
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective__self_assessment
+msgid "Self Assessment"
 msgstr ""
 
 #. module: okr_scale_portal
-#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective__self_assessment
-msgid "Self Assessment"
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_wizard_view_form
+msgid "Send invitation"
 msgstr ""
 
 #. module: okr_scale_portal
@@ -402,16 +779,31 @@ msgid ""
 msgstr ""
 
 #. module: okr_scale_portal
-#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective__portal_shared
-msgid "Share on customer portal"
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_objective_view_form_portal
+msgid "Share"
 msgstr ""
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_objective_view_form_portal
-msgid ""
-"Shared objectives are visible on the customer portal once running.\n"
-"                                Key results can be assigned to portal users of the customer;\n"
-"                                with \"View and check-in\" they can update them from the portal."
+#: model:ir.model,name:okr_scale_portal.model_okr_scale_share_wizard
+msgid "Share an objective on the customer portal"
+msgstr ""
+
+#. module: okr_scale_portal
+#. odoo-python
+#: code:addons/okr_scale_portal/models/okr_objective.py:0
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_wizard_view_form
+#, python-format
+msgid "Share with customers"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
+msgid "Shared OKRs"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective__portal_shared
+msgid "Shared on portal"
 msgstr ""
 
 #. module: okr_scale_portal
@@ -420,27 +812,18 @@ msgid "Shared with customers"
 msgstr ""
 
 #. module: okr_scale_portal
-#. odoo-python
-#: code:addons/okr_scale_portal/models/okr_objective.py:0
-#, python-format
-msgid ""
-"Some key results of \"%s\" are owned by portal users of another customer: "
-"reassign them before changing the customer."
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__objective_state
+msgid "State"
 msgstr ""
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
-msgid "Status"
-msgstr ""
-
-#. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
 msgid "Submit check-in"
 msgstr ""
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-msgid "Thank you, your check-in has been recorded."
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
+msgid "Target:"
 msgstr ""
 
 #. module: okr_scale_portal
@@ -451,8 +834,28 @@ msgid "The confidence must be between 1 and 10."
 msgstr ""
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
-msgid "There are no objectives shared with you yet."
+#: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_objective__can_share
+msgid "The current user may share this objective with customers."
+msgstr ""
+
+#. module: okr_scale_portal
+#. odoo-python
+#: code:addons/okr_scale_portal/controllers/portal.py:0
+#, python-format
+msgid ""
+"The document does not exist or you do not have the rights to access it."
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_invitation
+msgid "The link lets you choose your password, then opens the objective."
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_wizard_view_form
+msgid ""
+"The objective is not running yet: collaborators will see it on their portal "
+"once it starts."
 msgstr ""
 
 #. module: okr_scale_portal
@@ -463,29 +866,32 @@ msgid "This objective is not shared on the portal."
 msgstr ""
 
 #. module: okr_scale_portal
-#: model:ir.model.fields.selection,name:okr_scale_portal.selection__okr_scale_objective__portal_access__contribute
-msgid "View and check-in"
-msgstr ""
-
-#. module: okr_scale_portal
-#: model:ir.model.fields.selection,name:okr_scale_portal.selection__okr_scale_objective__portal_access__read
-msgid "View only"
-msgstr ""
-
-#. module: okr_scale_portal
-#: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_objective__portal_access
-msgid ""
-"View only: the customer follows the progress and discusses.\n"
-"View and check-in: portal users owning a key result can also check in on it."
-msgstr ""
-
-#. module: okr_scale_portal
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "Time elapsed"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.actions.act_window,help:okr_scale_portal.okr_collaborator_action
+msgid ""
+"Use the Share button of an objective to invite customer contacts on the "
+"portal."
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_objective_view_form_portal
+msgid ""
+"Use the Share button to invite customer contacts. Read-only collaborators follow the\n"
+"                                progress and discuss; edit collaborators can also check in on every key result.\n"
+"                                Shared objectives appear on the portal once running."
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
 msgid "What did you achieve?"
 msgstr ""
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
 msgid "What is blocking you?"
 msgstr ""
 
@@ -494,4 +900,42 @@ msgstr ""
 #: code:addons/okr_scale_portal/models/okr_key_result.py:0
 #, python-format
 msgid "You are not allowed to check in on this key result."
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_access_badge
+msgid "You can check in on the key results"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_access_badge
+msgid "You can follow the progress and discuss"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_invitation
+msgid "You can follow the progress and discuss with the team."
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_invitation
+msgid ""
+"You can follow the progress, check in on the key results and discuss with "
+"the team."
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_invitation
+msgid "invited you to follow the objective"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
+msgid "key results"
+msgstr ""
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_invitation
+msgid "on the customer portal of"
 msgstr ""

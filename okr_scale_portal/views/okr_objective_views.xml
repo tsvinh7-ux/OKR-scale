@@ -5,7 +5,15 @@
         <field name="model">okr.scale.objective</field>
         <field name="inherit_id" ref="okr_scale.okr_objective_view_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//header/field[@name='state']" position="before">
+                <button name="action_open_share_wizard" type="object" string="Share" icon="fa-share-alt"
+                        invisible="not can_share or state == 'cancelled'" data-hotkey="shift+s"/>
+            </xpath>
             <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_collaborators" type="object" class="oe_stat_button" icon="fa-users"
+                        invisible="not collaborator_count">
+                    <field name="collaborator_count" widget="statinfo" string="Collaborators"/>
+                </button>
                 <button name="action_preview_portal" type="object" class="oe_stat_button" icon="fa-globe"
                         invisible="not portal_shared or state not in ('running', 'done')">
                     <div class="o_stat_info">
@@ -15,31 +23,39 @@
                 </button>
             </xpath>
             <xpath expr="//page[@name='description']" position="after">
-                <page string="Customer Portal" name="customer_portal" groups="okr_scale.group_okr_manager">
+                <page string="Customer Portal" name="customer_portal">
                     <group>
                         <group>
-                            <field name="partner_id" options="{'no_create': True}" required="portal_shared"/>
-                            <field name="portal_shared"/>
-                            <field name="portal_access" invisible="not portal_shared"/>
+                            <field name="partner_id" options="{'no_create': True}" readonly="not can_share"/>
+                            <field name="portal_shared" readonly="not can_share"/>
                         </group>
                         <group>
                             <div class="text-muted" colspan="2">
-                                Shared objectives are visible on the customer portal once running.
-                                Key results can be assigned to portal users of the customer;
-                                with "View and check-in" they can update them from the portal.
+                                Use the Share button to invite customer contacts. Read-only collaborators follow the
+                                progress and discuss; edit collaborators can also check in on every key result.
+                                Shared objectives appear on the portal once running.
                             </div>
                         </group>
                     </group>
+                    <field name="collaborator_ids" readonly="not can_share" context="{'default_objective_id': id}">
+                        <tree editable="bottom" create="0">
+                            <field name="partner_id" widget="many2one_avatar" readonly="1"/>
+                            <field name="partner_email" optional="show"/>
+                            <field name="user_id" optional="hide" widget="many2one_avatar_user"/>
+                            <field name="access_mode"/>
+                        </tree>
+                    </field>
                 </page>
             </xpath>
             <xpath expr="//sheet/field[@name='active']" position="after">
                 <field name="portal_shared" invisible="1"/>
+                <field name="can_share" invisible="1"/>
             </xpath>
             <xpath expr="//field[@name='key_result_ids']/tree/field[@name='owner_id']" position="attributes">
-                <attribute name="domain">['|', ('share', '=', False), ('partner_id.commercial_partner_id', '=', portal_partner_id)]</attribute>
+                <attribute name="domain">['|', ('share', '=', False), ('partner_id', 'in', portal_collaborator_partner_ids)]</attribute>
             </xpath>
             <xpath expr="//field[@name='key_result_ids']/tree/field[@name='owner_id']" position="after">
-                <field name="portal_partner_id" column_invisible="True"/>
+                <field name="portal_collaborator_partner_ids" column_invisible="True"/>
             </xpath>
         </field>
     </record>
@@ -51,7 +67,8 @@
         <field name="arch" type="xml">
             <field name="owner_id" position="after">
                 <field name="partner_id" optional="hide"/>
-                <field name="portal_shared" optional="hide"/>
+                <field name="portal_shared" optional="hide" widget="boolean_toggle" readonly="1"/>
+                <field name="collaborator_count" optional="hide" string="Collaborators"/>
             </field>
         </field>
     </record>
@@ -63,6 +80,7 @@
         <field name="arch" type="xml">
             <field name="owner_id" position="after">
                 <field name="partner_id" operator="child_of"/>
+                <field name="collaborator_ids" string="Collaborator" filter_domain="[('collaborator_ids.partner_id', 'ilike', self)]"/>
             </field>
             <filter name="risky" position="after">
                 <separator/>
@@ -71,6 +89,49 @@
             <filter name="group_owner" position="after">
                 <filter name="group_partner" string="Customer" context="{'group_by': 'partner_id'}"/>
             </filter>
+        </field>
+    </record>
+
+    <!-- Collaborators -->
+    <record id="okr_collaborator_view_tree" model="ir.ui.view">
+        <field name="name">okr.scale.objective.collaborator.tree</field>
+        <field name="model">okr.scale.objective.collaborator</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom" create="0">
+                <field name="objective_id" readonly="1"/>
+                <field name="partner_id" widget="many2one_avatar" readonly="1"/>
+                <field name="partner_email"/>
+                <field name="user_id" widget="many2one_avatar_user" optional="hide"/>
+                <field name="access_mode"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="okr_collaborator_view_search" model="ir.ui.view">
+        <field name="name">okr.scale.objective.collaborator.search</field>
+        <field name="model">okr.scale.objective.collaborator</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="partner_id"/>
+                <field name="objective_id"/>
+                <filter name="edit" string="Can edit" domain="[('access_mode', '=', 'edit')]"/>
+                <filter name="read" string="Read-only" domain="[('access_mode', '=', 'read')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_objective" string="Objective" context="{'group_by': 'objective_id'}"/>
+                    <filter name="group_partner" string="Collaborator" context="{'group_by': 'partner_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="okr_collaborator_action" model="ir.actions.act_window">
+        <field name="name">Collaborators</field>
+        <field name="res_model">okr.scale.objective.collaborator</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No collaborator yet</p>
+            <p>Use the Share button of an objective to invite customer contacts on the portal.</p>
         </field>
     </record>
 </odoo>

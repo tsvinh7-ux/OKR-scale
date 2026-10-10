@@ -4,7 +4,7 @@ from werkzeug.exceptions import Forbidden
 from werkzeug.urls import url_encode
 
 from odoo import _, http
-from odoo.exceptions import AccessError, MissingError
+from odoo.exceptions import AccessError, MissingError, UserError
 from odoo.http import request
 
 from odoo.addons.okr_scale_portal.models.okr_objective import PORTAL_STATES
@@ -95,10 +95,17 @@ class OkrCustomerPortal(CustomerPortal):
         objectives = Objective.search(domain, order=searchbar_sortings[sortby]['order'],
                                       limit=self._items_per_page, offset=pager['offset'])
         request.session['my_okrs_history'] = objectives.ids[:100]
+        objectives_sudo = objectives.sudo()
 
         values.update({
             # Access was checked by the search: render with sudo (names of internal owners).
-            'objectives': objectives.sudo(),
+            'objectives': objectives_sudo,
+            'okr_access_modes': self._okr_access_modes(objectives_sudo),
+            'okr_filter_counts': {
+                key: Objective.search_count(base_domain + flt['domain']
+                                            + ([('cycle_id', '=', selected_cycle.id)] if selected_cycle else []))
+                for key, flt in searchbar_filters.items()
+            },
             'page_name': 'okr',
             'default_url': '/my/okrs',
             'pager': pager,
@@ -133,6 +140,15 @@ class OkrCustomerPortal(CustomerPortal):
             'state': _('Check-ins are only possible on running objectives.'),
         }
 
+    def _okr_access_modes(self, objectives_sudo):
+        """Access mode of the current user per objective id ('read' / 'edit', False for employees)."""
+        user = request.env.user
+        if not user._is_portal():
+            return {}
+        collaborators = request.env['okr.scale.objective.collaborator'].sudo().search([
+            ('objective_id', 'in', objectives_sudo.ids), ('partner_id', '=', user.partner_id.id)])
+        return {c.objective_id.id: c.access_mode for c in collaborators}
+
     def _okr_get_page_view_values(self, objective_sudo, **kwargs):
         user = request.env.user
         key_results = objective_sudo.key_result_ids
@@ -140,6 +156,7 @@ class OkrCustomerPortal(CustomerPortal):
         values = {
             'page_name': 'okr',
             'okr_objective': objective_sudo,
+            'okr_access_mode': self._okr_access_modes(objective_sudo).get(objective_sudo.id),
             'okr_key_results': key_results,
             'okr_checkin_kr_ids': checkin_krs.ids,
             'okr_checkins': objective_sudo.checkin_ids.filtered(lambda c: c.state != 'draft')[:20],
@@ -207,3 +224,18 @@ class OkrCustomerPortal(CustomerPortal):
             return request.redirect(f"{url}?{url_encode({'checkin_error': error, 'kr': kr.id})}#kr-{kr.id}")
         kr._portal_submit_checkin(values)
         return request.redirect(f'{url}?checkin=done#kr-{kr.id}')
+
+    # ------------------------------------------------------------------
+    # Attachments: only edit collaborators attach files to the discussion
+    # ------------------------------------------------------------------
+    @http.route()
+    def attachment_add(self, name, file, res_model, res_id, access_token=None, **kwargs):
+        user = request.env.user
+        if res_model == 'okr.scale.objective' and user._is_portal():
+            try:
+                objective_sudo = self._document_check_access(res_model, int(res_id))
+            except (AccessError, MissingError, ValueError):
+                raise UserError(_('The document does not exist or you do not have the rights to access it.'))
+            if objective_sudo._portal_access_mode(user) != 'edit':
+                raise UserError(_('Only collaborators with edit access can attach files to this objective.'))
+        return super().attachment_add(name, file, res_model, res_id, access_token=access_token, **kwargs)

@@ -4,3 +4,6 @@ access_okr_scale_key_result_portal,okr.scale.key.result portal,okr_scale.model_o
 access_okr_scale_checkin_portal,okr.scale.checkin portal,okr_scale.model_okr_scale_checkin,base.group_portal,1,0,0,0
 access_okr_scale_cycle_portal,okr.scale.cycle portal,okr_scale.model_okr_scale_cycle,base.group_portal,1,0,0,0
 access_okr_scale_tag_portal,okr.scale.tag portal,okr_scale.model_okr_scale_tag,base.group_portal,1,0,0,0
+access_okr_scale_objective_collaborator_user,okr.scale.objective.collaborator user,model_okr_scale_objective_collaborator,okr_scale.group_okr_user,1,1,1,1
+access_okr_scale_objective_collaborator_portal,okr.scale.objective.collaborator portal,model_okr_scale_objective_collaborator,base.group_portal,1,0,0,0
+access_okr_scale_share_wizard_user,okr.scale.share.wizard user,model_okr_scale_share_wizard,okr_scale.group_okr_user,1,1,1,0

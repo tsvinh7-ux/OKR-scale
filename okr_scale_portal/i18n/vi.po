@@ -17,6 +17,22 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "% <i class=\"fa fa-long-arrow-right mx-1\"/>"
+msgstr "% <i class=\"fa fa-long-arrow-right mx-1\"/>"
+
+#. module: okr_scale_portal
+#. odoo-python
+#: code:addons/okr_scale_portal/models/okr_collaborator.py:0
+#, python-format
+msgid ""
+"%(partner)s owns key results of \"%(objective)s\": reassign them before "
+"removing the collaborator or making it read-only."
+msgstr ""
+"%(partner)s đang phụ trách kết quả then chốt của \"%(objective)s\": hãy giao"
+" lại các kết quả này trước khi xoá cộng tác viên hoặc chuyển sang chỉ xem."
+
+#. module: okr_scale_portal
 #. odoo-python
 #: code:addons/okr_scale_portal/models/okr_key_result.py:0
 #, python-format
@@ -26,6 +42,46 @@ msgid ""
 msgstr ""
 "%(user)s đã cập nhật tiến độ \"%(kr)s\" từ cổng khách hàng: tiến độ "
 "%(progress).0f%%."
+
+#. module: okr_scale_portal
+#. odoo-python
+#: code:addons/okr_scale_portal/wizard/okr_share_wizard.py:0
+#, python-format
+msgid ""
+"%s has no valid e-mail address: it is required to create the portal account."
+msgstr ""
+"%s chưa có địa chỉ email hợp lệ: cần email để tạo tài khoản cổng thông tin."
+
+#. module: okr_scale_portal
+#. odoo-python
+#: code:addons/okr_scale_portal/wizard/okr_share_wizard.py:0
+#, python-format
+msgid ""
+"%s is an employee: employees do not need to be invited, they see objectives "
+"according to the OKR visibility."
+msgstr ""
+"%s là nhân viên: nhân viên không cần được mời, họ xem mục tiêu theo phạm vi "
+"hiển thị OKR."
+
+#. module: okr_scale_portal
+#. odoo-python
+#: code:addons/okr_scale_portal/models/okr_collaborator.py:0
+#, python-format
+msgid ""
+"%s is an employee: employees see objectives according to the OKR visibility,"
+" they cannot be portal collaborators."
+msgstr ""
+"%s là nhân viên: nhân viên xem mục tiêu theo phạm vi hiển thị OKR, không thể"
+" là cộng tác viên trên cổng."
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_wizard_view_form
+msgid ""
+".\n"
+"                    They receive a link to choose their password. You can revoke the portal access at any time."
+msgstr ""
+".\n"
+"                    Họ sẽ nhận được liên kết để đặt mật khẩu. Bạn có thể thu hồi quyền truy cập cổng bất cứ lúc nào."
 
 #. module: okr_scale_portal
 #: model:mail.template,body_html:okr_scale_portal.mail_template_okr_portal_checkin_reminder
@@ -39,7 +95,7 @@ msgid ""
 "        <br>\n"
 "        Current progress: <t t-out=\"'%.0f' % object.progress\">40</t>%.\n"
 "        <br><br>\n"
-"        <a t-att-href=\"object.objective_id.get_base_url() + object.objective_id.access_url\" style=\"background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size: 13px;\">\n"
+"        <a t-att-href=\"object.objective_id.get_base_url() + object.objective_id.access_url\" style=\"background-color: #11346A; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 8px; font-size: 13px;\">\n"
 "            Check in now\n"
 "        </a>\n"
 "        <br><br>\n"
@@ -59,7 +115,7 @@ msgstr ""
 "        <br>\n"
 "        Tiến độ hiện tại: <t t-out=\"'%.0f' % object.progress\">40</t>%.\n"
 "        <br><br>\n"
-"        <a t-att-href=\"object.objective_id.get_base_url() + object.objective_id.access_url\" style=\"background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size: 13px;\">\n"
+"        <a t-att-href=\"object.objective_id.get_base_url() + object.objective_id.access_url\" style=\"background-color: #11346A; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 8px; font-size: 13px;\">\n"
 "            Cập nhật ngay\n"
 "        </a>\n"
 "        <br><br>\n"
@@ -71,9 +127,83 @@ msgstr ""
 "            "
 
 #. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
+msgid "<i class=\"fa fa-bullseye o_okr_text_blue me-2\"/>New check-in"
+msgstr "<i class=\"fa fa-bullseye o_okr_text_blue me-2\"/>Cập nhật tiến độ mới"
+
+#. module: okr_scale_portal
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-msgid "<i class=\"fa fa-bullseye me-1\"/>Check-in"
-msgstr "<i class=\"fa fa-bullseye me-1\"/>Cập nhật"
+msgid ""
+"<i class=\"fa fa-check-circle me-2\"/>Thank you, your check-in has been "
+"recorded."
+msgstr ""
+"<i class=\"fa fa-check-circle me-2\"/>Cảm ơn bạn, cập nhật tiến độ đã được "
+"ghi nhận."
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_access_badge
+msgid "<i class=\"fa fa-eye me-1\"/>View only"
+msgstr "<i class=\"fa fa-eye me-1\"/>Chỉ xem"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid ""
+"<i class=\"fa fa-eye me-2\"/>You have view-only access: follow the progress "
+"and use the discussion to share your feedback."
+msgstr ""
+"<i class=\"fa fa-eye me-2\"/>Bạn có quyền chỉ xem: theo dõi tiến độ và trao "
+"đổi ý kiến ở mục Thảo luận bên dưới."
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_state_chip
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "<i class=\"fa fa-flag-checkered me-1\"/>Closed"
+msgstr "<i class=\"fa fa-flag-checkered me-1\"/>Đã đóng"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_access_badge
+msgid "<i class=\"fa fa-pencil me-1\"/>Can update"
+msgstr "<i class=\"fa fa-pencil me-1\"/>Có thể cập nhật"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "<i class=\"fa fa-pencil me-1\"/>Check in"
+msgstr "<i class=\"fa fa-pencil me-1\"/>Cập nhật"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_progress_ring
+msgid "<small>%</small>"
+msgstr "<small>%</small>"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "<small>/10</small>"
+msgstr "<small>/10</small>"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "<span class=\"o_okr_chip_dot o_okr_dot_live\"/>Running"
+msgstr "<span class=\"o_okr_chip_dot o_okr_dot_live\"/>Đang triển khai"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_state_chip
+msgid "<span class=\"o_okr_chip_dot\"/>Running"
+msgstr "<span class=\"o_okr_chip_dot\"/>Đang triển khai"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "<span class=\"o_okr_note_label o_okr_note_label_warn\">Blockers</span>"
+msgstr "<span class=\"o_okr_note_label o_okr_note_label_warn\">Vướng mắc</span>"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "<span class=\"o_okr_note_label\">Achieved</span>"
+msgstr "<span class=\"o_okr_note_label\">Kết quả</span>"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "<span class=\"o_okr_note_label\">Next steps</span>"
+msgstr "<span class=\"o_okr_note_label\">Kế hoạch</span>"
 
 #. module: okr_scale_portal
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_objective_view_form_portal
@@ -85,29 +215,66 @@ msgstr ""
 "                        <span class=\"o_stat_text\">cổng KH</span>"
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
-msgid "<span class=\"small me-1 navbar-text\">Cycle:</span>"
-msgstr "<span class=\"small me-1 navbar-text\">Chu kỳ:</span>"
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "<span class=\"opacity-75\">Owner</span>"
+msgstr "<span class=\"opacity-75\">Phụ trách</span>"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
+msgid "<span>1 = unlikely</span><span>10 = certain</span>"
+msgstr "<span>1 = khó đạt</span><span>10 = chắc chắn</span>"
+
+#. module: okr_scale_portal
+#: model:ir.model.constraint,message:okr_scale_portal.constraint_okr_scale_objective_collaborator_unique_collaborator
+msgid "A contact can only be added once as collaborator of an objective."
+msgstr "Mỗi liên hệ chỉ được thêm một lần làm cộng tác viên của mục tiêu."
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_wizard_view_form
+msgid "A portal account will be created for:"
+msgstr "Tài khoản cổng thông tin sẽ được tạo cho:"
+
+#. module: okr_scale_portal
+#. odoo-python
+#: code:addons/okr_scale_portal/wizard/okr_share_wizard.py:0
+#, python-format
+msgid ""
+"A user with the login %(email)s already exists: %(partner)s cannot get a "
+"portal account with the same e-mail."
+msgstr ""
+"Đã có người dùng với tên đăng nhập %(email)s: không thể tạo tài khoản cổng "
+"cho %(partner)s với cùng email."
 
 #. module: okr_scale_portal
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-msgid "<strong>Achieved:</strong>"
-msgstr "<strong>Đạt được:</strong>"
+msgid "About this objective"
+msgstr "Về mục tiêu này"
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-msgid "<strong>Blockers:</strong>"
-msgstr "<strong>Vướng mắc:</strong>"
-
-#. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-msgid "<strong>Next steps:</strong>"
-msgstr "<strong>Bước tiếp theo:</strong>"
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__access_mode
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__access_mode
+msgid "Access"
+msgstr "Quyền truy cập"
 
 #. module: okr_scale_portal
 #: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective__access_warning
 msgid "Access warning"
 msgstr "Cảnh báo truy cập"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_invitation
+msgid "Activate my account"
+msgstr "Kích hoạt tài khoản"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_wizard_view_form
+msgid "Add a personal message to the invitation (optional)"
+msgstr "Thêm lời nhắn cá nhân vào thư mời (không bắt buộc)"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_wizard_view_form
+msgid "Add customer contacts..."
+msgstr "Thêm liên hệ khách hàng..."
 
 #. module: okr_scale_portal
 #. odoo-python
@@ -122,19 +289,30 @@ msgid "All cycles"
 msgstr "Tất cả chu kỳ"
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-msgid "Author"
-msgstr "Người cập nhật"
-
-#. module: okr_scale_portal
 #: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_objective__partner_id
 msgid ""
-"B2B customer (commercial entity) this objective is shared with. All portal "
-"users of this customer can see the objective once it is shared."
+"B2B customer this objective is about. Informative (grouping, reporting): "
+"only the collaborators invited with the Share button see the objective on "
+"the portal."
 msgstr ""
-"Khách hàng B2B (pháp nhân thương mại) được chia sẻ mục tiêu này. Mọi tài "
-"khoản cổng thông tin của khách hàng này đều xem được mục tiêu khi đã chia "
-"sẻ."
+"Khách hàng B2B liên quan đến mục tiêu. Chỉ mang tính thông tin (nhóm, báo "
+"cáo): chỉ những cộng tác viên được mời bằng nút Chia sẻ mới thấy mục tiêu "
+"trên cổng."
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective__can_share
+msgid "Can Share"
+msgstr "Có thể chia sẻ"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_collaborator_view_search
+msgid "Can edit"
+msgstr "Có thể cập nhật"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
+msgid "Cancel"
+msgstr "Huỷ"
 
 #. module: okr_scale_portal
 #: model:mail.template,subject:okr_scale_portal.mail_template_okr_portal_checkin_reminder
@@ -149,6 +327,7 @@ msgid "Check-ins are only possible on running objectives."
 msgstr "Chỉ có thể cập nhật tiến độ cho mục tiêu đang triển khai."
 
 #. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
 msgid "Close"
 msgstr "Đóng"
@@ -156,16 +335,29 @@ msgstr "Đóng"
 #. module: okr_scale_portal
 #. odoo-python
 #: code:addons/okr_scale_portal/controllers/portal.py:0
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
 #, python-format
 msgid "Closed"
 msgstr "Đã đóng"
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-msgid "Comment"
-msgstr "Ghi chú"
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__partner_id
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_collaborator_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_objective_view_search_portal
+msgid "Collaborator"
+msgstr "Cộng tác viên"
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective__collaborator_count
+msgid "Collaborator Count"
+msgstr "Số cộng tác viên"
+
+#. module: okr_scale_portal
+#: model:ir.actions.act_window,name:okr_scale_portal.okr_collaborator_action
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective__collaborator_ids
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_objective_view_form_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_objective_view_tree_portal
+msgid "Collaborators"
+msgstr "Cộng tác viên"
 
 #. module: okr_scale_portal
 #. odoo-python
@@ -175,14 +367,36 @@ msgid "Comments are limited to %s characters."
 msgstr "Ghi chú tối đa %s ký tự."
 
 #. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__company_id
+msgid "Company"
+msgstr "Công ty"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_confidence
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
 msgid "Confidence"
 msgstr "Mức tự tin"
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-msgid "Confidence (1-10)"
-msgstr "Mức tự tin (1-10)"
+#: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_key_result__portal_collaborator_partner_ids
+msgid ""
+"Contacts the objective is shared with: their portal users may own this key "
+"result."
+msgstr ""
+"Các liên hệ được chia sẻ mục tiêu: tài khoản cổng của họ có thể phụ trách "
+"kết quả then chốt này."
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__create_uid
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__create_date
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__create_date
+msgid "Created on"
+msgstr "Được tạo vào"
 
 #. module: okr_scale_portal
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
@@ -192,7 +406,6 @@ msgstr "Hiện tại / Mục tiêu"
 #. module: okr_scale_portal
 #: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective__partner_id
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_objective_view_search_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
 msgid "Customer"
 msgstr "Khách hàng"
 
@@ -207,23 +420,18 @@ msgid "Customer Portal URL"
 msgstr "URL cổng khách hàng"
 
 #. module: okr_scale_portal
-#: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_key_result__portal_partner_id
+#: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_share_wizard__partner_ids
 msgid ""
-"Customer whose portal users may own this key result (objective shared on the"
-" portal)."
+"Customer contacts to invite. Contacts without a portal account get one, with"
+" a link to choose their password."
 msgstr ""
-"Khách hàng có tài khoản cổng thông tin được phép phụ trách kết quả then chốt"
-" này (mục tiêu đã chia sẻ lên cổng)."
+"Liên hệ khách hàng cần mời. Liên hệ chưa có tài khoản cổng sẽ được tạo tài "
+"khoản, kèm liên kết để đặt mật khẩu."
 
 #. module: okr_scale_portal
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
-msgid "Cycle"
-msgstr "Chu kỳ"
-
-#. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-msgid "Date"
-msgstr "Ngày"
+msgid "DMAG"
+msgstr "DMAG"
 
 #. module: okr_scale_portal
 #: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_key_result__portal_reminder_date
@@ -233,15 +441,46 @@ msgstr ""
 " cổng)."
 
 #. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_wizard_view_form
+msgid "Discard"
+msgstr "Huỷ bỏ"
+
+#. module: okr_scale_portal
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
 msgid "Discussion"
 msgstr "Trao đổi"
 
 #. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__display_name
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_kr_value
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
 msgid "Done"
 msgstr "Hoàn thành"
+
+#. module: okr_scale_portal
+#: model:ir.model.fields.selection,name:okr_scale_portal.selection__okr_scale_objective_collaborator__access_mode__edit
+#: model:ir.model.fields.selection,name:okr_scale_portal.selection__okr_scale_share_wizard__access_mode__edit
+msgid "Edit"
+msgstr "Cập nhật"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_wizard_view_form
+msgid ""
+"Edit collaborators can also check in on every key result of the objective from their portal\n"
+"                    and attach files to the discussion."
+msgstr ""
+"Cộng tác viên có quyền cập nhật còn có thể cập nhật tiến độ mọi kết quả then chốt của mục tiêu từ cổng\n"
+"                    và đính kèm tệp trong phần thảo luận."
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__partner_email
+msgid "Email"
+msgstr "Email"
 
 #. module: okr_scale_portal
 #. odoo-python
@@ -249,6 +488,11 @@ msgstr "Hoàn thành"
 #, python-format
 msgid "Enter a valid number for the new value."
 msgstr "Vui lòng nhập giá trị mới là một số hợp lệ."
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
+msgid "Filter"
+msgstr "Lọc"
 
 #. module: okr_scale_portal
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
@@ -261,31 +505,80 @@ msgid "Follow the objectives and key results shared with you"
 msgstr "Theo dõi các mục tiêu và kết quả then chốt được chia sẻ với bạn"
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-msgid "Key Result"
-msgstr "Kết quả then chốt"
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
+msgid ""
+"Follow the progress of the objectives we share with you, update your key "
+"results and discuss with our team."
+msgstr ""
+"Theo dõi tiến độ các mục tiêu chúng tôi chia sẻ với bạn, cập nhật kết quả "
+"then chốt và trao đổi cùng đội ngũ."
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-msgid "Key Results"
-msgstr "Kết quả then chốt"
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_collaborator_view_search
+msgid "Group By"
+msgstr "Nhóm theo"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_invitation
+msgid "Hello"
+msgstr "Xin chào"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
+msgid "How confident are you to reach the target?"
+msgstr "Mức độ tự tin đạt mục tiêu của bạn?"
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__id
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__id
+msgid "ID"
+msgstr "ID"
+
+#. module: okr_scale_portal
+#. odoo-python
+#: code:addons/okr_scale_portal/wizard/okr_share_wizard.py:0
+#, python-format
+msgid "Invitation to follow the objective \"%s\""
+msgstr "Lời mời theo dõi mục tiêu \"%s\""
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__partner_ids
+msgid "Invite"
+msgstr "Mời"
 
 #. module: okr_scale_portal
 #. odoo-python
 #: code:addons/okr_scale_portal/models/okr_key_result.py:0
 #, python-format
 msgid ""
-"Key result \"%(kr)s\": %(user)s is a portal user. Portal users can only own "
-"key results of objectives shared on the portal with their own company."
+"Key result \"%(kr)s\": %(user)s is not an employee. Only portal users can "
+"own key results of objectives shared on the portal."
 msgstr ""
-"Kết quả then chốt \"%(kr)s\": %(user)s là tài khoản cổng thông tin. Tài "
-"khoản cổng chỉ được phụ trách kết quả then chốt của mục tiêu đã chia sẻ lên "
-"cổng với chính công ty của họ."
+"Kết quả then chốt \"%(kr)s\": %(user)s không phải nhân viên. Chỉ tài khoản "
+"cổng mới có thể phụ trách kết quả then chốt của mục tiêu đã chia sẻ trên "
+"cổng."
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "Key results"
+msgstr "Kết quả then chốt"
 
 #. module: okr_scale_portal
 #: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_key_result__portal_reminder_date
 msgid "Last Portal Reminder"
 msgstr "Lần nhắc gần nhất (cổng)"
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__write_uid
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__write_date
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
 
 #. module: okr_scale_portal
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
@@ -310,7 +603,12 @@ msgid "Name"
 msgstr "Tên"
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__new_user_partner_ids
+msgid "New portal accounts"
+msgstr "Tài khoản cổng mới"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
 msgid "New value"
 msgstr "Giá trị mới"
 
@@ -322,10 +620,40 @@ msgid "Newest"
 msgstr "Mới nhất"
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_kr_value
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
+msgid "Next actions and priorities..."
+msgstr "Hành động và ưu tiên tiếp theo..."
+
+#. module: okr_scale_portal
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "No check-in yet"
+msgstr "Chưa cập nhật"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "No check-in yet."
+msgstr "Chưa có cập nhật tiến độ nào."
+
+#. module: okr_scale_portal
+#: model_terms:ir.actions.act_window,help:okr_scale_portal.okr_collaborator_action
+msgid "No collaborator yet"
+msgstr "Chưa có cộng tác viên"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
+msgid "No objective shared with you yet"
+msgstr "Chưa có mục tiêu nào được chia sẻ với bạn"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_kr_value
 msgid "Not done"
 msgstr "Chưa hoàn thành"
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__note
+msgid "Note"
+msgstr "Ghi chú"
 
 #. module: okr_scale_portal
 #: model:ir.model,name:okr_scale_portal.model_okr_scale_checkin
@@ -343,6 +671,11 @@ msgid "OKR Objective"
 msgstr "Mục tiêu OKR"
 
 #. module: okr_scale_portal
+#: model:ir.model,name:okr_scale_portal.model_okr_scale_objective_collaborator
+msgid "OKR Objective Collaborator (portal sharing)"
+msgstr "Cộng tác viên mục tiêu OKR (chia sẻ trên cổng)"
+
+#. module: okr_scale_portal
 #: model:mail.template,name:okr_scale_portal.mail_template_okr_portal_checkin_reminder
 msgid "OKR: portal check-in reminder"
 msgstr "OKR: nhắc cập nhật tiến độ (cổng khách hàng)"
@@ -350,30 +683,61 @@ msgstr "OKR: nhắc cập nhật tiến độ (cổng khách hàng)"
 #. module: okr_scale_portal
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_breadcrumbs
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_home
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
 msgid "OKRs"
 msgstr "OKR"
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__objective_id
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__objective_id
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_collaborator_view_search
 msgid "Objective"
 msgstr "Mục tiêu"
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
-msgid "Owner"
-msgstr "Người phụ trách"
+msgid "Objectives &amp; Key Results"
+msgstr "Mục tiêu &amp; Kết quả then chốt"
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
+msgid "Objectives appear here as soon as our team shares them with you."
+msgstr ""
+"Mục tiêu sẽ xuất hiện tại đây ngay khi đội ngũ của chúng tôi chia sẻ với "
+"bạn."
+
+#. module: okr_scale_portal
+#. odoo-python
+#: code:addons/okr_scale_portal/controllers/portal.py:0
+#, python-format
+msgid ""
+"Only collaborators with edit access can attach files to this objective."
+msgstr ""
+"Chỉ cộng tác viên có quyền cập nhật mới có thể đính kèm tệp vào mục tiêu "
+"này."
+
+#. module: okr_scale_portal
+#. odoo-python
+#: code:addons/okr_scale_portal/models/okr_objective.py:0
+#, python-format
+msgid "Only the owner and the managers of \"%s\" can share it with customers."
+msgstr ""
+"Chỉ người phụ trách và quản lý của \"%s\" mới có thể chia sẻ mục tiêu với "
+"khách hàng."
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_invitation
+msgid "Open the objective"
+msgstr "Mở mục tiêu"
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_share_wizard__note
+msgid "Personal message added to the invitation e-mail."
+msgstr "Lời nhắn cá nhân được thêm vào email mời."
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
 msgid "Plan for the next period"
 msgstr "Kế hoạch kỳ tới"
-
-#. module: okr_scale_portal
-#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective__portal_access
-msgid "Portal Access"
-msgstr "Quyền trên cổng"
 
 #. module: okr_scale_portal
 #: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective__access_url
@@ -381,23 +745,69 @@ msgid "Portal Access URL"
 msgstr "URL truy cập cổng"
 
 #. module: okr_scale_portal
-#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_key_result__portal_partner_id
-msgid "Portal Customer"
-msgstr "Khách hàng trên cổng"
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_key_result__portal_collaborator_partner_ids
+msgid "Portal Collaborators"
+msgstr "Cộng tác viên trên cổng"
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective_collaborator__user_id
+msgid "Portal User"
+msgstr "Tài khoản cổng"
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_objective__collaborator_ids
+msgid "Portal contacts the objective is shared with, with their access mode."
+msgstr ""
+"Các liên hệ trên cổng được chia sẻ mục tiêu, kèm quyền truy cập của họ."
 
 #. module: okr_scale_portal
 #. odoo-python
 #: code:addons/okr_scale_portal/controllers/portal.py:0
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
 #, python-format
 msgid "Progress"
 msgstr "Tiến độ"
 
 #. module: okr_scale_portal
+#: model:ir.model.fields.selection,name:okr_scale_portal.selection__okr_scale_objective_collaborator__access_mode__read
+#: model:ir.model.fields.selection,name:okr_scale_portal.selection__okr_scale_share_wizard__access_mode__read
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_collaborator_view_search
+msgid "Read-only"
+msgstr "Chỉ xem"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_wizard_view_form
+msgid ""
+"Read-only collaborators follow the objective, its key results and check-ins on their portal\n"
+"                    and can discuss with your team in the chatter."
+msgstr ""
+"Cộng tác viên chỉ xem theo dõi mục tiêu, kết quả then chốt và các lần cập nhật tiến độ trên cổng\n"
+"                    và có thể trao đổi với đội ngũ trong phần thảo luận."
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_objective_collaborator__access_mode
+#: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_share_wizard__access_mode
+msgid ""
+"Read-only: follows the progress and discusses in the chatter.\n"
+"Edit: can also check in on every key result of the objective and attach files."
+msgstr ""
+"Chỉ xem: theo dõi tiến độ và trao đổi trong phần thảo luận.\n"
+"Cập nhật: có thể cập nhật tiến độ mọi kết quả then chốt của mục tiêu và đính kèm tệp."
+
+#. module: okr_scale_portal
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
 msgid "Recent check-ins"
 msgstr "Cập nhật tiến độ gần đây"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
+msgid "Results, deliveries, figures..."
+msgstr "Kết quả, sản phẩm bàn giao, số liệu..."
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
+msgid "Risks, dependencies, support needed..."
+msgstr "Rủi ro, phụ thuộc, hỗ trợ cần thiết..."
 
 #. module: okr_scale_portal
 #. odoo-python
@@ -409,9 +819,11 @@ msgstr "Đang triển khai"
 #. module: okr_scale_portal
 #: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_objective__portal_shared
 msgid ""
-"Running and closed objectives are visible on the portal of the customer."
+"Running and closed objectives are visible on the portal of their "
+"collaborators."
 msgstr ""
-"Mục tiêu đang triển khai và đã đóng được hiển thị trên cổng của khách hàng."
+"Mục tiêu đang triển khai và đã đóng hiển thị trên cổng của các cộng tác "
+"viên."
 
 #. module: okr_scale_portal
 #: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective__access_token
@@ -419,16 +831,14 @@ msgid "Security Token"
 msgstr "Mã bảo mật"
 
 #. module: okr_scale_portal
-#. odoo-python
-#: code:addons/okr_scale_portal/models/okr_objective.py:0
-#, python-format
-msgid "Select a customer before sharing \"%s\" on the portal."
-msgstr "Chọn khách hàng trước khi chia sẻ \"%s\" lên cổng."
-
-#. module: okr_scale_portal
 #: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective__self_assessment
 msgid "Self Assessment"
 msgstr "Tự đánh giá"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_wizard_view_form
+msgid "Send invitation"
+msgstr "Gửi lời mời"
 
 #. module: okr_scale_portal
 #: model:mail.template,description:okr_scale_portal.mail_template_okr_portal_checkin_reminder
@@ -439,20 +849,32 @@ msgstr ""
 " độ"
 
 #. module: okr_scale_portal
-#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective__portal_shared
-msgid "Share on customer portal"
-msgstr "Chia sẻ lên cổng khách hàng"
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_objective_view_form_portal
+msgid "Share"
+msgstr "Chia sẻ"
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_objective_view_form_portal
-msgid ""
-"Shared objectives are visible on the customer portal once running.\n"
-"                                Key results can be assigned to portal users of the customer;\n"
-"                                with \"View and check-in\" they can update them from the portal."
-msgstr ""
-"Mục tiêu được chia sẻ sẽ hiển thị trên cổng khách hàng khi đang triển khai.\n"
-"                                Kết quả then chốt có thể giao cho tài khoản cổng của khách hàng;\n"
-"                                với quyền \"Xem và cập nhật tiến độ\" họ có thể cập nhật ngay trên cổng."
+#: model:ir.model,name:okr_scale_portal.model_okr_scale_share_wizard
+msgid "Share an objective on the customer portal"
+msgstr "Chia sẻ mục tiêu trên cổng khách hàng"
+
+#. module: okr_scale_portal
+#. odoo-python
+#: code:addons/okr_scale_portal/models/okr_objective.py:0
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_wizard_view_form
+#, python-format
+msgid "Share with customers"
+msgstr "Chia sẻ với khách hàng"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
+msgid "Shared OKRs"
+msgstr "OKR được chia sẻ"
+
+#. module: okr_scale_portal
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_objective__portal_shared
+msgid "Shared on portal"
+msgstr "Đã chia sẻ trên cổng"
 
 #. module: okr_scale_portal
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_objective_view_search_portal
@@ -460,30 +882,19 @@ msgid "Shared with customers"
 msgstr "Đã chia sẻ với khách hàng"
 
 #. module: okr_scale_portal
-#. odoo-python
-#: code:addons/okr_scale_portal/models/okr_objective.py:0
-#, python-format
-msgid ""
-"Some key results of \"%s\" are owned by portal users of another customer: "
-"reassign them before changing the customer."
-msgstr ""
-"Một số kết quả then chốt của \"%s\" do tài khoản cổng của khách hàng khác "
-"phụ trách: hãy giao lại trước khi đổi khách hàng."
+#: model:ir.model.fields,field_description:okr_scale_portal.field_okr_scale_share_wizard__objective_state
+msgid "State"
+msgstr "Trạng thái"
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
-msgid "Status"
-msgstr "Tình trạng"
-
-#. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
 msgid "Submit check-in"
 msgstr "Gửi cập nhật"
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
-msgid "Thank you, your check-in has been recorded."
-msgstr "Cảm ơn, cập nhật tiến độ của bạn đã được ghi nhận."
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
+msgid "Target:"
+msgstr "Mục tiêu:"
 
 #. module: okr_scale_portal
 #. odoo-python
@@ -493,9 +904,31 @@ msgid "The confidence must be between 1 and 10."
 msgstr "Mức tự tin phải từ 1 đến 10."
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
-msgid "There are no objectives shared with you yet."
-msgstr "Chưa có mục tiêu nào được chia sẻ với bạn."
+#: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_objective__can_share
+msgid "The current user may share this objective with customers."
+msgstr "Người dùng hiện tại có thể chia sẻ mục tiêu này với khách hàng."
+
+#. module: okr_scale_portal
+#. odoo-python
+#: code:addons/okr_scale_portal/controllers/portal.py:0
+#, python-format
+msgid ""
+"The document does not exist or you do not have the rights to access it."
+msgstr "Tài liệu không tồn tại hoặc bạn không có quyền truy cập."
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_invitation
+msgid "The link lets you choose your password, then opens the objective."
+msgstr "Liên kết cho phép bạn đặt mật khẩu, sau đó mở mục tiêu."
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_wizard_view_form
+msgid ""
+"The objective is not running yet: collaborators will see it on their portal "
+"once it starts."
+msgstr ""
+"Mục tiêu chưa triển khai: cộng tác viên sẽ thấy mục tiêu trên cổng khi mục "
+"tiêu bắt đầu."
 
 #. module: okr_scale_portal
 #. odoo-python
@@ -505,31 +938,36 @@ msgid "This objective is not shared on the portal."
 msgstr "Mục tiêu này không được chia sẻ lên cổng."
 
 #. module: okr_scale_portal
-#: model:ir.model.fields.selection,name:okr_scale_portal.selection__okr_scale_objective__portal_access__contribute
-msgid "View and check-in"
-msgstr "Xem và cập nhật tiến độ"
-
-#. module: okr_scale_portal
-#: model:ir.model.fields.selection,name:okr_scale_portal.selection__okr_scale_objective__portal_access__read
-msgid "View only"
-msgstr "Chỉ xem"
-
-#. module: okr_scale_portal
-#: model:ir.model.fields,help:okr_scale_portal.field_okr_scale_objective__portal_access
-msgid ""
-"View only: the customer follows the progress and discusses.\n"
-"View and check-in: portal users owning a key result can also check in on it."
-msgstr ""
-"Chỉ xem: khách hàng theo dõi tiến độ và trao đổi.\n"
-"Xem và cập nhật tiến độ: tài khoản cổng phụ trách kết quả then chốt có thể cập nhật tiến độ."
-
-#. module: okr_scale_portal
 #: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+msgid "Time elapsed"
+msgstr "Thời gian đã qua"
+
+#. module: okr_scale_portal
+#: model_terms:ir.actions.act_window,help:okr_scale_portal.okr_collaborator_action
+msgid ""
+"Use the Share button of an objective to invite customer contacts on the "
+"portal."
+msgstr ""
+"Dùng nút Chia sẻ trên mục tiêu để mời liên hệ khách hàng vào cổng thông tin."
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_objective_view_form_portal
+msgid ""
+"Use the Share button to invite customer contacts. Read-only collaborators follow the\n"
+"                                progress and discuss; edit collaborators can also check in on every key result.\n"
+"                                Shared objectives appear on the portal once running."
+msgstr ""
+"Dùng nút Chia sẻ để mời liên hệ khách hàng. Cộng tác viên chỉ xem theo dõi\n"
+"                                tiến độ và trao đổi; cộng tác viên có quyền cập nhật còn có thể cập nhật tiến độ mọi kết quả then chốt.\n"
+"                                Mục tiêu đã chia sẻ hiển thị trên cổng khi đang triển khai."
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
 msgid "What did you achieve?"
 msgstr "Bạn đã đạt được gì?"
 
 #. module: okr_scale_portal
-#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_checkin_form
 msgid "What is blocking you?"
 msgstr "Điều gì đang cản trở bạn?"
 
@@ -539,3 +977,43 @@ msgstr "Điều gì đang cản trở bạn?"
 #, python-format
 msgid "You are not allowed to check in on this key result."
 msgstr "Bạn không được phép cập nhật tiến độ kết quả then chốt này."
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_access_badge
+msgid "You can check in on the key results"
+msgstr "Bạn có thể cập nhật tiến độ các kết quả then chốt"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_access_badge
+msgid "You can follow the progress and discuss"
+msgstr "Bạn có thể theo dõi tiến độ và trao đổi"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_invitation
+msgid "You can follow the progress and discuss with the team."
+msgstr "Bạn có thể theo dõi tiến độ và trao đổi với đội ngũ."
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_invitation
+msgid ""
+"You can follow the progress, check in on the key results and discuss with "
+"the team."
+msgstr ""
+"Bạn có thể theo dõi tiến độ, cập nhật kết quả then chốt và trao đổi với đội "
+"ngũ."
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_invitation
+msgid "invited you to follow the objective"
+msgstr "đã mời bạn theo dõi mục tiêu"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okr
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.portal_my_okrs
+msgid "key results"
+msgstr "kết quả then chốt"
+
+#. module: okr_scale_portal
+#: model_terms:ir.ui.view,arch_db:okr_scale_portal.okr_share_invitation
+msgid "on the customer portal of"
+msgstr "trên cổng khách hàng của"

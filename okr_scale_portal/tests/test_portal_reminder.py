@@ -30,7 +30,7 @@ class TestOkrPortalReminder(OkrPortalCommonMixin, TransactionCase):
         KeyResult._cron_checkin_reminder()
         self.assertEqual(len(self._reminders(self.kr_portal)), 1, 'No daily spam')
 
-    def test_no_reminder_when_view_only(self):
-        self.obj_shared_a.portal_access = 'read'
+    def test_no_reminder_when_unshared(self):
+        self.obj_shared_a.portal_shared = False
         self.env['okr.scale.key.result']._cron_checkin_reminder()
         self.assertFalse(self._reminders(self.kr_portal))

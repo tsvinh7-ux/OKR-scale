@@ -1,0 +1,648 @@
+// DMAG customer portal for OKR Scale. Tokens: okr_scale/static/src/scss/okr_brand.scss
+.o_okr_portal {
+    --okr-card-pad: 1.5rem;
+    color: var(--okr-ink);
+
+    .min-w-0 { min-width: 0; }
+    .o_okr_text_blue { color: var(--okr-blue); }
+
+    // ---------------------------------------------------------------- hero
+    .o_okr_hero {
+        position: relative;
+        overflow: hidden;
+        border-radius: calc(var(--okr-radius) + 4px);
+        background: var(--okr-gradient);
+        color: #fff;
+        box-shadow: 0 12px 32px rgba(17, 52, 106, .22);
+        &::before, &::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        &::before {
+            width: 420px; height: 420px;
+            right: -140px; top: -220px;
+            background: radial-gradient(circle, rgba(255, 255, 255, .16) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+        &::after {
+            width: 260px; height: 260px;
+            left: 35%; bottom: -170px;
+            background: radial-gradient(circle, rgba(23, 139, 236, .45) 0%, rgba(23, 139, 236, 0) 70%);
+        }
+    }
+    .o_okr_hero_body {
+        position: relative;
+        z-index: 1;
+        padding: 2rem 2.25rem;
+        @include media-breakpoint-down(md) { padding: 1.5rem 1.25rem; }
+    }
+    .o_okr_hero_mark {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        width: 56px; height: 56px;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, .15);
+        img { width: 36px; height: 36px; object-fit: contain; }
+    }
+    .o_okr_eyebrow {
+        font-size: .75rem;
+        font-weight: 600;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        opacity: .75;
+    }
+    .o_okr_hero_title {
+        margin: 0;
+        font-size: unquote("clamp(1.5rem, 1.1rem + 1.4vw, 2.15rem)");
+        font-weight: 700;
+        line-height: 1.2;
+        color: #fff;
+        letter-spacing: -.01em;
+    }
+    .o_okr_hero_lead {
+        max-width: 640px;
+        margin-top: 1rem;
+        font-size: 1rem;
+        opacity: .85;
+    }
+    .o_okr_hero_chip {
+        display: inline-flex;
+        align-items: center;
+        gap: .35rem;
+        padding: .3rem .75rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, .14);
+        border: 1px solid rgba(255, 255, 255, .22);
+        font-size: .8rem;
+        font-weight: 500;
+        backdrop-filter: blur(4px);
+    }
+    .o_okr_hero_meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: .75rem 1.5rem;
+        margin-top: 1rem;
+        font-size: .9rem;
+    }
+    .o_okr_hero_ring {
+        flex: 0 0 auto;
+        text-align: center;
+        align-self: center;
+    }
+    .o_okr_hero_ring_caption {
+        margin-top: .35rem;
+        font-size: .75rem;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        opacity: .75;
+    }
+    .o_okr_hero_stats {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 1rem;
+        padding: 1.1rem 2.25rem 1.4rem;
+        background: rgba(8, 26, 56, .22);
+        border-top: 1px solid rgba(255, 255, 255, .12);
+        @include media-breakpoint-down(md) {
+            grid-template-columns: repeat(2, 1fr);
+            padding: 1rem 1.25rem 1.25rem;
+        }
+    }
+    .o_okr_stat_label {
+        font-size: .72rem;
+        text-transform: uppercase;
+        letter-spacing: .07em;
+        opacity: .7;
+    }
+    .o_okr_stat_value {
+        font-size: 1.35rem;
+        font-weight: 700;
+        line-height: 1.3;
+        small { font-size: .75rem; font-weight: 500; opacity: .75; }
+        &.o_okr_stat_date { font-size: 1rem; padding-top: .25rem; }
+    }
+
+    // ---------------------------------------------------------------- toolbar
+    .o_okr_toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: .75rem;
+    }
+    .o_okr_pills {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: .35rem;
+        padding: .3rem;
+        border-radius: 999px;
+        background: #fff;
+        box-shadow: var(--okr-shadow);
+        @include media-breakpoint-down(md) {
+            width: 100%;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            scrollbar-width: none;
+            &::-webkit-scrollbar { display: none; }
+        }
+    }
+    .o_okr_pill {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        gap: .45rem;
+        padding: .45rem 1rem;
+        border-radius: 999px;
+        color: var(--okr-muted);
+        font-weight: 500;
+        font-size: .9rem;
+        text-decoration: none;
+        transition: background-color .15s, color .15s;
+        &:hover { color: var(--okr-navy); background: var(--okr-sky); }
+        &.active {
+            color: #fff;
+            background: var(--okr-navy);
+            .o_okr_pill_count { background: rgba(255, 255, 255, .2); color: #fff; }
+        }
+    }
+    .o_okr_pill_count {
+        min-width: 1.5rem;
+        padding: 0 .4rem;
+        border-radius: 999px;
+        background: var(--okr-blue-100);
+        color: var(--okr-navy);
+        font-size: .75rem;
+        font-weight: 600;
+        text-align: center;
+        line-height: 1.4rem;
+    }
+    .o_okr_select {
+        display: inline-flex;
+        align-items: center;
+        padding: .55rem 1rem;
+        border: 1px solid var(--okr-line);
+        border-radius: 999px;
+        background: #fff;
+        color: var(--okr-ink);
+        font-size: .9rem;
+        font-weight: 500;
+        &:hover, &:focus { border-color: var(--okr-blue); }
+    }
+
+    // ---------------------------------------------------------------- cards
+    .o_okr_card {
+        display: block;
+        padding: var(--okr-card-pad);
+        border: 1px solid var(--okr-line);
+        border-radius: var(--okr-radius);
+        background: #fff;
+        box-shadow: var(--okr-shadow);
+        @include media-breakpoint-down(md) { --okr-card-pad: 1.15rem; }
+    }
+    .o_okr_card_link {
+        display: flex;
+        flex-direction: column;
+        color: inherit;
+        text-decoration: none;
+        transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+        &:hover {
+            transform: translateY(-3px);
+            border-color: rgba(23, 139, 236, .45);
+            box-shadow: 0 14px 34px rgba(17, 52, 106, .14);
+            .o_okr_card_arrow { background: var(--okr-blue); color: #fff; transform: translateX(2px); }
+        }
+    }
+    .o_okr_card_title {
+        margin: 0;
+        font-size: 1.08rem;
+        font-weight: 650;
+        line-height: 1.4;
+        color: var(--okr-navy);
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .o_okr_cycle {
+        font-size: .8rem;
+        color: var(--okr-muted);
+    }
+    .o_okr_card_footer {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: .75rem;
+        margin-top: auto;
+        padding-top: 1.1rem;
+        border-top: 1px dashed var(--okr-line);
+    }
+    .o_okr_card_arrow {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px; height: 32px;
+        border-radius: 50%;
+        background: var(--okr-sky);
+        color: var(--okr-navy);
+        transition: all .18s ease;
+    }
+    .o_okr_section_title {
+        margin-bottom: 1rem;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--okr-navy);
+    }
+    .o_okr_description { color: var(--okr-ink); p:last-child { margin-bottom: 0; } }
+    .o_okr_note {
+        padding: .85rem 1.1rem;
+        border-radius: var(--okr-radius);
+        background: var(--okr-blue-100);
+        color: var(--okr-navy);
+        font-size: .92rem;
+    }
+    .o_okr_alert {
+        border: 0;
+        border-radius: var(--okr-radius);
+        box-shadow: var(--okr-shadow);
+        &.o_okr_alert_success { background: #E6F6F1; color: #0B6E52; }
+        &.o_okr_alert_danger { background: #FDECEC; color: #A52A2E; }
+    }
+    .o_okr_empty {
+        padding: 3.5rem 1.5rem;
+        text-align: center;
+        border: 1px dashed var(--okr-line);
+        border-radius: var(--okr-radius);
+        background: #fff;
+    }
+    .o_okr_empty_icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 64px; height: 64px;
+        border-radius: 50%;
+        background: var(--okr-blue-100);
+        color: var(--okr-blue);
+        font-size: 1.75rem;
+    }
+    @include media-breakpoint-up(lg) {
+        .o_okr_sticky { position: sticky; top: 1.5rem; }
+    }
+
+    // ---------------------------------------------------------------- chips
+    .o_okr_chip {
+        display: inline-flex;
+        align-items: center;
+        gap: .4rem;
+        padding: .22rem .65rem;
+        border-radius: 999px;
+        font-size: .76rem;
+        font-weight: 600;
+        white-space: nowrap;
+        background: var(--okr-sky);
+        color: var(--okr-muted);
+    }
+    .o_okr_chip_dot {
+        display: inline-block;
+        width: 7px; height: 7px;
+        border-radius: 50%;
+        background: currentColor;
+    }
+    .o_okr_chip_live { background: var(--okr-blue-100); color: var(--okr-blue); }
+    .o_okr_chip_muted { background: #EEF1F5; color: var(--okr-muted); }
+    .o_okr_status_on_track { background: #E6F6F1; color: var(--okr-success); }
+    .o_okr_status_achieved { background: var(--okr-blue-100); color: var(--okr-navy); }
+    .o_okr_status_at_risk { background: #FEF4E2; color: #B87507; }
+    .o_okr_status_off_track { background: #FDECEC; color: var(--okr-danger); }
+    .o_okr_dot_live { background: #7CF0C5; box-shadow: 0 0 0 3px rgba(124, 240, 197, .25); }
+    .o_okr_dot_on_track { background: #7CF0C5; }
+    .o_okr_dot_achieved { background: #9FD3FF; }
+    .o_okr_dot_at_risk { background: var(--okr-warning); }
+    .o_okr_dot_off_track { background: #FF8A8E; }
+
+    .o_okr_access {
+        display: inline-flex;
+        align-items: center;
+        padding: .22rem .65rem;
+        border-radius: 999px;
+        font-size: .76rem;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+    .o_okr_access_edit { background: var(--okr-navy); color: #fff; }
+    .o_okr_access_read { background: #fff; color: var(--okr-navy); border: 1px solid var(--okr-line); }
+    .o_okr_hero .o_okr_access_edit { background: #fff; color: var(--okr-navy); }
+    .o_okr_hero .o_okr_access_read { background: transparent; color: #fff; border-color: rgba(255, 255, 255, .5); }
+
+    // ---------------------------------------------------------------- avatar
+    .o_okr_avatar {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        width: 36px; height: 36px;
+        border-radius: 50%;
+        color: #fff;
+        font-size: .8rem;
+        font-weight: 700;
+        letter-spacing: .02em;
+        &.o_okr_avatar_sm { width: 28px; height: 28px; font-size: .7rem; }
+        &.o_okr_avatar_xs { width: 22px; height: 22px; font-size: .6rem; }
+        &.o_okr_avatar_light { box-shadow: 0 0 0 2px rgba(255, 255, 255, .6); }
+    }
+    .o_okr_avatar_0 { background: var(--okr-navy); }
+    .o_okr_avatar_1 { background: var(--okr-blue); }
+    .o_okr_avatar_2 { background: #1A5BA8; }
+    .o_okr_avatar_3 { background: #0E8A7D; }
+    .o_okr_avatar_4 { background: #6750A4; }
+
+    // ---------------------------------------------------------------- ring
+    .o_okr_ring {
+        --okr-ring-color: var(--okr-blue);
+        --okr-ring-track: var(--okr-blue-100);
+        position: relative;
+        flex: 0 0 auto;
+        width: var(--okr-ring-size);
+        height: var(--okr-ring-size);
+        svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+        circle { fill: none; stroke-width: 10; }
+        .o_okr_ring_track { stroke: var(--okr-ring-track); }
+        .o_okr_ring_value { stroke: var(--okr-ring-color); stroke-linecap: round; transition: stroke-dasharray .6s ease; }
+        .o_okr_ring_label {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: calc(var(--okr-ring-size) * .24);
+            color: var(--okr-navy);
+            small { font-size: .55em; font-weight: 600; margin-left: 1px; opacity: .7; }
+        }
+        &.o_okr_ring_on_track { --okr-ring-color: var(--okr-success); --okr-ring-track: #E1F4EE; }
+        &.o_okr_ring_achieved { --okr-ring-color: var(--okr-blue); }
+        &.o_okr_ring_at_risk { --okr-ring-color: var(--okr-warning); --okr-ring-track: #FDF1DC; }
+        &.o_okr_ring_off_track { --okr-ring-color: var(--okr-danger); --okr-ring-track: #FBE4E5; }
+        &.o_okr_ring_light {
+            --okr-ring-color: #fff;
+            --okr-ring-track: rgba(255, 255, 255, .18);
+            circle { stroke-width: 9; }
+            .o_okr_ring_label { color: #fff; }
+        }
+    }
+
+    // ---------------------------------------------------------------- key results
+    .o_okr_kr_list { display: flex; flex-direction: column; gap: .85rem; }
+    .o_okr_kr {
+        border: 1px solid var(--okr-line);
+        border-radius: var(--okr-radius);
+        background: #fff;
+        box-shadow: var(--okr-shadow);
+        transition: border-color .15s;
+        &:target, &:has(.collapse.show) { border-color: rgba(23, 139, 236, .5); }
+    }
+    .o_okr_kr_main {
+        display: flex;
+        gap: 1rem;
+        padding: 1.15rem 1.35rem;
+        @include media-breakpoint-down(md) { padding: 1rem; gap: .75rem; }
+    }
+    .o_okr_kr_index {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        width: 32px; height: 32px;
+        border-radius: 10px;
+        background: var(--okr-sky);
+        color: var(--okr-navy);
+        font-weight: 700;
+        font-size: .85rem;
+    }
+    .o_okr_kr_title {
+        margin: .2rem 0 0;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.4;
+        color: var(--okr-ink);
+    }
+    .o_okr_kr_pct {
+        min-width: 3rem;
+        text-align: right;
+        font-weight: 700;
+        color: var(--okr-navy);
+    }
+    .o_okr_kr_meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: .5rem 1.25rem;
+        margin-top: .75rem;
+        font-size: .85rem;
+    }
+    .o_okr_bar {
+        height: 8px;
+        border-radius: 999px;
+        background: var(--okr-blue-100);
+        overflow: hidden;
+        > span {
+            display: block;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, var(--okr-navy), var(--okr-blue));
+        }
+        &.o_okr_bar_on_track > span { background: linear-gradient(90deg, #0E8A6A, var(--okr-success)); }
+        &.o_okr_bar_at_risk > span { background: linear-gradient(90deg, #E39408, var(--okr-warning)); }
+        &.o_okr_bar_off_track > span { background: linear-gradient(90deg, #C93439, var(--okr-danger)); }
+    }
+    .o_okr_confidence {
+        display: inline-flex;
+        align-items: center;
+        gap: .35rem;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+    .o_okr_conf_dot { width: 9px; height: 9px; border-radius: 50%; background: currentColor; }
+    .o_okr_conf_high { color: var(--okr-success); }
+    .o_okr_conf_mid { color: #D18A06; }
+    .o_okr_conf_low { color: var(--okr-danger); }
+
+    .o_okr_btn_soft {
+        border-radius: 999px;
+        padding: .35rem .95rem;
+        background: var(--okr-blue-100);
+        color: var(--okr-navy);
+        font-weight: 600;
+        border: 0;
+        &:hover, &[aria-expanded="true"] { background: var(--okr-navy); color: #fff; }
+    }
+    .o_okr_btn_primary {
+        border: 0;
+        border-radius: 10px;
+        background: var(--okr-gradient);
+        font-weight: 600;
+        box-shadow: 0 6px 16px rgba(23, 139, 236, .3);
+        &:hover { filter: brightness(1.06); }
+    }
+
+    // ---------------------------------------------------------------- check-in form
+    .o_okr_kr_form {
+        padding: 1.25rem 1.35rem 1.35rem;
+        border-top: 1px solid var(--okr-line);
+        background: linear-gradient(180deg, var(--okr-sky), #fff);
+        border-radius: 0 0 var(--okr-radius) var(--okr-radius);
+        @include media-breakpoint-down(md) { padding: 1rem; }
+        .form-label { font-weight: 600; font-size: .88rem; color: var(--okr-ink); }
+        .form-control, .form-select, .input-group-text {
+            border-color: var(--okr-line);
+            border-radius: 10px;
+        }
+        .input-group > .form-control { border-top-right-radius: 0; border-bottom-right-radius: 0; }
+        .input-group > .input-group-text { border-top-left-radius: 0; border-bottom-left-radius: 0; background: #fff; }
+        .form-control:focus, .form-select:focus {
+            border-color: var(--okr-blue);
+            box-shadow: 0 0 0 .2rem rgba(23, 139, 236, .15);
+        }
+        textarea { resize: vertical; min-height: 92px; }
+    }
+    .o_okr_conf_picker {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        gap: .35rem;
+        @include media-breakpoint-down(sm) { grid-template-columns: repeat(5, 1fr); }
+    }
+    .o_okr_conf_pill {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 44px;
+        border: 1px solid var(--okr-line);
+        border-radius: 10px;
+        background: #fff;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all .12s ease;
+        &:hover { border-color: currentColor; }
+    }
+    .btn-check:checked + .o_okr_conf_pill {
+        color: #fff;
+        border-color: transparent;
+        box-shadow: 0 4px 12px rgba(17, 52, 106, .18);
+        &.o_okr_conf_high { background: var(--okr-success); }
+        &.o_okr_conf_mid { background: var(--okr-warning); }
+        &.o_okr_conf_low { background: var(--okr-danger); }
+    }
+    .btn-check:focus-visible + .o_okr_conf_pill { outline: 2px solid var(--okr-blue); outline-offset: 2px; }
+
+    // ---------------------------------------------------------------- timeline
+    .o_okr_timeline {
+        position: relative;
+        margin: 0;
+        padding: 0 0 0 1.35rem;
+        list-style: none;
+        &::before {
+            content: "";
+            position: absolute;
+            left: 5px; top: 6px; bottom: 6px;
+            width: 2px;
+            background: var(--okr-line);
+        }
+        > li {
+            position: relative;
+            padding-bottom: 1.25rem;
+            &:last-child { padding-bottom: 0; }
+        }
+    }
+    .o_okr_timeline_dot {
+        position: absolute;
+        left: calc(-1.35rem + 0px);
+        top: 4px;
+        width: 12px; height: 12px;
+        border-radius: 50%;
+        background: currentColor;
+        box-shadow: 0 0 0 3px #fff;
+    }
+    .o_okr_timeline_title { color: var(--okr-ink); font-size: .92rem; line-height: 1.35; margin: .15rem 0; }
+    .o_okr_delta {
+        display: inline-block;
+        margin-left: .4rem;
+        padding: 0 .45rem;
+        border-radius: 6px;
+        background: var(--okr-sky);
+        color: var(--okr-navy);
+        font-weight: 600;
+    }
+    .o_okr_timeline_notes {
+        margin-top: .5rem;
+        padding: .6rem .75rem;
+        border-radius: 10px;
+        background: var(--okr-sky);
+        font-size: .82rem;
+        > div + div { margin-top: .3rem; }
+    }
+    .o_okr_note_label {
+        display: inline-block;
+        margin-right: .25rem;
+        padding: 0 .4rem;
+        border-radius: 4px;
+        background: var(--okr-blue-100);
+        color: var(--okr-navy);
+        font-size: .7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .03em;
+        &.o_okr_note_label_warn { background: #FEF4E2; color: #B87507; }
+    }
+
+    // ---------------------------------------------------------------- chatter
+    #okr_discussion {
+        .o_portal_chatter { padding: 0 !important; }
+        .o_portal_chatter_composer_body textarea, .o_portal_chatter_composer textarea {
+            border: 1px solid var(--okr-line) !important;
+            border-radius: 12px;
+            padding: .75rem 1rem;
+            background: var(--okr-sky);
+            &:focus { background: #fff; border-color: var(--okr-blue) !important; box-shadow: 0 0 0 .2rem rgba(23, 139, 236, .15); }
+        }
+        .btn-primary {
+            border: 0;
+            border-radius: 10px;
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+            background: var(--okr-navy);
+            &:hover, &:focus { background: var(--okr-blue); }
+        }
+        .o_portal_chatter_attachment_btn { color: var(--okr-muted); &:hover { color: var(--okr-blue); } }
+    }
+    &.o_okr_readonly .o_portal_chatter_attachment_btn { display: none !important; }
+}
+
+// Home card icon: the DMAG mark on a soft tile.
+.o_portal_index_card a[href="/my/okrs"] .o_portal_icon img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    padding: 7px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(17, 52, 106, .12);
+}
+
+// Soft brand background behind the OKR pages.
+#wrapwrap:has(.o_okr_portal) main { background: linear-gradient(180deg, var(--okr-sky) 0%, #fff 520px); }
+
+// Long objective names in the breadcrumb must not widen the page on phones.
+#wrapwrap:has(.o_okr_portal) .o_portal_submenu {
+    min-width: 0;
+    flex-wrap: nowrap;
+    .breadcrumb-item { white-space: nowrap; }
+    .breadcrumb-item.text-truncate { min-width: 0; }
+    @include media-breakpoint-down(md) {
+        .breadcrumb-item.text-truncate { display: none; }
+    }
+}

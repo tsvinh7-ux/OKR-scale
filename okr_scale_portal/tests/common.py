@@ -28,13 +28,17 @@ class OkrPortalCommonMixin:
         cls.customer_b = Partner.create({'name': 'Customer B', 'is_company': True})
         cls.portal_a1 = cls._create_portal_user('okrp_portal_a1', cls.customer_a)
         cls.portal_a2 = cls._create_portal_user('okrp_portal_a2', cls.customer_a)
+        cls.portal_a3 = cls._create_portal_user('okrp_portal_a3', cls.customer_a)
         cls.portal_b = cls._create_portal_user('okrp_portal_b', cls.customer_b)
 
         Objective = cls.env['okr.scale.objective']
         common = {'cycle_id': cls.cycle.id, 'level': 'company', 'owner_id': cls.okr_admin.id}
+        # portal_a1 owns a key result: automatically edit collaborator.
+        # portal_a2 is a read-only collaborator. portal_a3 (same customer) is not invited.
         cls.obj_shared_a = Objective.create(dict(
             common, name='Shared with A', partner_id=cls.customer_a.id, portal_shared=True,
-            portal_access='contribute', key_result_ids=[
+            collaborator_ids=[(0, 0, {'partner_id': cls.portal_a2.partner_id.id, 'access_mode': 'read'})],
+            key_result_ids=[
                 (0, 0, {'name': 'Delivered orders', 'start_value': 0, 'target_value': 100,
                         'owner_id': cls.portal_a1.id, 'unit': 'orders'}),
                 (0, 0, {'name': 'Internal KR', 'start_value': 0, 'target_value': 10}),
@@ -42,12 +46,15 @@ class OkrPortalCommonMixin:
         cls.kr_portal, cls.kr_internal = cls.obj_shared_a.key_result_ids
         cls.obj_unshared_a = Objective.create(dict(
             common, name='Not shared with A', partner_id=cls.customer_a.id,
+            collaborator_ids=[(0, 0, {'partner_id': cls.portal_a2.partner_id.id, 'access_mode': 'edit'})],
             key_result_ids=[(0, 0, {'name': 'Secret KR', 'start_value': 0, 'target_value': 5})]))
         cls.obj_shared_b = Objective.create(dict(
             common, name='Shared with B', partner_id=cls.customer_b.id, portal_shared=True,
+            collaborator_ids=[(0, 0, {'partner_id': cls.portal_b.partner_id.id, 'access_mode': 'read'})],
             key_result_ids=[(0, 0, {'name': 'B KR', 'start_value': 0, 'target_value': 5})]))
         cls.obj_draft_a = Objective.create(dict(
             common, name='Draft shared with A', partner_id=cls.customer_a.id, portal_shared=True,
+            collaborator_ids=[(0, 0, {'partner_id': cls.portal_a1.partner_id.id, 'access_mode': 'edit'})],
             key_result_ids=[(0, 0, {'name': 'Draft KR', 'start_value': 0, 'target_value': 5})]))
         (cls.obj_shared_a | cls.obj_unshared_a | cls.obj_shared_b).write({'state': 'running'})
 

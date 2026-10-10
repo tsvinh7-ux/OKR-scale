@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_share_wizard_view_form" model="ir.ui.view">
+        <field name="name">okr.scale.share.wizard.form</field>
+        <field name="model">okr.scale.share.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Share with customers">
+                <field name="objective_id" invisible="1"/>
+                <field name="objective_state" invisible="1"/>
+                <p class="text-muted" invisible="access_mode != 'read'">
+                    Read-only collaborators follow the objective, its key results and check-ins on their portal
+                    and can discuss with your team in the chatter.
+                </p>
+                <p class="text-muted" invisible="access_mode != 'edit'">
+                    Edit collaborators can also check in on every key result of the objective from their portal
+                    and attach files to the discussion.
+                </p>
+                <p class="alert alert-info" role="status" invisible="objective_state in ('running', 'done')">
+                    The objective is not running yet: collaborators will see it on their portal once it starts.
+                </p>
+                <group>
+                    <field name="access_mode" widget="radio" options="{'horizontal': true}"/>
+                    <field name="partner_ids" widget="many2many_tags_email" options="{'no_quick_create': True}"
+                           placeholder="Add customer contacts..." context="{'form_view_ref': 'base.view_partner_simple_form'}"/>
+                </group>
+                <div class="alert alert-warning" role="status" invisible="not new_user_partner_ids">
+                    A portal account will be created for: <field name="new_user_partner_ids" widget="many2many_tags" readonly="1" class="d-inline"/>.
+                    They receive a link to choose their password. You can revoke the portal access at any time.
+                </div>
+                <field name="note" placeholder="Add a personal message to the invitation (optional)" nolabel="1"/>
+                <footer>
+                    <button string="Send invitation" name="action_send" type="object" class="btn-primary" data-hotkey="q"/>
+                    <button string="Discard" class="btn-secondary" special="cancel" data-hotkey="x"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -6,10 +6,10 @@
         <field name="inherit_id" ref="okr_scale.okr_key_result_view_form"/>
         <field name="arch" type="xml">
             <field name="owner_id" position="attributes">
-                <attribute name="domain">['|', ('share', '=', False), ('partner_id.commercial_partner_id', '=', portal_partner_id)]</attribute>
+                <attribute name="domain">['|', ('share', '=', False), ('partner_id', 'in', portal_collaborator_partner_ids)]</attribute>
             </field>
             <field name="owner_id" position="after">
-                <field name="portal_partner_id" invisible="1"/>
+                <field name="portal_collaborator_partner_ids" invisible="1"/>
                 <field name="portal_reminder_date" invisible="not portal_reminder_date"/>
             </field>
         </field>

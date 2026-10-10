@@ -48,8 +48,9 @@ class TestOkrPortalHttp(OkrPortalCommonMixin, HttpCase):
         response = self.url_open(f'/my/okr/{self.obj_shared_a.id}')
         self.assertEqual(response.status_code, 200)
         self.assertIn('Delivered orders', response.text)
-        self.assertIn(f'/my/okr/kr/{self.kr_portal.id}/checkin', response.text, 'The owner gets the check-in form')
-        self.assertNotIn(f'/my/okr/kr/{self.kr_internal.id}/checkin', response.text)
+        self.assertIn(f'/my/okr/kr/{self.kr_portal.id}/checkin', response.text, 'Edit collaborators get the form')
+        self.assertIn(f'/my/okr/kr/{self.kr_internal.id}/checkin', response.text, 'on every key result')
+        self.assertIn('o_okr_access_edit', response.text)
         self.assertIn('o_portal_chatter', response.text)
 
         for objective in (self.obj_unshared_a, self.obj_shared_b, self.obj_draft_a):
@@ -75,14 +76,45 @@ class TestOkrPortalHttp(OkrPortalCommonMixin, HttpCase):
                 'res_model': 'okr.scale.objective', 'res_id': self.obj_unshared_a.id, 'message': 'Hack'})
         self.assertFalse(self.obj_unshared_a.website_message_ids)
 
-    def test_portal_other_user_of_customer(self):
+    def test_portal_read_collaborator(self):
         self.authenticate(self.portal_a2.login, PASSWORD)
         response = self.url_open(f'/my/okr/{self.obj_shared_a.id}')
         self.assertEqual(response.status_code, 200)
-        self.assertNotIn(f'/my/okr/kr/{self.kr_portal.id}/checkin', response.text)
+        self.assertIn('o_okr_access_read', response.text)
+        self.assertIn('o_okr_readonly', response.text, 'Attachments hidden for read-only collaborators')
+        self.assertNotIn('/checkin"', response.text, 'No check-in form for read-only collaborators')
         response = self._post_checkin(self.kr_portal)
         self.assertEqual(response.status_code, 403)
         self.assertEqual(self.kr_portal.current_value, 0)
+        self.assertFalse(self.kr_portal.checkin_ids)
+
+        # Upload of attachments is refused, the discussion stays open
+        with self.assertLogs('odoo.http', level='WARNING'):
+            response = self.url_open('/portal/attachment/add', data={
+                'csrf_token': self._csrf_token('/my/okrs'), 'name': 'spec.txt', 'res_model': 'okr.scale.objective',
+                'res_id': self.obj_shared_a.id}, files={'file': ('spec.txt', b'hello', 'text/plain')})
+        self.assertNotEqual(response.status_code, 200)
+        self.make_jsonrpc_request('/mail/chatter_post', {
+            'res_model': 'okr.scale.objective', 'res_id': self.obj_shared_a.id, 'message': 'Read-only question'})
+        self.assertIn('Read-only question', self.obj_shared_a.website_message_ids.body)
+
+    def test_portal_edit_collaborator_attachment(self):
+        self.authenticate(self.portal_a1.login, PASSWORD)
+        response = self.url_open('/portal/attachment/add', data={
+            'csrf_token': self._csrf_token('/my/okrs'), 'name': 'report.txt', 'res_model': 'okr.scale.objective',
+            'res_id': self.obj_shared_a.id}, files={'file': ('report.txt', b'hello', 'text/plain')})
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('report.txt', response.text)
+
+    def test_portal_not_invited_contact(self):
+        """Another contact of the same customer gets a 404 until invited."""
+        self.authenticate(self.portal_a3.login, PASSWORD)
+        response = self.url_open(f'/my/okr/{self.obj_shared_a.id}')
+        self.assertEqual(response.status_code, 404)
+        response = self.url_open('/my/okrs')
+        self.assertNotIn('Shared with A', response.text)
+        response = self._post_checkin(self.kr_portal)
+        self.assertEqual(response.status_code, 404)
 
     def test_portal_checkin(self):
         self.authenticate(self.portal_a1.login, PASSWORD)
@@ -106,6 +138,13 @@ class TestOkrPortalHttp(OkrPortalCommonMixin, HttpCase):
         self.assertEqual(self.kr_portal.current_value, 55)
         self.assertEqual(len(self.kr_portal.checkin_ids), 1)
 
+        # Edit collaborators check in on key results they do not own
+        response = self._post_checkin(self.kr_internal, new_value='3')
+        self.assertIn('checkin=done', response.url)
+        self.kr_internal.invalidate_recordset()
+        self.assertEqual(self.kr_internal.current_value, 3)
+        self.assertEqual(self.kr_internal.checkin_ids.user_id, self.portal_a1)
+
         # Decimal comma accepted
         self._post_checkin(self.kr_portal, new_value='60,5')
         self.kr_portal.invalidate_recordset()
@@ -113,7 +152,9 @@ class TestOkrPortalHttp(OkrPortalCommonMixin, HttpCase):
 
     def test_portal_checkin_forbidden(self):
         self.authenticate(self.portal_a1.login, PASSWORD)
-        self.obj_shared_a.portal_access = 'read'
+        self.kr_portal.owner_id = self.okr_admin
+        self.obj_shared_a.collaborator_ids.filtered(
+            lambda c: c.partner_id == self.portal_a1.partner_id).access_mode = 'read'
         response = self._post_checkin(self.kr_portal)
         self.assertEqual(response.status_code, 403)
         response = self._post_checkin(self.obj_shared_b.key_result_ids)
@@ -127,5 +168,6 @@ class TestOkrPortalHttp(OkrPortalCommonMixin, HttpCase):
         response = self.url_open(f'/my/okr/{self.obj_shared_a.id}')
         self.assertEqual(response.status_code, 200)
         self.assertNotIn(f'/my/okr/kr/{self.kr_portal.id}/checkin', response.text)
+        self.assertNotIn('o_okr_readonly', response.text)
         response = self.url_open(f'/my/okr/{self.obj_unshared_a.id}')
         self.assertEqual(response.status_code, 404)
