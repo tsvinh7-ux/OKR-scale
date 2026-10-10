@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="mail_template_okr_portal_checkin_reminder" model="mail.template">
+            <field name="name">OKR: portal check-in reminder</field>
+            <field name="model_id" ref="okr_scale.model_okr_scale_key_result"/>
+            <field name="subject">Check-in reminder: {{ object.name }}</field>
+            <field name="email_from">{{ (object.objective_id.owner_id.email_formatted or object.company_id.email_formatted or user.email_formatted) }}</field>
+            <field name="partner_to">{{ object.owner_id.partner_id.id }}</field>
+            <field name="lang">{{ object.owner_id.lang }}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="description">Sent to portal users owning a key result when their check-in is overdue</field>
+            <field name="body_html" type="html">
+<div style="margin: 0px; padding: 0px;">
+    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+        Hello <t t-out="object.owner_id.name or ''">Customer</t>,
+        <br/><br/>
+        It is time to update the key result <strong t-out="object.name or ''">20 new customers</strong>
+        of the objective <strong t-out="object.objective_id.name or ''">Grow revenue</strong>.
+        <br/>
+        Current progress: <t t-out="'%.0f' % object.progress">40</t>%.
+        <br/><br/>
+        <a t-att-href="object.objective_id.get_base_url() + object.objective_id.access_url"
+           style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size: 13px;">
+            Check in now
+        </a>
+        <br/><br/>
+        Thank you,
+        <br/>
+        <t t-out="object.company_id.name or ''">DMAG</t>
+    </p>
+</div>
+            </field>
+        </record>
+    </data>
+</odoo>

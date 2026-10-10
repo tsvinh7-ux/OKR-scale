@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_okr_scale_objective_portal,okr.scale.objective portal,okr_scale.model_okr_scale_objective,base.group_portal,1,0,0,0
+access_okr_scale_key_result_portal,okr.scale.key.result portal,okr_scale.model_okr_scale_key_result,base.group_portal,1,0,0,0
+access_okr_scale_checkin_portal,okr.scale.checkin portal,okr_scale.model_okr_scale_checkin,base.group_portal,1,0,0,0
+access_okr_scale_cycle_portal,okr.scale.cycle portal,okr_scale.model_okr_scale_cycle,base.group_portal,1,0,0,0
+access_okr_scale_tag_portal,okr.scale.tag portal,okr_scale.model_okr_scale_tag,base.group_portal,1,0,0,0

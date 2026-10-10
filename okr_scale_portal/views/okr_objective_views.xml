@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_objective_view_form_portal" model="ir.ui.view">
+        <field name="name">okr.scale.objective.form.portal</field>
+        <field name="model">okr.scale.objective</field>
+        <field name="inherit_id" ref="okr_scale.okr_objective_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_preview_portal" type="object" class="oe_stat_button" icon="fa-globe"
+                        invisible="not portal_shared or state not in ('running', 'done')">
+                    <div class="o_stat_info">
+                        <span class="o_stat_text">Customer</span>
+                        <span class="o_stat_text">Preview</span>
+                    </div>
+                </button>
+            </xpath>
+            <xpath expr="//page[@name='description']" position="after">
+                <page string="Customer Portal" name="customer_portal" groups="okr_scale.group_okr_manager">
+                    <group>
+                        <group>
+                            <field name="partner_id" options="{'no_create': True}" required="portal_shared"/>
+                            <field name="portal_shared"/>
+                            <field name="portal_access" invisible="not portal_shared"/>
+                        </group>
+                        <group>
+                            <div class="text-muted" colspan="2">
+                                Shared objectives are visible on the customer portal once running.
+                                Key results can be assigned to portal users of the customer;
+                                with "View and check-in" they can update them from the portal.
+                            </div>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="//sheet/field[@name='active']" position="after">
+                <field name="portal_shared" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='key_result_ids']/tree/field[@name='owner_id']" position="attributes">
+                <attribute name="domain">['|', ('share', '=', False), ('partner_id.commercial_partner_id', '=', portal_partner_id)]</attribute>
+            </xpath>
+            <xpath expr="//field[@name='key_result_ids']/tree/field[@name='owner_id']" position="after">
+                <field name="portal_partner_id" column_invisible="True"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="okr_objective_view_tree_portal" model="ir.ui.view">
+        <field name="name">okr.scale.objective.tree.portal</field>
+        <field name="model">okr.scale.objective</field>
+        <field name="inherit_id" ref="okr_scale.okr_objective_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="owner_id" position="after">
+                <field name="partner_id" optional="hide"/>
+                <field name="portal_shared" optional="hide"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="okr_objective_view_search_portal" model="ir.ui.view">
+        <field name="name">okr.scale.objective.search.portal</field>
+        <field name="model">okr.scale.objective</field>
+        <field name="inherit_id" ref="okr_scale.okr_objective_view_search"/>
+        <field name="arch" type="xml">
+            <field name="owner_id" position="after">
+                <field name="partner_id" operator="child_of"/>
+            </field>
+            <filter name="risky" position="after">
+                <separator/>
+                <filter name="portal_shared" string="Shared with customers" domain="[('portal_shared', '=', True)]"/>
+            </filter>
+            <filter name="group_owner" position="after">
+                <filter name="group_partner" string="Customer" context="{'group_by': 'partner_id'}"/>
+            </filter>
+        </field>
+    </record>
+</odoo>
