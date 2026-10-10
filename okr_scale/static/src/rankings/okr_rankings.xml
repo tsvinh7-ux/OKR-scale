@@ -58,7 +58,7 @@
                         <div class="o_okr_podium">
                             <t t-foreach="podium(data.people)" t-as="p" t-key="p.user_id">
                                 <t t-call="okr_scale.PodiumCard">
-                                    <t t-set="row" t-value="{rank: p.rank, user_id: p.user_id, name: p.name, subtitle: p.department, value: p.score, unit: 'pts'}"/>
+                                    <t t-set="row" t-value="{rank: p.rank, user_id: p.user_id, name: p.name, subtitle: p.department, value: p.score, unit: ptsLabel}"/>
                                 </t>
                             </t>
                         </div>

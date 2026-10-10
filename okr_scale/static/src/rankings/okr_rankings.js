@@ -17,6 +17,7 @@ export class OkrRankings extends Component {
         this.orm = useService("orm");
         this.action = useService("action");
         this.state = useState({ data: null, tab: "people", cycleId: false, departmentId: false });
+        this.ptsLabel = _t("pts");
         onWillStart(() => this.load());
     }
 
