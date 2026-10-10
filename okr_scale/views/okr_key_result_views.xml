@@ -10,10 +10,10 @@
                 <field name="objective_id" optional="show"/>
                 <field name="owner_id" widget="many2one_avatar_user"/>
                 <field name="progress_method" optional="hide"/>
-                <field name="start_value" optional="hide"/>
-                <field name="current_value"/>
-                <field name="target_value"/>
-                <field name="unit" optional="show"/>
+                <field name="start_value" optional="hide" invisible="progress_method != 'manual'"/>
+                <field name="current_value" invisible="progress_method != 'manual'"/>
+                <field name="target_value" invisible="progress_method != 'manual'"/>
+                <field name="unit" optional="show" invisible="progress_method != 'manual'"/>
                 <field name="weight" optional="hide"/>
                 <field name="progress" widget="progressbar"/>
                 <field name="confidence" optional="show"/>

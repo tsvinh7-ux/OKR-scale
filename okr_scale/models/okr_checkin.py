@@ -29,7 +29,7 @@ class OkrCheckin(models.Model):
     new_value = fields.Float('New Value')
     progress_before = fields.Float(readonly=True)
     progress_after = fields.Float('Progress', readonly=True)
-    confidence = fields.Selection(CONFIDENCE, required=True, default='5',
+    confidence = fields.Selection(CONFIDENCE, required=True, default='7',
                                   help='1 = no chance to reach the target, 10 = certain.')
     mood = fields.Selection([
         ('great', 'Great'),
@@ -55,14 +55,14 @@ class OkrCheckin(models.Model):
         kr = self.env['okr.scale.key.result'].browse(res.get('key_result_id'))
         if kr.exists():
             res.setdefault('new_value', kr.current_value)
-            res.setdefault('confidence', kr.confidence or '5')
+            res.setdefault('confidence', kr.confidence or '7')
         return res
 
     @api.onchange('key_result_id')
     def _onchange_key_result_id(self):
         if self.key_result_id:
             self.new_value = self.key_result_id.current_value
-            self.confidence = self.key_result_id.confidence or '5'
+            self.confidence = self.key_result_id.confidence or '7'
 
     def _check_can_update_key_result(self):
         """The author must be allowed to report on the key result."""

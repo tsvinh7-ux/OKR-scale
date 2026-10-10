@@ -33,7 +33,7 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="key_result_id" readonly="state != 'draft'"
+                            <field name="key_result_id" readonly="state != 'draft' or context.get('default_key_result_id')"
                                    options="{'no_create': True}" domain="[('objective_state', '=', 'running')]"/>
                             <field name="objective_id"/>
                             <field name="date" readonly="state != 'draft'"/>

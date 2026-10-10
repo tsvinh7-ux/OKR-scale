@@ -90,11 +90,11 @@
                                     <field name="name"/>
                                     <field name="owner_id" widget="many2one_avatar_user"/>
                                     <field name="progress_method" optional="show"/>
-                                    <field name="metric_type" optional="hide"/>
-                                    <field name="start_value" optional="hide"/>
-                                    <field name="target_value"/>
-                                    <field name="current_value" readonly="1"/>
-                                    <field name="unit" optional="show"/>
+                                    <field name="metric_type" optional="hide" invisible="progress_method != 'manual'"/>
+                                    <field name="start_value" optional="hide" invisible="progress_method != 'manual'"/>
+                                    <field name="target_value" invisible="progress_method != 'manual'"/>
+                                    <field name="current_value" readonly="1" invisible="progress_method != 'manual'"/>
+                                    <field name="unit" optional="show" invisible="progress_method != 'manual'"/>
                                     <field name="weight" optional="show"/>
                                     <field name="progress" widget="progressbar"/>
                                     <field name="confidence" readonly="1" optional="show"/>
@@ -201,10 +201,7 @@
                             <field name="name"/>
                         </div>
                         <div class="o_hierarchy_node_body d-flex flex-column px-2 pb-1">
-                            <div class="d-flex justify-content-between small text-muted">
-                                <field name="level"/>
-                                <span><t t-esc="Math.round(record.progress.raw_value)"/>%</span>
-                            </div>
+                            <div class="small text-muted"><field name="level"/></div>
                             <field name="progress" widget="progressbar"/>
                             <field name="owner_id" widget="many2one_avatar_user" class="pt-1"/>
                         </div>

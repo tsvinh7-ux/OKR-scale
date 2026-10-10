@@ -6,13 +6,13 @@
                 <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
                     <h2 class="me-auto mb-0">OKR Dashboard</h2>
                     <t t-if="state.data">
-                        <select class="form-select w-auto" t-on-change="onCycleChange">
+                        <select class="form-select w-auto o_okr_filter" t-on-change="onCycleChange">
                             <option value="">All cycles</option>
                             <t t-foreach="state.data.cycles" t-as="cycle" t-key="cycle.id">
                                 <option t-att-value="cycle.id" t-att-selected="cycle.id === state.cycleId" t-esc="cycle.name"/>
                             </t>
                         </select>
-                        <select class="form-select w-auto" t-on-change="onDepartmentChange">
+                        <select class="form-select w-auto o_okr_filter" t-on-change="onDepartmentChange">
                             <option value="">All departments</option>
                             <t t-foreach="state.data.departments" t-as="dept" t-key="dept.id">
                                 <option t-att-value="dept.id" t-att-selected="dept.id === state.departmentId" t-esc="dept.name"/>

@@ -48,8 +48,9 @@ class OkrKeyResult(models.Model):
     ], 'Measured By', default='manual', required=True, tracking=True)
 
     progress = fields.Float(compute='_compute_progress', store=True, recursive=True, group_operator='avg')
-    confidence = fields.Selection(CONFIDENCE, default='5', tracking=True,
-                                  help='How confident the owner is to reach the target (1-10).')
+    confidence = fields.Selection(CONFIDENCE, tracking=True,
+                                  help='How confident the owner is to reach the target (1-10), '
+                                       'reported at each check-in.')
     status = fields.Selection(STATUSES, compute='_compute_status', store=True, index=True)
     achieved = fields.Boolean(compute='_compute_status', store=True)
 

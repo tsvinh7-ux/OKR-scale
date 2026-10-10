@@ -75,7 +75,7 @@ class OkrObjective(models.Model):
     checkin_ids = fields.One2many('okr.scale.checkin', 'objective_id', 'Check-ins')
 
     progress = fields.Float(compute='_compute_progress', store=True, recursive=True,
-                            group_operator='avg', tracking=True)
+                            group_operator='avg')
     expected_progress = fields.Float(compute='_compute_expected_progress',
                                      help='Share of the cycle already elapsed.')
     confidence = fields.Float(compute='_compute_progress', store=True, recursive=True, group_operator='avg',

@@ -40,7 +40,7 @@ def compute_status(progress, expected, confidence):
     if progress >= 100:
         return 'achieved'
     gap = (expected or 0.0) - (progress or 0.0)
-    by_time = 'on_track' if gap <= 10 else 'at_risk' if gap <= 25 else 'off_track'
+    by_time = 'on_track' if gap <= 15 else 'at_risk' if gap <= 30 else 'off_track'
     by_confidence = 'on_track'
     if confidence:
         confidence = int(confidence)
