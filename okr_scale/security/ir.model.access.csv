@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_okr_scale_cycle_user,okr.scale.cycle group_okr_user,model_okr_scale_cycle,group_okr_user,1,0,0,0
+access_okr_scale_cycle_manager,okr.scale.cycle group_okr_manager,model_okr_scale_cycle,group_okr_manager,1,0,0,0
+access_okr_scale_cycle_admin,okr.scale.cycle group_okr_admin,model_okr_scale_cycle,group_okr_admin,1,1,1,1
+access_okr_scale_tag_user,okr.scale.tag group_okr_user,model_okr_scale_tag,group_okr_user,1,0,0,0
+access_okr_scale_tag_manager,okr.scale.tag group_okr_manager,model_okr_scale_tag,group_okr_manager,1,1,1,0
+access_okr_scale_tag_admin,okr.scale.tag group_okr_admin,model_okr_scale_tag,group_okr_admin,1,1,1,1
+access_okr_scale_objective_user,okr.scale.objective group_okr_user,model_okr_scale_objective,group_okr_user,1,1,1,1
+access_okr_scale_objective_manager,okr.scale.objective group_okr_manager,model_okr_scale_objective,group_okr_manager,1,1,1,1
+access_okr_scale_objective_admin,okr.scale.objective group_okr_admin,model_okr_scale_objective,group_okr_admin,1,1,1,1
+access_okr_scale_key_result_user,okr.scale.key.result group_okr_user,model_okr_scale_key_result,group_okr_user,1,1,1,1
+access_okr_scale_key_result_manager,okr.scale.key.result group_okr_manager,model_okr_scale_key_result,group_okr_manager,1,1,1,1
+access_okr_scale_key_result_admin,okr.scale.key.result group_okr_admin,model_okr_scale_key_result,group_okr_admin,1,1,1,1
+access_okr_scale_checkin_user,okr.scale.checkin group_okr_user,model_okr_scale_checkin,group_okr_user,1,1,1,1
+access_okr_scale_checkin_manager,okr.scale.checkin group_okr_manager,model_okr_scale_checkin,group_okr_manager,1,1,1,1
+access_okr_scale_checkin_admin,okr.scale.checkin group_okr_admin,model_okr_scale_checkin,group_okr_admin,1,1,1,1

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_cycle_view_tree" model="ir.ui.view">
+        <field name="name">okr.scale.cycle.tree</field>
+        <field name="model">okr.scale.cycle</field>
+        <field name="arch" type="xml">
+            <tree decoration-muted="state == 'closed'" decoration-success="state == 'open'">
+                <field name="name"/>
+                <field name="cycle_type"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="parent_id" optional="show"/>
+                <field name="checkin_frequency" optional="hide"/>
+                <field name="objective_count"/>
+                <field name="progress" widget="progressbar"/>
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state == 'open'"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="okr_cycle_view_form" model="ir.ui.view">
+        <field name="name">okr.scale.cycle.form</field>
+        <field name="model">okr.scale.cycle</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_open" string="Start Cycle" type="object" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_close" string="Close &amp; Grade" type="object" invisible="state != 'open'"
+                            confirm="Every running objective of this cycle will be closed and graded with its current progress. Continue?"/>
+                    <button name="action_reopen" string="Reopen" type="object" invisible="state != 'closed'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_objectives" type="object" class="oe_stat_button" icon="fa-bullseye">
+                            <field name="objective_count" widget="statinfo" string="Objectives"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="e.g. Q1 2027"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="cycle_type"/>
+                            <label for="date_start" string="Period"/>
+                            <div class="o_row">
+                                <field name="date_start"/> → <field name="date_end"/>
+                            </div>
+                            <field name="parent_id" invisible="cycle_type == 'year'"/>
+                        </group>
+                        <group>
+                            <field name="checkin_frequency"/>
+                            <field name="require_approval"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Sub Cycles" name="children" invisible="cycle_type != 'year'">
+                            <field name="child_ids" context="{'default_parent_id': id, 'default_cycle_type': 'quarter'}">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="cycle_type"/>
+                                    <field name="date_start"/>
+                                    <field name="date_end"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="okr_cycle_view_search" model="ir.ui.view">
+        <field name="name">okr.scale.cycle.search</field>
+        <field name="model">okr.scale.cycle</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="running" string="Running" domain="[('state', '=', 'open')]"/>
+                <filter name="year" string="Years" domain="[('cycle_type', '=', 'year')]"/>
+                <filter name="quarter" string="Quarters" domain="[('cycle_type', '=', 'quarter')]"/>
+                <separator/>
+                <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="okr_cycle_action" model="ir.actions.act_window">
+        <field name="name">Cycles</field>
+        <field name="res_model">okr.scale.cycle</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first OKR cycle</p>
+            <p>A cycle is a year or a quarter during which objectives are pursued and checked in on.</p>
+        </field>
+    </record>
+</odoo>

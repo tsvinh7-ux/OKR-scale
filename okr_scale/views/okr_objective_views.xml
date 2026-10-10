@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_objective_view_tree" model="ir.ui.view">
+        <field name="name">okr.scale.objective.tree</field>
+        <field name="model">okr.scale.objective</field>
+        <field name="arch" type="xml">
+            <tree decoration-muted="state in ('done', 'cancelled')">
+                <field name="name"/>
+                <field name="level"/>
+                <field name="cycle_id" optional="show"/>
+                <field name="department_id" optional="show"/>
+                <field name="owner_id" widget="many2one_avatar_user"/>
+                <field name="parent_id" optional="hide"/>
+                <field name="okr_type" optional="hide"/>
+                <field name="key_result_count" string="KRs" optional="show"/>
+                <field name="progress" widget="progressbar"/>
+                <field name="confidence" optional="hide"/>
+                <field name="last_checkin_date" optional="hide"/>
+                <field name="status" widget="badge" decoration-success="status in ('on_track', 'achieved')"
+                       decoration-warning="status == 'at_risk'" decoration-danger="status == 'off_track'"/>
+                <field name="final_score" optional="hide"/>
+                <field name="state" widget="badge" optional="show" decoration-info="state in ('draft', 'to_approve')"
+                       decoration-success="state == 'running'"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="okr_objective_view_form" model="ir.ui.view">
+        <field name="name">okr.scale.objective.form</field>
+        <field name="model">okr.scale.objective</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_submit" type="object" string="Submit" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object" string="Approve" class="btn-primary" invisible="state != 'to_approve'"/>
+                    <button name="action_reject" type="object" string="Send Back" invisible="state != 'to_approve'"/>
+                    <button name="action_done" type="object" string="Close &amp; Grade" invisible="state != 'running'"
+                            groups="okr_scale.group_okr_manager"/>
+                    <button name="action_draft" type="object" string="Reset to Draft" invisible="state not in ('cancelled', 'done')"
+                            groups="okr_scale.group_okr_manager"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="state in ('done', 'cancelled')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,to_approve,running,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_key_results" type="object" class="oe_stat_button" icon="fa-key">
+                            <field name="key_result_count" widget="statinfo" string="Key Results"/>
+                        </button>
+                        <button name="action_view_children" type="object" class="oe_stat_button" icon="fa-sitemap">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Aligned</span>
+                                <span class="o_stat_text">Objectives</span>
+                            </div>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. Become the leading supplier in the region" readonly="state in ('done', 'cancelled')"/></h1>
+                        <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" placeholder="Tags"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="cycle_id" readonly="state != 'draft'" options="{'no_create': True}"/>
+                            <field name="level" readonly="state != 'draft'"/>
+                            <field name="employee_id" invisible="level != 'individual'" required="level == 'individual'" readonly="state != 'draft'"/>
+                            <field name="department_id" invisible="level == 'company'" required="level == 'department'" readonly="state != 'draft'"/>
+                            <field name="owner_id" widget="many2one_avatar_user"/>
+                            <field name="okr_type"/>
+                            <field name="visibility"/>
+                        </group>
+                        <group>
+                            <field name="parent_key_result_id" options="{'no_create': True}"
+                                   domain="[('cycle_id', '=', cycle_id), ('objective_id', '!=', id)]"/>
+                            <field name="parent_id" options="{'no_create': True}" domain="[('id', '!=', id)]"/>
+                            <field name="progress" widget="progressbar"/>
+                            <field name="expected_progress" widget="progressbar"/>
+                            <field name="status" widget="badge" decoration-success="status in ('on_track', 'achieved')"
+                                   decoration-warning="status == 'at_risk'" decoration-danger="status == 'off_track'"/>
+                            <field name="last_checkin_date"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Key Results" name="key_results">
+                            <field name="key_result_ids" context="{'default_owner_id': owner_id}">
+                                <tree editable="bottom" decoration-danger="status == 'off_track'" decoration-warning="status == 'at_risk'">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="owner_id" widget="many2one_avatar_user"/>
+                                    <field name="progress_method" optional="show"/>
+                                    <field name="metric_type" optional="hide"/>
+                                    <field name="start_value" optional="hide"/>
+                                    <field name="target_value"/>
+                                    <field name="current_value" readonly="1"/>
+                                    <field name="unit" optional="show"/>
+                                    <field name="weight" optional="show"/>
+                                    <field name="progress" widget="progressbar"/>
+                                    <field name="confidence" readonly="1" optional="show"/>
+                                    <field name="status" column_invisible="True"/>
+                                    <field name="objective_state" column_invisible="True"/>
+                                    <button name="action_checkin" type="object" string="Check-in" icon="fa-bullseye" class="btn-link"
+                                            invisible="objective_state != 'running'"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Description" name="description">
+                            <field name="description" placeholder="Why does this objective matter? What does success look like?"/>
+                        </page>
+                        <page string="Check-ins" name="checkins">
+                            <field name="checkin_ids" readonly="1">
+                                <tree>
+                                    <field name="date"/>
+                                    <field name="key_result_id"/>
+                                    <field name="user_id" widget="many2one_avatar_user"/>
+                                    <field name="progress_after" widget="progressbar"/>
+                                    <field name="confidence"/>
+                                    <field name="blockers"/>
+                                    <field name="state" widget="badge"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Grading" name="grading" invisible="state not in ('running', 'done')">
+                            <group>
+                                <field name="final_score" readonly="state != 'done'"/>
+                                <field name="self_assessment" readonly="state != 'done'"/>
+                                <field name="lessons_learned" readonly="state != 'done'"/>
+                                <field name="approved_by_id"/>
+                                <field name="approval_date"/>
+                            </group>
+                        </page>
+                    </notebook>
+                    <field name="active" invisible="1"/>
+                    <field name="company_id" invisible="1"/>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="okr_objective_view_kanban" model="ir.ui.view">
+        <field name="name">okr.scale.objective.kanban</field>
+        <field name="model">okr.scale.objective</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="level" class="o_kanban_small_column" quick_create="false" group_create="false" records_draggable="false">
+                <field name="color"/>
+                <field name="status"/>
+                <field name="progress"/>
+                <field name="key_result_count"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click {{ kanban_color(record.color.raw_value) }}">
+                            <div class="oe_kanban_content">
+                                <div class="o_kanban_record_top">
+                                    <strong class="o_kanban_record_title"><field name="name"/></strong>
+                                </div>
+                                <div class="text-muted small">
+                                    <field name="cycle_id"/> <t t-if="record.department_id.raw_value">· <field name="department_id"/></t>
+                                </div>
+                                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                <div class="mt-2">
+                                    <field name="progress" widget="progressbar"/>
+                                </div>
+                                <div class="o_kanban_record_bottom mt-2">
+                                    <div class="oe_kanban_bottom_left">
+                                        <field name="status" widget="badge" decoration-success="status in ('on_track', 'achieved')"
+                                               decoration-warning="status == 'at_risk'" decoration-danger="status == 'off_track'"/>
+                                        <span class="ms-2 text-muted small"><t t-esc="record.key_result_count.raw_value"/> KR</span>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <field name="activity_ids" widget="kanban_activity"/>
+                                        <field name="owner_id" widget="many2one_avatar_user"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="okr_objective_view_hierarchy" model="ir.ui.view">
+        <field name="name">okr.scale.objective.hierarchy</field>
+        <field name="model">okr.scale.objective</field>
+        <field name="arch" type="xml">
+            <hierarchy child_field="child_ids" draggable="1">
+                <field name="name"/>
+                <field name="progress"/>
+                <field name="status"/>
+                <field name="level"/>
+                <templates>
+                    <t t-name="hierarchy-box">
+                        <div t-attf-class="o_hierarchy_node_header d-flex justify-content-center align-items-center text-center px-1
+                                            {{ record.status.raw_value == 'off_track' ? 'bg-danger-subtle' : record.status.raw_value == 'at_risk' ? 'bg-warning-subtle' : 'bg-success-subtle' }}">
+                            <field name="name"/>
+                        </div>
+                        <div class="o_hierarchy_node_body d-flex flex-column px-2 pb-1">
+                            <div class="d-flex justify-content-between small text-muted">
+                                <field name="level"/>
+                                <span><t t-esc="Math.round(record.progress.raw_value)"/>%</span>
+                            </div>
+                            <field name="progress" widget="progressbar"/>
+                            <field name="owner_id" widget="many2one_avatar_user" class="pt-1"/>
+                        </div>
+                    </t>
+                </templates>
+            </hierarchy>
+        </field>
+    </record>
+
+    <record id="okr_objective_view_pivot" model="ir.ui.view">
+        <field name="name">okr.scale.objective.pivot</field>
+        <field name="model">okr.scale.objective</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="department_id" type="row"/>
+                <field name="status" type="col"/>
+                <field name="progress" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="okr_objective_view_graph" model="ir.ui.view">
+        <field name="name">okr.scale.objective.graph</field>
+        <field name="model">okr.scale.objective</field>
+        <field name="arch" type="xml">
+            <graph type="bar">
+                <field name="department_id"/>
+                <field name="progress" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="okr_objective_view_search" model="ir.ui.view">
+        <field name="name">okr.scale.objective.search</field>
+        <field name="model">okr.scale.objective</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="owner_id"/>
+                <field name="employee_id"/>
+                <field name="department_id" operator="child_of"/>
+                <field name="cycle_id"/>
+                <field name="tag_ids"/>
+                <filter name="my" string="My Objectives" domain="['|', ('owner_id', '=', uid), ('employee_id.user_id', '=', uid)]"/>
+                <filter name="my_team" string="My Team" domain="[('is_my_team', '=', True)]"/>
+                <separator/>
+                <filter name="company" string="Company" domain="[('level', '=', 'company')]"/>
+                <filter name="department" string="Department" domain="[('level', '=', 'department')]"/>
+                <filter name="individual" string="Individual" domain="[('level', '=', 'individual')]"/>
+                <separator/>
+                <filter name="running" string="Running" domain="[('state', '=', 'running')]"/>
+                <filter name="to_approve" string="To Approve" domain="[('state', '=', 'to_approve')]"/>
+                <filter name="current_cycle" string="Open Cycles" domain="[('cycle_id.state', '=', 'open')]"/>
+                <filter name="risky" string="At Risk / Off Track" domain="[('status', 'in', ('at_risk', 'off_track'))]"/>
+                <separator/>
+                <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_level" string="Level" context="{'group_by': 'level'}"/>
+                    <filter name="group_cycle" string="Cycle" context="{'group_by': 'cycle_id'}"/>
+                    <filter name="group_department" string="Department" context="{'group_by': 'department_id'}"/>
+                    <filter name="group_owner" string="Owner" context="{'group_by': 'owner_id'}"/>
+                    <filter name="group_status" string="Status" context="{'group_by': 'status'}"/>
+                    <filter name="group_state" string="State" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="okr_objective_action" model="ir.actions.act_window">
+        <field name="name">Objectives</field>
+        <field name="res_model">okr.scale.objective</field>
+        <field name="view_mode">kanban,tree,form,hierarchy,pivot,graph</field>
+        <field name="context">{'search_default_current_cycle': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Set your first objective</p>
+            <p>Objectives are ambitious, qualitative goals. Each one is measured by 2 to 5 key results.</p>
+        </field>
+    </record>
+
+    <record id="okr_objective_action_my" model="ir.actions.act_window">
+        <field name="name">My Objectives</field>
+        <field name="res_model">okr.scale.objective</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{'search_default_my': 1, 'search_default_current_cycle': 1, 'default_level': 'individual'}</field>
+    </record>
+
+    <record id="okr_objective_action_tree" model="ir.actions.act_window">
+        <field name="name">OKR Tree</field>
+        <field name="res_model">okr.scale.objective</field>
+        <field name="view_mode">hierarchy,form</field>
+        <field name="context">{'search_default_current_cycle': 1}</field>
+    </record>
+
+    <record id="okr_objective_action_approve" model="ir.actions.act_window">
+        <field name="name">Objectives to Approve</field>
+        <field name="res_model">okr.scale.objective</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_to_approve': 1}</field>
+    </record>
+
+    <record id="okr_objective_action_analysis" model="ir.actions.act_window">
+        <field name="name">Objectives Analysis</field>
+        <field name="res_model">okr.scale.objective</field>
+        <field name="view_mode">pivot,graph,tree</field>
+        <field name="context">{'search_default_current_cycle': 1}</field>
+    </record>
+</odoo>

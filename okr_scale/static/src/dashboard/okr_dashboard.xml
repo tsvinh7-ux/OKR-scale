@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="okr_scale.Dashboard">
+        <div class="o_okr_dashboard o_action h-100 overflow-auto bg-view">
+            <div class="container-fluid py-3">
+                <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+                    <h2 class="me-auto mb-0">OKR Dashboard</h2>
+                    <t t-if="state.data">
+                        <select class="form-select w-auto" t-on-change="onCycleChange">
+                            <option value="">All cycles</option>
+                            <t t-foreach="state.data.cycles" t-as="cycle" t-key="cycle.id">
+                                <option t-att-value="cycle.id" t-att-selected="cycle.id === state.cycleId" t-esc="cycle.name"/>
+                            </t>
+                        </select>
+                        <select class="form-select w-auto" t-on-change="onDepartmentChange">
+                            <option value="">All departments</option>
+                            <t t-foreach="state.data.departments" t-as="dept" t-key="dept.id">
+                                <option t-att-value="dept.id" t-att-selected="dept.id === state.departmentId" t-esc="dept.name"/>
+                            </t>
+                        </select>
+                        <button class="btn btn-secondary" t-on-click="openTree"><i class="fa fa-sitemap me-1"/>OKR Tree</button>
+                    </t>
+                </div>
+
+                <t t-if="state.data">
+                    <t t-set="data" t-value="state.data"/>
+                    <!-- KPI cards -->
+                    <div class="row g-3 mb-3">
+                        <t t-foreach="data.kpis" t-as="kpi" t-key="kpi.key">
+                            <div class="col-6 col-md-4 col-xl-2">
+                                <div class="card h-100 o_okr_kpi">
+                                    <div class="card-body">
+                                        <div class="text-muted small text-uppercase" t-esc="kpi.label"/>
+                                        <div class="fs-2 fw-bold"><t t-esc="kpi.value"/><t t-esc="kpi.suffix or ''"/></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                        <!-- Status distribution -->
+                        <div class="col-lg-6">
+                            <div class="card h-100">
+                                <div class="card-header fw-bold">Objective status
+                                    <span class="text-muted fw-normal small ms-2">Time elapsed: <t t-esc="data.expected_progress"/>%</span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="progress o_okr_stacked mb-3" style="height: 1.5rem;">
+                                        <t t-foreach="data.status" t-as="status" t-key="status.key">
+                                            <div t-if="status.count" t-attf-class="progress-bar {{ statusClass(status.key) }}"
+                                                 t-attf-style="width: {{ statusPercent(status) }}%" t-esc="status.count"/>
+                                        </t>
+                                    </div>
+                                    <div class="d-flex flex-wrap gap-3">
+                                        <t t-foreach="data.status" t-as="status" t-key="status.key">
+                                            <a href="#" class="text-reset" t-on-click.prevent="() => this.openObjectives([['status', '=', status.key]], status.label)">
+                                                <span t-attf-class="d-inline-block rounded-circle me-1 {{ statusClass(status.key) }}" style="width: .75rem; height: .75rem;"/>
+                                                <t t-esc="status.label"/>: <b t-esc="status.count"/>
+                                            </a>
+                                        </t>
+                                    </div>
+                                    <hr/>
+                                    <t t-foreach="data.levels" t-as="level" t-key="level.key">
+                                        <div class="mb-2">
+                                            <div class="d-flex justify-content-between small">
+                                                <a href="#" class="text-reset" t-on-click.prevent="() => this.openObjectives([['level', '=', level.key]], level.label)">
+                                                    <t t-esc="level.label"/> (<t t-esc="level.count"/>)
+                                                </a>
+                                                <span t-esc="level.progress + '%'"/>
+                                            </div>
+                                            <div class="progress" style="height: .5rem;">
+                                                <div class="progress-bar" t-attf-style="width: {{ level.progress }}%"/>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Departments -->
+                        <div class="col-lg-6">
+                            <div class="card h-100">
+                                <div class="card-header fw-bold">Progress by department</div>
+                                <div class="card-body">
+                                    <div t-if="!data.departments_progress.length" class="text-muted">No department objectives yet.</div>
+                                    <t t-foreach="data.departments_progress" t-as="dept" t-key="dept.id">
+                                        <div class="mb-2">
+                                            <div class="d-flex justify-content-between small">
+                                                <a href="#" class="text-reset" t-on-click.prevent="() => this.openObjectives([['department_id', 'child_of', dept.id]], dept.name)">
+                                                    <t t-esc="dept.name"/> (<t t-esc="dept.count"/>)
+                                                </a>
+                                                <span>
+                                                    <span t-if="dept.at_risk" class="badge text-bg-warning me-1"><t t-esc="dept.at_risk"/> at risk</span>
+                                                    <t t-esc="dept.progress + '%'"/>
+                                                </span>
+                                            </div>
+                                            <div class="progress" style="height: .5rem;">
+                                                <div class="progress-bar bg-info" t-attf-style="width: {{ dept.progress }}%"/>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                        <!-- Company objectives -->
+                        <div class="col-lg-6">
+                            <div class="card h-100">
+                                <div class="card-header fw-bold">Company objectives</div>
+                                <ul class="list-group list-group-flush">
+                                    <li t-if="!data.company_objectives.length" class="list-group-item text-muted">No company objectives.</li>
+                                    <t t-foreach="data.company_objectives" t-as="obj" t-key="obj.id">
+                                        <li class="list-group-item list-group-item-action cursor-pointer" t-on-click="() => this.openRecord('okr.scale.objective', obj.id)">
+                                            <div class="d-flex justify-content-between">
+                                                <span><b t-esc="obj.name"/> <span class="text-muted small" t-esc="obj.owner"/></span>
+                                                <span t-attf-class="badge {{ statusClass(obj.status) }}" t-esc="obj.status_label"/>
+                                            </div>
+                                            <div class="progress mt-1" style="height: .5rem;">
+                                                <div t-attf-class="progress-bar {{ statusClass(obj.status) }}" t-attf-style="width: {{ obj.progress }}%"/>
+                                            </div>
+                                        </li>
+                                    </t>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Risky KRs -->
+                        <div class="col-lg-6">
+                            <div class="card h-100">
+                                <div class="card-header fw-bold">Key results needing attention</div>
+                                <table class="table table-sm table-hover mb-0">
+                                    <thead><tr><th>Key Result</th><th>Owner</th><th class="text-end">Progress</th><th class="text-end">Confidence</th></tr></thead>
+                                    <tbody>
+                                        <tr t-if="!data.risky_key_results.length"><td colspan="4" class="text-muted">Everything is on track 🎉</td></tr>
+                                        <t t-foreach="data.risky_key_results" t-as="kr" t-key="kr.id">
+                                            <tr class="cursor-pointer" t-on-click="() => this.openRecord('okr.scale.key.result', kr.id)">
+                                                <td><span t-esc="kr.name"/><div class="small text-muted" t-esc="kr.objective"/></td>
+                                                <td t-esc="kr.owner"/>
+                                                <td class="text-end"><span t-attf-class="badge {{ statusClass(kr.status) }}" t-esc="kr.progress + '%'"/></td>
+                                                <td class="text-end" t-esc="kr.confidence ? kr.confidence + '/10' : ''"/>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                        <div class="col-lg-6">
+                            <div class="card h-100">
+                                <div class="card-header fw-bold">Latest check-ins</div>
+                                <table class="table table-sm table-hover mb-0">
+                                    <thead><tr><th>Date</th><th>Who</th><th>Key Result</th><th class="text-end">Progress</th></tr></thead>
+                                    <tbody>
+                                        <tr t-if="!data.recent_checkins.length"><td colspan="4" class="text-muted">No check-in yet.</td></tr>
+                                        <t t-foreach="data.recent_checkins" t-as="c" t-key="c.id">
+                                            <tr class="cursor-pointer" t-on-click="() => this.openRecord('okr.scale.checkin', c.id)">
+                                                <td t-esc="c.date"/>
+                                                <td t-esc="c.user"/>
+                                                <td t-esc="c.key_result"/>
+                                                <td class="text-end"><t t-esc="c.progress_before"/>% → <b t-esc="c.progress_after + '%'"/></td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- Sections provided by other OKR modules (CFR, rewards, projects...) -->
+                        <t t-foreach="data.extra_sections" t-as="section" t-key="section.key">
+                            <div class="col-lg-6">
+                                <div class="card h-100">
+                                    <div class="card-header fw-bold" t-esc="section.title"/>
+                                    <table class="table table-sm mb-0">
+                                        <thead><tr><t t-foreach="section.columns" t-as="col" t-key="col_index"><th t-esc="col"/></t></tr></thead>
+                                        <tbody>
+                                            <tr t-if="!section.rows.length"><td t-att-colspan="section.columns.length" class="text-muted">No data.</td></tr>
+                                            <t t-foreach="section.rows" t-as="row" t-key="row_index">
+                                                <tr><t t-foreach="row" t-as="cell" t-key="cell_index"><td t-esc="cell"/></t></tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>

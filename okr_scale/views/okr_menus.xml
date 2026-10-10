@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="okr_menu_root" name="OKR" web_icon="okr_scale,static/description/icon.png" sequence="45"
+              groups="group_okr_user"/>
+
+    <menuitem id="okr_menu_dashboard" name="Dashboard" parent="okr_menu_root" action="okr_dashboard_action" sequence="1"/>
+
+    <menuitem id="okr_menu_my" name="My OKRs" parent="okr_menu_root" sequence="10">
+        <menuitem id="okr_menu_my_objectives" action="okr_objective_action_my" sequence="1"/>
+        <menuitem id="okr_menu_my_key_results" action="okr_key_result_action_my" sequence="2"/>
+    </menuitem>
+
+    <menuitem id="okr_menu_okrs" name="OKRs" parent="okr_menu_root" sequence="20">
+        <menuitem id="okr_menu_objectives" action="okr_objective_action" sequence="1"/>
+        <menuitem id="okr_menu_key_results" action="okr_key_result_action" sequence="2"/>
+        <menuitem id="okr_menu_tree" action="okr_objective_action_tree" sequence="3"/>
+        <menuitem id="okr_menu_checkins" action="okr_checkin_action" sequence="4"/>
+    </menuitem>
+
+    <menuitem id="okr_menu_manage" name="Manage" parent="okr_menu_root" sequence="40" groups="group_okr_manager">
+        <menuitem id="okr_menu_approve" action="okr_objective_action_approve" sequence="1"/>
+        <menuitem id="okr_menu_review" action="okr_checkin_action_review" sequence="2"/>
+    </menuitem>
+
+    <menuitem id="okr_menu_reporting" name="Reporting" parent="okr_menu_root" sequence="80" groups="group_okr_manager">
+        <menuitem id="okr_menu_analysis" action="okr_objective_action_analysis" sequence="1"/>
+    </menuitem>
+
+    <menuitem id="okr_menu_config" name="Configuration" parent="okr_menu_root" sequence="100" groups="group_okr_admin">
+        <menuitem id="okr_menu_cycles" action="okr_cycle_action" sequence="1"/>
+        <menuitem id="okr_menu_tags" action="okr_tag_action" sequence="2"/>
+    </menuitem>
+</odoo>

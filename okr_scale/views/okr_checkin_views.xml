@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_checkin_view_tree" model="ir.ui.view">
+        <field name="name">okr.scale.checkin.tree</field>
+        <field name="model">okr.scale.checkin</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date"/>
+                <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="key_result_id"/>
+                <field name="objective_id" optional="show"/>
+                <field name="progress_before" optional="hide"/>
+                <field name="progress_after" widget="progressbar"/>
+                <field name="confidence"/>
+                <field name="mood" optional="hide"/>
+                <field name="blockers" optional="show"/>
+                <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state == 'reviewed'"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="okr_checkin_view_form" model="ir.ui.view">
+        <field name="name">okr.scale.checkin.form</field>
+        <field name="model">okr.scale.checkin</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_submit" type="object" string="Submit" class="btn-primary" invisible="state != 'draft' or not id"/>
+                    <button name="action_review" type="object" string="Mark as Reviewed" invisible="state != 'submitted'"
+                            groups="okr_scale.group_okr_manager"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="key_result_id" readonly="state != 'draft'"
+                                   options="{'no_create': True}" domain="[('objective_state', '=', 'running')]"/>
+                            <field name="objective_id"/>
+                            <field name="date" readonly="state != 'draft'"/>
+                            <field name="user_id" widget="many2one_avatar_user"/>
+                        </group>
+                        <group>
+                            <label for="new_value" invisible="progress_method != 'manual'"/>
+                            <div class="o_row" invisible="progress_method != 'manual'">
+                                <field name="new_value" readonly="state != 'draft'"/>
+                                <span>/ <field name="target_value" class="oe_inline"/> <field name="unit" class="oe_inline"/></span>
+                            </div>
+                            <field name="confidence" readonly="state != 'draft'"/>
+                            <field name="mood" widget="radio" options="{'horizontal': true}" readonly="state != 'draft'"/>
+                            <field name="progress_after" widget="progressbar" invisible="state == 'draft'"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="achievements" readonly="state != 'draft'" placeholder="Results obtained since the last check-in"/>
+                        <field name="blockers" readonly="state != 'draft'" placeholder="Obstacles, help needed"/>
+                        <field name="next_steps" readonly="state != 'draft'" placeholder="Priorities until the next check-in"/>
+                    </group>
+                    <group string="Manager Feedback" invisible="state == 'draft'">
+                        <field name="manager_feedback" nolabel="1" colspan="2" readonly="state == 'reviewed'"/>
+                        <field name="reviewer_id" invisible="not reviewer_id"/>
+                        <field name="review_date" invisible="not review_date"/>
+                    </group>
+                    <field name="progress_method" invisible="1"/>
+                    <field name="metric_type" invisible="1"/>
+                </sheet>
+                <footer>
+                    <button name="action_submit_and_close" type="object" string="Submit Check-in" class="btn-primary" invisible="state != 'draft'"/>
+                    <button string="Save as Draft" special="save" class="btn-secondary" invisible="state != 'draft'"/>
+                    <button string="Discard" special="cancel" class="btn-secondary"/>
+                </footer>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="okr_checkin_view_search" model="ir.ui.view">
+        <field name="name">okr.scale.checkin.search</field>
+        <field name="model">okr.scale.checkin</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="key_result_id"/>
+                <field name="objective_id"/>
+                <field name="user_id"/>
+                <field name="department_id"/>
+                <filter name="mine" string="My Check-ins" domain="[('user_id', '=', uid)]"/>
+                <filter name="to_review" string="To Review" domain="[('state', '=', 'submitted')]"/>
+                <filter name="blocked" string="With Blockers" domain="[('blockers', '!=', False)]"/>
+                <filter name="low_confidence" string="Low Confidence" domain="[('confidence', 'in', ('1', '2', '3', '4'))]"/>
+                <separator/>
+                <filter name="date" string="Date" date="date"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_user" string="Author" context="{'group_by': 'user_id'}"/>
+                    <filter name="group_objective" string="Objective" context="{'group_by': 'objective_id'}"/>
+                    <filter name="group_week" string="Week" context="{'group_by': 'date:week'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="okr_checkin_view_graph" model="ir.ui.view">
+        <field name="name">okr.scale.checkin.graph</field>
+        <field name="model">okr.scale.checkin</field>
+        <field name="arch" type="xml">
+            <graph type="line">
+                <field name="date" interval="week"/>
+                <field name="progress_after" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="okr_checkin_action" model="ir.actions.act_window">
+        <field name="name">Check-ins</field>
+        <field name="res_model">okr.scale.checkin</field>
+        <field name="view_mode">tree,form,graph</field>
+    </record>
+
+    <record id="okr_checkin_action_review" model="ir.actions.act_window">
+        <field name="name">Check-ins to Review</field>
+        <field name="res_model">okr.scale.checkin</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_to_review': 1}</field>
+    </record>
+</odoo>

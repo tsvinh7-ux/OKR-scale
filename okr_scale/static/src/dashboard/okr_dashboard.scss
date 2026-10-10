@@ -1,0 +1,11 @@
+.o_okr_dashboard {
+    .o_okr_kpi {
+        border-left: 4px solid $o-brand-primary;
+    }
+    .o_okr_stacked .progress-bar {
+        font-size: .8rem;
+    }
+    .cursor-pointer {
+        cursor: pointer;
+    }
+}

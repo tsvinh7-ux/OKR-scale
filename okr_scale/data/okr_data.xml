@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="mail_activity_okr_checkin" model="mail.activity.type">
+            <field name="name">OKR Check-in</field>
+            <field name="summary">Update your key result</field>
+            <field name="icon">fa-bullseye</field>
+            <field name="delay_count">0</field>
+            <field name="res_model">okr.scale.key.result</field>
+        </record>
+
+        <record id="mail_activity_okr_approval" model="mail.activity.type">
+            <field name="name">OKR Approval</field>
+            <field name="summary">Approve objective</field>
+            <field name="icon">fa-check-square-o</field>
+            <field name="delay_count">3</field>
+            <field name="res_model">okr.scale.objective</field>
+        </record>
+
+        <record id="ir_cron_okr_checkin_reminder" model="ir.cron">
+            <field name="name">OKR: check-in reminders</field>
+            <field name="model_id" ref="model_okr_scale_key_result"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_checkin_reminder()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+
+        <record id="ir_cron_okr_status" model="ir.cron">
+            <field name="name">OKR: refresh statuses</field>
+            <field name="model_id" ref="model_okr_scale_objective"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_recompute_status()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+    </data>
+</odoo>
