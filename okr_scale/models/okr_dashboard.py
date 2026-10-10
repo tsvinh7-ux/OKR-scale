@@ -122,3 +122,12 @@ class OkrDashboard(models.AbstractModel):
     def _get_extra_sections(self, objectives, cycle):
         """Return a list of ``{'key', 'title', 'columns': [...], 'rows': [[...]]}`` tables."""
         return []
+
+    @api.model
+    def _get_extra_rankings(self, cycle, objectives):
+        """Return extra leaderboards shown on the Rankings page.
+
+        Each board is ``{'key', 'title', 'icon' (fa class), 'unit', 'rows': [
+        {'user_id', 'name', 'subtitle', 'value'}]}`` with rows sorted best first.
+        """
+        return []

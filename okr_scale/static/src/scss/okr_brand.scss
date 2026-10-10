@@ -1,0 +1,20 @@
+// DMAG brand tokens, shared by every OKR Scale module (backend and portal).
+:root {
+    --okr-navy: #11346A;
+    --okr-navy-700: #0C2650;
+    --okr-blue: #178BEC;
+    --okr-blue-100: #E3F1FD;
+    --okr-sky: #F4F8FD;
+    --okr-ink: #1B2A41;
+    --okr-muted: #6B7A90;
+    --okr-line: #E3E9F2;
+    --okr-success: #12A37A;
+    --okr-warning: #F5A524;
+    --okr-danger: #E5484D;
+    --okr-gold: #F2B705;
+    --okr-silver: #A8B3C4;
+    --okr-bronze: #CD7F46;
+    --okr-radius: 14px;
+    --okr-shadow: 0 1px 2px rgba(17, 52, 106, .06), 0 6px 20px rgba(17, 52, 106, .06);
+    --okr-gradient: linear-gradient(135deg, #11346A 0%, #1A5BA8 55%, #178BEC 100%);
+}
