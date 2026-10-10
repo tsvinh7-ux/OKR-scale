@@ -80,10 +80,7 @@ class OkrRedemption(models.Model):
         if balance < self.points:
             raise UserError(_('Not enough points: "%(item)s" costs %(cost)s points and your balance is %(balance)s.',
                               item=item.name, cost=self.points, balance=balance))
-        if item.limited_stock:
-            if item.stock_qty < self.quantity:
-                raise UserError(_('Only %(qty)s "%(item)s" left in stock.', qty=item.stock_qty, item=item.name))
-            item.stock_qty -= self.quantity
+        item._okr_reserve_stock(self.quantity, redemption=self)
         Transaction._grant(self.user_id, -self.points, 'redemption',
                            _('Redemption %(ref)s: %(qty)s x %(item)s', ref=self.name, qty=self.quantity, item=item.name),
                            source=self)
@@ -91,9 +88,7 @@ class OkrRedemption(models.Model):
     def _release(self, reason):
         """Give the points back and restore the stock of a rejected or cancelled redemption."""
         self.ensure_one()
-        item = self.item_id.sudo()
-        if item.limited_stock:
-            item.stock_qty += self.quantity
+        self.item_id.sudo()._okr_release_stock(self.quantity, redemption=self)
         self.env['okr.scale.point.transaction']._grant(
             self.user_id, self.points, 'refund', _('Refund %(ref)s: %(reason)s', ref=self.name, reason=reason),
             source=self)
@@ -122,7 +117,10 @@ class OkrRedemption(models.Model):
 
     def action_deliver(self):
         self._check_reward_manager()
-        for redemption in self.filtered(lambda r: r.state == 'approved'):
+        self.filtered(lambda r: r.state == 'approved')._okr_mark_delivered()
+
+    def _okr_mark_delivered(self):
+        for redemption in self:
             redemption.write({'state': 'delivered', 'deliver_date': fields.Datetime.now()})
             redemption.message_post(body=_('Your reward has been delivered. Enjoy!'),
                                     partner_ids=redemption.user_id.partner_id.ids,

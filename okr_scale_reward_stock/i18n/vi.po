@@ -1,0 +1,213 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* okr_scale_reward_stock
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-10 10:14+0000\n"
+"PO-Revision-Date: 2026-10-10 10:14+0000\n"
+"Last-Translator: DMAG\n"
+"Language-Team: Vietnamese\n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: okr_scale_reward_stock
+#: model:ir.model.fields,help:okr_scale_reward_stock.field_okr_scale_redemption__picking_state
+msgid ""
+" * Draft: The transfer is not confirmed yet. Reservation doesn't apply.\n"
+" * Waiting another operation: This transfer is waiting for another operation before being ready.\n"
+" * Waiting: The transfer is waiting for the availability of some products.\n"
+"(a) The shipping policy is \"As soon as possible\": no product could be reserved.\n"
+"(b) The shipping policy is \"When all products are ready\": not all the products could be reserved.\n"
+" * Ready: The transfer is ready to be processed.\n"
+"(a) The shipping policy is \"As soon as possible\": at least one product has been reserved.\n"
+"(b) The shipping policy is \"When all products are ready\": all product have been reserved.\n"
+" * Done: The transfer has been processed.\n"
+" * Cancelled: The transfer has been cancelled."
+msgstr ""
+" * Nháp: Lệnh chuyển hàng chưa được xác nhận. Không áp dụng đặt trước.\n"
+" * Đợi hoạt động khác: Lệnh chuyển hàng này đang đợi hoạt động khác hoàn thành mới có thể thực hiện được.\n"
+" * Đang đợi: Lệnh chuyển hàng này đang chờ đủ tình trạng còn hàng của một số sản phẩm.\n"
+"(a) Chính sách vận chuyển là \"Càng nhanh càng tốt\": không sản phẩm nào có thể đặt trước.\n"
+"(b) Chính sách vận chuyển là \"Khi tất cả sản phẩm đều sẵn sàng\": không phải tất cả sản phẩm đều có thể đặt trước.\n"
+" * Sẵn sàng: Lệnh chuyển hàng đã sẵn sàng để xử lý.\n"
+"(a) Chính sách vận chuyển là \"Càng nhanh càng tốt\": ít nhất một sản phẩm đã được đặt trước.\n"
+"(b) Chính sách vận chuyển là \"Khi tất cả sản phẩm đều sẵn sàng\": tất cả sản phẩm đã được đặt trước.\n"
+" * Hoàn tất: Lệnh chuyển hàng đã được xử lý xong.\n"
+" * Đã hủy: Lệnh chuyển hàng đã bị hủy."
+
+#. module: okr_scale_reward_stock
+#. odoo-python
+#: code:addons/okr_scale_reward_stock/models/okr_redemption.py:0
+#, python-format
+msgid ""
+"\"%(item)s\" is not in stock yet: receive it in Inventory before delivering "
+"%(ref)s."
+msgstr ""
+"\"%(item)s\" chưa có hàng: hãy nhập kho món quà trong Tồn kho trước khi trao"
+" %(ref)s."
+
+#. module: okr_scale_reward_stock
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward_stock.okr_redemption_view_form_inherit_stock
+msgid "<span class=\"o_stat_text\">Delivery</span>"
+msgstr "<span class=\"o_stat_text\">Phiếu giao</span>"
+
+#. module: okr_scale_reward_stock
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward_stock.okr_reward_item_view_form_inherit_stock
+msgid "<span class=\"o_stat_text\">On Hand</span>"
+msgstr "<span class=\"o_stat_text\">Tồn kho</span>"
+
+#. module: okr_scale_reward_stock
+#: model:ir.model.fields,field_description:okr_scale_reward_stock.field_res_config_settings__okr_reward_allow_preorder
+msgid "Allow redemption without stock (pre-order)"
+msgstr "Cho phép đổi quà khi chưa có hàng (đặt trước)"
+
+#. module: okr_scale_reward_stock
+#: model:ir.model,name:okr_scale_reward_stock.model_res_config_settings
+msgid "Config Settings"
+msgstr "Cài đặt cấu hình"
+
+#. module: okr_scale_reward_stock
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward_stock.okr_redemption_view_form_inherit_stock
+msgid "Create Delivery"
+msgstr "Tạo phiếu giao hàng"
+
+#. module: okr_scale_reward_stock
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward_stock.okr_reward_item_view_form_inherit_stock
+msgid "Created automatically when tracked in inventory"
+msgstr "Tự động tạo khi quản lý trong tồn kho"
+
+#. module: okr_scale_reward_stock
+#: model:ir.model.fields,field_description:okr_scale_reward_stock.field_okr_scale_redemption__picking_id
+msgid "Delivery"
+msgstr "Phiếu giao hàng"
+
+#. module: okr_scale_reward_stock
+#. odoo-python
+#: code:addons/okr_scale_reward_stock/models/okr_redemption.py:0
+#, python-format
+msgid "Delivery %s created."
+msgstr "Đã tạo phiếu giao hàng %s."
+
+#. module: okr_scale_reward_stock
+#: model:ir.model.fields,field_description:okr_scale_reward_stock.field_okr_scale_redemption__picking_state
+msgid "Delivery Status"
+msgstr "Trạng thái giao hàng"
+
+#. module: okr_scale_reward_stock
+#: model:ir.model.fields,help:okr_scale_reward_stock.field_res_config_settings__okr_reward_allow_preorder
+msgid ""
+"Employees may redeem a gift tracked in inventory even when it is not in "
+"stock yet: the delivery waits until the gift is received."
+msgstr ""
+"Nhân viên có thể đổi món quà được quản lý trong tồn kho ngay cả khi chưa có "
+"hàng: phiếu giao hàng sẽ chờ tới khi quà được nhập kho."
+
+#. module: okr_scale_reward_stock
+#: model:ir.model.fields,field_description:okr_scale_reward_stock.field_okr_scale_reward_item__inventory_free_qty
+msgid "Free to Use"
+msgstr "Có thể sử dụng"
+
+#. module: okr_scale_reward_stock
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward_stock.res_config_settings_view_form
+msgid ""
+"Gifts tracked in inventory can be redeemed before they are purchased: the "
+"delivery waits until the gift is received in the warehouse."
+msgstr ""
+"Quà được quản lý trong tồn kho có thể được đổi trước khi mua về: phiếu giao "
+"hàng sẽ chờ tới khi quà được nhập vào kho."
+
+#. module: okr_scale_reward_stock
+#: model:ir.model.fields,help:okr_scale_reward_stock.field_okr_scale_redemption__track_inventory
+#: model:ir.model.fields,help:okr_scale_reward_stock.field_okr_scale_reward_item__track_inventory
+msgid ""
+"Manage this gift as a storable product: the available quantity comes from "
+"the warehouse and approved redemptions create delivery orders. A product is "
+"created automatically if needed."
+msgstr ""
+"Quản lý món quà như một sản phẩm lưu kho: số lượng khả dụng lấy từ kho hàng "
+"và yêu cầu đổi quà được duyệt sẽ tạo phiếu giao hàng. Sản phẩm được tạo tự "
+"động nếu cần."
+
+#. module: okr_scale_reward_stock
+#. odoo-python
+#: code:addons/okr_scale_reward_stock/models/okr_redemption.py:0
+#, python-format
+msgid "No warehouse found for company %s."
+msgstr "Không tìm thấy kho hàng cho công ty %s."
+
+#. module: okr_scale_reward_stock
+#: model:ir.model,name:okr_scale_reward_stock.model_okr_scale_reward_item
+msgid "OKR Reward"
+msgstr "Quà tặng OKR"
+
+#. module: okr_scale_reward_stock
+#: model:ir.model,name:okr_scale_reward_stock.model_okr_scale_redemption
+msgid "OKR Reward Redemption"
+msgstr "Đổi quà OKR"
+
+#. module: okr_scale_reward_stock
+#: model:ir.model.fields,field_description:okr_scale_reward_stock.field_okr_scale_reward_item__inventory_qty
+msgid "On Hand"
+msgstr "Tồn kho"
+
+#. module: okr_scale_reward_stock
+#. odoo-python
+#: code:addons/okr_scale_reward_stock/models/okr_reward_item.py:0
+#, python-format
+msgid "Only %(qty)s \"%(item)s\" left in stock."
+msgstr "Chỉ còn %(qty)s \"%(item)s\" trong kho."
+
+#. module: okr_scale_reward_stock
+#: model:ir.model.fields,help:okr_scale_reward_stock.field_okr_scale_reward_item__inventory_qty
+msgid "Quantity on hand in the warehouse of the company."
+msgstr "Số lượng tồn trong kho hàng của công ty."
+
+#. module: okr_scale_reward_stock
+#: model:ir.model.fields,help:okr_scale_reward_stock.field_okr_scale_reward_item__inventory_free_qty
+msgid "Quantity on hand that is not reserved by deliveries yet."
+msgstr "Số lượng tồn kho chưa được giữ cho phiếu giao hàng nào."
+
+#. module: okr_scale_reward_stock
+#: model:ir.model.fields,field_description:okr_scale_reward_stock.field_stock_picking__okr_redemption_ids
+msgid "Reward Redemptions"
+msgstr "Yêu cầu đổi quà"
+
+#. module: okr_scale_reward_stock
+#. odoo-python
+#: code:addons/okr_scale_reward_stock/models/okr_redemption.py:0
+#, python-format
+msgid "The delivery %s needs to be validated in Inventory."
+msgstr "Phiếu giao hàng %s cần được xác nhận trong Tồn kho."
+
+#. module: okr_scale_reward_stock
+#. odoo-python
+#: code:addons/okr_scale_reward_stock/models/okr_reward_item.py:0
+#, python-format
+msgid ""
+"The product of \"%s\" must be a storable product to be tracked in inventory."
+msgstr ""
+"Sản phẩm của \"%s\" phải là sản phẩm lưu kho để được quản lý trong tồn kho."
+
+#. module: okr_scale_reward_stock
+#. odoo-python
+#: code:addons/okr_scale_reward_stock/models/okr_reward_item.py:0
+#, python-format
+msgid "The reward \"%s\" has no product to deliver."
+msgstr "Quà tặng \"%s\" chưa có sản phẩm để giao."
+
+#. module: okr_scale_reward_stock
+#: model:ir.model.fields,field_description:okr_scale_reward_stock.field_okr_scale_redemption__track_inventory
+#: model:ir.model.fields,field_description:okr_scale_reward_stock.field_okr_scale_reward_item__track_inventory
+msgid "Track in Inventory"
+msgstr "Quản lý trong tồn kho"
+
+#. module: okr_scale_reward_stock
+#: model:ir.model,name:okr_scale_reward_stock.model_stock_picking
+msgid "Transfer"
+msgstr "Lệnh chuyển hàng"

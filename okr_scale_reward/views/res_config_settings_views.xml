@@ -4,50 +4,41 @@
         <field name="name">res.config.settings.view.form.inherit.okr.reward</field>
         <field name="model">res.config.settings</field>
         <field name="priority" eval="80"/>
-        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="inherit_id" ref="okr_scale_cfr.res_config_settings_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//form" position="inside">
-                <app data-string="OKR" string="OKR" name="okr_scale_reward" groups="okr_scale.group_okr_admin">
-                    <block title="Recognition Points" name="okr_reward_giving">
-                        <setting id="okr_reward_monthly_allowance" string="Monthly giving allowance"
-                                 help="Points each employee can give to colleagues with recognitions every month. Giving points does not reduce the giver's own wallet.">
-                            <field name="okr_reward_monthly_allowance" class="o_light_label"/>
-                        </setting>
-                        <setting id="okr_reward_max_points" string="Maximum per recognition"
-                                 help="Maximum points given to each receiver of a recognition.">
-                            <field name="okr_reward_max_points_per_recognition" class="o_light_label"/>
-                        </setting>
-                    </block>
-                    <block title="OKR Points" name="okr_reward_okr">
-                        <setting id="okr_reward_checkin" string="On-time check-in"
-                                 help="Granted to the author of a submitted check-in, at most once per key result and check-in period.">
-                            <field name="okr_reward_checkin_points" class="o_light_label"/>
-                        </setting>
-                        <setting id="okr_reward_kr" string="Key result achieved"
-                                 help="Granted once to the owner when a key result reaches its target.">
-                            <field name="okr_reward_kr_achieved_points" class="o_light_label"/>
-                        </setting>
-                        <setting id="okr_reward_objective" string="Objective achieved"
-                                 help="Granted once to the owner when an objective is closed with a final score of at least 0.7.">
-                            <field name="okr_reward_objective_achieved_points" class="o_light_label"/>
-                        </setting>
-                    </block>
-                    <block title="Reward Store" name="okr_reward_store">
-                        <setting id="okr_reward_store" string="Rewards" help="Gifts employees can redeem with their points. Set a value to 0 to disable a reward.">
-                            <button name="%(okr_scale_reward.okr_reward_item_action)d" type="action" string="Reward Items"
-                                    icon="oi-arrow-right" class="btn-link"/>
-                        </setting>
-                    </block>
-                </app>
+            <!-- Blocks added to the "OKR" settings app owned by okr_scale_cfr -->
+            <xpath expr="//app[@name='okr_scale']" position="inside">
+                <block title="Recognition Points" name="okr_reward_giving">
+                    <setting id="okr_reward_monthly_allowance" string="Monthly giving allowance"
+                             help="Points each employee can give to colleagues with recognitions every month. Giving points does not reduce the giver's own wallet.">
+                        <field name="okr_reward_monthly_allowance" class="o_light_label"/>
+                    </setting>
+                    <setting id="okr_reward_max_points" string="Maximum per recognition"
+                             help="Maximum points given to each receiver of a recognition.">
+                        <field name="okr_reward_max_points_per_recognition" class="o_light_label"/>
+                    </setting>
+                </block>
+                <block title="OKR Points" name="okr_reward_okr">
+                    <setting id="okr_reward_checkin" string="On-time check-in"
+                             help="Granted to the author of a submitted check-in, at most once per key result and check-in period.">
+                        <field name="okr_reward_checkin_points" class="o_light_label"/>
+                    </setting>
+                    <setting id="okr_reward_kr" string="Key result achieved"
+                             help="Granted once to the owner when a key result reaches its target.">
+                        <field name="okr_reward_kr_achieved_points" class="o_light_label"/>
+                    </setting>
+                    <setting id="okr_reward_objective" string="Objective achieved"
+                             help="Granted once to the owner when an objective is closed with a final score of at least 0.7.">
+                        <field name="okr_reward_objective_achieved_points" class="o_light_label"/>
+                    </setting>
+                </block>
+                <block title="Reward Store" name="okr_reward_store">
+                    <setting id="okr_reward_store" string="Rewards" help="Gifts employees can redeem with their points. Set a value to 0 to disable a reward.">
+                        <button name="%(okr_scale_reward.okr_reward_item_action)d" type="action" string="Reward Items"
+                                icon="oi-arrow-right" class="btn-link"/>
+                    </setting>
+                </block>
             </xpath>
         </field>
-    </record>
-
-    <record id="okr_reward_settings_action" model="ir.actions.act_window">
-        <field name="name">Settings</field>
-        <field name="res_model">res.config.settings</field>
-        <field name="view_mode">form</field>
-        <field name="target">inline</field>
-        <field name="context">{'module': 'okr_scale_reward', 'bin_size': False}</field>
     </record>
 </odoo>

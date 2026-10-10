@@ -1,5 +1,8 @@
 from odoo import _, api, fields, models
-from odoo.exceptions import ValidationError
+from odoo.exceptions import UserError, ValidationError
+
+# At most this quantity left: the store shows "Only a few left".
+LOW_STOCK = 3
 
 
 class OkrRewardCategory(models.Model):
@@ -32,9 +35,20 @@ class OkrRewardItem(models.Model):
                                  help='Leave empty to offer this reward in every company.')
     redemption_ids = fields.One2many('okr.scale.redemption', 'item_id', 'Redemptions')
     redemption_count = fields.Integer(compute='_compute_redemption_count')
+    # Availability, displayed on the store cards (extended by okr_scale_reward_stock).
+    available_qty = fields.Integer('Available', compute='_compute_stock_status')
+    stock_status = fields.Selection([
+        ('unlimited', 'Available'),
+        ('available', 'In stock'),
+        ('low', 'Only a few left'),
+        ('out', 'Out of stock'),
+        ('preorder', 'Pre-order'),
+    ], compute='_compute_stock_status')
     # Wallet of the current user, displayed on the store cards.
     user_balance = fields.Integer('My Points', compute='_compute_user_balance')
     can_redeem = fields.Boolean(compute='_compute_user_balance')
+    affordable = fields.Boolean(compute='_compute_user_balance')
+    points_missing = fields.Integer('Points Missing', compute='_compute_user_balance')
 
     _sql_constraints = [
         ('points_cost_positive', 'CHECK (points_cost > 0)', 'The cost of a reward must be positive.'),
@@ -48,13 +62,54 @@ class OkrRewardItem(models.Model):
         for item in self:
             item.redemption_count = counts.get(item.id, 0)
 
+    # ------------------------------------------------------------------
+    # Stock hooks: the manual counter here, the inventory in okr_scale_reward_stock
+    # ------------------------------------------------------------------
+    def _okr_stock_limit(self):
+        """Quantity that can still be redeemed, or ``None`` when the reward is unlimited."""
+        self.ensure_one()
+        return self.stock_qty if self.limited_stock else None
+
+    def _okr_allows_preorder(self):
+        """Whether the reward may be redeemed beyond the available quantity."""
+        return False
+
+    def _okr_reserve_stock(self, quantity, redemption=None):
+        """Check and reserve ``quantity`` units when a redemption is requested."""
+        self.ensure_one()
+        limit = self._okr_stock_limit()
+        if limit is not None and limit < quantity and not self._okr_allows_preorder():
+            raise UserError(_('Only %(qty)s "%(item)s" left in stock.', qty=max(limit, 0), item=self.name))
+        if self.limited_stock:
+            self.stock_qty -= quantity
+
+    def _okr_release_stock(self, quantity, redemption=None):
+        """Give back the units of a rejected or cancelled redemption."""
+        self.ensure_one()
+        if self.limited_stock:
+            self.stock_qty += quantity
+
+    @api.depends('limited_stock', 'stock_qty')
+    def _compute_stock_status(self):
+        for item in self:
+            limit = item._okr_stock_limit()
+            item.available_qty = max(limit or 0, 0)
+            if limit is None:
+                item.stock_status = 'unlimited'
+            elif limit <= 0:
+                item.stock_status = 'preorder' if item._okr_allows_preorder() else 'out'
+            else:
+                item.stock_status = 'low' if limit <= LOW_STOCK else 'available'
+
     @api.depends_context('uid')
     @api.depends('points_cost', 'limited_stock', 'stock_qty')
     def _compute_user_balance(self):
         balance = self.env.user.okr_point_balance
         for item in self:
             item.user_balance = balance
-            item.can_redeem = balance >= item.points_cost and (not item.limited_stock or item.stock_qty > 0)
+            item.affordable = balance >= item.points_cost
+            item.points_missing = max(item.points_cost - balance, 0)
+            item.can_redeem = item.affordable and item.stock_status != 'out'
 
     @api.constrains('limited_stock', 'stock_qty')
     def _check_stock(self):
@@ -69,7 +124,7 @@ class OkrRewardItem(models.Model):
             'res_model': 'okr.scale.reward.redeem',
             'view_mode': 'form',
             'target': 'new',
-            'context': {'default_item_id': self.id},
+            'context': {'default_item_id': self.id, 'dialog_size': 'medium'},
         }
 
     def action_view_redemptions(self):
@@ -78,3 +133,16 @@ class OkrRewardItem(models.Model):
         action['domain'] = [('item_id', '=', self.id)]
         action['context'] = {}
         return action
+
+    @api.model
+    def _okr_store_banner_values(self):
+        user = self.env.user
+        pending = self.env['okr.scale.redemption'].search_count(
+            [('user_id', '=', user.id), ('state', 'in', ('requested', 'approved'))])
+        affordable = self.search_count([('points_cost', '<=', user.okr_point_balance)])
+        return {
+            'balance': user.okr_point_balance,
+            'budget_left': user.okr_give_budget_left,
+            'pending': pending,
+            'affordable': affordable,
+        }

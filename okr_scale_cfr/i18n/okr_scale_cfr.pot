@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-10 09:17+0000\n"
-"PO-Revision-Date: 2026-10-10 09:17+0000\n"
+"POT-Creation-Date: 2026-10-10 10:14+0000\n"
+"PO-Revision-Date: 2026-10-10 10:14+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,6 +20,13 @@ msgstr ""
 #: code:addons/okr_scale_cfr/wizard/okr_feedback_request.py:0
 #, python-format
 msgid "%(requester)s asks for your feedback about %(recipient)s"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_recognition.py:0
+#, python-format
+msgid "%s others"
 msgstr ""
 
 #. module: okr_scale_cfr
@@ -42,13 +49,78 @@ msgid "<i class=\"fa fa-bullseye me-1\" title=\"Objective\"/>"
 msgstr ""
 
 #. module: okr_scale_cfr
-#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_kanban
-msgid "<i class=\"fa fa-lock\" title=\"Private\"/> Private"
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_form
+msgid ""
+"<i class=\"fa fa-eye me-1\" title=\"Transparency\"/>\n"
+"                        Feedback is transparent: the recipient sees who wrote it."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_wall_banner
+msgid "<i class=\"fa fa-heart me-2\" title=\"Recognition\"/>Recognition Wall"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_wall_banner
+msgid "<i class=\"fa fa-paper-plane me-2\" title=\"Send\"/>Give kudos"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_form
+msgid "<i class=\"fa fa-quote-left\" title=\"Request\"/>"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_wall_banner
+msgid "<span class=\"o_okr_banner_label\">given by you</span>"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_wall_banner
+msgid "<span class=\"o_okr_banner_label\">kudos this month</span>"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_wall_banner
+msgid "<span class=\"o_okr_banner_label\">most lived value</span>"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_wall_banner
+msgid "<span class=\"o_okr_banner_label\">received by you</span>"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_form
+msgid ""
+"<span class=\"o_okr_form_intro_icon\"><i class=\"fa fa-comments\" "
+"title=\"Feedback\"/></span>"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_request_view_form
+msgid ""
+"<span class=\"o_okr_form_intro_icon\"><i class=\"fa fa-comments-o\" "
+"title=\"Request\"/></span>"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_form
+msgid ""
+"<span class=\"o_okr_form_intro_icon\"><i class=\"fa fa-heart\" "
+"title=\"Kudos\"/></span>"
 msgstr ""
 
 #. module: okr_scale_cfr
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_kanban
-msgid "<i class=\"fa fa-long-arrow-right text-muted\" title=\"To\"/>"
+msgid ""
+"<span class=\"o_okr_kudos_arrow\"><i class=\"fa fa-long-arrow-right\" "
+"title=\"To\"/></span>"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_kanban
+msgid "<span class=\"o_okr_kudos_to_label\">to</span>"
 msgstr ""
 
 #. module: okr_scale_cfr
@@ -135,11 +207,39 @@ msgid "Agenda"
 msgstr ""
 
 #. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_res_config_settings__okr_allow_anonymous_feedback
+msgid "Allow anonymous feedback"
+msgstr ""
+
+#. module: okr_scale_cfr
 #. odoo-python
 #: code:addons/okr_scale_cfr/models/okr_feedback.py:0
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__anonymous
 #, python-format
 msgid "Anonymous"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__anonymous_allowed
+msgid "Anonymous Allowed"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_feedback.py:0
+#, python-format
+msgid ""
+"Anonymous feedback has been disabled. Untick \"Anonymous\" to sign your "
+"feedback."
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_feedback.py:0
+#, python-format
+msgid ""
+"Anonymous feedback is disabled: in OKR, feedback is transparent. An "
+"administrator can allow it in the OKR settings."
 msgstr ""
 
 #. module: okr_scale_cfr
@@ -150,6 +250,11 @@ msgstr ""
 #. module: okr_scale_cfr
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__giver_ids
 msgid "Ask Feedback From"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_request_view_form
+msgid "Ask for feedback"
 msgstr ""
 
 #. module: okr_scale_cfr
@@ -200,6 +305,11 @@ msgid "Career and development"
 msgstr ""
 
 #. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_wall_banner
+msgid "Celebrate the people behind every OKR"
+msgstr ""
+
+#. module: okr_scale_cfr
 #. odoo-python
 #: code:addons/okr_scale_cfr/wizard/okr_feedback_request.py:0
 #, python-format
@@ -217,6 +327,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__company_id
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__company_id
 msgid "Company"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model,name:okr_scale_cfr.model_res_config_settings
+msgid "Config Settings"
 msgstr ""
 
 #. module: okr_scale_cfr
@@ -279,6 +394,13 @@ msgid "Define the core values of your company"
 msgstr ""
 
 #. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_form
+msgid ""
+"Describe the situation, the behaviour and its impact. Good feedback is "
+"specific, kind and actionable."
+msgstr ""
+
+#. module: okr_scale_cfr
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__description
 msgid "Description"
 msgstr ""
@@ -314,6 +436,13 @@ msgid "Duration in hours."
 msgstr ""
 
 #. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_request_view_form
+msgid ""
+"Each person receives an activity to answer. Ask a precise question to get "
+"useful answers."
+msgstr ""
+
+#. module: okr_scale_cfr
 #: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_core_value__icon
 msgid "Emoji displayed next to the value, e.g. 🤝"
 msgstr ""
@@ -333,6 +462,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:okr_scale_cfr.okr_feedback_action
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__content
 #: model:ir.ui.menu,name:okr_scale_cfr.okr_menu_feedback
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.res_config_settings_view_form
 msgid "Feedback"
 msgstr ""
 
@@ -370,6 +500,7 @@ msgstr ""
 #. module: okr_scale_cfr
 #. odoo-python
 #: code:addons/okr_scale_cfr/models/okr_objective.py:0
+#: model:ir.actions.act_window,name:okr_scale_cfr.okr_recognition_action_new
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_objective_view_form_inherit_cfr
 #, python-format
 msgid "Give Kudos"
@@ -384,7 +515,7 @@ msgstr ""
 #: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_feedback_action
 msgid ""
 "Give feedback to a colleague, or request feedback on your work and your OKRs.\n"
-"                Anonymous feedback never reveals its author to the recipient."
+"                In OKR, feedback is transparent and signed by its author."
 msgstr ""
 
 #. module: okr_scale_cfr
@@ -501,10 +632,22 @@ msgid "Kudos"
 msgstr ""
 
 #. module: okr_scale_cfr
+#: model:ir.actions.act_window,name:okr_scale_cfr.okr_recognition_action_received
+msgid "Kudos Received"
+msgstr ""
+
+#. module: okr_scale_cfr
 #. odoo-python
 #: code:addons/okr_scale_cfr/models/okr_recognition.py:0
 #, python-format
 msgid "Kudos from %(sender)s to %(receivers)s"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_dashboard.py:0
+#, python-format
+msgid "Kudos received (this month)"
 msgstr ""
 
 #. module: okr_scale_cfr
@@ -592,6 +735,13 @@ msgid "Month"
 msgstr ""
 
 #. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_dashboard.py:0
+#, python-format
+msgid "Most recognized"
+msgstr ""
+
+#. module: okr_scale_cfr
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__my_activity_date_deadline
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__my_activity_date_deadline
 msgid "My Activity Deadline"
@@ -643,6 +793,11 @@ msgid "Next Activity Type"
 msgstr ""
 
 #. module: okr_scale_cfr
+#: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_recognition_action_received
+msgid "No kudos received yet"
+msgstr ""
+
+#. module: okr_scale_cfr
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__notes
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
 msgid "Notes"
@@ -674,6 +829,11 @@ msgstr ""
 #: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__message_has_error_counter
 #: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_recognition__message_has_error_counter
 msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.res_config_settings_view_form
+msgid "OKR"
 msgstr ""
 
 #. module: okr_scale_cfr
@@ -709,6 +869,21 @@ msgstr ""
 #. module: okr_scale_cfr
 #: model:ir.model,name:okr_scale_cfr.model_okr_scale_recognition
 msgid "OKR Recognition"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.res_config_settings_view_form
+msgid ""
+"OKR is built on transparency: by default every feedback shows its author. "
+"Enable this option only if your culture needs it; the author of an anonymous"
+" feedback stays hidden from the recipient."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_res_config_settings__okr_allow_anonymous_feedback
+msgid ""
+"OKR is built on transparency: by default every feedback shows its author. "
+"Enable this option to let people hide their name from the recipient."
 msgstr ""
 
 #. module: okr_scale_cfr
@@ -776,6 +951,7 @@ msgid "Praise"
 msgstr ""
 
 #. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_kanban
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
 msgid "Private"
 msgstr ""
@@ -798,8 +974,14 @@ msgid "Received by me"
 msgstr ""
 
 #. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_kanban
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
 msgid "Receiver"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__receiver_names
+msgid "Receivers"
 msgstr ""
 
 #. module: okr_scale_cfr
@@ -833,6 +1015,18 @@ msgstr ""
 #. module: okr_scale_cfr
 #: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_core_value_action
 msgid "Recognitions are tagged with the core values they illustrate."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_recognition_action_received
+msgid "Recognitions you receive from your colleagues appear here."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_form
+msgid ""
+"Recognize a colleague and the value they lived. Kudos are visible to the "
+"whole company unless you make them private."
 msgstr ""
 
 #. module: okr_scale_cfr
@@ -890,6 +1084,11 @@ msgstr ""
 
 #. module: okr_scale_cfr
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_form
+msgid "Say thank you"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_form
 msgid "Say thank you and tell what made the difference..."
 msgstr ""
 
@@ -919,7 +1118,14 @@ msgid "Sequence"
 msgstr ""
 
 #. module: okr_scale_cfr
+#: model:ir.actions.act_window,name:okr_scale_cfr.okr_settings_action
+#: model:ir.ui.menu,name:okr_scale_cfr.okr_menu_settings
+msgid "Settings"
+msgstr ""
+
+#. module: okr_scale_cfr
 #: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_feedback_action
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_form
 msgid "Share continuous feedback"
 msgstr ""
 
@@ -967,6 +1173,13 @@ msgstr ""
 msgid ""
 "Thank a colleague for their help and link the recognition to a core value or"
 " an OKR."
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_wall_banner
+msgid ""
+"Thank a colleague, tag the core value they lived and make great work visible"
+" to everyone."
 msgstr ""
 
 #. module: okr_scale_cfr
@@ -1053,6 +1266,20 @@ msgid "We try new ideas, learn fast and keep improving."
 msgstr ""
 
 #. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__website_message_ids
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__website_message_ids
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__website_message_ids
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__website_message_ids
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_recognition__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: okr_scale_cfr
 #. odoo-python
 #: code:addons/okr_scale_cfr/models/okr_conversation.py:0
 #, python-format
@@ -1088,6 +1315,11 @@ msgstr ""
 #: code:addons/okr_scale_cfr/models/okr_conversation.py:0
 #, python-format
 msgid "Where do you stand on your key results since our last talk?"
+msgstr ""
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_form
+msgid "Which value did they live?"
 msgstr ""
 
 #. module: okr_scale_cfr
@@ -1134,4 +1366,11 @@ msgstr ""
 #. module: okr_scale_cfr
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
 msgid "e.g. Weekly 1:1"
+msgstr ""
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_dashboard.py:0
+#, python-format
+msgid "kudos"
 msgstr ""

@@ -24,16 +24,27 @@
         <field name="name">okr.scale.feedback.form</field>
         <field name="model">okr.scale.feedback</field>
         <field name="arch" type="xml">
-            <form>
+            <form class="o_okr_feedback_form">
                 <field name="is_author" invisible="1"/>
+                <field name="anonymous_allowed" invisible="1"/>
                 <header>
                     <button name="action_give" type="object" string="Give Feedback" class="btn-primary"
                             invisible="state == 'given' or not is_author"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,given"/>
                 </header>
                 <sheet>
-                    <div class="alert alert-info" role="alert" invisible="state != 'requested' or not request_message">
-                        <strong>Request: </strong><field name="request_message" class="d-inline"/>
+                    <div class="o_okr_form_intro" invisible="id">
+                        <span class="o_okr_form_intro_icon"><i class="fa fa-comments" title="Feedback"/></span>
+                        <div>
+                            <h3>Share continuous feedback</h3>
+                            <p>Describe the situation, the behaviour and its impact. Good feedback is specific, kind and actionable.</p>
+                        </div>
+                    </div>
+                    <div class="o_okr_request_box" role="alert" invisible="state != 'requested' or not request_message">
+                        <i class="fa fa-quote-left" title="Request"/>
+                        <div>
+                            <strong>Request: </strong><field name="request_message" class="d-inline"/>
+                        </div>
                     </div>
                     <group>
                         <group>
@@ -42,20 +53,26 @@
                                    readonly="id"/>
                             <field name="recipient_id" widget="many2one_avatar_user" options="{'no_create': True}"
                                    readonly="state != 'draft'"/>
-                            <field name="feedback_type" widget="radio" readonly="state == 'given'"/>
-                            <field name="anonymous" readonly="state == 'given'"/>
+                            <field name="feedback_type" widget="radio" options="{'horizontal': true}"
+                                   readonly="state == 'given'"/>
+                            <field name="anonymous" readonly="state == 'given'"
+                                   invisible="not anonymous_allowed and not anonymous"/>
                         </group>
                         <group>
                             <field name="objective_id" options="{'no_create': True}" readonly="state != 'draft'"/>
                             <field name="key_result_id" options="{'no_create': True}" readonly="state != 'draft'"/>
-                            <field name="requested_by_id" invisible="not requested_by_id"/>
+                            <field name="requested_by_id" widget="many2one_avatar_user" invisible="not requested_by_id"/>
                             <field name="date"/>
                             <field name="given_date" invisible="state != 'given'"/>
                             <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
                         </group>
                     </group>
-                    <field name="content" readonly="state == 'given'"
+                    <field name="content" class="o_okr_feedback_content" readonly="state == 'given'"
                            placeholder="Be specific: describe the situation, the behaviour and its impact..."/>
+                    <div class="o_okr_transparency_note mt-2" invisible="anonymous_allowed or state == 'given'">
+                        <i class="fa fa-eye me-1" title="Transparency"/>
+                        Feedback is transparent: the recipient sees who wrote it.
+                    </div>
                 </sheet>
             </form>
         </field>
@@ -93,7 +110,7 @@
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Share continuous feedback</p>
             <p>Give feedback to a colleague, or request feedback on your work and your OKRs.
-                Anonymous feedback never reveals its author to the recipient.</p>
+                In OKR, feedback is transparent and signed by its author.</p>
         </field>
     </record>
 </odoo>

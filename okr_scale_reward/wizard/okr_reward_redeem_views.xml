@@ -4,30 +4,59 @@
         <field name="name">okr.scale.reward.redeem.form</field>
         <field name="model">okr.scale.reward.redeem</field>
         <field name="arch" type="xml">
-            <form>
-                <field name="image_128" widget="image" class="oe_avatar"/>
-                <div class="oe_title">
-                    <h2><field name="item_id" readonly="1" options="{'no_open': True}"/></h2>
+            <form class="o_okr_redeem">
+                <field name="limited_stock" invisible="1"/>
+                <field name="stock_status" invisible="1"/>
+                <div class="o_okr_redeem_hero">
+                    <field name="image_256" widget="image" class="o_okr_redeem_img" readonly="1"/>
+                    <div class="o_okr_redeem_info">
+                        <div class="o_okr_gift_category"><field name="category_id" readonly="1" options="{'no_open': True}"/></div>
+                        <h2 class="o_okr_redeem_name"><field name="item_id" readonly="1" options="{'no_open': True}"/></h2>
+                        <div class="d-flex align-items-center gap-2 flex-wrap">
+                            <span class="o_okr_price_pill">
+                                <i class="fa fa-star" title="Points"/><field name="points_cost" class="d-inline"/><small>pts</small>
+                            </span>
+                            <span class="o_okr_redeem_stock" invisible="stock_status not in ('available', 'low')">
+                                <field name="available_qty" class="d-inline"/> left
+                            </span>
+                            <span class="o_okr_redeem_stock o_okr_stock_preorder" invisible="stock_status != 'preorder'">
+                                Pre-order: delivered as soon as it is in stock
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="o_okr_redeem_balance">
+                    <div class="o_okr_bal">
+                        <span class="o_okr_bal_label">Your balance</span>
+                        <span class="o_okr_bal_value"><field name="balance"/></span>
+                    </div>
+                    <div class="o_okr_bal_op">
+                        <span class="o_okr_bal_cost">- <field name="total_points" class="d-inline"/></span>
+                        <i class="fa fa-long-arrow-right" title="After"/>
+                    </div>
+                    <div class="o_okr_bal o_okr_bal_after" invisible="balance_after &lt; 0">
+                        <span class="o_okr_bal_label">After redemption</span>
+                        <span class="o_okr_bal_value"><field name="balance_after"/></span>
+                    </div>
+                    <div class="o_okr_bal o_okr_bal_after o_okr_bal_negative" invisible="balance_after &gt;= 0">
+                        <span class="o_okr_bal_label">Missing</span>
+                        <span class="o_okr_bal_value"><field name="balance_after"/></span>
+                    </div>
                 </div>
                 <group>
                     <group>
-                        <field name="points_cost"/>
-                        <field name="limited_stock" invisible="1"/>
-                        <field name="stock_qty" invisible="not limited_stock"/>
                         <field name="quantity"/>
-                        <field name="total_points"/>
                     </group>
                     <group>
-                        <field name="balance"/>
-                        <field name="balance_after" decoration-danger="balance_after &lt; 0" decoration-bf="1"/>
+                        <field name="total_points"/>
                     </group>
                 </group>
                 <field name="note" placeholder="Delivery details, size, colour..."/>
-                <div class="alert alert-warning" role="alert" invisible="balance_after &gt;= 0">
+                <div class="alert alert-warning mt-3 mb-0" role="alert" invisible="balance_after &gt;= 0">
                     You do not have enough points for this reward.
                 </div>
                 <footer>
-                    <button name="action_confirm" type="object" string="Confirm Redemption" class="btn-primary"
+                    <button name="action_confirm" type="object" string="Confirm Redemption" class="btn-primary o_okr_redeem_confirm"
                             invisible="balance_after &lt; 0"/>
                     <button special="cancel" string="Cancel" class="btn-secondary"/>
                 </footer>

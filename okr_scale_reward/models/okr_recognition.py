@@ -19,6 +19,7 @@ class OkrRecognition(models.Model):
             recognition.points_total = recognition.points * len(recognition.receiver_ids)
 
     @api.depends_context('uid')
+    @api.depends('sender_id')  # a dependency so that the first onchange of a new record computes it
     def _compute_sender_budget_left(self):
         self.sender_budget_left = self.env.user.okr_give_budget_left
 

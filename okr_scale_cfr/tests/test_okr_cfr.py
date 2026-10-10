@@ -69,7 +69,42 @@ class TestOkrCfr(OkrCommon):
     # ------------------------------------------------------------------
     # Feedback
     # ------------------------------------------------------------------
+    def _allow_anonymous(self, allowed=True):
+        self.env['ir.config_parameter'].sudo().set_param('okr_scale_cfr.allow_anonymous_feedback', allowed)
+
+    def test_anonymous_feedback_disabled_by_default(self):
+        """OKR is transparent: anonymity is off unless an administrator enables it."""
+        settings = self.env['res.config.settings'].create({})
+        self.assertFalse(settings.okr_allow_anonymous_feedback)
+        Feedback = self.env['okr.scale.feedback']
+        self.assertFalse(Feedback.with_user(self.seller).new({}).anonymous_allowed)
+        with self.assertRaises(ValidationError):
+            Feedback.with_user(self.seller).create({
+                'recipient_id': self.seller2.id, 'content': '<p>Hidden</p>', 'anonymous': True})
+        feedback = Feedback.with_user(self.seller).create({
+            'recipient_id': self.seller2.id, 'content': '<p>Signed</p>'})
+        with self.assertRaises(ValidationError):
+            feedback.write({'anonymous': True})
+        feedback.action_give()
+        self.assertEqual(feedback.with_user(self.seller2).author_display, self.seller.name)
+        # Enabled through the settings, then disabled again: a draft cannot be sent anonymously anymore
+        settings.okr_allow_anonymous_feedback = True
+        settings.execute()
+        self.assertTrue(Feedback.with_user(self.seller).new({}).anonymous_allowed)
+        # The form of a new feedback shows the checkbox (computed in the first onchange)
+        values = Feedback.with_user(self.seller).onchange({}, [], {'anonymous_allowed': {}, 'company_id': {}})
+        self.assertTrue(values['value']['anonymous_allowed'])
+        draft = Feedback.with_user(self.seller).create({
+            'recipient_id': self.seller2.id, 'content': '<p>Hidden</p>', 'anonymous': True})
+        self._allow_anonymous(False)
+        with self.assertRaises(UserError):
+            draft.action_give()
+        draft.write({'anonymous': False})
+        draft.action_give()
+        self.assertEqual(draft.state, 'given')
+
     def test_anonymous_feedback_hides_author(self):
+        self._allow_anonymous()
         Feedback = self.env['okr.scale.feedback']
         feedback = Feedback.with_user(self.seller).create({
             'recipient_id': self.seller2.id,
@@ -135,6 +170,7 @@ class TestOkrCfr(OkrCommon):
         message = to_answer.message_ids[:1]
         self.assertIn(self.seller.partner_id, message.partner_ids)
         # An anonymous answer removes the giver from the followers added by the request activity
+        self._allow_anonymous()
         anonymous = (requests - to_answer).with_user(self.seller2)
         self.assertIn(self.seller2.partner_id, anonymous.sudo().message_partner_ids)
         anonymous.write({'content': '<p>Speak slower</p>', 'anonymous': True})
@@ -189,3 +225,41 @@ class TestOkrCfr(OkrCommon):
         self.assertEqual(kpi['value'], 2)
         section = next(s for s in data['extra_sections'] if s['key'] == 'top_recognized')
         self.assertEqual(section['rows'][0], [self.seller2.name, 2])
+
+    def test_rankings_most_recognized(self):
+        innovation = self.env.ref('okr_scale_cfr.core_value_innovation')
+        self._kudos(self.seller, self.seller2)
+        self._kudos(self.tech, self.seller2 | self.seller, core_value_ids=[(6, 0, innovation.ids)])
+        self._kudos(self.seller, self.tech, visibility='private')
+        self._kudos(self.tech, self.seller2, core_value_ids=[(6, 0, innovation.ids)])
+        boards = self.env['okr.scale.dashboard'].with_user(self.tech)._get_extra_rankings(self.cycle, None)
+        board = next(b for b in boards if b['key'] == 'most_recognized')
+        self.assertEqual(board['icon'], 'fa-heart')
+        rows = board['rows']
+        self.assertEqual(rows[0]['user_id'], self.seller2.id)
+        self.assertEqual(rows[0]['value'], 3)
+        self.assertEqual(rows[0]['subtitle'], innovation.display_name)
+        self.assertEqual(rows[1]['user_id'], self.seller.id)
+        self.assertNotIn(self.tech.id, [row['user_id'] for row in rows], 'Private kudos are never ranked')
+        # Recognitions of another company are not counted
+        other = self.env['res.company'].create({'name': 'Other Co'})
+        self.Recognition.sudo().create({
+            'sender_id': self.seller.id, 'receiver_ids': [(6, 0, self.tech.ids)], 'message': '<p>x</p>',
+            'company_id': other.id})
+        boards = self.env['okr.scale.dashboard'].with_user(self.tech)._get_extra_rankings(self.cycle, None)
+        board = next(b for b in boards if b['key'] == 'most_recognized')
+        self.assertNotIn(self.tech.id, [row['user_id'] for row in board['rows']])
+
+    def test_my_workspace_tile_and_wall_banner(self):
+        self._kudos(self.seller, self.seller2)
+        self._kudos(self.tech, self.seller2, visibility='private')
+        tiles = self.env['okr.scale.dashboard'].with_user(self.seller2)._get_my_extra()
+        tile = next(t for t in tiles if t['key'] == 'kudos_received')
+        self.assertEqual(tile['value'], 2)
+        self.assertTrue(self.env.ref(tile['action']))
+        values = self.Recognition.with_user(self.seller)._okr_wall_banner_values()
+        self.assertEqual(values['month_count'], 1, 'Private kudos of others are not counted')
+        self.assertEqual(values['given_count'], 1)
+        self.assertEqual(values['top_value'], self.teamwork.display_name)
+        html = self.env['ir.qweb'].with_user(self.seller)._render('okr_scale_cfr.okr_wall_banner', values)
+        self.assertIn('okr_scale_cfr.okr_recognition_action_new', html)

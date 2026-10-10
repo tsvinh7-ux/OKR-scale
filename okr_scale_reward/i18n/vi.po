@@ -1,12 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* okr_scale_reward
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-10 09:17+0000\n"
-"PO-Revision-Date: 2026-10-10 09:17+0000\n"
+"POT-Creation-Date: 2026-10-10 10:14+0000\n"
+"PO-Revision-Date: 2026-10-10 10:14+0000\n"
 "Last-Translator: DMAG\n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -16,9 +17,87 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_store_banner
+msgid "<i class=\"fa fa-gift me-2\" title=\"Reward Store\"/>Reward Store"
+msgstr "<i class=\"fa fa-gift me-2\" title=\"Cửa hàng quà tặng\"/>Cửa hàng quà tặng"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
+msgid "<i class=\"fa fa-lock me-1\" title=\"Locked\"/>"
+msgstr "<i class=\"fa fa-lock me-1\" title=\"Chưa đủ điểm\"/>"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_redeem_view_form
+msgid "<i class=\"fa fa-long-arrow-right\" title=\"After\"/>"
+msgstr "<i class=\"fa fa-long-arrow-right\" title=\"Sau khi đổi\"/>"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_redeem_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_store_banner
+msgid "<i class=\"fa fa-star\" title=\"Points\"/>"
+msgstr "<i class=\"fa fa-star\" title=\"Điểm\"/>"
+
+#. module: okr_scale_reward
 #: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_recognition_view_kanban_inherit_reward
-msgid "<i class=\"fa fa-star\" title=\"Points\"/> +"
-msgstr "<i class=\"fa fa-star\" title=\"Điểm\"/> +"
+msgid "<i class=\"fa fa-star\" title=\"Points\"/>+"
+msgstr "<i class=\"fa fa-star\" title=\"Điểm\"/>+"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_redeem_view_form
+msgid "<small>pts</small>"
+msgstr "<small>điểm</small>"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_redeem_view_form
+msgid "<span class=\"o_okr_bal_label\">After redemption</span>"
+msgstr "<span class=\"o_okr_bal_label\">Sau khi đổi</span>"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_redeem_view_form
+msgid "<span class=\"o_okr_bal_label\">Missing</span>"
+msgstr "<span class=\"o_okr_bal_label\">Còn thiếu</span>"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_redeem_view_form
+msgid "<span class=\"o_okr_bal_label\">Your balance</span>"
+msgstr "<span class=\"o_okr_bal_label\">Số dư của bạn</span>"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_store_banner
+msgid "<span class=\"o_okr_banner_label\">points left to give this month</span>"
+msgstr "<span class=\"o_okr_banner_label\">điểm còn được tặng tháng này</span>"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_store_banner
+msgid "<span class=\"o_okr_banner_label\">requests in progress</span>"
+msgstr "<span class=\"o_okr_banner_label\">yêu cầu đang xử lý</span>"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_store_banner
+msgid ""
+"<span class=\"o_okr_banner_value\"><i class=\"fa fa-history\" title=\"History\"/></span>\n"
+"                    <span class=\"o_okr_banner_label\">Points history</span>"
+msgstr ""
+"<span class=\"o_okr_banner_value\"><i class=\"fa fa-history\" title=\"Lịch sử\"/></span>\n"
+"                    <span class=\"o_okr_banner_label\">Lịch sử điểm</span>"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_redeem_view_form
+msgid ""
+"<span class=\"o_okr_redeem_stock o_okr_stock_preorder\" invisible=\"stock_status != 'preorder'\">\n"
+"                                Pre-order: delivered as soon as it is in stock\n"
+"                            </span>"
+msgstr ""
+"<span class=\"o_okr_redeem_stock o_okr_stock_preorder\" invisible=\"stock_status != 'preorder'\">\n"
+"                                Đặt trước: quà sẽ được trao ngay khi có hàng\n"
+"                            </span>"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_store_banner
+msgid "<span class=\"o_okr_wallet_unit\">points available</span>"
+msgstr "<span class=\"o_okr_wallet_unit\">điểm khả dụng</span>"
 
 #. module: okr_scale_reward
 #. odoo-python
@@ -64,6 +143,11 @@ msgid "Activity Type Icon"
 msgstr "Biểu tượng loại hoạt động"
 
 #. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__affordable
+msgid "Affordable"
+msgstr "Đủ điểm"
+
+#. module: okr_scale_reward
 #: model:ir.actions.act_window,name:okr_scale_reward.okr_redemption_action_all
 #: model:ir.ui.menu,name:okr_scale_reward.okr_menu_all_redemptions
 msgid "All Redemptions"
@@ -102,6 +186,9 @@ msgid "Attachment Count"
 msgstr "Số tệp đính kèm"
 
 #. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__available_qty
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__available_qty
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_reward_item__stock_status__unlimited
 #: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_search
 msgid "Available"
 msgstr "Còn hàng"
@@ -150,6 +237,7 @@ msgstr "Đã hủy"
 
 #. module: okr_scale_reward
 #: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__category_id
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__category_id
 #: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_search
 msgid "Category"
 msgstr "Danh mục"
@@ -273,6 +361,14 @@ msgid "Display Name"
 msgstr "Tên hiển thị"
 
 #. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_store_banner
+msgid ""
+"Earn points with kudos from your colleagues, regular check-ins and achieved "
+"OKRs."
+msgstr ""
+"Tích điểm nhờ lời khen của đồng nghiệp, check-in đều đặn và hoàn thành OKR."
+
+#. module: okr_scale_reward
 #: model_terms:ir.actions.act_window,help:okr_scale_reward.okr_point_transaction_action_my
 msgid ""
 "Earn points with recognitions from your colleagues, regular check-ins and achieved OKRs,\n"
@@ -333,6 +429,13 @@ msgid ""
 msgstr ""
 "Những phần quà nhân viên có thể đổi bằng điểm. Đặt giá trị bằng 0 để tắt một"
 " loại điểm thưởng."
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_dashboard.py:0
+#, python-format
+msgid "Giving budget left"
+msgstr "Hạn mức tặng còn lại"
 
 #. module: okr_scale_reward
 #: model:ir.actions.act_window,name:okr_scale_reward.okr_point_grant_action
@@ -443,6 +546,7 @@ msgstr "Hình ảnh 128"
 
 #. module: okr_scale_reward
 #: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__image_256
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__image_256
 msgid "Image 256"
 msgstr "Hình ảnh 256"
 
@@ -450,6 +554,11 @@ msgstr "Hình ảnh 256"
 #: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__image_512
 msgid "Image 512"
 msgstr "Hình ảnh 512"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_reward_item__stock_status__available
+msgid "In stock"
+msgstr "Còn hàng"
 
 #. module: okr_scale_reward
 #: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__message_is_follower
@@ -588,9 +697,11 @@ msgid "My Redemptions"
 msgstr "Quà đã đổi của tôi"
 
 #. module: okr_scale_reward
-#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
-msgid "My points:"
-msgstr "Điểm của tôi:"
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_dashboard.py:0
+#, python-format
+msgid "My points"
+msgstr "Điểm của tôi"
 
 #. module: okr_scale_reward
 #. odoo-python
@@ -675,11 +786,6 @@ msgstr "Số tin nhắn cần xử lý"
 #: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_redemption__message_has_error_counter
 msgid "Number of messages with delivery error"
 msgstr "Số tin nhắn bị lỗi gửi"
-
-#. module: okr_scale_reward
-#: model_terms:ir.ui.view,arch_db:okr_scale_reward.res_config_settings_view_form
-msgid "OKR"
-msgstr "OKR"
 
 #. module: okr_scale_reward
 #: model:ir.model,name:okr_scale_reward.model_okr_scale_checkin
@@ -769,7 +875,7 @@ msgstr "Check-in đúng hạn"
 
 #. module: okr_scale_reward
 #. odoo-python
-#: code:addons/okr_scale_reward/models/okr_redemption.py:0
+#: code:addons/okr_scale_reward/models/okr_reward_item.py:0
 #, python-format
 msgid "Only %(qty)s \"%(item)s\" left in stock."
 msgstr "Chỉ còn %(qty)s \"%(item)s\"."
@@ -789,11 +895,17 @@ msgid "Only OKR administrators can process reward redemptions."
 msgstr "Chỉ quản trị viên OKR mới được xử lý yêu cầu đổi quà."
 
 #. module: okr_scale_reward
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_reward_item__stock_status__low
+msgid "Only a few left"
+msgstr "Sắp hết hàng"
+
+#. module: okr_scale_reward
 #: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_reward_item__product_id
 msgid "Optional product used to purchase or track this gift."
 msgstr "Sản phẩm (tùy chọn) dùng để mua hoặc theo dõi phần quà này."
 
 #. module: okr_scale_reward
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_reward_item__stock_status__out
 #: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
 msgid "Out of stock"
 msgstr "Hết hàng"
@@ -860,6 +972,11 @@ msgid "Points Left to Give"
 msgstr "Điểm còn có thể tặng"
 
 #. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__points_missing
+msgid "Points Missing"
+msgstr "Điểm còn thiếu"
+
+#. module: okr_scale_reward
 #: model:ir.model.fields,help:okr_scale_reward.field_res_users__okr_point_balance
 msgid "Points available to redeem in the reward store."
 msgstr "Số điểm có thể dùng để đổi quà trong cửa hàng quà tặng."
@@ -910,6 +1027,11 @@ msgstr "Điểm cho mỗi check-in"
 #: model:ir.model.fields,field_description:okr_scale_reward.field_res_config_settings__okr_reward_objective_achieved_points
 msgid "Points per Successful Objective"
 msgstr "Điểm cho mỗi mục tiêu thành công"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_reward_item__stock_status__preorder
+msgid "Pre-order"
+msgstr "Đặt trước"
 
 #. module: okr_scale_reward
 #: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__product_id
@@ -1053,7 +1175,6 @@ msgstr "Người phụ trách"
 #: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__item_id
 #: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__item_id
 #: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_redemption_view_search
-#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
 msgid "Reward"
 msgstr "Phần quà"
 
@@ -1118,12 +1239,6 @@ msgid "Sequence"
 msgstr "Thứ tự"
 
 #. module: okr_scale_reward
-#: model:ir.actions.act_window,name:okr_scale_reward.okr_reward_settings_action
-#: model:ir.ui.menu,name:okr_scale_reward.okr_menu_reward_settings
-msgid "Settings"
-msgstr "Cài đặt"
-
-#. module: okr_scale_reward
 #: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_transaction__source_ref
 msgid "Source"
 msgstr "Nguồn"
@@ -1165,6 +1280,12 @@ msgstr ""
 "Quá hạn: Đã quá ngày đến hạn\n"
 "Hôm nay: Hoạt động diễn ra hôm nay\n"
 "Đã lên kế hoạch: Hoạt động trong tương lai."
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__stock_status
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__stock_status
+msgid "Stock Status"
+msgstr "Tình trạng hàng"
 
 #. module: okr_scale_reward
 #: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_objective__okr_reward_granted
@@ -1234,6 +1355,13 @@ msgid "To Process"
 msgstr "Cần xử lý"
 
 #. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_dashboard.py:0
+#, python-format
+msgid "Top points"
+msgstr "Nhiều điểm thưởng nhất"
+
+#. module: okr_scale_reward
 #: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_redemption_view_tree
 msgid "Total"
 msgstr "Tổng"
@@ -1285,6 +1413,16 @@ msgid "Vouchers"
 msgstr "Phiếu quà tặng"
 
 #. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__website_message_ids
+msgid "Website Messages"
+msgstr "Tin nhắn website"
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_redemption__website_message_ids
+msgid "Website communication history"
+msgstr "Lịch sử thông tin liên lạc website"
+
+#. module: okr_scale_reward
 #: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_recognition__sender_budget_left
 msgid "What remains of your monthly giving allowance."
 msgstr "Phần còn lại của hạn mức tặng điểm hàng tháng của bạn."
@@ -1302,6 +1440,11 @@ msgstr "Bạn chỉ có thể tặng tối đa %s điểm cho mỗi người tro
 #, python-format
 msgid "You can only cancel your own requests."
 msgstr "Bạn chỉ có thể hủy yêu cầu của chính mình."
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_store_banner
+msgid "You can redeem"
+msgstr "Hôm nay bạn có thể đổi"
 
 #. module: okr_scale_reward
 #: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_redeem_view_form
@@ -1359,14 +1502,26 @@ msgstr "ví dụ: Đạt giải cuộc thi sáng tạo"
 
 #. module: okr_scale_reward
 #: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_redeem_view_form
 msgid "left"
 msgstr "còn lại"
 
 #. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_dashboard.py:0
+#, python-format
+msgid "points"
+msgstr "điểm"
+
+#. module: okr_scale_reward
 #: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_recognition_view_kanban_inherit_reward
-#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
 msgid "pts"
 msgstr "điểm"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
+msgid "pts to go"
+msgstr "điểm nữa"
 
 #. module: okr_scale_reward
 #. odoo-python
@@ -1374,3 +1529,8 @@ msgstr "điểm"
 #, python-format
 msgid "rejected"
 msgstr "bị từ chối"
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_store_banner
+msgid "rewards today. Pick one, it is on us!"
+msgstr "món quà. Chọn ngay một món nhé!"

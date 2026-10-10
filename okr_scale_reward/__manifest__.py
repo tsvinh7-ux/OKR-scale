@@ -8,9 +8,10 @@ OKR Scale - Rewards & Store
 * Monthly allowance to give points with recognitions
 * Automatic points for check-ins, achieved key results and successful objectives
 * Gift store with stock and redemption approval workflow
-* Leaderboard and dashboard indicators
+* Leaderboard, "Top points" ranking, dashboard indicators and personal workspace tiles
+* Optional inventory integration: okr_scale_reward_stock
 """,
-    'version': '17.0.1.0.0',
+    'version': '17.0.1.1.0',
     'category': 'Human Resources/OKR',
     'author': 'DMAG',
     'license': 'LGPL-3',
@@ -19,6 +20,7 @@ OKR Scale - Rewards & Store
         'security/okr_reward_security.xml',
         'security/ir.model.access.csv',
         'data/okr_reward_data.xml',
+        'views/okr_reward_templates.xml',
         'views/okr_point_transaction_views.xml',
         'views/okr_reward_item_views.xml',
         'views/okr_redemption_views.xml',
@@ -28,5 +30,10 @@ OKR Scale - Rewards & Store
         'wizard/okr_point_grant_views.xml',
         'views/okr_reward_menus.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'okr_scale_reward/static/src/scss/okr_reward.scss',
+        ],
+    },
     'installable': True,
 }

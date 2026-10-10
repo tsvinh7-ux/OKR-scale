@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.okr.reward.stock</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="okr_scale_reward.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='okr_reward_store']" position="inside">
+                <setting id="okr_reward_allow_preorder"
+                         help="Gifts tracked in inventory can be redeemed before they are purchased: the delivery waits until the gift is received in the warehouse.">
+                    <field name="okr_reward_allow_preorder"/>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

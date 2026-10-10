@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- The "OKR" settings app. It is owned by okr_scale_cfr; okr_scale_reward and
+         other add-ons add their own blocks inside //app[@name='okr_scale']. -->
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.okr.cfr</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="75"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="OKR" string="OKR" name="okr_scale" groups="okr_scale.group_okr_admin">
+                    <block title="Feedback" name="okr_cfr_feedback">
+                        <setting id="okr_allow_anonymous_feedback"
+                                 help="OKR is built on transparency: by default every feedback shows its author. Enable this option only if your culture needs it; the author of an anonymous feedback stays hidden from the recipient.">
+                            <field name="okr_allow_anonymous_feedback"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="okr_settings_action" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module': 'okr_scale', 'bin_size': False}</field>
+    </record>
+</odoo>

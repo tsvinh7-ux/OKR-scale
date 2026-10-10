@@ -1,3 +1,4 @@
+from . import res_config_settings
 from . import okr_core_value
 from . import okr_recognition
 from . import okr_feedback

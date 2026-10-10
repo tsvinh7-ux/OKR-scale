@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="okr_wall_banner" name="OKR Recognition Wall Banner">
+        <div class="o_okr_banner o_okr_wall_banner">
+            <div class="o_okr_banner_main">
+                <div class="o_okr_banner_eyebrow"><i class="fa fa-heart me-2" title="Recognition"/>Recognition Wall</div>
+                <h2 class="o_okr_banner_title">Celebrate the people behind every OKR</h2>
+                <p class="o_okr_banner_lead">Thank a colleague, tag the core value they lived and make great work visible to everyone.</p>
+                <a type="action" name="okr_scale_cfr.okr_recognition_action_new" class="btn o_okr_btn_cta" role="button">
+                    <i class="fa fa-paper-plane me-2" title="Send"/>Give kudos
+                </a>
+            </div>
+            <div class="o_okr_banner_stats">
+                <div class="o_okr_banner_stat">
+                    <span class="o_okr_banner_value" t-out="month_count"/>
+                    <span class="o_okr_banner_label">kudos this month</span>
+                </div>
+                <div class="o_okr_banner_stat">
+                    <span class="o_okr_banner_value" t-out="received_count"/>
+                    <span class="o_okr_banner_label">received by you</span>
+                </div>
+                <div class="o_okr_banner_stat">
+                    <span class="o_okr_banner_value" t-out="given_count"/>
+                    <span class="o_okr_banner_label">given by you</span>
+                </div>
+                <div t-if="top_value" class="o_okr_banner_stat o_okr_banner_stat_wide">
+                    <span class="o_okr_banner_value o_okr_banner_value_sm" t-out="top_value"/>
+                    <span class="o_okr_banner_label">most lived value</span>
+                </div>
+            </div>
+        </div>
+    </template>
+</odoo>

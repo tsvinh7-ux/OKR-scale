@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-10 09:17+0000\n"
-"PO-Revision-Date: 2026-10-10 09:17+0000\n"
+"POT-Creation-Date: 2026-10-10 10:14+0000\n"
+"PO-Revision-Date: 2026-10-10 10:14+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,8 +16,81 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_store_banner
+msgid "<i class=\"fa fa-gift me-2\" title=\"Reward Store\"/>Reward Store"
+msgstr ""
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
+msgid "<i class=\"fa fa-lock me-1\" title=\"Locked\"/>"
+msgstr ""
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_redeem_view_form
+msgid "<i class=\"fa fa-long-arrow-right\" title=\"After\"/>"
+msgstr ""
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_redeem_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_store_banner
+msgid "<i class=\"fa fa-star\" title=\"Points\"/>"
+msgstr ""
+
+#. module: okr_scale_reward
 #: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_recognition_view_kanban_inherit_reward
-msgid "<i class=\"fa fa-star\" title=\"Points\"/> +"
+msgid "<i class=\"fa fa-star\" title=\"Points\"/>+"
+msgstr ""
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_redeem_view_form
+msgid "<small>pts</small>"
+msgstr ""
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_redeem_view_form
+msgid "<span class=\"o_okr_bal_label\">After redemption</span>"
+msgstr ""
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_redeem_view_form
+msgid "<span class=\"o_okr_bal_label\">Missing</span>"
+msgstr ""
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_redeem_view_form
+msgid "<span class=\"o_okr_bal_label\">Your balance</span>"
+msgstr ""
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_store_banner
+msgid "<span class=\"o_okr_banner_label\">points left to give this month</span>"
+msgstr ""
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_store_banner
+msgid "<span class=\"o_okr_banner_label\">requests in progress</span>"
+msgstr ""
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_store_banner
+msgid ""
+"<span class=\"o_okr_banner_value\"><i class=\"fa fa-history\" title=\"History\"/></span>\n"
+"                    <span class=\"o_okr_banner_label\">Points history</span>"
+msgstr ""
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_redeem_view_form
+msgid ""
+"<span class=\"o_okr_redeem_stock o_okr_stock_preorder\" invisible=\"stock_status != 'preorder'\">\n"
+"                                Pre-order: delivered as soon as it is in stock\n"
+"                            </span>"
+msgstr ""
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_store_banner
+msgid "<span class=\"o_okr_wallet_unit\">points available</span>"
 msgstr ""
 
 #. module: okr_scale_reward
@@ -64,6 +137,11 @@ msgid "Activity Type Icon"
 msgstr ""
 
 #. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__affordable
+msgid "Affordable"
+msgstr ""
+
+#. module: okr_scale_reward
 #: model:ir.actions.act_window,name:okr_scale_reward.okr_redemption_action_all
 #: model:ir.ui.menu,name:okr_scale_reward.okr_menu_all_redemptions
 msgid "All Redemptions"
@@ -102,6 +180,9 @@ msgid "Attachment Count"
 msgstr ""
 
 #. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__available_qty
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__available_qty
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_reward_item__stock_status__unlimited
 #: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_search
 msgid "Available"
 msgstr ""
@@ -150,6 +231,7 @@ msgstr ""
 
 #. module: okr_scale_reward
 #: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__category_id
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__category_id
 #: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_search
 msgid "Category"
 msgstr ""
@@ -273,6 +355,13 @@ msgid "Display Name"
 msgstr ""
 
 #. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_store_banner
+msgid ""
+"Earn points with kudos from your colleagues, regular check-ins and achieved "
+"OKRs."
+msgstr ""
+
+#. module: okr_scale_reward
 #: model_terms:ir.actions.act_window,help:okr_scale_reward.okr_point_transaction_action_my
 msgid ""
 "Earn points with recognitions from your colleagues, regular check-ins and achieved OKRs,\n"
@@ -327,6 +416,13 @@ msgstr ""
 msgid ""
 "Gifts employees can redeem with their points. Set a value to 0 to disable a "
 "reward."
+msgstr ""
+
+#. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_dashboard.py:0
+#, python-format
+msgid "Giving budget left"
 msgstr ""
 
 #. module: okr_scale_reward
@@ -431,12 +527,18 @@ msgstr ""
 
 #. module: okr_scale_reward
 #: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__image_256
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__image_256
 msgid "Image 256"
 msgstr ""
 
 #. module: okr_scale_reward
 #: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__image_512
 msgid "Image 512"
+msgstr ""
+
+#. module: okr_scale_reward
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_reward_item__stock_status__available
+msgid "In stock"
 msgstr ""
 
 #. module: okr_scale_reward
@@ -576,8 +678,10 @@ msgid "My Redemptions"
 msgstr ""
 
 #. module: okr_scale_reward
-#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
-msgid "My points:"
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_dashboard.py:0
+#, python-format
+msgid "My points"
 msgstr ""
 
 #. module: okr_scale_reward
@@ -660,11 +764,6 @@ msgstr ""
 #. module: okr_scale_reward
 #: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_redemption__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
-
-#. module: okr_scale_reward
-#: model_terms:ir.ui.view,arch_db:okr_scale_reward.res_config_settings_view_form
-msgid "OKR"
 msgstr ""
 
 #. module: okr_scale_reward
@@ -753,7 +852,7 @@ msgstr ""
 
 #. module: okr_scale_reward
 #. odoo-python
-#: code:addons/okr_scale_reward/models/okr_redemption.py:0
+#: code:addons/okr_scale_reward/models/okr_reward_item.py:0
 #, python-format
 msgid "Only %(qty)s \"%(item)s\" left in stock."
 msgstr ""
@@ -773,11 +872,17 @@ msgid "Only OKR administrators can process reward redemptions."
 msgstr ""
 
 #. module: okr_scale_reward
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_reward_item__stock_status__low
+msgid "Only a few left"
+msgstr ""
+
+#. module: okr_scale_reward
 #: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_reward_item__product_id
 msgid "Optional product used to purchase or track this gift."
 msgstr ""
 
 #. module: okr_scale_reward
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_reward_item__stock_status__out
 #: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
 msgid "Out of stock"
 msgstr ""
@@ -843,6 +948,11 @@ msgid "Points Left to Give"
 msgstr ""
 
 #. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__points_missing
+msgid "Points Missing"
+msgstr ""
+
+#. module: okr_scale_reward
 #: model:ir.model.fields,help:okr_scale_reward.field_res_users__okr_point_balance
 msgid "Points available to redeem in the reward store."
 msgstr ""
@@ -888,6 +998,11 @@ msgstr ""
 #. module: okr_scale_reward
 #: model:ir.model.fields,field_description:okr_scale_reward.field_res_config_settings__okr_reward_objective_achieved_points
 msgid "Points per Successful Objective"
+msgstr ""
+
+#. module: okr_scale_reward
+#: model:ir.model.fields.selection,name:okr_scale_reward.selection__okr_scale_reward_item__stock_status__preorder
+msgid "Pre-order"
 msgstr ""
 
 #. module: okr_scale_reward
@@ -1032,7 +1147,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__item_id
 #: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__item_id
 #: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_redemption_view_search
-#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
 msgid "Reward"
 msgstr ""
 
@@ -1095,12 +1209,6 @@ msgid "Sequence"
 msgstr ""
 
 #. module: okr_scale_reward
-#: model:ir.actions.act_window,name:okr_scale_reward.okr_reward_settings_action
-#: model:ir.ui.menu,name:okr_scale_reward.okr_menu_reward_settings
-msgid "Settings"
-msgstr ""
-
-#. module: okr_scale_reward
 #: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_point_transaction__source_ref
 msgid "Source"
 msgstr ""
@@ -1137,6 +1245,12 @@ msgid ""
 "Overdue: Due date is already passed\n"
 "Today: Activity date is today\n"
 "Planned: Future activities."
+msgstr ""
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_item__stock_status
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_reward_redeem__stock_status
+msgid "Stock Status"
 msgstr ""
 
 #. module: okr_scale_reward
@@ -1207,6 +1321,13 @@ msgid "To Process"
 msgstr ""
 
 #. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_dashboard.py:0
+#, python-format
+msgid "Top points"
+msgstr ""
+
+#. module: okr_scale_reward
 #: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_redemption_view_tree
 msgid "Total"
 msgstr ""
@@ -1258,6 +1379,16 @@ msgid "Vouchers"
 msgstr ""
 
 #. module: okr_scale_reward
+#: model:ir.model.fields,field_description:okr_scale_reward.field_okr_scale_redemption__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: okr_scale_reward
+#: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_redemption__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: okr_scale_reward
 #: model:ir.model.fields,help:okr_scale_reward.field_okr_scale_recognition__sender_budget_left
 msgid "What remains of your monthly giving allowance."
 msgstr ""
@@ -1274,6 +1405,11 @@ msgstr ""
 #: code:addons/okr_scale_reward/models/okr_redemption.py:0
 #, python-format
 msgid "You can only cancel your own requests."
+msgstr ""
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_store_banner
+msgid "You can redeem"
 msgstr ""
 
 #. module: okr_scale_reward
@@ -1330,13 +1466,25 @@ msgstr ""
 
 #. module: okr_scale_reward
 #: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_redeem_view_form
 msgid "left"
 msgstr ""
 
 #. module: okr_scale_reward
+#. odoo-python
+#: code:addons/okr_scale_reward/models/okr_dashboard.py:0
+#, python-format
+msgid "points"
+msgstr ""
+
+#. module: okr_scale_reward
 #: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_recognition_view_kanban_inherit_reward
-#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
 msgid "pts"
+msgstr ""
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_reward_item_view_kanban
+msgid "pts to go"
 msgstr ""
 
 #. module: okr_scale_reward
@@ -1344,4 +1492,9 @@ msgstr ""
 #: code:addons/okr_scale_reward/models/okr_redemption.py:0
 #, python-format
 msgid "rejected"
+msgstr ""
+
+#. module: okr_scale_reward
+#: model_terms:ir.ui.view,arch_db:okr_scale_reward.okr_store_banner
+msgid "rewards today. Pick one, it is on us!"
 msgstr ""

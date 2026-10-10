@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="okr_store_banner" name="OKR Reward Store Banner">
+        <div class="o_okr_banner o_okr_store_banner">
+            <div class="o_okr_banner_main">
+                <div class="o_okr_banner_eyebrow"><i class="fa fa-gift me-2" title="Reward Store"/>Reward Store</div>
+                <div class="o_okr_wallet">
+                    <span class="o_okr_wallet_value"><i class="fa fa-star" title="Points"/><t t-out="balance"/></span>
+                    <span class="o_okr_wallet_unit">points available</span>
+                </div>
+                <p class="o_okr_banner_lead">
+                    <t t-if="affordable">You can redeem <strong t-out="affordable"/> rewards today. Pick one, it is on us!</t>
+                    <t t-else="">Earn points with kudos from your colleagues, regular check-ins and achieved OKRs.</t>
+                </p>
+            </div>
+            <div class="o_okr_banner_stats">
+                <a type="action" name="okr_scale_reward.okr_point_transaction_action_my" class="o_okr_banner_stat o_okr_banner_link">
+                    <span class="o_okr_banner_value"><i class="fa fa-history" title="History"/></span>
+                    <span class="o_okr_banner_label">Points history</span>
+                </a>
+                <a type="action" name="okr_scale_reward.okr_redemption_action_my" class="o_okr_banner_stat o_okr_banner_link">
+                    <span class="o_okr_banner_value" t-out="pending"/>
+                    <span class="o_okr_banner_label">requests in progress</span>
+                </a>
+                <div class="o_okr_banner_stat">
+                    <span class="o_okr_banner_value" t-out="budget_left"/>
+                    <span class="o_okr_banner_label">points left to give this month</span>
+                </div>
+            </div>
+        </div>
+    </template>
+</odoo>

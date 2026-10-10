@@ -8,6 +8,10 @@ class OkrRewardRedeem(models.TransientModel):
 
     item_id = fields.Many2one('okr.scale.reward.item', 'Reward', required=True)
     image_128 = fields.Image(related='item_id.image_128')
+    image_256 = fields.Image(related='item_id.image_256')
+    category_id = fields.Many2one(related='item_id.category_id')
+    stock_status = fields.Selection(related='item_id.stock_status')
+    available_qty = fields.Integer(related='item_id.available_qty')
     points_cost = fields.Integer(related='item_id.points_cost')
     limited_stock = fields.Boolean(related='item_id.limited_stock')
     stock_qty = fields.Integer(related='item_id.stock_qty')

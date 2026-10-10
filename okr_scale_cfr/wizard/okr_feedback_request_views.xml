@@ -5,6 +5,13 @@
         <field name="model">okr.scale.feedback.request</field>
         <field name="arch" type="xml">
             <form>
+                <div class="o_okr_form_intro">
+                    <span class="o_okr_form_intro_icon"><i class="fa fa-comments-o" title="Request"/></span>
+                    <div>
+                        <h3>Ask for feedback</h3>
+                        <p>Each person receives an activity to answer. Ask a precise question to get useful answers.</p>
+                    </div>
+                </div>
                 <group>
                     <group>
                         <field name="giver_ids" widget="many2many_avatar_user" options="{'no_create': True}"/>

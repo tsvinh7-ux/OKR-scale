@@ -1,0 +1,446 @@
+// OKR Scale - CFR: recognition wall and CFR forms, DMAG brand (tokens from okr_scale/okr_brand.scss).
+
+// ---------------------------------------------------------------------------
+// Shared banner (kanban ``banner_route``), also used by okr_scale_reward
+// ---------------------------------------------------------------------------
+.o_okr_banner {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin: 16px 24px 4px;
+    padding: 22px 28px;
+    border-radius: var(--okr-radius, 14px);
+    background: var(--okr-gradient, linear-gradient(135deg, #11346A, #178BEC));
+    color: #fff;
+    box-shadow: var(--okr-shadow);
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+        // soft light accent in the corner
+        content: "";
+        position: absolute;
+        right: -80px;
+        top: -120px;
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 255, 255, .16), rgba(255, 255, 255, 0) 70%);
+        pointer-events: none;
+    }
+
+    .o_okr_banner_main {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+    .o_okr_banner_eyebrow {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        opacity: .8;
+        margin-bottom: 4px;
+    }
+    .o_okr_banner_title {
+        color: #fff;
+        font-size: 22px;
+        font-weight: 700;
+        margin: 0 0 4px;
+    }
+    .o_okr_banner_lead {
+        margin: 0 0 14px;
+        opacity: .85;
+        max-width: 560px;
+    }
+    .o_okr_btn_cta {
+        background: #fff;
+        color: var(--okr-navy, #11346A);
+        font-weight: 600;
+        border-radius: 999px;
+        padding: 8px 20px;
+        border: 0;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, .15);
+        transition: transform .15s ease, box-shadow .15s ease;
+        &:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .2);
+            color: var(--okr-blue, #178BEC);
+        }
+    }
+    .o_okr_banner_stats {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        position: relative;
+        z-index: 1;
+    }
+    .o_okr_banner_stat {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-width: 112px;
+        padding: 12px 16px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, .12);
+        border: 1px solid rgba(255, 255, 255, .18);
+        backdrop-filter: blur(4px);
+    }
+    .o_okr_banner_stat_wide {
+        min-width: 150px;
+    }
+    .o_okr_banner_value {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1.1;
+        font-variant-numeric: tabular-nums;
+    }
+    .o_okr_banner_value_sm {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    .o_okr_banner_label {
+        font-size: 12px;
+        opacity: .8;
+    }
+
+    @media (max-width: 991.98px) {
+        flex-direction: column;
+        align-items: stretch;
+        margin: 12px;
+        padding: 18px;
+        gap: 14px;
+        .o_okr_banner_stats {
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+        }
+        .o_okr_banner_stat {
+            flex: 1 1 0;
+            min-width: 0;
+        }
+    }
+    @media (max-width: 767.98px) {
+        // Compact on phones: the banner stays above the scrolling records.
+        padding: 14px 16px;
+        gap: 10px;
+        .o_okr_banner_title {
+            font-size: 17px;
+        }
+        .o_okr_banner_lead,
+        .o_okr_banner_stat_wide {
+            display: none;
+        }
+        .o_okr_btn_cta {
+            padding: 6px 16px;
+        }
+        .o_okr_banner_stats {
+            gap: 8px;
+        }
+        .o_okr_banner_stat {
+            padding: 8px 10px;
+        }
+        .o_okr_banner_value {
+            font-size: 20px;
+        }
+        .o_okr_banner_label {
+            font-size: 11px;
+            line-height: 1.25;
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Recognition wall
+// ---------------------------------------------------------------------------
+.o_okr_wall .o_kanban_renderer.o_kanban_ungrouped {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 20px;
+    padding: 20px 24px 32px;
+    align-content: start;
+    background: var(--okr-sky, #F4F8FD);
+
+    @media (max-width: 767.98px) {
+        grid-template-columns: 1fr;
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .o_kanban_record {
+        width: auto;
+        margin: 0;
+        min-width: 0;
+
+        &.o_kanban_ghost {
+            display: none;
+        }
+        > div.o_okr_kudos {
+            border: 1px solid var(--okr-line, #E3E9F2);
+            border-radius: var(--okr-radius, 14px);
+            box-shadow: var(--okr-shadow);
+            padding: 18px 20px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+            &::after {
+                display: none;
+            }
+            &:hover {
+                transform: translateY(-2px);
+                border-color: var(--okr-blue-100, #E3F1FD);
+                box-shadow: 0 2px 4px rgba(17, 52, 106, .06), 0 14px 32px rgba(17, 52, 106, .12);
+            }
+        }
+    }
+}
+
+.o_okr_kudos {
+    color: var(--okr-ink, #1B2A41);
+
+    .o_okr_kudos_head {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas: "people people date" "names names names";
+        align-items: center;
+        row-gap: 8px;
+    }
+    .o_okr_kudos_people {
+        grid-area: people;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .o_okr_avatar {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #fff;
+        box-shadow: 0 0 0 1px var(--okr-line, #E3E9F2);
+    }
+    .o_okr_avatar_stack {
+        display: inline-flex;
+        .o_okr_avatar + .o_okr_avatar {
+            margin-left: -12px;
+        }
+    }
+    .o_okr_kudos_arrow {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--okr-blue-100, #E3F1FD);
+        color: var(--okr-blue, #178BEC);
+        font-size: 12px;
+    }
+    .o_okr_kudos_date {
+        grid-area: date;
+        font-size: 12px;
+        color: var(--okr-muted, #6B7A90);
+        white-space: nowrap;
+    }
+    .o_okr_kudos_names {
+        grid-area: names;
+        font-size: 13px;
+        line-height: 1.35;
+        color: var(--okr-muted, #6B7A90);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .o_okr_kudos_from,
+    .o_okr_kudos_to {
+        font-weight: 600;
+        color: var(--okr-navy, #11346A);
+    }
+    .o_okr_kudos_to_label {
+        margin: 0 4px;
+    }
+
+    .o_okr_kudos_quote {
+        position: relative;
+        margin: 0;
+        border: 0;
+        font-style: normal;
+        padding: 2px 0 0 28px;
+        font-size: 15px;
+        line-height: 1.55;
+        color: var(--okr-ink, #1B2A41);
+        &::before {
+            content: "\201C";
+            position: absolute;
+            left: -2px;
+            top: -10px;
+            font-family: Georgia, serif;
+            font-size: 44px;
+            line-height: 1;
+            color: var(--okr-blue, #178BEC);
+            opacity: .35;
+        }
+        .o_field_html, .o_readonly {
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        p {
+            margin: 0;
+        }
+    }
+
+    .o_okr_kudos_values {
+        &:empty, &:has(.o_field_many2many_tags:empty) {
+            display: none;
+        }
+        .o_field_tags {
+            gap: 6px;
+        }
+        .o_tag {
+            background: var(--okr-blue-100, #E3F1FD) !important;
+            color: var(--okr-navy, #11346A) !important;
+            border-radius: 999px;
+            padding: 3px 10px;
+            font-size: 12px;
+            font-weight: 500;
+            box-shadow: none;
+        }
+    }
+
+    .o_okr_kudos_okr {
+        font-size: 12px;
+        color: var(--okr-muted, #6B7A90);
+        .fa {
+            color: var(--okr-blue, #178BEC);
+        }
+    }
+
+    .o_okr_kudos_foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-top: auto;
+        padding-top: 10px;
+        border-top: 1px solid var(--okr-line, #E3E9F2);
+    }
+    .o_okr_like {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border: 1px solid var(--okr-line, #E3E9F2);
+        background: #fff;
+        color: var(--okr-muted, #6B7A90);
+        border-radius: 999px;
+        padding: 4px 12px;
+        font-size: 13px;
+        font-weight: 600;
+        transition: all .15s ease;
+        &:hover {
+            border-color: #F6B7BA;
+            color: var(--okr-danger, #E5484D);
+            background: #FFF5F5;
+        }
+        &.o_okr_liked {
+            border-color: #F6B7BA;
+            background: #FFF0F0;
+            color: var(--okr-danger, #E5484D);
+        }
+    }
+    .o_okr_kudos_badges {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+}
+
+// Gold points pill (filled by okr_scale_reward)
+.o_okr_points_pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #6B4E00;
+    background: linear-gradient(135deg, #FFE27A 0%, var(--okr-gold, #F2B705) 100%);
+    box-shadow: 0 2px 8px rgba(242, 183, 5, .35);
+    white-space: nowrap;
+}
+
+// ---------------------------------------------------------------------------
+// Forms
+// ---------------------------------------------------------------------------
+.o_okr_form_intro {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border-radius: var(--okr-radius, 14px);
+    background: var(--okr-blue-100, #E3F1FD);
+    color: var(--okr-ink, #1B2A41);
+    h3 {
+        margin: 0 0 2px;
+        color: var(--okr-navy, #11346A);
+        font-weight: 700;
+        font-size: 17px;
+    }
+    p {
+        margin: 0;
+        color: var(--okr-muted, #6B7A90);
+    }
+    .o_okr_form_intro_icon {
+        flex: 0 0 44px;
+        height: 44px;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--okr-gradient);
+        color: #fff;
+        font-size: 18px;
+    }
+}
+
+.o_okr_kudos_form,
+.o_okr_feedback_form {
+    .o_okr_kudos_message,
+    .o_okr_feedback_content {
+        display: block;
+        margin-top: 8px;
+        border: 1px solid var(--okr-line, #E3E9F2);
+        border-radius: 12px;
+        padding: 8px 12px;
+        min-height: 120px;
+        background: #fff;
+    }
+    .o_field_many2many_tags .o_tag {
+        border-radius: 999px;
+    }
+}
+
+.o_okr_request_box {
+    display: flex;
+    gap: 12px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    background: var(--okr-sky, #F4F8FD);
+    border-left: 4px solid var(--okr-blue, #178BEC);
+    .fa {
+        color: var(--okr-blue, #178BEC);
+        margin-top: 3px;
+    }
+}
+
+.o_okr_transparency_note {
+    font-size: 12px;
+    color: var(--okr-muted, #6B7A90);
+    .fa {
+        color: var(--okr-blue, #178BEC);
+    }
+}

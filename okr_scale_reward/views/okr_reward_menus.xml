@@ -17,7 +17,5 @@
     <menuitem id="okr_menu_reward_config" name="Rewards" parent="okr_scale.okr_menu_config" sequence="20">
         <menuitem id="okr_menu_reward_items" action="okr_reward_item_action" sequence="1"/>
         <menuitem id="okr_menu_reward_categories" action="okr_reward_category_action" sequence="2"/>
-        <menuitem id="okr_menu_reward_settings" action="okr_reward_settings_action" sequence="3"
-                  groups="base.group_system"/>
     </menuitem>
 </odoo>

@@ -1,3 +1,5 @@
+from datetime import datetime, time
+
 from markupsafe import Markup
 
 from odoo import _, api, fields, models
@@ -33,6 +35,15 @@ class OkrRecognition(models.Model):
     like_count = fields.Integer('Likes', compute='_compute_like_count', store=True)
     liked_by_me = fields.Boolean(compute='_compute_liked_by_me')
     company_id = fields.Many2one('res.company', required=True, index=True, default=lambda self: self.env.company)
+    receiver_names = fields.Char('Receivers', compute='_compute_receiver_names')
+
+    @api.depends('receiver_ids')
+    def _compute_receiver_names(self):
+        for recognition in self:
+            names = recognition.receiver_ids.mapped('name')
+            if len(names) > 3:
+                names = names[:2] + [_('%s others', len(names) - 2)]
+            recognition.receiver_names = ', '.join(names)
 
     @api.depends('sender_id', 'receiver_ids')
     def _compute_display_name(self):
@@ -99,3 +110,24 @@ class OkrRecognition(models.Model):
             command = (3, user.id) if user in recognition.like_user_ids else (4, user.id)
             recognition.sudo().like_user_ids = [command]
         return True
+
+    @api.model
+    def _okr_wall_banner_values(self):
+        """Figures of the wall header, read with the rights of the current user."""
+        month_start = datetime.combine(fields.Date.context_today(self).replace(day=1), time.min)
+        domain = [('date', '>=', month_start)]
+        this_month = self.search(domain)
+        values = self.env['okr.scale.core.value']
+        top_value = False
+        if this_month:
+            counts = {}
+            for value in this_month.core_value_ids:
+                counts[value] = len(this_month.filtered(lambda r, v=value: v in r.core_value_ids))
+            top_value = max(counts, key=counts.get) if counts else values
+        return {
+            'month_count': len(this_month),
+            'received_count': len(this_month.filtered(lambda r: self.env.user in r.receiver_ids)),
+            'given_count': len(this_month.filtered(lambda r: r.sender_id == self.env.user)),
+            'top_value': top_value.display_name if top_value else False,
+            'user': self.env.user,
+        }

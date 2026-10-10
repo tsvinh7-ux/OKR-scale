@@ -1,12 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* okr_scale_cfr
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-10 09:17+0000\n"
-"PO-Revision-Date: 2026-10-10 09:17+0000\n"
+"POT-Creation-Date: 2026-10-10 10:14+0000\n"
+"PO-Revision-Date: 2026-10-10 10:14+0000\n"
 "Last-Translator: DMAG\n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -21,6 +22,13 @@ msgstr ""
 #, python-format
 msgid "%(requester)s asks for your feedback about %(recipient)s"
 msgstr "%(requester)s đề nghị bạn phản hồi về %(recipient)s"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_recognition.py:0
+#, python-format
+msgid "%s others"
+msgstr "%s người khác"
 
 #. module: okr_scale_cfr
 #. odoo-python
@@ -42,14 +50,90 @@ msgid "<i class=\"fa fa-bullseye me-1\" title=\"Objective\"/>"
 msgstr "<i class=\"fa fa-bullseye me-1\" title=\"Mục tiêu\"/>"
 
 #. module: okr_scale_cfr
-#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_kanban
-msgid "<i class=\"fa fa-lock\" title=\"Private\"/> Private"
-msgstr "<i class=\"fa fa-lock\" title=\"Riêng tư\"/> Riêng tư"
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_form
+msgid ""
+"<i class=\"fa fa-eye me-1\" title=\"Transparency\"/>\n"
+"                        Feedback is transparent: the recipient sees who wrote it."
+msgstr ""
+"<i class=\"fa fa-eye me-1\" title=\"Minh bạch\"/>\n"
+"                        Phản hồi minh bạch: người nhận biết ai là người viết."
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_wall_banner
+msgid "<i class=\"fa fa-heart me-2\" title=\"Recognition\"/>Recognition Wall"
+msgstr "<i class=\"fa fa-heart me-2\" title=\"Ghi nhận\"/>Bảng ghi nhận"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_wall_banner
+msgid "<i class=\"fa fa-paper-plane me-2\" title=\"Send\"/>Give kudos"
+msgstr "<i class=\"fa fa-paper-plane me-2\" title=\"Gửi\"/>Gửi lời khen"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_form
+msgid "<i class=\"fa fa-quote-left\" title=\"Request\"/>"
+msgstr "<i class=\"fa fa-quote-left\" title=\"Yêu cầu\"/>"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_wall_banner
+msgid "<span class=\"o_okr_banner_label\">given by you</span>"
+msgstr "<span class=\"o_okr_banner_label\">bạn đã gửi</span>"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_wall_banner
+msgid "<span class=\"o_okr_banner_label\">kudos this month</span>"
+msgstr "<span class=\"o_okr_banner_label\">lời khen tháng này</span>"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_wall_banner
+msgid "<span class=\"o_okr_banner_label\">most lived value</span>"
+msgstr ""
+"<span class=\"o_okr_banner_label\">giá trị được thể hiện nhiều nhất</span>"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_wall_banner
+msgid "<span class=\"o_okr_banner_label\">received by you</span>"
+msgstr "<span class=\"o_okr_banner_label\">bạn nhận được</span>"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_form
+msgid ""
+"<span class=\"o_okr_form_intro_icon\"><i class=\"fa fa-comments\" "
+"title=\"Feedback\"/></span>"
+msgstr ""
+"<span class=\"o_okr_form_intro_icon\"><i class=\"fa fa-comments\" "
+"title=\"Phản hồi\"/></span>"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_request_view_form
+msgid ""
+"<span class=\"o_okr_form_intro_icon\"><i class=\"fa fa-comments-o\" "
+"title=\"Request\"/></span>"
+msgstr ""
+"<span class=\"o_okr_form_intro_icon\"><i class=\"fa fa-comments-o\" "
+"title=\"Yêu cầu\"/></span>"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_form
+msgid ""
+"<span class=\"o_okr_form_intro_icon\"><i class=\"fa fa-heart\" "
+"title=\"Kudos\"/></span>"
+msgstr ""
+"<span class=\"o_okr_form_intro_icon\"><i class=\"fa fa-heart\" title=\"Lời "
+"khen\"/></span>"
 
 #. module: okr_scale_cfr
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_kanban
-msgid "<i class=\"fa fa-long-arrow-right text-muted\" title=\"To\"/>"
-msgstr "<i class=\"fa fa-long-arrow-right text-muted\" title=\"Gửi đến\"/>"
+msgid ""
+"<span class=\"o_okr_kudos_arrow\"><i class=\"fa fa-long-arrow-right\" "
+"title=\"To\"/></span>"
+msgstr ""
+"<span class=\"o_okr_kudos_arrow\"><i class=\"fa fa-long-arrow-right\" "
+"title=\"Gửi tới\"/></span>"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_kanban
+msgid "<span class=\"o_okr_kudos_to_label\">to</span>"
+msgstr "<span class=\"o_okr_kudos_to_label\">gửi</span>"
 
 #. module: okr_scale_cfr
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
@@ -135,12 +219,44 @@ msgid "Agenda"
 msgstr "Chương trình"
 
 #. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_res_config_settings__okr_allow_anonymous_feedback
+msgid "Allow anonymous feedback"
+msgstr "Cho phép phản hồi ẩn danh"
+
+#. module: okr_scale_cfr
 #. odoo-python
 #: code:addons/okr_scale_cfr/models/okr_feedback.py:0
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__anonymous
 #, python-format
 msgid "Anonymous"
 msgstr "Ẩn danh"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__anonymous_allowed
+msgid "Anonymous Allowed"
+msgstr "Cho phép ẩn danh"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_feedback.py:0
+#, python-format
+msgid ""
+"Anonymous feedback has been disabled. Untick \"Anonymous\" to sign your "
+"feedback."
+msgstr ""
+"Phản hồi ẩn danh đã bị tắt. Bỏ chọn \"Ẩn danh\" để ký tên vào phản hồi của "
+"bạn."
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_feedback.py:0
+#, python-format
+msgid ""
+"Anonymous feedback is disabled: in OKR, feedback is transparent. An "
+"administrator can allow it in the OKR settings."
+msgstr ""
+"Phản hồi ẩn danh đang tắt: trong OKR, phản hồi luôn minh bạch. Quản trị viên"
+" có thể bật lại trong cài đặt OKR."
 
 #. module: okr_scale_cfr
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_core_value_view_search
@@ -151,6 +267,11 @@ msgstr "Đã lưu trữ"
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback_request__giver_ids
 msgid "Ask Feedback From"
 msgstr "Xin phản hồi từ"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_request_view_form
+msgid "Ask for feedback"
+msgstr "Xin phản hồi"
 
 #. module: okr_scale_cfr
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__message_attachment_count
@@ -200,6 +321,11 @@ msgid "Career and development"
 msgstr "Sự nghiệp và phát triển"
 
 #. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_wall_banner
+msgid "Celebrate the people behind every OKR"
+msgstr "Tôn vinh những người đứng sau mỗi OKR"
+
+#. module: okr_scale_cfr
 #. odoo-python
 #: code:addons/okr_scale_cfr/wizard/okr_feedback_request.py:0
 #, python-format
@@ -218,6 +344,11 @@ msgstr "Màu sắc"
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__company_id
 msgid "Company"
 msgstr "Công ty"
+
+#. module: okr_scale_cfr
+#: model:ir.model,name:okr_scale_cfr.model_res_config_settings
+msgid "Config Settings"
+msgstr "Cài đặt cấu hình"
 
 #. module: okr_scale_cfr
 #: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_feedback__feedback_type__constructive
@@ -279,6 +410,15 @@ msgid "Define the core values of your company"
 msgstr "Xác định các giá trị cốt lõi của công ty bạn"
 
 #. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_form
+msgid ""
+"Describe the situation, the behaviour and its impact. Good feedback is "
+"specific, kind and actionable."
+msgstr ""
+"Mô tả tình huống, hành vi và tác động của nó. Phản hồi tốt là phản hồi cụ "
+"thể, tử tế và có thể hành động được."
+
+#. module: okr_scale_cfr
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__description
 msgid "Description"
 msgstr "Mô tả"
@@ -314,6 +454,15 @@ msgid "Duration in hours."
 msgstr "Thời lượng tính bằng giờ."
 
 #. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_request_view_form
+msgid ""
+"Each person receives an activity to answer. Ask a precise question to get "
+"useful answers."
+msgstr ""
+"Mỗi người sẽ nhận được một hoạt động để trả lời. Hãy đặt câu hỏi cụ thể để "
+"nhận được câu trả lời hữu ích."
+
+#. module: okr_scale_cfr
 #: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_core_value__icon
 msgid "Emoji displayed next to the value, e.g. 🤝"
 msgstr "Biểu tượng cảm xúc hiển thị cạnh giá trị, ví dụ 🤝"
@@ -333,6 +482,7 @@ msgstr "Mọi người"
 #: model:ir.actions.act_window,name:okr_scale_cfr.okr_feedback_action
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__content
 #: model:ir.ui.menu,name:okr_scale_cfr.okr_menu_feedback
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.res_config_settings_view_form
 msgid "Feedback"
 msgstr "Phản hồi"
 
@@ -370,6 +520,7 @@ msgstr "Gửi phản hồi"
 #. module: okr_scale_cfr
 #. odoo-python
 #: code:addons/okr_scale_cfr/models/okr_objective.py:0
+#: model:ir.actions.act_window,name:okr_scale_cfr.okr_recognition_action_new
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_objective_view_form_inherit_cfr
 #, python-format
 msgid "Give Kudos"
@@ -384,10 +535,10 @@ msgstr "Gửi phản hồi"
 #: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_feedback_action
 msgid ""
 "Give feedback to a colleague, or request feedback on your work and your OKRs.\n"
-"                Anonymous feedback never reveals its author to the recipient."
+"                In OKR, feedback is transparent and signed by its author."
 msgstr ""
-"Gửi phản hồi cho đồng nghiệp, hoặc xin phản hồi về công việc và OKR của bạn."
-" Phản hồi ẩn danh không bao giờ tiết lộ người viết cho người nhận."
+"Gửi phản hồi cho đồng nghiệp, hoặc xin phản hồi về công việc và OKR của bạn.\n"
+"                Trong OKR, phản hồi luôn minh bạch và được ký tên bởi người viết."
 
 #. module: okr_scale_cfr
 #: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_recognition_action
@@ -503,11 +654,23 @@ msgid "Kudos"
 msgstr "Lời khen"
 
 #. module: okr_scale_cfr
+#: model:ir.actions.act_window,name:okr_scale_cfr.okr_recognition_action_received
+msgid "Kudos Received"
+msgstr "Lời khen đã nhận"
+
+#. module: okr_scale_cfr
 #. odoo-python
 #: code:addons/okr_scale_cfr/models/okr_recognition.py:0
 #, python-format
 msgid "Kudos from %(sender)s to %(receivers)s"
 msgstr "Lời khen từ %(sender)s gửi %(receivers)s"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_dashboard.py:0
+#, python-format
+msgid "Kudos received (this month)"
+msgstr "Lời khen nhận được (tháng này)"
 
 #. module: okr_scale_cfr
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__write_uid
@@ -594,6 +757,13 @@ msgid "Month"
 msgstr "Tháng"
 
 #. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_dashboard.py:0
+#, python-format
+msgid "Most recognized"
+msgstr "Được ghi nhận nhiều nhất"
+
+#. module: okr_scale_cfr
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__my_activity_date_deadline
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__my_activity_date_deadline
 msgid "My Activity Deadline"
@@ -645,6 +815,11 @@ msgid "Next Activity Type"
 msgstr "Loại hoạt động tiếp theo"
 
 #. module: okr_scale_cfr
+#: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_recognition_action_received
+msgid "No kudos received yet"
+msgstr "Chưa nhận được lời khen nào"
+
+#. module: okr_scale_cfr
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__notes
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
 msgid "Notes"
@@ -677,6 +852,11 @@ msgstr "Số tin nhắn cần xử lý"
 #: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_recognition__message_has_error_counter
 msgid "Number of messages with delivery error"
 msgstr "Số tin nhắn bị lỗi gửi"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.res_config_settings_view_form
+msgid "OKR"
+msgstr "OKR"
 
 #. module: okr_scale_cfr
 #: model:ir.model,name:okr_scale_cfr.model_okr_scale_conversation
@@ -712,6 +892,26 @@ msgstr "Mục tiêu OKR"
 #: model:ir.model,name:okr_scale_cfr.model_okr_scale_recognition
 msgid "OKR Recognition"
 msgstr "Ghi nhận OKR"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.res_config_settings_view_form
+msgid ""
+"OKR is built on transparency: by default every feedback shows its author. "
+"Enable this option only if your culture needs it; the author of an anonymous"
+" feedback stays hidden from the recipient."
+msgstr ""
+"OKR được xây dựng trên sự minh bạch: mặc định mọi phản hồi đều hiển thị "
+"người viết. Chỉ bật tuỳ chọn này nếu văn hoá công ty thực sự cần; người viết"
+" phản hồi ẩn danh sẽ được giấu khỏi người nhận."
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_res_config_settings__okr_allow_anonymous_feedback
+msgid ""
+"OKR is built on transparency: by default every feedback shows its author. "
+"Enable this option to let people hide their name from the recipient."
+msgstr ""
+"OKR được xây dựng trên sự minh bạch: mặc định mọi phản hồi đều hiển thị "
+"người viết. Bật tuỳ chọn này để cho phép người viết ẩn tên với người nhận."
 
 #. module: okr_scale_cfr
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__objective_id
@@ -778,6 +978,7 @@ msgid "Praise"
 msgstr "Khen ngợi"
 
 #. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_kanban
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
 msgid "Private"
 msgstr "Riêng tư"
@@ -800,8 +1001,14 @@ msgid "Received by me"
 msgstr "Tôi nhận được"
 
 #. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_kanban
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
 msgid "Receiver"
+msgstr "Người nhận"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__receiver_names
+msgid "Receivers"
 msgstr "Người nhận"
 
 #. module: okr_scale_cfr
@@ -836,6 +1043,20 @@ msgstr "Lời khen (chu kỳ này)"
 #: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_core_value_action
 msgid "Recognitions are tagged with the core values they illustrate."
 msgstr "Lời khen được gắn với các giá trị cốt lõi mà chúng thể hiện."
+
+#. module: okr_scale_cfr
+#: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_recognition_action_received
+msgid "Recognitions you receive from your colleagues appear here."
+msgstr "Các lời khen bạn nhận được từ đồng nghiệp sẽ hiển thị tại đây."
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_form
+msgid ""
+"Recognize a colleague and the value they lived. Kudos are visible to the "
+"whole company unless you make them private."
+msgstr ""
+"Ghi nhận đồng nghiệp và giá trị cốt lõi họ đã thể hiện. Lời khen hiển thị "
+"với toàn công ty, trừ khi bạn đặt ở chế độ riêng tư."
 
 #. module: okr_scale_cfr
 #: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_conversation_action
@@ -894,6 +1115,11 @@ msgstr "Lỗi gửi SMS"
 
 #. module: okr_scale_cfr
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_form
+msgid "Say thank you"
+msgstr "Gửi lời cảm ơn"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_form
 msgid "Say thank you and tell what made the difference..."
 msgstr "Hãy nói lời cảm ơn và cho biết điều gì đã tạo nên khác biệt..."
 
@@ -923,7 +1149,14 @@ msgid "Sequence"
 msgstr "Thứ tự"
 
 #. module: okr_scale_cfr
+#: model:ir.actions.act_window,name:okr_scale_cfr.okr_settings_action
+#: model:ir.ui.menu,name:okr_scale_cfr.okr_menu_settings
+msgid "Settings"
+msgstr "Cài đặt"
+
+#. module: okr_scale_cfr
 #: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_feedback_action
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_form
 msgid "Share continuous feedback"
 msgstr "Chia sẻ phản hồi liên tục"
 
@@ -978,6 +1211,15 @@ msgid ""
 msgstr ""
 "Cảm ơn đồng nghiệp vì sự giúp đỡ và liên kết lời khen với một giá trị cốt "
 "lõi hoặc một OKR."
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_wall_banner
+msgid ""
+"Thank a colleague, tag the core value they lived and make great work visible"
+" to everyone."
+msgstr ""
+"Cảm ơn đồng nghiệp, gắn giá trị cốt lõi họ đã thể hiện và lan toả những việc"
+" làm tốt tới mọi người."
 
 #. module: okr_scale_cfr
 #. odoo-python
@@ -1065,6 +1307,20 @@ msgstr ""
 "Chúng tôi thử nghiệm ý tưởng mới, học hỏi nhanh và không ngừng cải tiến."
 
 #. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__website_message_ids
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__website_message_ids
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__website_message_ids
+msgid "Website Messages"
+msgstr "Tin nhắn website"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__website_message_ids
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_feedback__website_message_ids
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_recognition__website_message_ids
+msgid "Website communication history"
+msgstr "Lịch sử thông tin liên lạc website"
+
+#. module: okr_scale_cfr
 #. odoo-python
 #: code:addons/okr_scale_cfr/models/okr_conversation.py:0
 #, python-format
@@ -1101,6 +1357,11 @@ msgstr "Bạn muốn học hỏi hoặc phát triển theo hướng nào tiếp 
 #, python-format
 msgid "Where do you stand on your key results since our last talk?"
 msgstr "Kết quả then chốt của bạn tiến triển ra sao kể từ lần trao đổi trước?"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_form
+msgid "Which value did they live?"
+msgstr "Họ đã thể hiện giá trị nào?"
 
 #. module: okr_scale_cfr
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_form
@@ -1148,3 +1409,10 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
 msgid "e.g. Weekly 1:1"
 msgstr "ví dụ: Trao đổi 1:1 hàng tuần"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_dashboard.py:0
+#, python-format
+msgid "kudos"
+msgstr "lời khen"

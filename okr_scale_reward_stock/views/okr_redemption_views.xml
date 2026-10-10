@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_redemption_view_form_inherit_stock" model="ir.ui.view">
+        <field name="name">okr.scale.redemption.form.inherit.stock</field>
+        <field name="model">okr.scale.redemption</field>
+        <field name="inherit_id" ref="okr_scale_reward.okr_redemption_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/button[@name='action_deliver']" position="before">
+                <button name="action_create_delivery" type="object" string="Create Delivery"
+                        invisible="state != 'approved' or not track_inventory or (picking_id and picking_state != 'cancel')"
+                        groups="okr_scale.group_okr_admin"/>
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <field name="track_inventory" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='image_128']" position="before">
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_view_picking" type="object" class="oe_stat_button" icon="fa-truck"
+                            invisible="not picking_id" groups="stock.group_stock_user">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_text">Delivery</span>
+                            <span class="o_stat_value"><field name="picking_state" nolabel="1"/></span>
+                        </div>
+                    </button>
+                </div>
+            </xpath>
+            <field name="deliver_date" position="after">
+                <field name="picking_id" invisible="not picking_id" options="{'no_open': True}"/>
+                <field name="picking_state" invisible="not picking_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="okr_redemption_view_tree_inherit_stock" model="ir.ui.view">
+        <field name="name">okr.scale.redemption.tree.inherit.stock</field>
+        <field name="model">okr.scale.redemption</field>
+        <field name="inherit_id" ref="okr_scale_reward.okr_redemption_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="state" position="before">
+                <field name="picking_state" optional="show" widget="badge" decoration-success="picking_state == 'done'"
+                       decoration-warning="picking_state in ('confirmed', 'waiting')" decoration-info="picking_state == 'assigned'"/>
+            </field>
+        </field>
+    </record>
+</odoo>

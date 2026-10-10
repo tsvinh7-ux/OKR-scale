@@ -270,3 +270,49 @@ class TestOkrReward(OkrCommon):
         self.assertEqual(section['rows'][0], [1, self.seller2.name, 30])
         self.assertEqual(section['rows'][1], [2, self.seller.name, 10])
         self.assertTrue(any(k['key'] == 'recognitions' for k in data['kpis']))
+
+    def test_store_availability_status(self):
+        self._grant(self.seller, 40)
+        hoodie = self.hoodie.with_user(self.seller)
+        self.assertEqual(hoodie.stock_status, 'low')
+        self.assertEqual(hoodie.available_qty, 2)
+        self.assertTrue(hoodie.affordable)
+        self.assertTrue(hoodie.can_redeem)
+        mug = self.env['okr.scale.reward.item'].create({'name': 'Mug', 'points_cost': 50})
+        mug = mug.with_user(self.seller)
+        self.assertEqual(mug.stock_status, 'unlimited')
+        self.assertFalse(mug.affordable)
+        self.assertEqual(mug.points_missing, 10)
+        self.assertFalse(mug.can_redeem)
+        self.hoodie.stock_qty = 0
+        hoodie.invalidate_recordset()
+        self.assertEqual(hoodie.stock_status, 'out')
+        self.assertFalse(hoodie.can_redeem)
+        values = self.env['okr.scale.reward.item'].with_user(self.seller)._okr_store_banner_values()
+        self.assertEqual(values['balance'], 40)
+        self.assertEqual(values['affordable'], 1)
+        html = self.env['ir.qweb'].with_user(self.seller)._render('okr_scale_reward.okr_store_banner', values)
+        self.assertIn('okr_scale_reward.okr_redemption_action_my', html)
+
+    def test_rankings_and_workspace(self):
+        self._kudos(self.seller, self.seller2, 20)
+        self._kudos(self.tech, self.seller2 | self.seller, 10)
+        Dashboard = self.env['okr.scale.dashboard'].with_user(self.tech)
+        board = next(b for b in Dashboard._get_extra_rankings(self.cycle, None) if b['key'] == 'top_points')
+        self.assertEqual(board['icon'], 'fa-star')
+        self.assertEqual([(r['user_id'], r['value']) for r in board['rows']],
+                         [(self.seller2.id, 30), (self.seller.id, 10)])
+        self.assertEqual(board['rows'][0]['subtitle'], self.dep_sales.name)
+        self.assertTrue(any(b['key'] == 'most_recognized' for b in Dashboard._get_extra_rankings(self.cycle, None)))
+        tiles = {t['key']: t for t in self.env['okr.scale.dashboard'].with_user(self.seller2)._get_my_extra()}
+        self.assertEqual(tiles['my_points']['value'], 30)
+        self.assertEqual(tiles['give_budget_left']['value'], 100)
+        self.assertIn('kudos_received', tiles)
+        for tile in tiles.values():
+            self.assertTrue(self.env.ref(tile['action']))
+
+    def test_settings_in_okr_app(self):
+        arch = self.env['res.config.settings'].get_views([(False, 'form')])['views']['form']['arch']
+        self.assertEqual(arch.count('name="okr_scale"'), 1, 'One OKR settings app shared by the add-ons')
+        self.assertIn('okr_reward_monthly_allowance', arch)
+        self.assertIn('okr_allow_anonymous_feedback', arch)

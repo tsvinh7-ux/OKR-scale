@@ -4,45 +4,57 @@
         <field name="name">okr.scale.recognition.kanban</field>
         <field name="model">okr.scale.recognition</field>
         <field name="arch" type="xml">
-            <kanban class="o_okr_recognition_wall" default_order="date desc, id desc" quick_create="false">
+            <kanban class="o_okr_wall" default_order="date desc, id desc" quick_create="false"
+                    banner_route="/okr_scale_cfr/wall_banner">
                 <field name="id"/>
                 <field name="sender_id"/>
+                <field name="receiver_ids"/>
+                <field name="receiver_names"/>
                 <field name="visibility"/>
                 <field name="liked_by_me"/>
                 <field name="like_count"/>
+                <field name="objective_id"/>
                 <templates>
                     <t t-name="kanban-box">
-                        <div class="oe_kanban_global_click">
-                            <div class="oe_kanban_content">
-                                <div class="o_kanban_record_top mb-2">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <field name="sender_id" widget="many2one_avatar_user"/>
-                                        <i class="fa fa-long-arrow-right text-muted" title="To"/>
-                                        <field name="receiver_ids" widget="many2many_avatar_user"/>
-                                    </div>
-                                    <span class="ms-auto text-muted small"><field name="date" widget="date"/></span>
+                        <div class="oe_kanban_global_click o_okr_kudos">
+                            <div class="o_okr_kudos_head">
+                                <div class="o_okr_kudos_people">
+                                    <img class="o_okr_avatar" t-att-alt="record.sender_id.value"
+                                         t-att-src="kanban_image('res.users', 'avatar_128', record.sender_id.raw_value)"/>
+                                    <span class="o_okr_kudos_arrow"><i class="fa fa-long-arrow-right" title="To"/></span>
+                                    <span class="o_okr_avatar_stack">
+                                        <t t-foreach="record.receiver_ids.raw_value.slice(0, 3)" t-as="receiver_id" t-key="receiver_id">
+                                            <img class="o_okr_avatar" alt="Receiver"
+                                                 t-att-src="kanban_image('res.users', 'avatar_128', receiver_id)"/>
+                                        </t>
+                                    </span>
                                 </div>
-                                <div class="o_kanban_record_body">
-                                    <div name="okr_recognition_badges" class="mb-1">
-                                        <span t-if="record.visibility.raw_value == 'private'" class="badge text-bg-secondary me-1">
-                                            <i class="fa fa-lock" title="Private"/> Private
-                                        </span>
-                                    </div>
-                                    <field name="message"/>
-                                    <field name="core_value_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
-                                    <div t-if="record.objective_id.raw_value" class="text-muted small">
-                                        <i class="fa fa-bullseye me-1" title="Objective"/><field name="objective_id"/>
-                                    </div>
+                                <div class="o_okr_kudos_names">
+                                    <span class="o_okr_kudos_from"><t t-esc="record.sender_id.value"/></span>
+                                    <span class="o_okr_kudos_to_label">to</span>
+                                    <span class="o_okr_kudos_to"><t t-esc="record.receiver_names.value"/></span>
                                 </div>
-                                <div class="o_kanban_record_bottom mt-2">
-                                    <div class="oe_kanban_bottom_left">
-                                        <button name="action_toggle_like" type="object" class="btn btn-sm btn-link p-0">
-                                            <i t-attf-class="fa {{ record.liked_by_me.raw_value ? 'fa-heart text-danger' : 'fa-heart-o' }}" title="Like"/>
-                                            <span class="ms-1" t-esc="record.like_count.value"/>
-                                        </button>
-                                    </div>
-                                    <div class="oe_kanban_bottom_right"/>
+                                <div class="o_okr_kudos_date">
+                                    <field name="date" widget="datetime" options="{'show_time': 'False'}"/>
+                                    <i t-if="record.visibility.raw_value == 'private'" class="fa fa-lock ms-2" title="Private"/>
                                 </div>
+                            </div>
+                            <blockquote class="o_okr_kudos_quote">
+                                <field name="message"/>
+                            </blockquote>
+                            <div class="o_okr_kudos_values">
+                                <field name="core_value_ids" widget="many2many_tags"/>
+                            </div>
+                            <div t-if="record.objective_id.raw_value" class="o_okr_kudos_okr text-truncate">
+                                <i class="fa fa-bullseye me-1" title="Objective"/><t t-esc="record.objective_id.value"/>
+                            </div>
+                            <div class="o_okr_kudos_foot">
+                                <button name="action_toggle_like" type="object"
+                                        t-attf-class="o_okr_like {{ record.liked_by_me.raw_value ? 'o_okr_liked' : '' }}">
+                                    <i t-attf-class="fa {{ record.liked_by_me.raw_value ? 'fa-heart' : 'fa-heart-o' }}" title="Like"/>
+                                    <span t-esc="record.like_count.value"/>
+                                </button>
+                                <div name="okr_recognition_badges" class="o_okr_kudos_badges"/>
                             </div>
                         </div>
                     </t>
@@ -59,7 +71,7 @@
                 <field name="date"/>
                 <field name="sender_id" widget="many2one_avatar_user"/>
                 <field name="receiver_ids" widget="many2many_avatar_user"/>
-                <field name="core_value_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="core_value_ids" widget="many2many_tags"/>
                 <field name="objective_id" optional="show"/>
                 <field name="key_result_id" optional="hide"/>
                 <field name="visibility" optional="show"/>
@@ -73,7 +85,7 @@
         <field name="name">okr.scale.recognition.form</field>
         <field name="model">okr.scale.recognition</field>
         <field name="arch" type="xml">
-            <form>
+            <form class="o_okr_kudos_form">
                 <header>
                     <button name="action_toggle_like" type="object" string="Like" icon="fa-heart-o"
                             invisible="not id or liked_by_me"/>
@@ -81,12 +93,20 @@
                             invisible="not id or not liked_by_me"/>
                 </header>
                 <sheet>
+                    <div class="o_okr_form_intro" invisible="id">
+                        <span class="o_okr_form_intro_icon"><i class="fa fa-heart" title="Kudos"/></span>
+                        <div>
+                            <h3>Say thank you</h3>
+                            <p>Recognize a colleague and the value they lived. Kudos are visible to the whole company unless you make them private.</p>
+                        </div>
+                    </div>
                     <group>
                         <group>
                             <field name="sender_id" widget="many2one_avatar_user"/>
                             <field name="receiver_ids" widget="many2many_avatar_user" options="{'no_create': True}"
                                    placeholder="Who do you want to thank?"/>
-                            <field name="core_value_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create': True}"/>
+                            <field name="core_value_ids" widget="many2many_tags" options="{'no_create': True}"
+                                   placeholder="Which value did they live?"/>
                         </group>
                         <group name="okr_links">
                             <field name="objective_id" options="{'no_create': True}"/>
@@ -96,7 +116,7 @@
                             <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
                         </group>
                     </group>
-                    <field name="message" placeholder="Say thank you and tell what made the difference..."/>
+                    <field name="message" class="o_okr_kudos_message" placeholder="Say thank you and tell what made the difference..."/>
                     <group invisible="not id">
                         <field name="liked_by_me" invisible="1"/>
                         <field name="like_count"/>
@@ -147,5 +167,24 @@
             <p class="o_view_nocontent_smiling_face">Give your first kudos</p>
             <p>Thank a colleague for their help and link the recognition to a core value or an OKR.</p>
         </field>
+    </record>
+
+    <record id="okr_recognition_action_received" model="ir.actions.act_window">
+        <field name="name">Kudos Received</field>
+        <field name="res_model">okr.scale.recognition</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{'search_default_received': 1, 'search_default_this_month': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No kudos received yet</p>
+            <p>Recognitions you receive from your colleagues appear here.</p>
+        </field>
+    </record>
+
+    <record id="okr_recognition_action_new" model="ir.actions.act_window">
+        <field name="name">Give Kudos</field>
+        <field name="res_model">okr.scale.recognition</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="okr_recognition_view_form"/>
+        <field name="target">new</field>
     </record>
 </odoo>

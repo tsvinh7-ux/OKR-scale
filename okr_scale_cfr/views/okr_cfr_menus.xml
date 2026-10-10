@@ -8,4 +8,6 @@
     </menuitem>
 
     <menuitem id="okr_menu_core_values" parent="okr_scale.okr_menu_config" action="okr_core_value_action" sequence="10"/>
+    <menuitem id="okr_menu_settings" parent="okr_scale.okr_menu_config" action="okr_settings_action" sequence="0"
+              groups="base.group_system"/>
 </odoo>

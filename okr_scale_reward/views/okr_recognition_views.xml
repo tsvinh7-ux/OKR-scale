@@ -7,8 +7,8 @@
         <field name="arch" type="xml">
             <xpath expr="//div[@name='okr_recognition_badges']" position="inside">
                 <field name="points" invisible="1"/>
-                <span t-if="record.points.raw_value" class="badge text-bg-warning me-1">
-                    <i class="fa fa-star" title="Points"/> +<t t-esc="record.points.value"/> pts
+                <span t-if="record.points.raw_value" class="o_okr_points_pill">
+                    <i class="fa fa-star" title="Points"/>+<t t-esc="record.points.value"/> pts
                 </span>
             </xpath>
         </field>

@@ -43,3 +43,46 @@ class OkrDashboard(models.AbstractModel):
             'rows': rows,
         })
         return sections
+
+    @api.model
+    def _get_extra_rankings(self, cycle, objectives):
+        """"Top points" board: points earned during the cycle (spending excluded)."""
+        boards = super()._get_extra_rankings(cycle, objectives)
+        rows = []
+        if cycle:
+            data = self.env['okr.scale.point.transaction'].sudo()._read_group(
+                self._reward_earning_domain(cycle) + [('user_id.share', '=', False), ('user_id.active', '=', True)],
+                ['user_id'], ['points:sum'], order='points:sum desc', limit=10)
+            rows = [{
+                'user_id': user.id,
+                'name': user.name,
+                'subtitle': user.employee_id.department_id.name or '',
+                'value': points,
+            } for user, points in data]
+        boards.append({
+            'key': 'top_points',
+            'title': _('Top points'),
+            'icon': 'fa-star',
+            'unit': _('points'),
+            'rows': rows,
+        })
+        return boards
+
+    @api.model
+    def _get_my_extra(self):
+        tiles = super()._get_my_extra()
+        user = self.env.user
+        tiles += [{
+            'key': 'my_points',
+            'label': _('My points'),
+            'value': user.okr_point_balance,
+            'icon': 'fa-star',
+            'action': 'okr_scale_reward.okr_point_transaction_action_my',
+        }, {
+            'key': 'give_budget_left',
+            'label': _('Giving budget left'),
+            'value': user.okr_give_budget_left,
+            'icon': 'fa-heart',
+            'action': 'okr_scale_cfr.okr_recognition_action',
+        }]
+        return tiles

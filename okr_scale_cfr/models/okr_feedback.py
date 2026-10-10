@@ -35,6 +35,7 @@ class OkrFeedback(models.Model):
     ], 'Type', required=True, default='praise')
     content = fields.Html('Feedback')
     anonymous = fields.Boolean(help='The recipient will not see who wrote this feedback.')
+    anonymous_allowed = fields.Boolean(compute='_compute_anonymous_allowed')
     state = fields.Selection([
         ('draft', 'Draft'),
         ('requested', 'Requested'),
@@ -61,6 +62,21 @@ class OkrFeedback(models.Model):
             raise NotImplementedError(_('Operation not supported'))
         mine = self.sudo().with_context(active_test=False)._search([('author_id', '=', self.env.uid)])
         return [('id', 'in' if (operator == '=') == value else 'not in', mine)]
+
+    @api.model
+    def _okr_anonymous_allowed(self):
+        """Anonymous feedback is off unless enabled in the settings: OKR favours transparency."""
+        return bool(self.env['ir.config_parameter'].sudo().get_param('okr_scale_cfr.allow_anonymous_feedback'))
+
+    @api.depends('company_id')  # a dependency so that the first onchange of a new record computes it
+    def _compute_anonymous_allowed(self):
+        self.anonymous_allowed = self._okr_anonymous_allowed()
+
+    @api.constrains('anonymous')
+    def _check_anonymous_allowed(self):
+        if any(feedback.anonymous for feedback in self) and not self._okr_anonymous_allowed():
+            raise ValidationError(_('Anonymous feedback is disabled: in OKR, feedback is transparent. '
+                                    'An administrator can allow it in the OKR settings.'))
 
     @api.constrains('author_id', 'recipient_id')
     def _check_recipient(self):
@@ -91,6 +107,8 @@ class OkrFeedback(models.Model):
                 continue
             if not feedback.is_author and not self._okr_is_admin():
                 raise AccessError(_('Only the author can give this feedback.'))
+            if feedback.anonymous and not self._okr_anonymous_allowed():
+                raise UserError(_('Anonymous feedback has been disabled. Untick "Anonymous" to sign your feedback.'))
             if is_html_empty(feedback.content):
                 raise UserError(_('Write your feedback before sending it.'))
             feedback.write({'state': 'given', 'given_date': fields.Datetime.now()})

@@ -37,7 +37,14 @@ Tặng điểm kèm lời khen
 Cửa hàng quà tặng
 -----------------
 * Quà tặng: hình ảnh, giá (điểm), danh mục, giới hạn số lượng, sản phẩm liên kết (tuỳ chọn), công ty.
-* Nút **Đổi quà** mở hộp thoại hiển thị số dư hiện tại và số dư sau khi đổi.
+* Giao diện cửa hàng theo nhận diện DMAG: banner ví điểm (số dư, số món đổi được ngay, yêu cầu đang xử lý,
+  hạn mức tặng còn lại, lối tắt *Lịch sử điểm*), thẻ quà lấy hình ảnh làm trọng tâm, giá điểm dạng "viên thuốc"
+  xanh thương hiệu, nhãn tình trạng hàng (*Còn N*, *Sắp hết hàng*, *Hết hàng*, *Đặt trước*), nút **Đổi quà**
+  nổi bật; quà chưa đủ điểm hiển thị mờ kèm số điểm còn thiếu.
+* Nút **Đổi quà** mở hộp thoại hiển thị lớn số dư hiện tại -> số dư sau khi đổi.
+* Quản lý số lượng theo kho (tồn kho, phiếu giao hàng, đặt trước): cài thêm phân hệ tuỳ chọn
+  ``okr_scale_reward_stock``. Phân hệ này dùng các hàm mở rộng ``_okr_stock_limit``,
+  ``_okr_allows_preorder``, ``_okr_reserve_stock``, ``_okr_release_stock`` và ``_okr_mark_delivered``.
 * Yêu cầu đổi quà (mã ``RDM/<năm>/xxxxx``): trừ điểm và giữ hàng ngay khi tạo; quản trị OKR
   được giao hoạt động để xử lý: Duyệt -> Đã trao, hoặc Từ chối. Từ chối / huỷ sẽ hoàn điểm và trả lại hàng.
 
@@ -46,10 +53,14 @@ Báo cáo
 * *Điểm của tôi* (tổng danh sách = số dư), *Quà đã đổi của tôi*.
 * Cho quản trị OKR: tất cả yêu cầu đổi quà, giao dịch điểm, bảng xếp hạng (biểu đồ / pivot, mặc định tháng này).
 * Bảng điều khiển OKR: chỉ số *Điểm thưởng đã cộng (chu kỳ này)* và bảng *Bảng xếp hạng* (top 10).
+* Trang *Bảng xếp hạng*: bảng **Nhiều điểm thưởng nhất** (điểm kiếm được trong chu kỳ, không tính đổi quà /
+  hoàn điểm, theo công ty của người xem; dòng phụ là phòng ban).
+* *Không gian OKR* cá nhân: ô **Điểm của tôi** (mở *Điểm của tôi*) và **Hạn mức tặng còn lại** (mở bảng ghi nhận).
 
 Cấu hình
 ========
-*Cài đặt > OKR* (hoặc *OKR > Cấu hình > Điểm thưởng & Quà tặng > Cài đặt*):
+*Cài đặt > OKR* (hoặc *OKR > Cấu hình > Cài đặt*). Các khối cài đặt điểm thưởng được thêm vào khối ứng dụng
+OKR do ``okr_scale_cfr`` tạo:
 
 =====================================  ===========
 Tham số                                Mặc định
