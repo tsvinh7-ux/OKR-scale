@@ -263,3 +263,49 @@ class TestOkrCfr(OkrCommon):
         self.assertEqual(values['top_value'], self.teamwork.display_name)
         html = self.env['ir.qweb'].with_user(self.seller)._render('okr_scale_cfr.okr_wall_banner', values)
         self.assertIn('okr_scale_cfr.okr_recognition_action_new', html)
+
+
+@tagged('post_install', '-at_install')
+class TestOkrOneOnOne(OkrCommon):
+
+    def test_snapshot_and_recurrence(self):
+        self.kr_customers.owner_id = self.seller
+        checkin = self.env['okr.scale.checkin'].with_user(self.seller).create({
+            'key_result_id': self.kr_customers.id, 'new_value': 4, 'confidence': '3', 'blockers': 'No leads'})
+        checkin.action_submit()
+        activity_type = self.env.ref('okr_scale_cfr.mail_activity_okr_one_on_one')
+        activity = self.kr_customers.activity_ids.filtered(lambda a: a.activity_type_id == activity_type)
+        self.assertEqual(activity.user_id, self.sales_manager, 'Low confidence asks the manager for a 1:1')
+
+        action = checkin.with_user(self.sales_manager).action_discuss_in_one_on_one()
+        Conversation = self.env['okr.scale.conversation'].with_user(self.sales_manager).with_context(action['context'])
+        conversation = Conversation.create({'cadence': 'weekly'})
+        self.assertEqual(conversation.employee_user_id, self.seller)
+        self.assertEqual(conversation.checkin_id, checkin)
+        self.assertIn(self.kr_customers, conversation.key_result_ids)
+        self.assertIn(checkin, conversation.checkin_ids)
+        self.assertIn(self.sales_obj, conversation.objective_ids)
+
+        conversation.action_done()
+        following = self.env['okr.scale.conversation'].search([('previous_id', '=', conversation.id)])
+        self.assertEqual(len(following), 1, 'Recurring 1:1: next one planned')
+        self.assertEqual(following.state, 'planned')
+        self.assertEqual((following.date - conversation.date).days, 7)
+        self.assertEqual(following.since_date, conversation.date.date())
+        conversation.action_plan()
+        conversation.action_done()
+        self.assertEqual(self.env['okr.scale.conversation'].search_count([('previous_id', '=', conversation.id)]), 1)
+
+    def test_employee_can_request_one_on_one(self):
+        conversation = self.env['okr.scale.conversation'].with_user(self.seller).create({
+            'manager_id': self.sales_manager.id, 'employee_user_id': self.seller.id, 'cadence': 'none'})
+        self.assertTrue(conversation)
+        self.assertEqual(self.sales_obj.with_user(self.sales_manager).conversation_count, 0)
+
+    def test_confident_checkin_no_activity(self):
+        self.kr_customers.owner_id = self.seller
+        checkin = self.env['okr.scale.checkin'].with_user(self.seller).create({
+            'key_result_id': self.kr_customers.id, 'new_value': 4, 'confidence': '8'})
+        checkin.action_submit()
+        activity_type = self.env.ref('okr_scale_cfr.mail_activity_okr_one_on_one')
+        self.assertFalse(self.kr_customers.activity_ids.filtered(lambda a: a.activity_type_id == activity_type))

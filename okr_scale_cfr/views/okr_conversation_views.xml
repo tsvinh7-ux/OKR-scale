@@ -10,6 +10,7 @@
                 <field name="manager_id" widget="many2one_avatar_user"/>
                 <field name="employee_user_id" widget="many2one_avatar_user"/>
                 <field name="objective_ids" widget="many2many_tags" optional="show"/>
+                <field name="cadence" optional="show"/>
                 <field name="duration" widget="float_time" optional="hide"/>
                 <field name="activity_ids" widget="list_activity" optional="show"/>
                 <field name="state" widget="badge" decoration-info="state == 'planned'" decoration-success="state == 'done'"/>
@@ -34,6 +35,9 @@
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" icon="fa-bullseye" disabled="1">
+                            <field name="checkin_count" widget="statinfo" string="Check-ins"/>
+                        </button>
                         <button name="action_schedule_meeting" type="object" class="oe_stat_button" icon="fa-calendar"
                                 invisible="not calendar_event_id">
                             <div class="o_stat_info">
@@ -54,11 +58,42 @@
                         <group>
                             <field name="date"/>
                             <field name="duration" widget="float_time"/>
+                            <field name="cadence"/>
+                            <field name="previous_id" invisible="not previous_id"/>
+                            <field name="checkin_id" invisible="not checkin_id"/>
                             <field name="calendar_event_id" invisible="not calendar_event_id"/>
                             <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
                         </group>
                     </group>
                     <notebook>
+                        <page name="okr" string="OKR Snapshot">
+                            <field name="key_result_ids" readonly="1" nolabel="1">
+                                <tree decoration-danger="status == 'off_track'" decoration-warning="status == 'at_risk'">
+                                    <field name="name"/>
+                                    <field name="objective_id"/>
+                                    <field name="progress" widget="progressbar"/>
+                                    <field name="confidence"/>
+                                    <field name="last_checkin_date"/>
+                                    <field name="status" widget="badge" decoration-success="status in ('on_track', 'achieved')"
+                                           decoration-warning="status == 'at_risk'" decoration-danger="status == 'off_track'"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="checkins" string="Check-ins since last 1:1">
+                            <div class="text-muted small mb-2">Since <field name="since_date" class="d-inline"/></div>
+                            <field name="checkin_ids" readonly="1" nolabel="1">
+                                <tree>
+                                    <field name="date"/>
+                                    <field name="key_result_id"/>
+                                    <field name="progress_before" string="Before"/>
+                                    <field name="progress_after" widget="progressbar"/>
+                                    <field name="confidence"/>
+                                    <field name="achievements" optional="show"/>
+                                    <field name="blockers"/>
+                                    <field name="next_steps" optional="show"/>
+                                </tree>
+                            </field>
+                        </page>
                         <page name="agenda" string="Agenda">
                             <field name="agenda"/>
                         </page>
@@ -116,7 +151,7 @@
     </record>
 
     <record id="okr_conversation_action" model="ir.actions.act_window">
-        <field name="name">Conversations</field>
+        <field name="name">1:1 Conversations</field>
         <field name="res_model">okr.scale.conversation</field>
         <field name="view_mode">tree,calendar,form</field>
         <field name="context">{'search_default_planned': 1}</field>

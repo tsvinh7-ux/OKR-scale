@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-10 09:59+0000\n"
-"PO-Revision-Date: 2026-10-10 09:59+0000\n"
+"POT-Creation-Date: 2026-10-10 11:08+0000\n"
+"PO-Revision-Date: 2026-10-10 11:08+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -25,8 +25,32 @@ msgid ""
 msgstr ""
 
 #. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_objective.py:0
+#, python-format
+msgid "%s has more than 5 objectives in this cycle: focus on fewer."
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_checkin__confidence
 msgid "1 = no chance to reach the target, 10 = certain."
+msgstr ""
+
+#. module: okr_scale
+#: model_terms:ir.actions.act_window,help:okr_scale.okr_objective_action_company
+msgid ""
+"3 to 5 ambitious objectives give the direction; departments align their "
+"objectives to their key results."
+msgstr ""
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
+msgid "<b>OKR tips</b> ·"
+msgstr ""
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
+msgid "<i class=\"fa fa-lightbulb-o mt-1\" title=\"OKR tips\"/>"
 msgstr ""
 
 #. module: okr_scale
@@ -105,6 +129,20 @@ msgstr ""
 #. module: okr_scale
 #: model:res.groups,name:okr_scale.group_okr_admin
 msgid "Administrator: company OKRs"
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__quality_hint
+msgid "Advice based on OKR good practices, never blocking."
+msgstr ""
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_objective.py:0
+#, python-format
+msgid ""
+"Align this objective to an upper key result so that everyone pulls in the "
+"same direction."
 msgstr ""
 
 #. module: okr_scale
@@ -411,6 +449,12 @@ msgid "Company"
 msgstr ""
 
 #. module: okr_scale
+#: model:ir.actions.act_window,name:okr_scale.okr_objective_action_company
+#: model:ir.ui.menu,name:okr_scale.okr_menu_company
+msgid "Company OKRs"
+msgstr ""
+
+#. module: okr_scale
 #. odoo-javascript
 #: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
 #, python-format
@@ -532,6 +576,18 @@ msgid "Department"
 msgstr ""
 
 #. module: okr_scale
+#: model:ir.actions.act_window,name:okr_scale.okr_objective_action_department
+#: model:ir.ui.menu,name:okr_scale.okr_menu_department
+msgid "Department OKRs"
+msgstr ""
+
+#. module: okr_scale
+#: model_terms:ir.actions.act_window,help:okr_scale.okr_objective_action_department
+msgid ""
+"Department managers align their objectives to a key result of the company."
+msgstr ""
+
+#. module: okr_scale
 #. odoo-javascript
 #: code:addons/okr_scale/static/src/rankings/okr_rankings.js:0
 #, python-format
@@ -569,6 +625,12 @@ msgstr ""
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_checkin__state__draft
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__state__draft
 msgid "Draft"
+msgstr ""
+
+#. module: okr_scale
+#: model_terms:ir.actions.act_window,help:okr_scale.okr_objective_action_individual
+msgid ""
+"Each employee sets a few objectives aligned to the department key results."
 msgstr ""
 
 #. module: okr_scale
@@ -760,6 +822,12 @@ msgid "Individual"
 msgstr ""
 
 #. module: okr_scale
+#: model:ir.actions.act_window,name:okr_scale.okr_objective_action_individual
+#: model:ir.ui.menu,name:okr_scale.okr_menu_individual
+msgid "Individual OKRs"
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__message_is_follower
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_is_follower
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_is_follower
@@ -907,6 +975,13 @@ msgid "Mark as Reviewed"
 msgstr ""
 
 #. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_objective.py:0
+#, python-format
+msgid "Measure this objective with at least 2 key results."
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__progress_method
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__progress_method
 msgid "Measured By"
@@ -942,6 +1017,13 @@ msgstr ""
 #. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__mood
 msgid "Mood"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_objective.py:0
+#, python-format
+msgid "More than 5 key results: keep the 3 to 5 that matter most."
 msgstr ""
 
 #. module: okr_scale
@@ -1045,6 +1127,12 @@ msgid "New objective"
 msgstr ""
 
 #. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__activity_calendar_event_id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__activity_date_deadline
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__activity_date_deadline
 msgid "Next Activity Deadline"
@@ -1091,11 +1179,21 @@ msgid "No data."
 msgstr ""
 
 #. module: okr_scale
+#: model_terms:ir.actions.act_window,help:okr_scale.okr_objective_action_department
+msgid "No department objective yet"
+msgstr ""
+
+#. module: okr_scale
 #. odoo-javascript
 #: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
 #: code:addons/okr_scale/static/src/rankings/okr_rankings.xml:0
 #, python-format
 msgid "No department objectives yet."
+msgstr ""
+
+#. module: okr_scale
+#: model_terms:ir.actions.act_window,help:okr_scale.okr_objective_action_individual
+msgid "No individual objective yet"
 msgstr ""
 
 #. module: okr_scale
@@ -1490,6 +1588,11 @@ msgid "Progress by department"
 msgstr ""
 
 #. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__quality_hint
+msgid "Quality Hint"
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__cycle_type__quarter
 msgid "Quarter"
 msgstr ""
@@ -1508,6 +1611,14 @@ msgstr ""
 #: model:ir.ui.menu,name:okr_scale.okr_menu_rankings
 #, python-format
 msgid "Rankings"
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__rating_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__rating_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__rating_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__rating_ids
+msgid "Ratings"
 msgstr ""
 
 #. module: okr_scale
@@ -1627,6 +1738,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__sequence
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__sequence
 msgid "Sequence"
+msgstr ""
+
+#. module: okr_scale
+#: model_terms:ir.actions.act_window,help:okr_scale.okr_objective_action_company
+msgid "Set the company objectives"
 msgstr ""
 
 #. module: okr_scale
@@ -1876,6 +1992,22 @@ msgid "Visibility"
 msgstr ""
 
 #. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__website_message_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__website_message_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__website_message_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_checkin__website_message_ids
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_cycle__website_message_ids
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__website_message_ids
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: okr_scale
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_search
 msgid "Week"
 msgstr ""
@@ -2008,6 +2140,7 @@ msgstr ""
 
 #. module: okr_scale
 #. odoo-javascript
+#: code:addons/okr_scale/static/src/rankings/okr_rankings.js:0
 #: code:addons/okr_scale/static/src/rankings/okr_rankings.xml:0
 #, python-format
 msgid "pts"

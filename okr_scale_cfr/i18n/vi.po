@@ -45,6 +45,31 @@ msgid "1:1 %(manager)s / %(employee)s"
 msgstr "Trao đổi 1:1 %(manager)s / %(employee)s"
 
 #. module: okr_scale_cfr
+#: model:ir.actions.act_window,name:okr_scale_cfr.okr_conversation_action
+#: model:ir.ui.menu,name:okr_scale_cfr.okr_menu_conversation
+msgid "1:1 Conversations"
+msgstr "Trao đổi 1:1"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "1:1 about %s"
+msgstr "1:1 về %s"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_checkin.py:0
+#, python-format
+msgid "1:1 with %(user)s: %(kr)s (confidence %(conf)s/10)"
+msgstr "1:1 với %(user)s: %(kr)s (tự tin %(conf)s/10)"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_objective__conversation_count
+msgid "1:1s"
+msgstr "Buổi 1:1"
+
+#. module: okr_scale_cfr
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_kanban
 msgid "<i class=\"fa fa-bullseye me-1\" title=\"Objective\"/>"
 msgstr "<i class=\"fa fa-bullseye me-1\" title=\"Mục tiêu\"/>"
@@ -291,6 +316,11 @@ msgid "Be specific: describe the situation, the behaviour and its impact..."
 msgstr "Hãy cụ thể: mô tả tình huống, hành vi và tác động của nó..."
 
 #. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "Before"
+msgstr "Trước"
+
+#. module: okr_scale_cfr
 #. odoo-python
 #: code:addons/okr_scale_cfr/models/okr_conversation.py:0
 #, python-format
@@ -301,6 +331,11 @@ msgstr "Vướng mắc"
 #: model:ir.ui.menu,name:okr_scale_cfr.okr_menu_cfr
 msgid "CFR"
 msgstr "CFR"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__cadence
+msgid "Cadence"
+msgstr "Tần suất"
 
 #. module: okr_scale_cfr
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
@@ -324,6 +359,32 @@ msgstr "Sự nghiệp và phát triển"
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_wall_banner
 msgid "Celebrate the people behind every OKR"
 msgstr "Tôn vinh những người đứng sau mỗi OKR"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__checkin_id
+msgid "Check-in that triggered this conversation."
+msgstr "Check-in dẫn đến buổi trao đổi này."
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "Check-ins"
+msgstr "Check-in"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__checkin_ids
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "Check-ins since last 1:1"
+msgstr "Check-in từ buổi 1:1 trước"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__since_date
+msgid "Check-ins submitted since this date are reviewed in this conversation."
+msgstr "Các check-in gửi từ ngày này được xem lại trong buổi trao đổi."
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__checkin_count
+msgid "Checkin Count"
+msgstr "Số check-in"
 
 #. module: okr_scale_cfr
 #. odoo-python
@@ -354,12 +415,6 @@ msgstr "Cài đặt cấu hình"
 #: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_feedback__feedback_type__constructive
 msgid "Constructive"
 msgstr "Góp ý xây dựng"
-
-#. module: okr_scale_cfr
-#: model:ir.actions.act_window,name:okr_scale_cfr.okr_conversation_action
-#: model:ir.ui.menu,name:okr_scale_cfr.okr_menu_conversation
-msgid "Conversations"
-msgstr "Trao đổi 1:1"
 
 #. module: okr_scale_cfr
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
@@ -424,6 +479,11 @@ msgid "Description"
 msgstr "Mô tả"
 
 #. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_checkin_view_form_inherit_cfr
+msgid "Discuss in 1:1"
+msgstr "Trao đổi 1:1"
+
+#. module: okr_scale_cfr
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__display_name
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_core_value__display_name
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__display_name
@@ -474,6 +534,11 @@ msgid "Employee"
 msgstr "Nhân viên"
 
 #. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_conversation__cadence__biweekly
+msgid "Every 2 weeks"
+msgstr "2 tuần một lần"
+
+#. module: okr_scale_cfr
 #: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_recognition__visibility__public
 msgid "Everyone"
 msgstr "Mọi người"
@@ -511,6 +576,11 @@ msgstr "Biểu tượng Font Awesome, ví dụ fa-tasks"
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__sender_id
 msgid "From"
 msgstr "Từ"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__checkin_id
+msgid "From Check-in"
+msgstr "Từ check-in"
 
 #. module: okr_scale_cfr
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_view_form
@@ -574,6 +644,11 @@ msgstr "Nhóm theo"
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__has_message
 msgid "Has Message"
 msgstr "Có tin nhắn"
+
+#. module: okr_scale_cfr
+#: model:mail.activity.type,summary:okr_scale_cfr.mail_activity_okr_one_on_one
+msgid "Hold a 1:1 conversation"
+msgstr "Tổ chức buổi trao đổi 1:1"
 
 #. module: okr_scale_cfr
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_search
@@ -647,6 +722,11 @@ msgstr "Là người theo dõi"
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__key_result_id
 msgid "Key Result"
 msgstr "Kết quả then chốt"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__key_result_ids
+msgid "Key Results of the Employee"
+msgstr "Kết quả then chốt của nhân viên"
 
 #. module: okr_scale_cfr
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_objective_view_form_inherit_cfr
@@ -757,6 +837,11 @@ msgid "Month"
 msgstr "Tháng"
 
 #. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_conversation__cadence__monthly
+msgid "Monthly"
+msgstr "Hàng tháng"
+
+#. module: okr_scale_cfr
 #. odoo-python
 #: code:addons/okr_scale_cfr/models/okr_dashboard.py:0
 #, python-format
@@ -789,6 +874,20 @@ msgstr "Tên"
 #, python-format
 msgid "New feedback from %(author)s about %(recipient)s."
 msgstr "Phản hồi mới từ %(author)s về %(recipient)s."
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_dashboard.py:0
+#, python-format
+msgid "Next 1:1"
+msgstr "Buổi 1:1 tiếp theo"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "Next 1:1 planned: %s"
+msgstr "Đã lên lịch buổi 1:1 tiếp theo: %s"
 
 #. module: okr_scale_cfr
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__activity_calendar_event_id
@@ -859,6 +958,16 @@ msgid "OKR"
 msgstr "OKR"
 
 #. module: okr_scale_cfr
+#: model:mail.activity.type,name:okr_scale_cfr.mail_activity_okr_one_on_one
+msgid "OKR 1:1"
+msgstr "1:1 OKR"
+
+#. module: okr_scale_cfr
+#: model:ir.model,name:okr_scale_cfr.model_okr_scale_checkin
+msgid "OKR Check-in"
+msgstr "Check-in OKR"
+
+#. module: okr_scale_cfr
 #: model:ir.model,name:okr_scale_cfr.model_okr_scale_conversation
 msgid "OKR Conversation"
 msgstr "Trao đổi 1:1 OKR"
@@ -892,6 +1001,11 @@ msgstr "Mục tiêu OKR"
 #: model:ir.model,name:okr_scale_cfr.model_okr_scale_recognition
 msgid "OKR Recognition"
 msgstr "Ghi nhận OKR"
+
+#. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "OKR Snapshot"
+msgstr "Tổng quan OKR"
 
 #. module: okr_scale_cfr
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.res_config_settings_view_form
@@ -931,6 +1045,11 @@ msgid "Objectives discussed during the conversation."
 msgstr "Các mục tiêu được thảo luận trong buổi trao đổi."
 
 #. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_conversation__cadence__none
+msgid "One-off"
+msgstr "Một lần"
+
+#. module: okr_scale_cfr
 #. odoo-python
 #: code:addons/okr_scale_cfr/models/okr_recognition.py:0
 #, python-format
@@ -962,6 +1081,13 @@ msgid "Person who receives the feedback."
 msgstr "Người nhận phản hồi."
 
 #. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_checkin.py:0
+#, python-format
+msgid "Plan a 1:1"
+msgstr "Lên lịch 1:1"
+
+#. module: okr_scale_cfr
 #: model_terms:ir.actions.act_window,help:okr_scale_cfr.okr_conversation_action
 msgid "Plan your first 1:1 conversation"
 msgstr "Lên kế hoạch buổi trao đổi 1:1 đầu tiên"
@@ -976,6 +1102,11 @@ msgstr "Đã lên kế hoạch"
 #: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_feedback__feedback_type__praise
 msgid "Praise"
 msgstr "Khen ngợi"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__previous_id
+msgid "Previous 1:1"
+msgstr "Buổi 1:1 trước"
 
 #. module: okr_scale_cfr
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_kanban
@@ -994,6 +1125,13 @@ msgstr "Tiến độ OKR"
 #: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_recognition__visibility
 msgid "Public recognitions are displayed on the wall of the whole company."
 msgstr "Lời khen công khai được hiển thị trên bảng ghi nhận của toàn công ty."
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__rating_ids
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__rating_ids
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_recognition__rating_ids
+msgid "Ratings"
+msgstr "Đánh giá"
 
 #. module: okr_scale_cfr
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_recognition_view_search
@@ -1161,6 +1299,16 @@ msgid "Share continuous feedback"
 msgstr "Chia sẻ phản hồi liên tục"
 
 #. module: okr_scale_cfr
+#: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
+msgid "Since"
+msgstr "Từ ngày"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__since_date
+msgid "Since Date"
+msgstr "Từ ngày"
+
+#. module: okr_scale_cfr
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_conversation__state
 #: model:ir.model.fields,field_description:okr_scale_cfr.field_okr_scale_feedback__state
 msgid "State"
@@ -1321,6 +1469,11 @@ msgid "Website communication history"
 msgstr "Lịch sử thông tin liên lạc website"
 
 #. module: okr_scale_cfr
+#: model:ir.model.fields.selection,name:okr_scale_cfr.selection__okr_scale_conversation__cadence__weekly
+msgid "Weekly"
+msgstr "Hàng tuần"
+
+#. module: okr_scale_cfr
 #. odoo-python
 #: code:addons/okr_scale_cfr/models/okr_conversation.py:0
 #, python-format
@@ -1350,6 +1503,11 @@ msgstr "Bạn muốn nhận phản hồi về điều gì?"
 #, python-format
 msgid "What would you like to learn or grow into next?"
 msgstr "Bạn muốn học hỏi hoặc phát triển theo hướng nào tiếp theo?"
+
+#. module: okr_scale_cfr
+#: model:ir.model.fields,help:okr_scale_cfr.field_okr_scale_conversation__cadence
+msgid "When the conversation is done, the next one is planned automatically."
+msgstr "Khi buổi trao đổi hoàn tất, buổi tiếp theo được tự động lên lịch."
 
 #. module: okr_scale_cfr
 #. odoo-python

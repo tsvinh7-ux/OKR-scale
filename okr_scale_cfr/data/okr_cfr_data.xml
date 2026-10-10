@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data noupdate="1">
+        <record id="mail_activity_okr_one_on_one" model="mail.activity.type">
+            <field name="name">OKR 1:1</field>
+            <field name="summary">Hold a 1:1 conversation</field>
+            <field name="icon">fa-users</field>
+            <field name="res_model">okr.scale.key.result</field>
+            <field name="delay_count">2</field>
+        </record>
+
         <record id="mail_activity_okr_feedback" model="mail.activity.type">
             <field name="name">OKR Feedback Request</field>
             <field name="summary">Give feedback</field>

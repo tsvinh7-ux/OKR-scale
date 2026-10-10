@@ -2,6 +2,7 @@ from collections import Counter, defaultdict
 from datetime import datetime, time
 
 from odoo import _, api, fields, models
+from odoo.tools import format_date
 
 RANKING_SIZE = 10
 
@@ -92,5 +93,15 @@ class OkrDashboard(models.AbstractModel):
             'value': count,
             'icon': 'fa-heart',
             'action': 'okr_scale_cfr.okr_recognition_action_received',
+        })
+        next_one = self.env['okr.scale.conversation'].search([
+            ('state', '=', 'planned'), ('date', '>=', fields.Datetime.now()),
+            '|', ('manager_id', '=', self.env.uid), ('employee_user_id', '=', self.env.uid)], order='date', limit=1)
+        tiles.append({
+            'key': 'next_one_on_one',
+            'label': _('Next 1:1'),
+            'value': format_date(self.env, next_one.date) if next_one else '–',
+            'icon': 'fa-users',
+            'action': 'okr_scale_cfr.okr_conversation_action',
         })
         return tiles

@@ -6,6 +6,27 @@ class OkrObjective(models.Model):
 
     recognition_ids = fields.One2many('okr.scale.recognition', 'objective_id', 'Recognitions')
     recognition_count = fields.Integer(compute='_compute_recognition_count')
+    conversation_count = fields.Integer('1:1s', compute='_compute_conversation_count')
+
+    def _compute_conversation_count(self):
+        data = self.env['okr.scale.conversation']._read_group(
+            [('objective_ids', 'in', self.ids)], ['objective_ids'], ['__count'])
+        counts = {objective.id: count for objective, count in data}
+        for objective in self:
+            objective.conversation_count = counts.get(objective.id, 0)
+
+    def action_view_conversations(self):
+        self.ensure_one()
+        action = self.env['ir.actions.act_window']._for_xml_id('okr_scale_cfr.okr_conversation_action')
+        user = self.employee_id.user_id or self.owner_id
+        action.update({
+            'domain': [('objective_ids', 'in', self.id)],
+            'context': {
+                'default_objective_ids': [(6, 0, self.ids)],
+                'default_employee_user_id': user.id if user != self.env.user else False,
+            },
+        })
+        return action
 
     def _compute_recognition_count(self):
         data = self.env['okr.scale.recognition']._read_group(

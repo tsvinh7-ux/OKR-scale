@@ -10,10 +10,25 @@
                         invisible="state in ('draft', 'cancelled')"/>
             </xpath>
             <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_conversations" type="object" class="oe_stat_button" icon="fa-users">
+                    <field name="conversation_count" widget="statinfo" string="1:1"/>
+                </button>
                 <button name="action_view_recognitions" type="object" class="oe_stat_button" icon="fa-heart"
                         invisible="not recognition_count">
                     <field name="recognition_count" widget="statinfo" string="Kudos"/>
                 </button>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="okr_checkin_view_form_inherit_cfr" model="ir.ui.view">
+        <field name="name">okr.scale.checkin.form.inherit.cfr</field>
+        <field name="model">okr.scale.checkin</field>
+        <field name="inherit_id" ref="okr_scale.okr_checkin_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/field[@name='state']" position="before">
+                <button name="action_discuss_in_one_on_one" type="object" string="Discuss in 1:1" icon="fa-users"
+                        invisible="state == 'draft'" groups="okr_scale.group_okr_manager"/>
             </xpath>
         </field>
     </record>

@@ -5,3 +5,4 @@ from . import okr_feedback
 from . import okr_conversation
 from . import okr_objective
 from . import okr_dashboard
+from . import okr_checkin

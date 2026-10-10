@@ -5,6 +5,8 @@ from markupsafe import Markup
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
+CADENCE_DAYS = {'weekly': 7, 'biweekly': 14, 'monthly': 30}
+
 
 class OkrConversation(models.Model):
     _name = 'okr.scale.conversation'
@@ -34,6 +36,24 @@ class OkrConversation(models.Model):
     calendar_event_id = fields.Many2one('calendar.event', 'Meeting', readonly=True, copy=False,
                                         ondelete='set null')
     company_id = fields.Many2one('res.company', required=True, index=True, default=lambda self: self.env.company)
+    cadence = fields.Selection([
+        ('none', 'One-off'),
+        ('weekly', 'Weekly'),
+        ('biweekly', 'Every 2 weeks'),
+        ('monthly', 'Monthly'),
+    ], default='biweekly', required=True,
+        help='When the conversation is done, the next one is planned automatically.')
+    previous_id = fields.Many2one('okr.scale.conversation', 'Previous 1:1', readonly=True, copy=False,
+                                  ondelete='set null')
+    checkin_id = fields.Many2one('okr.scale.checkin', 'From Check-in', readonly=True, copy=False,
+                                 ondelete='set null', help='Check-in that triggered this conversation.')
+    since_date = fields.Date(compute='_compute_since_date',
+                             help='Check-ins submitted since this date are reviewed in this conversation.')
+    key_result_ids = fields.Many2many('okr.scale.key.result', compute='_compute_okr_snapshot',
+                                      string='Key Results of the Employee')
+    checkin_ids = fields.Many2many('okr.scale.checkin', compute='_compute_okr_snapshot',
+                                   string='Check-ins since last 1:1')
+    checkin_count = fields.Integer(compute='_compute_okr_snapshot')
 
     @api.model
     def _default_agenda(self):
@@ -44,6 +64,46 @@ class OkrConversation(models.Model):
             (_('Career and development'), _('What would you like to learn or grow into next?')),
         ]
         return Markup('').join(Markup('<h3>%s</h3><p>%s</p>') % question for question in questions)
+
+    @api.depends('previous_id.date', 'date', 'cadence')
+    def _compute_since_date(self):
+        for conversation in self:
+            if conversation.previous_id:
+                conversation.since_date = conversation.previous_id.date.date()
+            else:
+                days = CADENCE_DAYS.get(conversation.cadence, 14)
+                conversation.since_date = (conversation.date or fields.Datetime.now()).date() - timedelta(days=days)
+
+    @api.depends('employee_user_id', 'since_date', 'date', 'objective_ids')
+    def _compute_okr_snapshot(self):
+        """Running key results of the employee and their recent check-ins, read with the
+        access rights of the viewer (managers see their team through the HR hierarchy)."""
+        KeyResult = self.env['okr.scale.key.result']
+        Checkin = self.env['okr.scale.checkin']
+        for conversation in self:
+            user = conversation.employee_user_id
+            if not user:
+                conversation.key_result_ids = conversation.checkin_ids = False
+                conversation.checkin_count = 0
+                continue
+            krs = KeyResult.search([
+                '|', ('owner_id', '=', user.id), ('objective_id', 'in', conversation.objective_ids.ids),
+                ('objective_state', '=', 'running')])
+            end = max(conversation.date or fields.Datetime.now(), fields.Datetime.now()).date()
+            checkins = Checkin.search([
+                ('state', '!=', 'draft'), ('date', '>=', conversation.since_date), ('date', '<=', end),
+                '|', ('user_id', '=', user.id), ('key_result_id', 'in', krs.ids)])
+            conversation.key_result_ids = krs
+            conversation.checkin_ids = checkins
+            conversation.checkin_count = len(checkins)
+
+    @api.onchange('employee_user_id')
+    def _onchange_employee_user_id(self):
+        if self.employee_user_id and not self.objective_ids:
+            self.objective_ids = self.env['okr.scale.objective'].search([
+                ('state', '=', 'running'),
+                '|', ('owner_id', '=', self.employee_user_id.id),
+                ('key_result_ids.owner_id', '=', self.employee_user_id.id)])
 
     @api.depends('manager_id', 'employee_user_id')
     def _compute_name(self):
@@ -103,6 +163,34 @@ class OkrConversation(models.Model):
 
     def action_done(self):
         self.write({'state': 'done'})
+        for conversation in self.filtered(lambda c: c.cadence != 'none'):
+            conversation._plan_next()
+
+    def _plan_next(self):
+        """Plan the next conversation of a recurring 1:1, once."""
+        self.ensure_one()
+        if self.search_count([('previous_id', '=', self.id)]):
+            return self.browse()
+        next_conversation = self.copy({
+            'date': self.date + timedelta(days=CADENCE_DAYS[self.cadence]),
+            'previous_id': self.id,
+            'state': 'planned',
+            'notes': False,
+            'name': self.name,
+        })
+        self.message_post(body=Markup(_('Next 1:1 planned: %s')) % next_conversation._get_html_link())
+        return next_conversation
+
+    @api.model
+    def _prepare_from_checkin(self, checkin):
+        return {
+            'default_manager_id': self.env.uid,
+            'default_employee_user_id': checkin.user_id.id,
+            'default_objective_ids': [(6, 0, checkin.objective_id.ids)],
+            'default_checkin_id': checkin.id,
+            'default_cadence': 'none',
+            'default_name': _('1:1 about %s', checkin.key_result_id.name),
+        }
 
     def action_cancel(self):
         self.write({'state': 'cancelled'})

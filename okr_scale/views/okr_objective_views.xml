@@ -55,6 +55,11 @@
                         </button>
                     </div>
                     <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <div class="alert alert-info d-flex gap-2 align-items-start mb-3" role="status"
+                         invisible="not quality_hint or state in ('done', 'cancelled')">
+                        <i class="fa fa-lightbulb-o mt-1" title="OKR tips"/>
+                        <div><b>OKR tips</b> · <field name="quality_hint" class="d-inline"/></div>
+                    </div>
                     <div class="oe_title">
                         <label for="name"/>
                         <h1><field name="name" placeholder="e.g. Become the leading supplier in the region" readonly="state in ('done', 'cancelled')"/></h1>
@@ -181,6 +186,46 @@
         </field>
     </record>
 
+    <record id="okr_objective_view_kanban_level" model="ir.ui.view">
+        <field name="name">okr.scale.objective.kanban.level</field>
+        <field name="mode">primary</field>
+        <field name="priority">20</field>
+        <field name="model">okr.scale.objective</field>
+        <field name="arch" type="xml">
+            <kanban class="o_okr_kanban" quick_create="false" group_create="false" records_draggable="false">
+                <field name="status"/>
+                <field name="progress"/>
+                <field name="key_result_count"/>
+                <field name="level"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click p-3">
+                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                <div class="min-w-0">
+                                    <div class="o_okr_kanban_level"><field name="cycle_id"/><t t-if="record.department_id.raw_value"> · <field name="department_id"/></t></div>
+                                    <div class="o_okr_kanban_title fs-6 mt-1"><field name="name"/></div>
+                                </div>
+                                <field name="owner_id" widget="many2one_avatar_user"/>
+                            </div>
+                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            <div t-attf-class="o_okr_bar mt-3 o_okr_bar_{{ record.status.raw_value }}">
+                                <span t-attf-style="width: {{ Math.min(100, record.progress.raw_value) }}%"/>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                <span t-attf-class="o_okr_chip o_okr_chip_{{ record.status.raw_value }}"><field name="status"/></span>
+                                <span class="small text-muted">
+                                    <i class="fa fa-key me-1"/><t t-esc="record.key_result_count.raw_value"/>
+                                    <b class="ms-2" style="color: var(--okr-navy)"><t t-esc="Math.round(record.progress.raw_value)"/>%</b>
+                                </span>
+                                <field name="activity_ids" widget="kanban_activity"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <record id="okr_objective_view_hierarchy" model="ir.ui.view">
         <field name="name">okr.scale.objective.hierarchy</field>
         <field name="model">okr.scale.objective</field>
@@ -274,6 +319,43 @@
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Set your first objective</p>
             <p>Objectives are ambitious, qualitative goals. Each one is measured by 2 to 5 key results.</p>
+        </field>
+    </record>
+
+    <!-- One screen per OKR level -->
+    <record id="okr_objective_action_company" model="ir.actions.act_window">
+        <field name="name">Company OKRs</field>
+        <field name="res_model">okr.scale.objective</field>
+        <field name="view_mode">kanban,tree,form,hierarchy,pivot,graph</field>
+        <field name="domain">[('level', '=', 'company')]</field>
+        <field name="context">{'search_default_current_cycle': 1, 'default_level': 'company', 'kanban_view_ref': 'okr_scale.okr_objective_view_kanban_level'}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Set the company objectives</p>
+            <p>3 to 5 ambitious objectives give the direction; departments align their objectives to their key results.</p>
+        </field>
+    </record>
+
+    <record id="okr_objective_action_department" model="ir.actions.act_window">
+        <field name="name">Department OKRs</field>
+        <field name="res_model">okr.scale.objective</field>
+        <field name="view_mode">kanban,tree,form,hierarchy,pivot,graph</field>
+        <field name="domain">[('level', '=', 'department')]</field>
+        <field name="context">{'search_default_current_cycle': 1, 'search_default_group_department': 1, 'default_level': 'department', 'kanban_view_ref': 'okr_scale.okr_objective_view_kanban_level'}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No department objective yet</p>
+            <p>Department managers align their objectives to a key result of the company.</p>
+        </field>
+    </record>
+
+    <record id="okr_objective_action_individual" model="ir.actions.act_window">
+        <field name="name">Individual OKRs</field>
+        <field name="res_model">okr.scale.objective</field>
+        <field name="view_mode">kanban,tree,form,hierarchy,pivot,graph</field>
+        <field name="domain">[('level', '=', 'individual')]</field>
+        <field name="context">{'search_default_current_cycle': 1, 'search_default_group_department': 1, 'default_level': 'individual', 'kanban_view_ref': 'okr_scale.okr_objective_view_kanban_level'}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No individual objective yet</p>
+            <p>Each employee sets a few objectives aligned to the department key results.</p>
         </field>
     </record>
 

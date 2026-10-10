@@ -83,6 +83,8 @@ class OkrObjective(models.Model):
     status = fields.Selection(STATUSES, compute='_compute_status', store=True, index=True)
     last_checkin_date = fields.Date(compute='_compute_progress', store=True, recursive=True)
 
+    quality_hint = fields.Char(compute='_compute_quality_hint',
+                               help='Advice based on OKR good practices, never blocking.')
     is_my_team = fields.Boolean(compute='_compute_is_my_team', search='_search_is_my_team',
                                 help='Objectives of the departments and employees managed by the current user.')
 
@@ -148,6 +150,29 @@ class OkrObjective(models.Model):
             objective.confidence = sum(confidences) / len(confidences) if confidences else 0.0
             dates = [d for d in krs.mapped('last_checkin_date') if d]
             objective.last_checkin_date = max(dates) if dates else False
+
+    @api.depends('key_result_ids', 'owner_id', 'cycle_id', 'level', 'parent_id', 'parent_key_result_id')
+    def _compute_quality_hint(self):
+        """OKR good practices: 3-5 objectives per owner, 2-5 key results each, aligned upwards."""
+        counts = {}
+        if self.ids:
+            data = self.sudo()._read_group(
+                [('owner_id', 'in', self.owner_id.ids), ('cycle_id', 'in', self.cycle_id.ids),
+                 ('state', 'not in', ('cancelled',)), ('level', 'in', self.mapped('level'))],
+                ['owner_id', 'cycle_id', 'level'], ['__count'])
+            counts = {(owner.id, cycle.id, level): count for owner, cycle, level, count in data}
+        for objective in self:
+            hints = []
+            kr_count = len(objective.key_result_ids)
+            if kr_count < 2:
+                hints.append(_('Measure this objective with at least 2 key results.'))
+            elif kr_count > 5:
+                hints.append(_('More than 5 key results: keep the 3 to 5 that matter most.'))
+            if counts.get((objective.owner_id.id, objective.cycle_id.id, objective.level), 0) > 5:
+                hints.append(_('%s has more than 5 objectives in this cycle: focus on fewer.', objective.owner_id.name))
+            if objective.level != 'company' and not objective.parent_id:
+                hints.append(_('Align this objective to an upper key result so that everyone pulls in the same direction.'))
+            objective.quality_hint = ' '.join(hints)
 
     def _my_team_domain(self):
         # Employees are private for non HR users: resolve the team with sudo.

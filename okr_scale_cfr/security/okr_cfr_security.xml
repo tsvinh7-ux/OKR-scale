@@ -88,6 +88,17 @@
         <field name="perm_unlink" eval="False"/>
     </record>
 
+    <record id="okr_conversation_rule_user_request" model="ir.rule">
+        <field name="name">Conversation: employees request a 1:1 about themselves</field>
+        <field name="model_id" ref="model_okr_scale_conversation"/>
+        <field name="groups" eval="[(4, ref('okr_scale.group_okr_user'))]"/>
+        <field name="domain_force">[('employee_user_id', '=', user.id)]</field>
+        <field name="perm_read" eval="False"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
     <record id="okr_conversation_rule_manager" model="ir.rule">
         <field name="name">Conversation: managers organize own conversations</field>
         <field name="model_id" ref="model_okr_scale_conversation"/>
