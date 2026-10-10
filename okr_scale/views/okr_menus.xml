@@ -4,8 +4,9 @@
               groups="group_okr_user"/>
 
     <menuitem id="okr_menu_my_workspace" name="My OKR" parent="okr_menu_root" action="okr_my_action" sequence="1"/>
-    <menuitem id="okr_menu_dashboard" name="Dashboard" parent="okr_menu_root" action="okr_dashboard_action" sequence="2"/>
-    <menuitem id="okr_menu_rankings" name="Rankings" parent="okr_menu_root" action="okr_ranking_action" sequence="3"/>
+    <menuitem id="okr_menu_weekly" name="Weekly Check-in" parent="okr_menu_root" action="okr_weekly_action" sequence="2"/>
+    <menuitem id="okr_menu_dashboard" name="Dashboard" parent="okr_menu_root" action="okr_dashboard_action" sequence="3"/>
+    <menuitem id="okr_menu_rankings" name="Rankings" parent="okr_menu_root" action="okr_ranking_action" sequence="4"/>
 
     <menuitem id="okr_menu_my" name="My OKRs" parent="okr_menu_root" sequence="10">
         <menuitem id="okr_menu_my_objectives" action="okr_objective_action_my" sequence="1"/>
@@ -20,6 +21,7 @@
         <menuitem id="okr_menu_key_results" action="okr_key_result_action" sequence="6"/>
         <menuitem id="okr_menu_tree" action="okr_objective_action_tree" sequence="7"/>
         <menuitem id="okr_menu_checkins" action="okr_checkin_action" sequence="8"/>
+        <menuitem id="okr_menu_weekly_history" action="okr_weekly_history_action" sequence="9"/>
     </menuitem>
 
     <menuitem id="okr_menu_manage" name="Manage" parent="okr_menu_root" sequence="40" groups="group_okr_manager">

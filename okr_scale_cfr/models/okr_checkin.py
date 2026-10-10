@@ -38,3 +38,10 @@ class OkrCheckin(models.Model):
             'okr_scale_cfr.mail_activity_okr_one_on_one', user_id=manager.id,
             summary=_('1:1 with %(user)s: %(kr)s (confidence %(conf)s/10)',
                       user=self.user_id.name, kr=self.key_result_id.name, conf=self.confidence))
+
+
+class OkrWeekly(models.Model):
+    _inherit = 'okr.scale.weekly'
+
+    def _one_on_one_action(self):
+        return 'okr_scale_cfr.okr_conversation_action'

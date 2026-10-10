@@ -21,9 +21,14 @@
                             <div class="opacity-75">Time elapsed <b t-esc="data.cycle.elapsed + '%'"/></div>
                         </div>
                     </div>
-                    <button class="btn btn-light fw-semibold" style="color: var(--okr-navy); border-radius: 10px;" t-on-click="newObjective">
-                        <i class="fa fa-plus me-1"/>New objective
-                    </button>
+                    <div class="d-flex flex-column gap-2">
+                        <button t-if="data.stats.due" class="btn btn-warning fw-semibold o_okr_hero_cta" t-on-click="() => this.open('okr_scale.okr_weekly_action')">
+                            <i class="fa fa-calendar-check-o me-1"/>Weekly check-in (<t t-esc="data.stats.due"/>)
+                        </button>
+                        <button class="btn btn-light fw-semibold o_okr_hero_cta" style="color: var(--okr-navy);" t-on-click="newObjective">
+                            <i class="fa fa-plus me-1"/>New objective
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Tiles -->
@@ -35,7 +40,7 @@
                         </div>
                     </div>
                     <div class="col-6 col-lg-3">
-                        <div t-attf-class="o_okr_card o_okr_kpi {{ data.stats.due ? 'o_okr_kpi_alert' : '' }}">
+                        <div t-attf-class="o_okr_card o_okr_kpi o_okr_clickable_card {{ data.stats.due ? 'o_okr_kpi_alert' : '' }}" t-on-click="() => this.open('okr_scale.okr_weekly_action')">
                             <div class="o_okr_kpi_icon"><i class="fa fa-calendar-check-o"/></div>
                             <div><div class="o_okr_kpi_label">Check-ins due</div><div class="o_okr_kpi_value" t-esc="data.stats.due"/></div>
                         </div>
@@ -128,6 +133,25 @@
                             </div>
                         </div>
                     </t>
+                </div>
+
+                <!-- Objectives I support -->
+                <div t-if="data.supporting.length" class="o_okr_card mt-4">
+                    <div class="o_okr_card_header"><span><i class="fa fa-handshake-o me-2"/>I support</span>
+                        <span class="o_okr_card_hint">The owner stays accountable, you help</span></div>
+                    <div class="o_okr_card_body">
+                        <t t-foreach="data.supporting" t-as="o" t-key="o.id">
+                            <div class="o_okr_list_row o_okr_clickable px-2" t-on-click="() => this.openRecord('okr.scale.objective', o.id)">
+                                <OkrProgressRing value="o.progress" status="o.status" size="44" stroke="5"/>
+                                <div class="o_okr_list_main">
+                                    <div class="o_okr_list_title" t-esc="o.name"/>
+                                    <div class="o_okr_list_sub">Accountable: <t t-esc="o.owner"/></div>
+                                </div>
+                                <OkrAvatar userId="o.owner_id" name="o.owner" size="30"/>
+                                <OkrStatusChip status="o.status" label="o.status_label"/>
+                            </div>
+                        </t>
+                    </div>
                 </div>
             </div>
         </div>

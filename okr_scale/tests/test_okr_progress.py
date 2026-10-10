@@ -1,3 +1,4 @@
+from odoo import fields
 from odoo.exceptions import UserError
 from odoo.tests import tagged
 
@@ -49,6 +50,7 @@ class TestOkrProgress(OkrCommon):
         self.assertFalse(self.kr_customers.checkin_due)
 
     def test_checkin_reminder(self):
+        self.cycle.write({'checkin_weekday': str(fields.Date.today().weekday()), 'checkin_hour': 0.0})
         self.kr_customers.owner_id = self.seller
         self.assertTrue(self.kr_customers.checkin_due)
         self.env['okr.scale.key.result']._cron_checkin_reminder()

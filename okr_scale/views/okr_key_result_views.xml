@@ -53,7 +53,8 @@
                     <group>
                         <group>
                             <field name="objective_id"/>
-                            <field name="owner_id" widget="many2one_avatar_user"/>
+                            <field name="owner_id" widget="many2one_avatar_user" string="Accountable"/>
+                            <field name="contributor_ids" widget="many2many_avatar_user" options="{'no_create': True}"/>
                             <field name="deadline"/>
                             <field name="progress_method"/>
                             <field name="weight"/>
@@ -69,6 +70,9 @@
                             <field name="last_checkin_date"/>
                         </group>
                     </group>
+                    <div class="mb-3">
+                        <field name="progress_history" widget="okr_progress_chart" nolabel="1"/>
+                    </div>
                     <notebook>
                         <page string="Check-ins" name="checkins">
                             <field name="checkin_ids" readonly="1">

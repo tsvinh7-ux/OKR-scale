@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_weekly_action" model="ir.actions.client">
+        <field name="name">Weekly Check-in</field>
+        <field name="tag">okr_scale.weekly</field>
+    </record>
+
+    <record id="okr_weekly_view_tree" model="ir.ui.view">
+        <field name="name">okr.scale.weekly.tree</field>
+        <field name="model">okr.scale.weekly</field>
+        <field name="arch" type="xml">
+            <tree create="false" decoration-danger="has_blockers">
+                <field name="week_start"/>
+                <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="department_id" optional="show"/>
+                <field name="mood" optional="show"/>
+                <field name="checkin_count" string="KR updated"/>
+                <field name="confidence" widget="progressbar" optional="hide"/>
+                <field name="next_plan"/>
+                <field name="has_blockers" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="okr_weekly_view_form" model="ir.ui.view">
+        <field name="name">okr.scale.weekly.form</field>
+        <field name="model">okr.scale.weekly</field>
+        <field name="arch" type="xml">
+            <form create="false">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="user_id" readonly="1" widget="many2one_avatar_user"/></h1>
+                        <div class="text-muted">Week of <field name="week_start" class="d-inline"/> · <field name="department_id" class="d-inline"/></div>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="mood"/>
+                            <field name="confidence"/>
+                            <field name="checkin_count"/>
+                        </group>
+                        <group>
+                            <field name="has_blockers"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="summary"/>
+                        <field name="next_plan"/>
+                        <field name="help_needed"/>
+                        <field name="manager_comment" placeholder="Feedback for the week, visible to the employee"/>
+                    </group>
+                    <field name="checkin_ids" readonly="1">
+                        <tree>
+                            <field name="key_result_id"/>
+                            <field name="progress_before" string="Before"/>
+                            <field name="progress_after" widget="progressbar"/>
+                            <field name="confidence"/>
+                            <field name="achievements"/>
+                            <field name="blockers"/>
+                        </tree>
+                    </field>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="okr_weekly_view_search" model="ir.ui.view">
+        <field name="name">okr.scale.weekly.search</field>
+        <field name="model">okr.scale.weekly</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="user_id"/>
+                <field name="department_id" operator="child_of"/>
+                <filter name="mine" string="Mine" domain="[('user_id', '=', uid)]"/>
+                <filter name="blocked" string="Blocked" domain="[('has_blockers', '=', True)]"/>
+                <filter name="week" string="Week" date="week_start"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_week" string="Week" context="{'group_by': 'week_start:week'}"/>
+                    <filter name="group_department" string="Department" context="{'group_by': 'department_id'}"/>
+                    <filter name="group_user" string="Employee" context="{'group_by': 'user_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="okr_weekly_history_action" model="ir.actions.act_window">
+        <field name="name">Weekly Check-in History</field>
+        <field name="res_model">okr.scale.weekly</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

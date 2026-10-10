@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-10 11:08+0000\n"
-"PO-Revision-Date: 2026-10-10 11:08+0000\n"
+"POT-Creation-Date: 2026-10-10 17:12+0000\n"
+"PO-Revision-Date: 2026-10-10 17:12+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -32,6 +32,18 @@ msgid "%s has more than 5 objectives in this cycle: focus on fewer."
 msgstr ""
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "(optional)"
+msgstr ""
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_weekly_digest
+msgid ", here is where things stand."
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_checkin__confidence
 msgid "1 = no chance to reach the target, 10 = certain."
 msgstr ""
@@ -41,6 +53,11 @@ msgstr ""
 msgid ""
 "3 to 5 ambitious objectives give the direction; departments align their "
 "objectives to their key results."
+msgstr ""
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_weekly_digest
+msgid "<b>Not checked in:</b>"
 msgstr ""
 
 #. module: okr_scale
@@ -61,6 +78,11 @@ msgid ""
 msgstr ""
 
 #. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_cycle_view_form
+msgid "<span>from</span>"
+msgstr ""
+
+#. module: okr_scale
 #: model_terms:ir.actions.act_window,help:okr_scale.okr_cycle_action
 msgid ""
 "A cycle is a year or a quarter during which objectives are pursued and "
@@ -75,6 +97,19 @@ msgid "A department objective needs a department."
 msgstr ""
 
 #. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
+msgid "Accountable"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/my_okr/okr_my.xml:0
+#, python-format
+msgid "Accountable:"
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__achieved
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_key_result__status__achieved
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__status__achieved
@@ -86,6 +121,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_needaction
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_needaction
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_needaction
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__message_needaction
 msgid "Action Needed"
 msgstr ""
 
@@ -120,6 +156,18 @@ msgid "Activity Type Icon"
 msgstr ""
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/progress_chart/okr_progress_chart.xml:0
+#, python-format
+msgid "Actual"
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__progress_history
+msgid "Actual progress at each check-in against the expected pace."
+msgstr ""
+
+#. module: okr_scale
 #. odoo-python
 #: code:addons/okr_scale/models/okr_objective.py:0
 #, python-format
@@ -134,6 +182,13 @@ msgstr ""
 #. module: okr_scale
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__quality_hint
 msgid "Advice based on OKR good practices, never blocking."
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/progress_chart/okr_progress_chart.xml:0
+#, python-format
+msgid "Ahead by"
 msgstr ""
 
 #. module: okr_scale
@@ -175,6 +230,13 @@ msgstr ""
 #. module: okr_scale
 #. odoo-javascript
 #: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#, python-format
+msgid "All clear"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
 #: code:addons/okr_scale/static/src/rankings/okr_rankings.xml:0
 #, python-format
 msgid "All cycles"
@@ -186,6 +248,13 @@ msgstr ""
 #: code:addons/okr_scale/static/src/rankings/okr_rankings.xml:0
 #, python-format
 msgid "All departments"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "All my departments"
 msgstr ""
 
 #. module: okr_scale
@@ -282,10 +351,18 @@ msgid "At risk"
 msgstr ""
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "At risk:"
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__message_attachment_count
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_attachment_count
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_attachment_count
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_attachment_count
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__message_attachment_count
 msgid "Attachment Count"
 msgstr ""
 
@@ -309,6 +386,47 @@ msgid "Average confidence (1-10) of the key results."
 msgstr ""
 
 #. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_weekly_view_form
+msgid "Before"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/progress_chart/okr_progress_chart.xml:0
+#, python-format
+msgid "Behind by"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_weekly_view_search
+#, python-format
+msgid "Blocked"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Blocked:"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Blocker"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_dashboard.py:0
+#, python-format
+msgid "Blockers reported (7 days)"
+msgstr ""
+
+#. module: okr_scale
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
 msgid "Cancel"
 msgstr ""
@@ -316,6 +434,11 @@ msgstr ""
 #. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__state__cancelled
 msgid "Cancelled"
+msgstr ""
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_checkin_due
+msgid "Check in now"
 msgstr ""
 
 #. module: okr_scale
@@ -331,8 +454,18 @@ msgid "Check-in"
 msgstr ""
 
 #. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__checkin_weekday
+msgid "Check-in Day"
+msgstr ""
+
+#. module: okr_scale
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_search
 msgid "Check-in Due"
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__checkin_hour
+msgid "Check-in Time"
 msgstr ""
 
 #. module: okr_scale
@@ -374,6 +507,13 @@ msgid "Check-ins due"
 msgstr ""
 
 #. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_dashboard.py:0
+#, python-format
+msgid "Check-ins missing this week"
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.actions.act_window,name:okr_scale.okr_checkin_action_review
 #: model:ir.ui.menu,name:okr_scale.okr_menu_review
 msgid "Check-ins to Review"
@@ -387,6 +527,20 @@ msgid "Check-ins to review"
 msgstr ""
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Checked in"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Checked in ·"
+msgstr ""
+
+#. module: okr_scale
 #. odoo-python
 #: code:addons/okr_scale/models/okr_dashboard.py:0
 #, python-format
@@ -395,6 +549,7 @@ msgstr ""
 
 #. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__checkin_count
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__checkin_count
 msgid "Checkin Count"
 msgstr ""
 
@@ -443,6 +598,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__company_id
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__company_id
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__company_id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__company_id
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__level__company
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
 msgid "Company"
@@ -465,7 +621,15 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__confidence
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__confidence
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__confidence
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__confidence
 msgid "Confidence"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Confidence to reach the target"
 msgstr ""
 
 #. module: okr_scale
@@ -484,6 +648,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__create_uid
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__create_uid
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_tag__create_uid
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__create_uid
 msgid "Created by"
 msgstr ""
 
@@ -493,6 +658,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__create_date
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__create_date
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_tag__create_date
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__create_date
 msgid "Created on"
 msgstr ""
 
@@ -544,6 +710,8 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
 #: code:addons/okr_scale/static/src/rankings/okr_rankings.xml:0
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_okr_frame
 #, python-format
 msgid "DMAG · OKR"
 msgstr ""
@@ -569,9 +737,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__department_id
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__department_id
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__department_id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__department_id
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__level__department
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__visibility__department
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_weekly_view_search
 msgid "Department"
 msgstr ""
 
@@ -595,6 +765,13 @@ msgid "Departments"
 msgstr ""
 
 #. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__contributor_department_ids
+msgid ""
+"Departments helping the owner to reach this objective. Their members can "
+"follow it and comment."
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__description
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__description
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_form
@@ -613,12 +790,27 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__display_name
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__display_name
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_tag__display_name
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__display_name
 msgid "Display Name"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Done"
 msgstr ""
 
 #. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_key_result__metric_type__boolean
 msgid "Done / Not done"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Done this week"
 msgstr ""
 
 #. module: okr_scale
@@ -636,7 +828,14 @@ msgstr ""
 #. module: okr_scale
 #: model:ir.model,name:okr_scale.model_hr_employee
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__employee_id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__user_id
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_weekly_view_search
 msgid "Employee"
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__employee_id
+msgid "Employee Profile"
 msgstr ""
 
 #. module: okr_scale
@@ -675,6 +874,18 @@ msgid "Expected Progress"
 msgstr ""
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/progress_chart/okr_progress_chart.xml:0
+#, python-format
+msgid "Expected pace"
+msgstr ""
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_weekly_view_form
+msgid "Feedback for the week, visible to the employee"
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__final_score
 msgid "Final Score"
 msgstr ""
@@ -684,6 +895,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_follower_ids
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_follower_ids
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_follower_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__message_follower_ids
 msgid "Followers"
 msgstr ""
 
@@ -692,6 +904,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_partner_ids
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_partner_ids
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_partner_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__message_partner_ids
 msgid "Followers (Partners)"
 msgstr ""
 
@@ -702,12 +915,18 @@ msgid "Font awesome icon e.g. fa-tasks"
 msgstr ""
 
 #. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__checkin_weekday__4
+msgid "Friday"
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_key_result__progress_method__objectives
 msgid "From aligned objectives"
 msgstr ""
 
 #. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_checkin__mood__good
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_weekly__mood__good
 msgid "Good"
 msgstr ""
 
@@ -744,6 +963,7 @@ msgstr ""
 
 #. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_checkin__mood__great
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_weekly__mood__great
 msgid "Great"
 msgstr ""
 
@@ -751,7 +971,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_search
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_search
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_weekly_view_search
 msgid "Group By"
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__has_blockers
+msgid "Has Blockers"
 msgstr ""
 
 #. module: okr_scale
@@ -759,7 +985,29 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__has_message
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__has_message
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__has_message
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__has_message
 msgid "Has Message"
+msgstr ""
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_checkin_due
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_weekly_digest
+msgid "Hello"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__help_needed
+#, python-format
+msgid "Help needed"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Highlights, wins, lessons"
 msgstr ""
 
 #. module: okr_scale
@@ -770,8 +1018,42 @@ msgid ""
 msgstr ""
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__summary
+#, python-format
+msgid "How did the week go?"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "How do you feel?"
+msgstr ""
+
+#. module: okr_scale
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_form
 msgid "How is this key result measured?"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "How the week went"
+msgstr ""
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+msgid "I Support"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/my_okr/okr_my.xml:0
+#, python-format
+msgid "I support"
 msgstr ""
 
 #. module: okr_scale
@@ -780,6 +1062,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__id
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__id
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_tag__id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__id
 msgid "ID"
 msgstr ""
 
@@ -800,6 +1083,7 @@ msgstr ""
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_cycle__message_needaction
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__message_needaction
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__message_needaction
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_weekly__message_needaction
 msgid "If checked, new messages require your attention."
 msgstr ""
 
@@ -812,6 +1096,8 @@ msgstr ""
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__message_has_sms_error
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__message_has_error
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__message_has_sms_error
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_weekly__message_has_error
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_weekly__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
@@ -832,12 +1118,32 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_is_follower
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_is_follower
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_is_follower
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__message_is_follower
 msgid "Is Follower"
 msgstr ""
 
 #. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__is_my_team
 msgid "Is My Team"
+msgstr ""
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_checkin_due
+msgid ""
+"It is check-in time: take 5 minutes to update your key results and share "
+"your plan for next week."
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "KR"
+msgstr ""
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_weekly_view_tree
+msgid "KR updated"
 msgstr ""
 
 #. module: okr_scale
@@ -849,6 +1155,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__key_result_id
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__name
 msgid "Key Result"
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__checkin_ids
+msgid "Key Result Check-ins"
 msgstr ""
 
 #. module: okr_scale
@@ -885,9 +1196,25 @@ msgstr ""
 
 #. module: okr_scale
 #. odoo-javascript
+#. odoo-python
+#: code:addons/okr_scale/models/okr_dashboard.py:0
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Key results at risk"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
 #: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
 #, python-format
 msgid "Key results needing attention"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_dashboard.py:0
+#, python-format
+msgid "Key results off track"
 msgstr ""
 
 #. module: okr_scale
@@ -902,6 +1229,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__write_uid
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__write_uid
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_tag__write_uid
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__write_uid
 msgid "Last Updated by"
 msgstr ""
 
@@ -911,6 +1239,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__write_date
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__write_date
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_tag__write_date
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__write_date
 msgid "Last Updated on"
 msgstr ""
 
@@ -944,6 +1273,13 @@ msgid "Low Confidence"
 msgstr ""
 
 #. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_dashboard.py:0
+#, python-format
+msgid "Low confidence (≤ 4/10)"
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.ui.menu,name:okr_scale.okr_menu_manage
 msgid "Manage"
 msgstr ""
@@ -951,6 +1287,11 @@ msgstr ""
 #. module: okr_scale
 #: model:res.groups,comment:okr_scale.group_okr_admin
 msgid "Manage cycles, company objectives and every OKR."
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__manager_comment
+msgid "Manager Comment"
 msgstr ""
 
 #. module: okr_scale
@@ -988,10 +1329,18 @@ msgid "Measured By"
 msgstr ""
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Measured automatically"
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__message_has_error
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_has_error
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_has_error
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_has_error
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__message_has_error
 msgid "Message Delivery error"
 msgstr ""
 
@@ -1000,6 +1349,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_ids
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_ids
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__message_ids
 msgid "Messages"
 msgstr ""
 
@@ -1010,12 +1360,36 @@ msgid "Metric Type"
 msgstr ""
 
 #. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_weekly_view_search
+msgid "Mine"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Missing"
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__checkin_weekday__0
+msgid "Monday"
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_weekly__week_start
+msgid "Monday of the week of this check-in."
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__checkin_frequency__monthly
 msgid "Monthly"
 msgstr ""
 
 #. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__mood
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__mood
 msgid "Mood"
 msgstr ""
 
@@ -1068,6 +1442,11 @@ msgid "My Team"
 msgstr ""
 
 #. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_weekly_digest
+msgid "My key results"
+msgstr ""
+
+#. module: okr_scale
 #. odoo-javascript
 #: code:addons/okr_scale/static/src/my_okr/okr_my.xml:0
 #, python-format
@@ -1091,8 +1470,21 @@ msgstr ""
 #. module: okr_scale
 #. odoo-javascript
 #: code:addons/okr_scale/static/src/my_okr/okr_my.xml:0
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
 #, python-format
 msgid "My team"
+msgstr ""
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_weekly_digest
+msgid "My team last week"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "My week"
 msgstr ""
 
 #. module: okr_scale
@@ -1102,7 +1494,15 @@ msgid "Name"
 msgstr ""
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#, python-format
+msgid "Needs attention"
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_checkin__mood__neutral
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_weekly__mood__neutral
 msgid "Neutral"
 msgstr ""
 
@@ -1127,6 +1527,13 @@ msgid "New objective"
 msgstr ""
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "New value"
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__activity_calendar_event_id
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__activity_calendar_event_id
 msgid "Next Activity Calendar Event"
@@ -1148,6 +1555,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__activity_type_id
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__activity_type_id
 msgid "Next Activity Type"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "No KR"
 msgstr ""
 
 #. module: okr_scale
@@ -1232,6 +1646,34 @@ msgid "No running cycle."
 msgstr ""
 
 #. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_dashboard.py:0
+#, python-format
+msgid "No update for 2 weeks"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Nobody reports to you in the Employees app."
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Not yet"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Now"
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_key_result__metric_type__number
 msgid "Number"
 msgstr ""
@@ -1241,6 +1683,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_needaction_counter
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_needaction_counter
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_needaction_counter
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__message_needaction_counter
 msgid "Number of Actions"
 msgstr ""
 
@@ -1249,6 +1692,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_has_error_counter
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_has_error_counter
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_has_error_counter
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__message_has_error_counter
 msgid "Number of errors"
 msgstr ""
 
@@ -1257,6 +1701,7 @@ msgstr ""
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_cycle__message_needaction_counter
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__message_needaction_counter
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__message_needaction_counter
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_weekly__message_needaction_counter
 msgid "Number of messages requiring action"
 msgstr ""
 
@@ -1265,7 +1710,13 @@ msgstr ""
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_cycle__message_has_error_counter
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__message_has_error_counter
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__message_has_error_counter
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_weekly__message_has_error_counter
 msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_okr_frame
+msgid "Nền Tảng Vận Hành &amp; Tăng Trưởng Nha Khoa"
 msgstr ""
 
 #. module: okr_scale
@@ -1335,6 +1786,11 @@ msgid "OKR Tree"
 msgstr ""
 
 #. module: okr_scale
+#: model:ir.model,name:okr_scale.model_okr_scale_weekly
+msgid "OKR Weekly Check-in"
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.actions.server,name:okr_scale.ir_cron_okr_checkin_reminder_ir_actions_server
 msgid "OKR: check-in reminders"
 msgstr ""
@@ -1342,6 +1798,25 @@ msgstr ""
 #. module: okr_scale
 #: model:ir.actions.server,name:okr_scale.ir_cron_okr_status_ir_actions_server
 msgid "OKR: refresh statuses"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/res_users.py:0
+#, python-format
+msgid "OKR: time for your weekly check-in"
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.actions.server,name:okr_scale.ir_cron_okr_weekly_digest_ir_actions_server
+msgid "OKR: weekly digest (Monday morning)"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/res_users.py:0
+#, python-format
+msgid "OKR: your weekly digest"
 msgstr ""
 
 #. module: okr_scale
@@ -1421,6 +1896,13 @@ msgid "Objectives must be approved by a manager before they start running."
 msgstr ""
 
 #. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_dashboard.py:0
+#, python-format
+msgid "Objectives not aligned"
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__is_my_team
 msgid ""
 "Objectives of the departments and employees managed by the current user."
@@ -1433,6 +1915,13 @@ msgid "Objectives to Approve"
 msgstr ""
 
 #. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_dashboard.py:0
+#, python-format
+msgid "Objectives waiting for approval"
+msgstr ""
+
+#. module: okr_scale
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_form
 msgid "Obstacles, help needed"
 msgstr ""
@@ -1441,6 +1930,11 @@ msgstr ""
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_key_result__status__off_track
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__status__off_track
 msgid "Off Track"
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_res_users__okr_checkin_notified_date
+msgid "Okr Checkin Notified Date"
 msgstr ""
 
 #. module: okr_scale
@@ -1467,6 +1961,11 @@ msgid "Only managers can review check-ins."
 msgstr ""
 
 #. module: okr_scale
+#: model:ir.model.constraint,message:okr_scale.constraint_okr_scale_weekly_user_week_uniq
+msgid "Only one weekly check-in per person and week."
+msgstr ""
+
+#. module: okr_scale
 #. odoo-python
 #: code:addons/okr_scale/models/okr_objective.py:0
 #, python-format
@@ -1483,6 +1982,18 @@ msgstr ""
 #. module: okr_scale
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
 msgid "Open Cycles"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Open and comment"
+msgstr ""
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_weekly_digest
+msgid "Open my OKR"
 msgstr ""
 
 #. module: okr_scale
@@ -1524,6 +2035,19 @@ msgid "People"
 msgstr ""
 
 #. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__contributor_ids
+msgid ""
+"People helping the owner on this key result. The owner stays accountable and"
+" checks in."
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__contributor_user_ids
+msgid ""
+"People helping the owner. The owner stays accountable for the objective."
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_key_result__metric_type__percent
 msgid "Percentage"
 msgstr ""
@@ -1543,6 +2067,15 @@ msgstr ""
 #. module: okr_scale
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__owner_id
 msgid "Person responsible for checking in on this key result."
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__next_plan
+#, python-format
+msgid "Plan for next week"
 msgstr ""
 
 #. module: okr_scale
@@ -1578,6 +2111,12 @@ msgstr ""
 #. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__progress_before
 msgid "Progress Before"
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__progress_history
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__progress_history
+msgid "Progress History"
 msgstr ""
 
 #. module: okr_scale
@@ -1618,12 +2157,32 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__rating_ids
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__rating_ids
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__rating_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__rating_ids
 msgid "Ratings"
 msgstr ""
 
 #. module: okr_scale
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__weight
 msgid "Relative importance of this key result inside its objective."
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Remind"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.js:0
+#, python-format
+msgid "Reminder sent to %s"
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_cycle__checkin_hour
+msgid "Reminders are sent from this time on the check-in day."
 msgstr ""
 
 #. module: okr_scale
@@ -1650,6 +2209,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__activity_user_id
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__activity_user_id
 msgid "Responsible User"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Result this week"
 msgstr ""
 
 #. module: okr_scale
@@ -1686,7 +2252,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_has_sms_error
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_has_sms_error
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_has_sms_error
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__message_has_sms_error
 msgid "SMS Delivery error"
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__checkin_weekday__5
+msgid "Saturday"
 msgstr ""
 
 #. module: okr_scale
@@ -1809,6 +2381,7 @@ msgstr ""
 
 #. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_checkin__mood__struggling
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_weekly__mood__struggling
 msgid "Struggling"
 msgstr ""
 
@@ -1830,8 +2403,31 @@ msgid "Submit Check-in"
 msgstr ""
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Submit my check-in"
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_checkin__state__submitted
 msgid "Submitted"
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__checkin_weekday__6
+msgid "Sunday"
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__contributor_department_ids
+msgid "Supporting Departments"
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__contributor_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__contributor_user_ids
+msgid "Supporting People"
 msgstr ""
 
 #. module: okr_scale
@@ -1851,6 +2447,34 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__target_value
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__target_value
 msgid "Target"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_weekly.py:0
+#, python-format
+msgid "Tell your team the plan for next week before submitting."
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.js:0
+#, python-format
+msgid "Tell your team the plan for next week."
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/progress_chart/okr_progress_chart.xml:0
+#, python-format
+msgid "The chart appears after the first check-in."
+msgstr ""
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_weekly.py:0
+#, python-format
+msgid "The confidence must be between 1 and 10."
 msgstr ""
 
 #. module: okr_scale
@@ -1875,6 +2499,13 @@ msgid ""
 msgstr ""
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/my_okr/okr_my.xml:0
+#, python-format
+msgid "The owner stays accountable, you help"
+msgstr ""
+
+#. module: okr_scale
 #. odoo-python
 #: code:addons/okr_scale/models/okr_key_result.py:0
 #, python-format
@@ -1886,6 +2517,11 @@ msgstr ""
 #: code:addons/okr_scale/models/okr_key_result.py:0
 #, python-format
 msgid "The weight of a key result cannot be negative."
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__checkin_weekday__3
+msgid "Thursday"
 msgstr ""
 
 #. module: okr_scale
@@ -1922,6 +2558,11 @@ msgid "Top performers"
 msgstr ""
 
 #. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__checkin_weekday__1
+msgid "Tuesday"
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__cycle_type
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__okr_type
 msgid "Type"
@@ -1943,6 +2584,13 @@ msgstr ""
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_checkin__unit
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__unit
 msgid "Unit displayed next to values, e.g. customers, leads, hours."
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Update my week"
 msgstr ""
 
 #. module: okr_scale
@@ -1996,6 +2644,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__website_message_ids
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__website_message_ids
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__website_message_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__website_message_ids
 msgid "Website Messages"
 msgstr ""
 
@@ -2004,17 +2653,76 @@ msgstr ""
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_cycle__website_message_ids
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__website_message_ids
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__website_message_ids
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_weekly__website_message_ids
 msgid "Website communication history"
 msgstr ""
 
 #. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__checkin_weekday__2
+msgid "Wednesday"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__week_start
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_weekly_view_search
+#, python-format
 msgid "Week"
+msgstr ""
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_weekly_view_form
+msgid "Week of"
 msgstr ""
 
 #. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__checkin_frequency__weekly
 msgid "Weekly"
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.actions.client,name:okr_scale.okr_weekly_action
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__weekly_id
+#: model:ir.ui.menu,name:okr_scale.okr_menu_weekly
+msgid "Weekly Check-in"
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.actions.act_window,name:okr_scale.okr_weekly_history_action
+#: model:ir.ui.menu,name:okr_scale.okr_menu_weekly_history
+msgid "Weekly Check-in History"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_checkin_due
+#, python-format
+msgid "Weekly check-in"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/my_okr/okr_my.xml:0
+#, python-format
+msgid "Weekly check-in ("
+msgstr ""
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_cycle__checkin_weekday
+msgid ""
+"Weekly check-in day: owners review their key results and plan the next "
+"steps."
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.js:0
+#, python-format
+msgid "Weekly check-in submitted. Have a great weekend!"
 msgstr ""
 
 #. module: okr_scale
@@ -2030,6 +2738,11 @@ msgid "Weight"
 msgstr ""
 
 #. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__progress_history
+msgid "Weighted progress of the key results over the cycle."
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__achievements
 msgid "What did you achieve?"
 msgstr ""
@@ -2040,10 +2753,31 @@ msgid "What is blocking you?"
 msgstr ""
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "What is slowing you down?"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "What moved this key result?"
+msgstr ""
+
+#. module: okr_scale
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__visibility
 msgid ""
 "Who can see this objective. Managers in the hierarchy and OKR administrators"
 " always can."
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Who or what would unblock you?"
 msgstr ""
 
 #. module: okr_scale
@@ -2097,6 +2831,25 @@ msgstr ""
 
 #. module: okr_scale
 #. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "You own no running key result."
+msgstr ""
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_weekly_digest
+msgid "Your OKR week"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Your next actions to move the key results"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
 #: code:addons/okr_scale/static/src/rankings/okr_rankings.xml:0
 #, python-format
 msgid "Your rank"
@@ -2104,9 +2857,22 @@ msgstr ""
 
 #. module: okr_scale
 #. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Your week"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
 #: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
 #, python-format
 msgid "at risk"
+msgstr ""
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_weekly_digest
+msgid "checked in"
 msgstr ""
 
 #. module: okr_scale
@@ -2132,6 +2898,18 @@ msgid "e.g. Sign 20 new B2B customers"
 msgstr ""
 
 #. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_weekly_digest
+msgid "key results at risk"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "key results updated"
+msgstr ""
+
+#. module: okr_scale
 #. odoo-javascript
 #: code:addons/okr_scale/static/src/rankings/okr_rankings.xml:0
 #, python-format
@@ -2139,9 +2917,42 @@ msgid "objectives"
 msgstr ""
 
 #. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_weekly_digest
+msgid "people blocked"
+msgstr ""
+
+#. module: okr_scale
 #. odoo-javascript
+#: code:addons/okr_scale/static/src/progress_chart/okr_progress_chart.xml:0
+#: code:addons/okr_scale/static/src/progress_chart/okr_progress_chart.xml:0
 #: code:addons/okr_scale/static/src/rankings/okr_rankings.js:0
 #: code:addons/okr_scale/static/src/rankings/okr_rankings.xml:0
 #, python-format
 msgid "pts"
+msgstr ""
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_checkin_due
+msgid "reminds you to update your key results."
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#, python-format
+msgid "topics to handle"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "· Check-in day:"
+msgstr ""
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "· last update"
 msgstr ""

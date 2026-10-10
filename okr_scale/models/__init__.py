@@ -6,5 +6,6 @@ from . import okr_cycle
 from . import okr_objective
 from . import okr_key_result
 from . import okr_checkin
+from . import okr_weekly
 from . import okr_dashboard
 from . import okr_ranking

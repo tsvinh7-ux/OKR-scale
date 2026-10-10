@@ -46,6 +46,7 @@ class OkrCheckin(models.Model):
         ('reviewed', 'Reviewed'),
     ], default='draft', required=True, tracking=True, index=True)
     manager_feedback = fields.Text()
+    weekly_id = fields.Many2one('okr.scale.weekly', 'Weekly Check-in', index=True, ondelete='set null')
     reviewer_id = fields.Many2one('res.users', readonly=True)
     review_date = fields.Datetime(readonly=True)
 

@@ -20,7 +20,7 @@ class OkrConversation(models.Model):
                                  default=lambda self: self.env.user, domain=[('share', '=', False)])
     employee_user_id = fields.Many2one('res.users', 'Employee', required=True, index=True, tracking=True,
                                        domain=[('share', '=', False)])
-    objective_ids = fields.Many2many('okr.scale.objective', string='Objectives',
+    objective_ids = fields.Many2many('okr.scale.objective', string='Objectives', required=True,
                                      help='Objectives discussed during the conversation.')
     date = fields.Datetime(required=True, tracking=True,
                            default=lambda self: fields.Datetime.now().replace(minute=0, second=0) + timedelta(days=1))
@@ -119,10 +119,23 @@ class OkrConversation(models.Model):
             if conversation.manager_id == conversation.employee_user_id:
                 raise ValidationError(_('A conversation needs two different participants.'))
 
+    @api.constrains('objective_ids')
+    def _check_objectives(self):
+        """A 1:1 always serves the OKRs: at least one objective is discussed."""
+        for conversation in self:
+            if not conversation.objective_ids:
+                raise ValidationError(_('Select the objectives discussed in this 1:1.'))
+
     @api.constrains('duration')
     def _check_duration(self):
         if any(conversation.duration < 0 for conversation in self):
             raise ValidationError(_('The duration cannot be negative.'))
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        conversations = super().create(vals_list)
+        conversations._check_objectives()
+        return conversations
 
     def write(self, vals):
         res = super().write(vals)

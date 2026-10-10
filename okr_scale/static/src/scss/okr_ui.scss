@@ -384,3 +384,51 @@
     &.o_okr_node_at_risk { background: #FFF3DC; color: #A86500; }
     &.o_okr_node_off_track { background: #FDE7E8; color: #B42328; }
 }
+
+.o_okr_issues {
+    .o_okr_issue_grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+        gap: 10px;
+    }
+    .o_okr_issue {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        column-gap: 10px;
+        align-items: center;
+        text-align: left;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid transparent;
+        transition: transform .15s ease, box-shadow .15s ease;
+        i {
+            grid-row: span 2;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            font-size: 1rem;
+        }
+        .o_okr_issue_count { font-size: 1.35rem; font-weight: 800; line-height: 1.1; }
+        .o_okr_issue_label { font-size: .78rem; line-height: 1.2; }
+        &:not([disabled]):hover { transform: translateY(-1px); box-shadow: var(--okr-shadow); }
+    }
+    .o_okr_issue_danger {
+        background: #FFF5F5; border-color: #F8D2D4; color: #8E1B1F;
+        i { background: var(--okr-danger); color: #fff; }
+    }
+    .o_okr_issue_warning {
+        background: #FFFAF0; border-color: #FBE3B5; color: #7A4B00;
+        i { background: var(--okr-warning); color: #fff; }
+    }
+    .o_okr_issue_info {
+        background: var(--okr-sky); border-color: var(--okr-line); color: var(--okr-navy);
+        i { background: var(--okr-blue); color: #fff; }
+    }
+    .o_okr_issue_ok {
+        background: #fff; border-color: var(--okr-line); color: var(--okr-muted); opacity: .7;
+        i { background: #E7F6F0; color: var(--okr-success); }
+    }
+}

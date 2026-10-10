@@ -216,8 +216,27 @@ class OkrDashboardRanking(models.AbstractModel):
                 'team_risky': Objective.search_count(team_domain + [
                     ('state', '=', 'running'), ('status', 'in', ('at_risk', 'off_track'))]),
             } if is_manager else False,
+            'supporting': [{
+                'id': o.id,
+                'name': o.name,
+                'owner': o.owner_id.name,
+                'owner_id': o.owner_id.id,
+                'progress': round(o.progress, 1),
+                'status': o.status,
+                'status_label': status_labels.get(o.status, ''),
+            } for o in self._supporting_objectives(cycle) - objectives],
             'extra': self._get_my_extra(),
         }
+
+    @api.model
+    def _supporting_objectives(self, cycle):
+        domain = [('state', '=', 'running'),
+                  '|', '|', ('contributor_user_ids', 'in', [self.env.uid]),
+                  ('key_result_ids.contributor_ids', 'in', [self.env.uid]),
+                  ('contributor_department_ids', 'in', self.env.user.sudo().employee_ids.department_id.ids)]
+        if cycle:
+            domain.append(('cycle_id', '=', cycle.id))
+        return self.env['okr.scale.objective'].search(domain)
 
     @api.model
     def _get_my_extra(self):

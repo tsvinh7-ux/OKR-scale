@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from odoo import _, api, fields, models
 from odoo.exceptions import AccessError, ValidationError
 
@@ -12,6 +14,7 @@ class OkrKeyResult(models.Model):
     _description = 'OKR Key Result'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'objective_id, sequence, id'
+    _mail_post_access = 'read'
 
     name = fields.Char('Key Result', required=True, tracking=True)
     description = fields.Text()
@@ -28,6 +31,10 @@ class OkrKeyResult(models.Model):
         compute='_compute_owner_id', store=True, readonly=False, precompute=True,
         help='Person responsible for checking in on this key result.')
     deadline = fields.Date()
+    contributor_ids = fields.Many2many(
+        'res.users', 'okr_scale_key_result_contrib_rel', 'key_result_id', 'user_id', string='Supporting People',
+        domain=[('share', '=', False)], tracking=True,
+        help='People helping the owner on this key result. The owner stays accountable and checks in.')
 
     metric_type = fields.Selection([
         ('number', 'Number'),
@@ -60,6 +67,8 @@ class OkrKeyResult(models.Model):
     checkin_count = fields.Integer(compute='_compute_counts')
     last_checkin_date = fields.Date(compute='_compute_last_checkin', store=True)
     checkin_due = fields.Boolean(compute='_compute_checkin_due', search='_search_checkin_due')
+    progress_history = fields.Json(compute='_compute_progress_history',
+                                   help='Actual progress at each check-in against the expected pace.')
 
     @api.constrains('weight')
     def _check_weight(self):
@@ -120,6 +129,35 @@ class OkrKeyResult(models.Model):
             kr.status = compute_status(kr.progress, expected, kr.confidence)
             kr.achieved = kr.progress >= 100
 
+    def _history_points(self):
+        """[(date, progress)] from the submitted check-ins, oldest first."""
+        self.ensure_one()
+        checkins = self.checkin_ids.filtered(lambda c: c.state != 'draft').sorted(lambda c: (c.date, c.id))
+        start = self.cycle_id.date_start
+        points = [(start, checkins[:1].progress_before if checkins else 0.0)]
+        for checkin in checkins:
+            points.append((max(checkin.date, start), checkin.progress_after))
+        # several check-ins the same day: keep the last one
+        return [point for i, point in enumerate(points) if i + 1 == len(points) or points[i + 1][0] != point[0]]
+
+    @api.depends('checkin_ids.progress_after', 'checkin_ids.state', 'progress', 'cycle_id.date_start',
+                 'cycle_id.date_end', 'deadline')
+    def _compute_progress_history(self):
+        today = fields.Date.context_today(self)
+        for kr in self:
+            if not kr.cycle_id:
+                kr.progress_history = False
+                continue
+            points = kr._history_points()
+            if points[-1][0] <= today and round(points[-1][1], 1) != round(kr.progress, 1):
+                points.append((min(today, kr.cycle_id.date_end), kr.progress))
+            kr.progress_history = {
+                'start': fields.Date.to_string(kr.cycle_id.date_start),
+                'end': fields.Date.to_string(kr.deadline or kr.cycle_id.date_end),
+                'today': fields.Date.to_string(today),
+                'points': [[fields.Date.to_string(d), round(v, 1)] for d, v in points],
+            }
+
     def _compute_counts(self):
         for kr in self:
             kr.aligned_objective_count = len(kr.aligned_objective_ids)
@@ -138,9 +176,16 @@ class OkrKeyResult(models.Model):
         today = today or fields.Date.context_today(self)
         if today < self.cycle_id.date_start:
             return False
-        reference = self.last_checkin_date or self.objective_id.approval_date and self.objective_id.approval_date.date() \
-            or self.cycle_id.date_start
-        return (today - reference).days >= self.cycle_id.get_checkin_days()
+        cycle = self.cycle_id
+        started = self.objective_id.approval_date.date() if self.objective_id.approval_date else cycle.date_start
+        if cycle.checkin_frequency == 'weekly':
+            window_start = cycle.get_checkin_window_start(today)
+            checkin_day = window_start + timedelta(days=int(cycle.checkin_weekday))
+            if today < checkin_day or started > checkin_day:
+                return False
+            return not self.last_checkin_date or self.last_checkin_date < window_start
+        reference = self.last_checkin_date or started
+        return (today - reference).days >= cycle.get_checkin_days()
 
     def _compute_checkin_due(self):
         today = fields.Date.context_today(self)
@@ -199,11 +244,25 @@ class OkrKeyResult(models.Model):
 
     @api.model
     def _cron_checkin_reminder(self):
-        """Schedule a check-in activity for every key result whose check-in is overdue."""
+        """Hourly: on the check-in day of each cycle, from the check-in time, remind the
+        owners of key results not checked in yet this period."""
         activity_type = self.env.ref('okr_scale.mail_activity_okr_checkin')
-        today = fields.Date.context_today(self)
+        now = fields.Datetime.context_timestamp(
+            self.with_context(tz=self.env.user.tz or 'Asia/Ho_Chi_Minh'), fields.Datetime.now())
+        today = now.date()
+        notified = self.browse()
         for kr in self.search([('checkin_due', '=', True), ('owner_id', '!=', False)]):
+            cycle = kr.cycle_id
+            if cycle.checkin_frequency == 'weekly' and (
+                    now.weekday() != int(cycle.checkin_weekday) or now.hour + now.minute / 60 < cycle.checkin_hour):
+                continue
             kr._notify_checkin_due(activity_type, today)
+            notified |= kr
+        # One summary message per person and per day, in Odoo (inbox) and by e-mail
+        users = notified.owner_id.filtered(lambda u: not u.share and u.okr_checkin_notified_date != today)
+        for user in users:
+            user._okr_notify_checkin_due(notified.filtered(lambda kr: kr.owner_id == user))
+        users.sudo().write({'okr_checkin_notified_date': today})
 
     def _notify_checkin_due(self, activity_type, today):
         """Internal owners get an activity. Extended by the portal module for portal owners."""

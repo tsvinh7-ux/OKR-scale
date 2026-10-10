@@ -1,0 +1,119 @@
+.o_okr_weekly {
+    .min-w-0 { min-width: 0; }
+    .o_okr_clickable { cursor: pointer; }
+    .o_okr_hero_icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
+        display: grid;
+        place-items: center;
+        font-size: 1.5rem;
+        background: rgba(255, 255, 255, .14);
+    }
+    .o_okr_hero_stat {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        b { font-size: 1.8rem; line-height: 1; }
+        span { opacity: .8; font-size: .85rem; }
+    }
+    .o_okr_week_kr {
+        padding: 18px 20px;
+        transition: box-shadow .2s ease;
+        &:focus-within { box-shadow: 0 0 0 3px var(--okr-blue-100), var(--okr-shadow); }
+        &.o_okr_week_kr_done { opacity: .75; background: #FBFDFF; }
+    }
+    .o_okr_week_objective {
+        font-size: .72rem;
+        text-transform: uppercase;
+        letter-spacing: .08em;
+        color: var(--okr-blue);
+        font-weight: 700;
+    }
+    .o_okr_week_title {
+        font-weight: 600;
+        font-size: 1.02rem;
+        color: var(--okr-navy);
+        text-decoration: none;
+    }
+    .o_okr_week_inputs {
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--okr-line);
+    }
+    .o_okr_label {
+        display: block;
+        font-size: .78rem;
+        font-weight: 600;
+        color: var(--okr-muted);
+        margin-bottom: 6px;
+    }
+    .o_okr_input {
+        border-radius: 10px;
+        border-color: var(--okr-line);
+        &:focus { border-color: var(--okr-blue); box-shadow: 0 0 0 3px var(--okr-blue-100); }
+    }
+    .o_okr_conf_row {
+        display: flex;
+        gap: 4px;
+        flex-wrap: wrap;
+    }
+    .o_okr_conf {
+        width: 34px;
+        height: 34px;
+        border-radius: 9px;
+        border: 1px solid var(--okr-line);
+        background: #fff;
+        font-weight: 700;
+        color: var(--okr-muted);
+        &.o_okr_conf_low.active { background: var(--okr-danger); border-color: var(--okr-danger); color: #fff; }
+        &.o_okr_conf_mid.active { background: var(--okr-warning); border-color: var(--okr-warning); color: #fff; }
+        &.o_okr_conf_high.active { background: var(--okr-blue); border-color: var(--okr-blue); color: #fff; }
+        &:hover { border-color: var(--okr-blue); }
+    }
+    .o_okr_week_side {
+        position: sticky;
+        top: 16px;
+    }
+    .o_okr_mood {
+        flex: 1;
+        font-size: 1.4rem;
+        padding: 6px 0;
+        border-radius: 12px;
+        border: 1px solid var(--okr-line);
+        background: #fff;
+        filter: grayscale(.7);
+        &.active { filter: none; border-color: var(--okr-blue); background: var(--okr-blue-100); }
+    }
+    .o_okr_manager_note {
+        background: var(--okr-blue-100);
+        color: var(--okr-navy);
+        border-radius: 10px;
+        padding: 10px 12px;
+        font-size: .9rem;
+    }
+    .o_okr_pill { border-radius: 999px; border: 1px solid var(--okr-line); background: #fff; }
+    .o_okr_kpi_danger .o_okr_kpi_icon { background: #FDE7E8; color: var(--okr-danger); }
+    .o_okr_kpi_warning .o_okr_kpi_icon { background: #FFF3DC; color: var(--okr-warning); }
+    .o_okr_team_row {
+        padding: 14px 4px;
+        border-top: 1px solid var(--okr-line);
+        &:first-child { border-top: 0; }
+    }
+    .o_okr_team_progress { width: 150px; flex: none; }
+    .o_okr_team_detail { margin: 10px 0 0 56px; }
+    .o_okr_team_blocker {
+        background: #FDE7E8;
+        color: #8E1B1F;
+        border-radius: 10px;
+        padding: 8px 12px;
+        font-size: .88rem;
+    }
+    .o_okr_team_text {
+        background: var(--okr-sky);
+        border-radius: 10px;
+        padding: 10px 12px;
+        white-space: pre-line;
+        font-size: .9rem;
+    }
+}

@@ -1,3 +1,4 @@
+from odoo import fields
 from odoo.tests import tagged
 from odoo.tests.common import TransactionCase
 
@@ -11,6 +12,9 @@ class TestOkrPortalReminder(OkrPortalCommonMixin, TransactionCase):
     def setUpClass(cls):
         super().setUpClass()
         cls._setup_okr_portal_data()
+        # Reminders are sent on the check-in day of the cycle: make it today
+        cls.env['okr.scale.cycle'].search([]).write({
+            'checkin_weekday': str(fields.Date.today().weekday()), 'checkin_hour': 0.0})
 
     def _reminders(self, kr):
         return self.env['mail.mail'].search([('model', '=', kr._name), ('res_id', '=', kr.id)])

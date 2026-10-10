@@ -36,7 +36,7 @@
         <field name="name">Objective: visible objectives</field>
         <field name="model_id" ref="model_okr_scale_objective"/>
         <field name="groups" eval="[(4, ref('group_okr_user'))]"/>
-        <field name="domain_force">['|', '|', '|', '|', '|', ('visibility', '=', 'public'), ('owner_id', '=', user.id), ('employee_id.user_id', '=', user.id), ('key_result_ids.owner_id', '=', user.id), '&amp;', ('visibility', '=', 'department'), ('department_id.member_ids.user_id', '=', user.id), '|', ('department_id.okr_manager_user_ids', 'in', [user.id]), ('employee_id.okr_manager_user_ids', 'in', [user.id])]</field>
+        <field name="domain_force">['|', '|', '|', '|', '|', '|', '|', '|', ('contributor_user_ids', 'in', [user.id]), ('contributor_department_ids.member_ids.user_id', '=', user.id), ('key_result_ids.contributor_ids', 'in', [user.id]), ('visibility', '=', 'public'), ('owner_id', '=', user.id), ('employee_id.user_id', '=', user.id), ('key_result_ids.owner_id', '=', user.id), '&amp;', ('visibility', '=', 'department'), ('department_id.member_ids.user_id', '=', user.id), '|', ('department_id.okr_manager_user_ids', 'in', [user.id]), ('employee_id.okr_manager_user_ids', 'in', [user.id])]</field>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="False"/>
         <field name="perm_create" eval="False"/>
@@ -91,7 +91,7 @@
         <field name="name">Key Result: visible key results</field>
         <field name="model_id" ref="model_okr_scale_key_result"/>
         <field name="groups" eval="[(4, ref('group_okr_user'))]"/>
-        <field name="domain_force">['|', '|', ('owner_id', '=', user.id), '|', '|', '|', '|', ('objective_id.visibility', '=', 'public'), ('objective_id.owner_id', '=', user.id), ('objective_id.employee_id.user_id', '=', user.id), ('objective_id.key_result_ids.owner_id', '=', user.id), '&amp;', ('objective_id.visibility', '=', 'department'), ('objective_id.department_id.member_ids.user_id', '=', user.id), '|', ('objective_id.department_id.okr_manager_user_ids', 'in', [user.id]), ('objective_id.employee_id.okr_manager_user_ids', 'in', [user.id])]</field>
+        <field name="domain_force">['|', '|', '|', '|', '|', ('owner_id', '=', user.id), '|', '|', '|', '|', ('objective_id.contributor_user_ids', 'in', [user.id]), ('objective_id.contributor_department_ids.member_ids.user_id', '=', user.id), ('objective_id.key_result_ids.contributor_ids', 'in', [user.id]), ('objective_id.visibility', '=', 'public'), ('objective_id.owner_id', '=', user.id), ('objective_id.employee_id.user_id', '=', user.id), ('objective_id.key_result_ids.owner_id', '=', user.id), '&amp;', ('objective_id.visibility', '=', 'department'), ('objective_id.department_id.member_ids.user_id', '=', user.id), '|', ('objective_id.department_id.okr_manager_user_ids', 'in', [user.id]), ('objective_id.employee_id.okr_manager_user_ids', 'in', [user.id])]</field>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="False"/>
         <field name="perm_create" eval="False"/>
@@ -135,7 +135,7 @@
         <field name="name">Check-in: visible check-ins</field>
         <field name="model_id" ref="model_okr_scale_checkin"/>
         <field name="groups" eval="[(4, ref('group_okr_user'))]"/>
-        <field name="domain_force">['|', '|', ('user_id', '=', user.id), '|', '|', '|', '|', ('objective_id.visibility', '=', 'public'), ('objective_id.owner_id', '=', user.id), ('objective_id.employee_id.user_id', '=', user.id), ('objective_id.key_result_ids.owner_id', '=', user.id), '&amp;', ('objective_id.visibility', '=', 'department'), ('objective_id.department_id.member_ids.user_id', '=', user.id), '|', ('objective_id.department_id.okr_manager_user_ids', 'in', [user.id]), ('objective_id.employee_id.okr_manager_user_ids', 'in', [user.id])]</field>
+        <field name="domain_force">['|', '|', '|', '|', '|', ('user_id', '=', user.id), '|', '|', '|', '|', ('objective_id.contributor_user_ids', 'in', [user.id]), ('objective_id.contributor_department_ids.member_ids.user_id', '=', user.id), ('objective_id.key_result_ids.contributor_ids', 'in', [user.id]), ('objective_id.visibility', '=', 'public'), ('objective_id.owner_id', '=', user.id), ('objective_id.employee_id.user_id', '=', user.id), ('objective_id.key_result_ids.owner_id', '=', user.id), '&amp;', ('objective_id.visibility', '=', 'department'), ('objective_id.department_id.member_ids.user_id', '=', user.id), '|', ('objective_id.department_id.okr_manager_user_ids', 'in', [user.id]), ('objective_id.employee_id.okr_manager_user_ids', 'in', [user.id])]</field>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="False"/>
         <field name="perm_create" eval="False"/>
@@ -210,6 +210,35 @@
     <record id="okr_checkin_rule_company" model="ir.rule">
         <field name="name">okr.scale.checkin: multi-company</field>
         <field name="model_id" ref="model_okr_scale_checkin"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="okr_weekly_rule_own" model="ir.rule">
+        <field name="name">Weekly check-in: own</field>
+        <field name="model_id" ref="model_okr_scale_weekly"/>
+        <field name="groups" eval="[(4, ref('group_okr_user'))]"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+    </record>
+
+    <record id="okr_weekly_rule_team" model="ir.rule">
+        <field name="name">Weekly check-in: team (HR hierarchy)</field>
+        <field name="model_id" ref="model_okr_scale_weekly"/>
+        <field name="groups" eval="[(4, ref('group_okr_user'))]"/>
+        <field name="domain_force">[('employee_id.okr_manager_user_ids', 'in', [user.id])]</field>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="okr_weekly_rule_admin" model="ir.rule">
+        <field name="name">Weekly check-in: all</field>
+        <field name="model_id" ref="model_okr_scale_weekly"/>
+        <field name="groups" eval="[(4, ref('group_okr_admin'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+    <record id="okr_weekly_rule_company" model="ir.rule">
+        <field name="name">okr.scale.weekly: multi-company</field>
+        <field name="model_id" ref="model_okr_scale_weekly"/>
         <field name="global" eval="True"/>
         <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
     </record>

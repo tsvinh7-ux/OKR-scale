@@ -184,7 +184,8 @@ class TestOkrCfr(OkrCommon):
     def test_conversation_calendar_event(self):
         Conversation = self.env['okr.scale.conversation']
         with self.assertRaises(AccessError):
-            Conversation.with_user(self.seller).create({'employee_user_id': self.seller2.id})
+            Conversation.with_user(self.seller).create({
+                'employee_user_id': self.seller2.id, 'objective_ids': [(6, 0, self.sales_obj.ids)]})
         conversation = Conversation.with_user(self.sales_manager).create({
             'employee_user_id': self.seller.id,
             'objective_ids': [(6, 0, self.sales_obj.ids)],
@@ -212,7 +213,7 @@ class TestOkrCfr(OkrCommon):
     def test_conversation_needs_two_people(self):
         with self.assertRaises(ValidationError):
             self.env['okr.scale.conversation'].with_user(self.sales_manager).create(
-                {'employee_user_id': self.sales_manager.id})
+                {'employee_user_id': self.sales_manager.id, 'objective_ids': [(6, 0, self.sales_obj.ids)]})
 
     # ------------------------------------------------------------------
     # Dashboard
@@ -298,9 +299,15 @@ class TestOkrOneOnOne(OkrCommon):
 
     def test_employee_can_request_one_on_one(self):
         conversation = self.env['okr.scale.conversation'].with_user(self.seller).create({
-            'manager_id': self.sales_manager.id, 'employee_user_id': self.seller.id, 'cadence': 'none'})
+            'manager_id': self.sales_manager.id, 'employee_user_id': self.seller.id, 'cadence': 'none',
+            'objective_ids': [(6, 0, self.sales_obj.ids)]})
         self.assertTrue(conversation)
-        self.assertEqual(self.sales_obj.with_user(self.sales_manager).conversation_count, 0)
+        self.assertEqual(self.sales_obj.with_user(self.sales_manager).conversation_count, 1)
+
+    def test_one_on_one_needs_objectives(self):
+        with self.assertRaises(ValidationError):
+            self.env['okr.scale.conversation'].with_user(self.sales_manager).create(
+                {'employee_user_id': self.seller.id, 'cadence': 'none'})
 
     def test_confident_checkin_no_activity(self):
         self.kr_customers.owner_id = self.seller

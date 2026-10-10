@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="okr_scale.Weekly">
+        <div class="o_action o_okr_page o_okr_weekly">
+            <div class="o_okr_container" t-if="state.mine">
+                <t t-set="mine" t-value="state.mine"/>
+                <div class="o_okr_hero d-flex flex-wrap align-items-center gap-4">
+                    <div class="o_okr_hero_icon"><i class="fa fa-calendar-check-o"/></div>
+                    <div class="me-auto">
+                        <div class="o_okr_hero_eyebrow">DMAG · OKR</div>
+                        <h1>Weekly check-in</h1>
+                        <div class="o_okr_hero_sub">
+                            Week <t t-esc="mine.week_start"/> → <t t-esc="mine.week_end"/>
+                            <t t-if="mine.checkin_day"> · Check-in day: <b t-esc="mine.checkin_day"/></t>
+                        </div>
+                    </div>
+                    <div class="o_okr_hero_stat" t-if="mine.key_results.length">
+                        <b><t t-esc="mine.key_results.length - pending.length"/>/<t t-esc="mine.key_results.length"/></b>
+                        <span>key results updated</span>
+                    </div>
+                </div>
+
+                <div class="o_okr_tabs" t-if="state.isManager">
+                    <button t-att-class="{'active': state.tab === 'mine'}" t-on-click="() => this.state.tab = 'mine'"><i class="fa fa-user me-2"/>My week</button>
+                    <button t-att-class="{'active': state.tab === 'team'}" t-on-click="() => this.state.tab = 'team'"><i class="fa fa-users me-2"/>My team</button>
+                </div>
+
+                <!-- ============ MY WEEK ============ -->
+                <t t-if="state.tab === 'mine'">
+                    <div t-if="!mine.key_results.length" class="o_okr_card">
+                        <div class="o_okr_empty py-5"><i class="fa fa-key"/>You own no running key result.</div>
+                    </div>
+                    <div t-else="" class="row g-4">
+                        <div class="col-xl-8">
+                            <t t-foreach="mine.key_results" t-as="kr" t-key="kr.id">
+                                <t t-set="line" t-value="state.lines[kr.id]"/>
+                                <div t-attf-class="o_okr_card o_okr_week_kr mb-3 {{ kr.done ? 'o_okr_week_kr_done' : '' }}">
+                                    <div class="d-flex align-items-start gap-3">
+                                        <OkrProgressRing value="kr.done ? kr.progress : previewProgress(kr)" status="kr.status" size="56"/>
+                                        <div class="flex-grow-1 min-w-0">
+                                            <div class="o_okr_week_objective" t-esc="kr.objective"/>
+                                            <a href="#" class="o_okr_week_title" t-on-click.prevent="() => this.openKeyResult(kr.id)" t-esc="kr.name"/>
+                                            <div class="small text-muted mt-1">
+                                                <t t-if="kr.manual and !kr.boolean">Now <b t-esc="kr.current"/> / <t t-esc="kr.target"/> <t t-esc="kr.unit"/></t>
+                                                <t t-if="!kr.manual">Measured automatically</t>
+                                                <t t-if="kr.last_checkin_date"> · last update <t t-esc="kr.last_checkin_date"/></t>
+                                            </div>
+                                        </div>
+                                        <span t-if="kr.done" class="o_okr_chip o_okr_chip_on_track"><i class="fa fa-check"/> Done this week</span>
+                                        <OkrStatusChip t-else="" status="kr.status" label="kr.status_label"/>
+                                    </div>
+                                    <div t-if="!kr.done" class="o_okr_week_inputs">
+                                        <div class="row g-3 align-items-end">
+                                            <div class="col-md-4" t-if="kr.manual">
+                                                <label class="o_okr_label">New value</label>
+                                                <div t-if="kr.boolean" class="btn-group w-100">
+                                                    <button t-attf-class="btn {{ line.new_value >= 1 ? 'btn-okr-primary' : 'btn-light' }}" t-on-click="() => line.new_value = 1">Done</button>
+                                                    <button t-attf-class="btn {{ line.new_value &lt; 1 ? 'btn-okr-primary' : 'btn-light' }}" t-on-click="() => line.new_value = 0">Not yet</button>
+                                                </div>
+                                                <div t-else="" class="input-group">
+                                                    <input type="number" step="any" class="form-control o_okr_input" t-model.number="line.new_value"/>
+                                                    <span class="input-group-text" t-if="kr.unit" t-esc="kr.unit"/>
+                                                </div>
+                                            </div>
+                                            <div t-attf-class="{{ kr.manual ? 'col-md-8' : 'col-12' }}">
+                                                <label class="o_okr_label">Confidence to reach the target</label>
+                                                <div class="o_okr_conf_row">
+                                                    <t t-foreach="confidences" t-as="c" t-key="c">
+                                                        <button t-att-class="confidenceClass(c, line.confidence === c)" t-on-click="() => line.confidence = c" t-esc="c"/>
+                                                    </t>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="o_okr_label">Result this week</label>
+                                                <input class="form-control o_okr_input" t-model="line.note" placeholder="What moved this key result?"/>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="o_okr_label">Blocker <span class="text-muted fw-normal">(optional)</span></label>
+                                                <input class="form-control o_okr_input" t-model="line.blockers" placeholder="What is slowing you down?"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                        <div class="col-xl-4">
+                            <div class="o_okr_card o_okr_week_side">
+                                <div class="o_okr_card_header">Your week</div>
+                                <div class="o_okr_card_body">
+                                    <label class="o_okr_label">How do you feel?</label>
+                                    <div class="d-flex gap-2 mb-3">
+                                        <t t-foreach="moods" t-as="m" t-key="m.key">
+                                            <button t-attf-class="o_okr_mood {{ state.form.mood === m.key ? 'active' : '' }}" t-on-click="() => this.state.form.mood = m.key" t-esc="m.emoji"/>
+                                        </t>
+                                    </div>
+                                    <label class="o_okr_label">How did the week go?</label>
+                                    <textarea class="form-control o_okr_input mb-3" rows="3" t-model="state.form.summary" placeholder="Highlights, wins, lessons"/>
+                                    <label class="o_okr_label">Plan for next week <span class="text-danger">*</span></label>
+                                    <textarea class="form-control o_okr_input mb-3" rows="3" t-model="state.form.next_plan" placeholder="Your next actions to move the key results"/>
+                                    <label class="o_okr_label">Help needed</label>
+                                    <textarea class="form-control o_okr_input mb-3" rows="2" t-model="state.form.help_needed" placeholder="Who or what would unblock you?"/>
+                                    <div t-if="state.form.manager_comment" class="o_okr_manager_note mb-3">
+                                        <i class="fa fa-comment-o me-1"/><t t-esc="state.form.manager_comment"/>
+                                    </div>
+                                    <button class="btn btn-okr-primary w-100 py-2" t-att-disabled="state.saving" t-on-click="submit">
+                                        <i class="fa fa-paper-plane me-2"/>
+                                        <t t-if="pending.length">Submit my check-in</t><t t-else="">Update my week</t>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+
+                <!-- ============ TEAM BOARD ============ -->
+                <t t-if="state.tab === 'team' and state.team">
+                    <t t-set="team" t-value="state.team"/>
+                    <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+                        <button class="btn btn-light o_okr_pill" t-on-click="() => this.loadTeam(team.previous_week)"><i class="fa fa-chevron-left"/></button>
+                        <span class="fw-semibold" style="color: var(--okr-navy)">Week <t t-esc="team.week_start"/> → <t t-esc="team.week_end"/></span>
+                        <button class="btn btn-light o_okr_pill" t-att-disabled="team.is_current_week" t-on-click="() => this.loadTeam(team.next_week)"><i class="fa fa-chevron-right"/></button>
+                        <select class="form-select w-auto ms-auto o_okr_input" t-on-change="onDepartmentChange">
+                            <option value="">All my departments</option>
+                            <t t-foreach="team.departments" t-as="d" t-key="d.id">
+                                <option t-att-value="d.id" t-att-selected="d.id === state.departmentId" t-esc="d.name"/>
+                            </t>
+                        </select>
+                    </div>
+                    <div class="row g-3 mb-4">
+                        <div class="col-6 col-lg-3">
+                            <div class="o_okr_card o_okr_kpi">
+                                <OkrProgressRing value="team.stats.rate" size="48" stroke="5"/>
+                                <div><div class="o_okr_kpi_label">Checked in</div><div class="o_okr_kpi_value"><t t-esc="team.stats.submitted"/>/<t t-esc="team.stats.people"/></div></div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div t-attf-class="o_okr_card o_okr_kpi {{ team.stats.missing ? 'o_okr_kpi_danger' : '' }}">
+                                <div class="o_okr_kpi_icon"><i class="fa fa-user-times"/></div>
+                                <div><div class="o_okr_kpi_label">Missing</div><div class="o_okr_kpi_value" t-esc="team.stats.missing"/></div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div t-attf-class="o_okr_card o_okr_kpi {{ team.stats.blocked ? 'o_okr_kpi_danger' : '' }}">
+                                <div class="o_okr_kpi_icon"><i class="fa fa-hand-paper-o"/></div>
+                                <div><div class="o_okr_kpi_label">Blocked</div><div class="o_okr_kpi_value" t-esc="team.stats.blocked"/></div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div t-attf-class="o_okr_card o_okr_kpi {{ team.stats.risky ? 'o_okr_kpi_warning' : '' }}">
+                                <div class="o_okr_kpi_icon"><i class="fa fa-exclamation-triangle"/></div>
+                                <div><div class="o_okr_kpi_label">Key results at risk</div><div class="o_okr_kpi_value" t-esc="team.stats.risky"/></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="o_okr_card">
+                        <div class="o_okr_card_body pt-2">
+                            <div t-if="!team.rows.length" class="o_okr_empty"><i class="fa fa-users"/>Nobody reports to you in the Employees app.</div>
+                            <t t-foreach="team.rows" t-as="row" t-key="row.user_id">
+                                <div class="o_okr_team_row">
+                                    <div class="d-flex align-items-center gap-3 o_okr_clickable" t-on-click="() => this.toggle(row)">
+                                        <OkrAvatar userId="row.user_id" name="row.name" size="40"/>
+                                        <div class="flex-grow-1 min-w-0">
+                                            <div class="fw-semibold text-truncate"><t t-esc="row.name"/> <span t-if="row.mood" t-esc="moodEmoji(row.mood)"/></div>
+                                            <div class="small text-muted text-truncate"><t t-esc="row.job"/><t t-if="row.job and row.department"> · </t><t t-esc="row.department"/></div>
+                                        </div>
+                                        <div class="o_okr_team_progress d-none d-md-block">
+                                            <div class="o_okr_bar"><span t-attf-style="width: {{ row.progress }}%"/></div>
+                                            <small class="text-muted"><t t-esc="row.progress"/>% · <t t-esc="row.key_results"/> KR</small>
+                                        </div>
+                                        <span t-if="row.risky" class="o_okr_chip o_okr_chip_at_risk d-none d-lg-inline-flex"><t t-esc="row.risky"/> at risk</span>
+                                        <span t-if="!row.key_results" class="o_okr_chip o_okr_chip_achieved">No KR</span>
+                                        <span t-elif="row.submitted" class="o_okr_chip o_okr_chip_on_track"><i class="fa fa-check"/> Checked in · <t t-esc="row.confidence"/>/10</span>
+                                        <span t-else="" class="o_okr_chip o_okr_chip_off_track">Missing</span>
+                                        <button t-if="row.key_results and !row.submitted and team.is_current_week" class="btn btn-sm btn-light o_okr_pill" t-on-click.stop="() => this.remind(row)"><i class="fa fa-bell-o me-1"/>Remind</button>
+                                        <button t-if="team.one_on_one_action" class="btn btn-sm btn-light o_okr_pill" t-on-click.stop="() => this.planOneOnOne(row)"><i class="fa fa-users me-1"/>1:1</button>
+                                        <i t-attf-class="fa fa-chevron-{{ state.expanded[row.user_id] ? 'up' : 'down' }} text-muted"/>
+                                    </div>
+                                    <div t-if="state.expanded[row.user_id] or row.blockers.length or row.help_needed" class="o_okr_team_detail">
+                                        <div t-if="row.blockers.length or row.help_needed" class="o_okr_team_blocker">
+                                            <i class="fa fa-hand-paper-o me-2"/><b class="me-1">Blocked:</b>
+                                            <t t-esc="row.blockers.concat(row.help_needed ? [row.help_needed] : []).join(' · ')"/>
+                                        </div>
+                                        <t t-if="state.expanded[row.user_id]">
+                                            <div class="row g-3 mt-1">
+                                                <div class="col-md-6">
+                                                    <div class="o_okr_label">How the week went</div>
+                                                    <div class="o_okr_team_text" t-esc="row.summary or '—'"/>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="o_okr_label">Plan for next week</div>
+                                                    <div class="o_okr_team_text" t-esc="row.next_plan or '—'"/>
+                                                </div>
+                                            </div>
+                                            <div t-if="row.risky_names.length" class="small mt-2 text-muted"><i class="fa fa-exclamation-triangle text-warning me-1"/>At risk: <t t-esc="row.risky_names.join(', ')"/></div>
+                                            <button t-if="row.weekly_id" class="btn btn-link px-0 mt-1" t-on-click="() => this.openWeekly(row.weekly_id)">Open and comment <i class="fa fa-arrow-right"/></button>
+                                        </t>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>

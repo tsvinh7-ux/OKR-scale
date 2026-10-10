@@ -14,3 +14,5 @@ access_okr_scale_key_result_admin,okr.scale.key.result group_okr_admin,model_okr
 access_okr_scale_checkin_user,okr.scale.checkin group_okr_user,model_okr_scale_checkin,group_okr_user,1,1,1,1
 access_okr_scale_checkin_manager,okr.scale.checkin group_okr_manager,model_okr_scale_checkin,group_okr_manager,1,1,1,1
 access_okr_scale_checkin_admin,okr.scale.checkin group_okr_admin,model_okr_scale_checkin,group_okr_admin,1,1,1,1
+access_okr_scale_weekly_user,okr.scale.weekly group_okr_user,model_okr_scale_weekly,group_okr_user,1,1,1,0
+access_okr_scale_weekly_admin,okr.scale.weekly group_okr_admin,model_okr_scale_weekly,group_okr_admin,1,1,1,1

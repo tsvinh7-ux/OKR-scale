@@ -1008,6 +1008,11 @@ msgid "OKR Snapshot"
 msgstr "Tổng quan OKR"
 
 #. module: okr_scale_cfr
+#: model:ir.model,name:okr_scale_cfr.model_okr_scale_weekly
+msgid "OKR Weekly Check-in"
+msgstr "Check-in tuần OKR"
+
+#. module: okr_scale_cfr
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.res_config_settings_view_form
 msgid ""
 "OKR is built on transparency: by default every feedback shows its author. "
@@ -1265,6 +1270,13 @@ msgstr "Hãy nói lời cảm ơn và cho biết điều gì đã tạo nên kh�
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_conversation_view_form
 msgid "Schedule in Calendar"
 msgstr "Lên lịch họp"
+
+#. module: okr_scale_cfr
+#. odoo-python
+#: code:addons/okr_scale_cfr/models/okr_conversation.py:0
+#, python-format
+msgid "Select the objectives discussed in this 1:1."
+msgstr "Chọn mục tiêu được trao đổi trong buổi 1:1."
 
 #. module: okr_scale_cfr
 #: model_terms:ir.ui.view,arch_db:okr_scale_cfr.okr_feedback_request_view_form

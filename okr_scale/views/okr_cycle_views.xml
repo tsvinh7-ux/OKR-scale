@@ -52,6 +52,10 @@
                         </group>
                         <group>
                             <field name="checkin_frequency"/>
+                            <label for="checkin_weekday" invisible="checkin_frequency != 'weekly'"/>
+                            <div class="o_row" invisible="checkin_frequency != 'weekly'">
+                                <field name="checkin_weekday"/> <span>from</span> <field name="checkin_hour" widget="float_time"/>
+                            </div>
                             <field name="require_approval"/>
                             <field name="company_id" groups="base.group_multi_company"/>
                             <field name="active" invisible="1"/>

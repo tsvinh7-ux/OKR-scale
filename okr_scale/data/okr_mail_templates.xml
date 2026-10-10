@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Shared frame of the OKR e-mails (DMAG brand) -->
+    <template id="mail_okr_frame">
+        <div style="font-family: 'Segoe UI', Roboto, Arial, sans-serif; background: #F4F8FD; padding: 24px 12px; color: #1B2A41;">
+            <div style="max-width: 620px; margin: 0 auto; background: #FFFFFF; border-radius: 16px; overflow: hidden; border: 1px solid #E3E9F2;">
+                <div style="background: linear-gradient(135deg, #11346A 0%, #1A5BA8 55%, #178BEC 100%); background-color: #11346A; padding: 22px 28px; color: #FFFFFF;">
+                    <div style="font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: .8;">DMAG · OKR</div>
+                    <div style="font-size: 22px; font-weight: 700; margin-top: 4px;"><t t-out="title"/></div>
+                </div>
+                <div style="padding: 24px 28px;">
+                    <t t-out="0"/>
+                </div>
+                <div style="padding: 14px 28px; background: #F4F8FD; font-size: 12px; color: #6B7A90;">
+                    Nền Tảng Vận Hành &amp; Tăng Trưởng Nha Khoa
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="mail_okr_kr_row">
+        <tr>
+            <td style="padding: 10px 0; border-top: 1px solid #E3E9F2;">
+                <div style="font-weight: 600;"><t t-out="name"/></div>
+                <div style="font-size: 12px; color: #6B7A90;"><t t-out="objective"/></div>
+                <div style="margin-top: 6px; height: 6px; background: #E3E9F2; border-radius: 6px;">
+                    <div t-attf-style="height: 6px; width: {{ min(100, progress) }}%; border-radius: 6px; background: {{ {'off_track': '#E5484D', 'at_risk': '#F5A524'}.get(status, '#178BEC') }};"/>
+                </div>
+            </td>
+            <td style="padding: 10px 0 10px 12px; border-top: 1px solid #E3E9F2; text-align: right; white-space: nowrap; vertical-align: top;">
+                <b style="color: #11346A;"><t t-out="progress"/>%</b>
+                <div t-if="status_label" t-attf-style="font-size: 11px; color: {{ {'off_track': '#B42328', 'at_risk': '#A86500'}.get(status, '#0E6FC0') }};"><t t-out="status_label"/></div>
+            </td>
+        </tr>
+    </template>
+
+    <template id="mail_checkin_due">
+        <t t-call="okr_scale.mail_okr_frame">
+            <t t-set="title">Weekly check-in</t>
+            <p style="margin-top: 0;">Hello <b t-out="user.name"/>,</p>
+            <p t-if="author">
+                <b t-out="author.name"/> reminds you to update your key results.
+            </p>
+            <p t-else="">It is check-in time: take 5 minutes to update your key results and share your plan for next week.</p>
+            <table style="width: 100%; border-collapse: collapse;">
+                <t t-foreach="key_results" t-as="kr">
+                    <t t-call="okr_scale.mail_okr_kr_row">
+                        <t t-set="name" t-value="kr.name"/>
+                        <t t-set="objective" t-value="kr.objective_id.name"/>
+                        <t t-set="progress" t-value="round(kr.progress)"/>
+                        <t t-set="status" t-value="kr.status"/>
+                        <t t-set="status_label" t-value="False"/>
+                    </t>
+                </t>
+            </table>
+            <p style="text-align: center; margin: 24px 0 4px;">
+                <a t-att-href="base_url + url" style="background: #178BEC; color: #FFFFFF; text-decoration: none; padding: 12px 22px; border-radius: 10px; font-weight: 600; display: inline-block;">Check in now</a>
+            </p>
+        </t>
+    </template>
+
+    <template id="mail_weekly_digest">
+        <t t-call="okr_scale.mail_okr_frame">
+            <t t-set="title">Your OKR week</t>
+            <p style="margin-top: 0;">Hello <b t-out="user.name"/>, here is where things stand.</p>
+            <t t-if="digest['key_results']">
+                <div style="font-weight: 700; color: #11346A; margin: 18px 0 4px;">My key results</div>
+                <table style="width: 100%; border-collapse: collapse;">
+                    <t t-foreach="digest['key_results']" t-as="kr">
+                        <t t-call="okr_scale.mail_okr_kr_row">
+                            <t t-set="name" t-value="kr['name']"/>
+                            <t t-set="objective" t-value="kr['objective']"/>
+                            <t t-set="progress" t-value="kr['progress']"/>
+                            <t t-set="status" t-value="kr['status']"/>
+                            <t t-set="status_label" t-value="kr['status_label']"/>
+                        </t>
+                    </t>
+                </table>
+            </t>
+            <t t-if="digest['team']">
+                <t t-set="team" t-value="digest['team']"/>
+                <div style="font-weight: 700; color: #11346A; margin: 22px 0 8px;">My team last week</div>
+                <table style="width: 100%; border-collapse: separate; border-spacing: 8px 0;">
+                    <tr>
+                        <td style="background: #E3F1FD; border-radius: 12px; padding: 12px; text-align: center;">
+                            <div style="font-size: 22px; font-weight: 700; color: #11346A;"><t t-out="team['stats']['rate']"/>%</div>
+                            <div style="font-size: 12px; color: #6B7A90;">checked in</div>
+                        </td>
+                        <td style="background: #FFF3DC; border-radius: 12px; padding: 12px; text-align: center;">
+                            <div style="font-size: 22px; font-weight: 700; color: #A86500;"><t t-out="team['stats']['risky']"/></div>
+                            <div style="font-size: 12px; color: #6B7A90;">key results at risk</div>
+                        </td>
+                        <td style="background: #FDE7E8; border-radius: 12px; padding: 12px; text-align: center;">
+                            <div style="font-size: 22px; font-weight: 700; color: #B42328;"><t t-out="team['stats']['blocked']"/></div>
+                            <div style="font-size: 12px; color: #6B7A90;">people blocked</div>
+                        </td>
+                    </tr>
+                </table>
+                <p t-if="team['missing']" style="margin-top: 14px;"><b>Not checked in:</b> <t t-out="', '.join(team['missing'])"/></p>
+                <t t-foreach="team['blocked']" t-as="row">
+                    <p style="margin: 8px 0; padding: 10px 12px; background: #FDE7E8; border-radius: 10px;">
+                        <b t-out="row['name']"/>: <t t-out="'; '.join(row['blockers'] + ([row['help_needed']] if row['help_needed'] else []))"/>
+                    </p>
+                </t>
+            </t>
+            <p style="text-align: center; margin: 24px 0 4px;">
+                <a t-att-href="base_url + '/web#action=okr_scale.okr_my_action'" style="background: #178BEC; color: #FFFFFF; text-decoration: none; padding: 12px 22px; border-radius: 10px; font-weight: 600; display: inline-block;">Open my OKR</a>
+            </p>
+        </t>
+    </template>
+</odoo>

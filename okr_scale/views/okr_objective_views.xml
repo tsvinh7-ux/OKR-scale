@@ -71,7 +71,9 @@
                             <field name="level" readonly="state != 'draft'"/>
                             <field name="employee_id" invisible="level != 'individual'" required="level == 'individual'" readonly="state != 'draft'"/>
                             <field name="department_id" invisible="level == 'company'" required="level == 'department'" readonly="state != 'draft'"/>
-                            <field name="owner_id" widget="many2one_avatar_user"/>
+                            <field name="owner_id" widget="many2one_avatar_user" string="Accountable"/>
+                            <field name="contributor_user_ids" widget="many2many_avatar_user" options="{'no_create': True}"/>
+                            <field name="contributor_department_ids" widget="many2many_tags" options="{'no_create': True}"/>
                             <field name="okr_type"/>
                             <field name="visibility"/>
                         </group>
@@ -87,13 +89,17 @@
                             <field name="company_id" groups="base.group_multi_company"/>
                         </group>
                     </group>
+                    <div class="mb-3" invisible="state == 'draft'">
+                        <field name="progress_history" widget="okr_progress_chart" nolabel="1"/>
+                    </div>
                     <notebook>
                         <page string="Key Results" name="key_results">
                             <field name="key_result_ids" context="{'default_owner_id': owner_id}">
                                 <tree editable="bottom" decoration-danger="status == 'off_track'" decoration-warning="status == 'at_risk'">
                                     <field name="sequence" widget="handle"/>
                                     <field name="name"/>
-                                    <field name="owner_id" widget="many2one_avatar_user"/>
+                                    <field name="owner_id" widget="many2one_avatar_user" string="Accountable"/>
+                                    <field name="contributor_ids" widget="many2many_avatar_user" optional="show" options="{'no_create': True}"/>
                                     <field name="progress_method" optional="show"/>
                                     <field name="metric_type" optional="hide" invisible="progress_method != 'manual'"/>
                                     <field name="start_value" optional="hide" invisible="progress_method != 'manual'"/>
@@ -286,8 +292,12 @@
                 <field name="department_id" operator="child_of"/>
                 <field name="cycle_id"/>
                 <field name="tag_ids"/>
+                <field name="contributor_user_ids"/>
+                <field name="contributor_department_ids"/>
                 <filter name="my" string="My Objectives" domain="['|', ('owner_id', '=', uid), ('employee_id.user_id', '=', uid)]"/>
                 <filter name="my_team" string="My Team" domain="[('is_my_team', '=', True)]"/>
+                <filter name="i_support" string="I Support"
+                        domain="['|', '|', ('contributor_user_ids', 'in', [uid]), ('key_result_ids.contributor_ids', 'in', [uid]), ('contributor_department_ids.member_ids.user_id', '=', uid)]"/>
                 <separator/>
                 <filter name="company" string="Company" domain="[('level', '=', 'company')]"/>
                 <filter name="department" string="Department" domain="[('level', '=', 'department')]"/>

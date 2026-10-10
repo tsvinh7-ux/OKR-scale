@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="okr_scale.ProgressChart">
+        <div class="o_okr_chart">
+            <t t-set="c" t-value="chart"/>
+            <div t-if="!c" class="o_okr_empty"><i class="fa fa-line-chart"/>The chart appears after the first check-in.</div>
+            <t t-else="">
+                <div class="o_okr_chart_legend">
+                    <span><i class="o_okr_chart_swatch o_okr_chart_swatch_actual"/>Actual</span>
+                    <span><i class="o_okr_chart_swatch o_okr_chart_swatch_expected"/>Expected pace</span>
+                    <span t-attf-class="o_okr_chip {{ c.ahead ? 'o_okr_chip_on_track' : (c.gap &gt;= -15 ? 'o_okr_chip_at_risk' : 'o_okr_chip_off_track') }} ms-auto">
+                        <t t-if="c.ahead">Ahead by <t t-esc="c.gap"/> pts</t>
+                        <t t-else="">Behind by <t t-esc="-c.gap"/> pts</t>
+                    </span>
+                </div>
+                <svg t-attf-viewBox="0 0 {{ width }} {{ height }}" preserveAspectRatio="xMidYMid meet" class="o_okr_chart_svg">
+                    <defs>
+                        <linearGradient id="okrChartFill" x1="0" x2="0" y1="0" y2="1">
+                            <stop offset="0%" stop-color="#178BEC" stop-opacity="0.28"/>
+                            <stop offset="100%" stop-color="#178BEC" stop-opacity="0"/>
+                        </linearGradient>
+                    </defs>
+                    <t t-foreach="c.grid" t-as="g" t-key="g.label">
+                        <line t-att-x1="pad.left" t-att-x2="width - pad.right" t-att-y1="g.y" t-att-y2="g.y" class="o_okr_chart_grid"/>
+                        <text t-att-x="pad.left - 6" t-att-y="g.y + 4" text-anchor="end" class="o_okr_chart_axis" t-esc="g.label"/>
+                    </t>
+                    <t t-foreach="c.months" t-as="m" t-key="m.label">
+                        <text t-att-x="m.x" t-att-y="height - 8" text-anchor="middle" class="o_okr_chart_axis" t-esc="m.label"/>
+                    </t>
+                    <line t-att-x1="c.expected.x1" t-att-y1="c.expected.y1" t-att-x2="c.expected.x2" t-att-y2="c.expected.y2" class="o_okr_chart_expected"/>
+                    <path t-att-d="c.area" fill="url(#okrChartFill)"/>
+                    <path t-att-d="c.line" class="o_okr_chart_line"/>
+                    <line t-if="c.today.visible" t-att-x1="c.today.x" t-att-x2="c.today.x" t-att-y1="pad.top" t-att-y2="height - pad.bottom" class="o_okr_chart_today"/>
+                    <t t-foreach="c.points" t-as="p" t-key="p_index">
+                        <circle t-att-cx="p.x" t-att-cy="p.y" r="3.5" class="o_okr_chart_dot"><title t-esc="p.day + ': ' + p.value + '%'"/></circle>
+                    </t>
+                </svg>
+            </t>
+        </div>
+    </t>
+</templates>

@@ -37,6 +37,18 @@ msgstr ""
 "hơn."
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "(optional)"
+msgstr "(không bắt buộc)"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_weekly_digest
+msgid ", here is where things stand."
+msgstr ", đây là tình hình OKR của bạn."
+
+#. module: okr_scale
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_checkin__confidence
 msgid "1 = no chance to reach the target, 10 = certain."
 msgstr "1 = không có khả năng đạt mục tiêu, 10 = chắc chắn đạt."
@@ -49,6 +61,11 @@ msgid ""
 msgstr ""
 "3 đến 5 mục tiêu tham vọng định hướng cho cả công ty; các phòng ban căn "
 "chỉnh mục tiêu theo kết quả then chốt của công ty."
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_weekly_digest
+msgid "<b>Not checked in:</b>"
+msgstr "<b>Chưa check-in:</b>"
 
 #. module: okr_scale
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
@@ -70,6 +87,11 @@ msgstr ""
 "                                <span class=\"o_stat_text\">căn chỉnh</span>"
 
 #. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_cycle_view_form
+msgid "<span>from</span>"
+msgstr "<span>từ</span>"
+
+#. module: okr_scale
 #: model_terms:ir.actions.act_window,help:okr_scale.okr_cycle_action
 msgid ""
 "A cycle is a year or a quarter during which objectives are pursued and "
@@ -86,6 +108,19 @@ msgid "A department objective needs a department."
 msgstr "Mục tiêu cấp phòng ban phải có phòng ban."
 
 #. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_form
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
+msgid "Accountable"
+msgstr "Người chịu trách nhiệm chính"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/my_okr/okr_my.xml:0
+#, python-format
+msgid "Accountable:"
+msgstr "Chịu trách nhiệm chính:"
+
+#. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__achieved
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_key_result__status__achieved
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__status__achieved
@@ -97,6 +132,7 @@ msgstr "Đã đạt"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_needaction
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_needaction
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_needaction
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__message_needaction
 msgid "Action Needed"
 msgstr "Cần xử lý"
 
@@ -131,6 +167,18 @@ msgid "Activity Type Icon"
 msgstr "Biểu tượng loại hoạt động"
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/progress_chart/okr_progress_chart.xml:0
+#, python-format
+msgid "Actual"
+msgstr "Thực tế"
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__progress_history
+msgid "Actual progress at each check-in against the expected pace."
+msgstr "Tiến độ thực tế qua từng lần check-in so với nhịp kỳ vọng."
+
+#. module: okr_scale
 #. odoo-python
 #: code:addons/okr_scale/models/okr_objective.py:0
 #, python-format
@@ -146,6 +194,13 @@ msgstr "Quản trị viên: OKR cấp công ty"
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__quality_hint
 msgid "Advice based on OKR good practices, never blocking."
 msgstr "Gợi ý theo thông lệ tốt của OKR, không bắt buộc."
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/progress_chart/okr_progress_chart.xml:0
+#, python-format
+msgid "Ahead by"
+msgstr "Vượt kỳ vọng"
 
 #. module: okr_scale
 #. odoo-python
@@ -188,6 +243,13 @@ msgstr "Căn chỉnh theo"
 #. module: okr_scale
 #. odoo-javascript
 #: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#, python-format
+msgid "All clear"
+msgstr "Không có vấn đề"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
 #: code:addons/okr_scale/static/src/rankings/okr_rankings.xml:0
 #, python-format
 msgid "All cycles"
@@ -200,6 +262,13 @@ msgstr "Tất cả chu kỳ"
 #, python-format
 msgid "All departments"
 msgstr "Tất cả phòng ban"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "All my departments"
+msgstr "Tất cả phòng ban của tôi"
 
 #. module: okr_scale
 #. odoo-javascript
@@ -300,10 +369,18 @@ msgid "At risk"
 msgstr "Có rủi ro"
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "At risk:"
+msgstr "Có rủi ro:"
+
+#. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__message_attachment_count
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_attachment_count
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_attachment_count
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_attachment_count
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__message_attachment_count
 msgid "Attachment Count"
 msgstr "Số tệp đính kèm"
 
@@ -327,6 +404,47 @@ msgid "Average confidence (1-10) of the key results."
 msgstr "Mức độ tự tin trung bình (1-10) của các kết quả then chốt."
 
 #. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_weekly_view_form
+msgid "Before"
+msgstr "Trước"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/progress_chart/okr_progress_chart.xml:0
+#, python-format
+msgid "Behind by"
+msgstr "Chậm hơn kỳ vọng"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_weekly_view_search
+#, python-format
+msgid "Blocked"
+msgstr "Đang vướng"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Blocked:"
+msgstr "Vướng mắc:"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Blocker"
+msgstr "Vướng mắc"
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_dashboard.py:0
+#, python-format
+msgid "Blockers reported (7 days)"
+msgstr "Vướng mắc được báo (7 ngày)"
+
+#. module: okr_scale
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
 msgid "Cancel"
 msgstr "Hủy"
@@ -335,6 +453,11 @@ msgstr "Hủy"
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__state__cancelled
 msgid "Cancelled"
 msgstr "Đã hủy"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_checkin_due
+msgid "Check in now"
+msgstr "Check-in ngay"
 
 #. module: okr_scale
 #. odoo-javascript
@@ -349,9 +472,19 @@ msgid "Check-in"
 msgstr "Check-in"
 
 #. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__checkin_weekday
+msgid "Check-in Day"
+msgstr "Ngày check-in"
+
+#. module: okr_scale
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_search
 msgid "Check-in Due"
 msgstr "Đến hạn check-in"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__checkin_hour
+msgid "Check-in Time"
+msgstr "Giờ check-in"
 
 #. module: okr_scale
 #. odoo-javascript
@@ -392,6 +525,13 @@ msgid "Check-ins due"
 msgstr "Check-in đến hạn"
 
 #. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_dashboard.py:0
+#, python-format
+msgid "Check-ins missing this week"
+msgstr "Chưa check-in tuần này"
+
+#. module: okr_scale
 #: model:ir.actions.act_window,name:okr_scale.okr_checkin_action_review
 #: model:ir.ui.menu,name:okr_scale.okr_menu_review
 msgid "Check-ins to Review"
@@ -405,6 +545,20 @@ msgid "Check-ins to review"
 msgstr "Check-in cần xem xét"
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Checked in"
+msgstr "Đã check-in"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Checked in ·"
+msgstr "Đã check-in ·"
+
+#. module: okr_scale
 #. odoo-python
 #: code:addons/okr_scale/models/okr_dashboard.py:0
 #, python-format
@@ -413,6 +567,7 @@ msgstr "Đã check-in tuần này"
 
 #. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__checkin_count
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__checkin_count
 msgid "Checkin Count"
 msgstr "Số lần check-in"
 
@@ -463,6 +618,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__company_id
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__company_id
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__company_id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__company_id
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__level__company
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
 msgid "Company"
@@ -485,8 +641,16 @@ msgstr "Mục tiêu cấp công ty"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__confidence
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__confidence
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__confidence
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__confidence
 msgid "Confidence"
 msgstr "Mức độ tự tin"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Confidence to reach the target"
+msgstr "Mức độ tự tin đạt mục tiêu"
 
 #. module: okr_scale
 #: model:ir.ui.menu,name:okr_scale.okr_menu_config
@@ -504,6 +668,7 @@ msgstr "Tạo chu kỳ OKR đầu tiên của bạn"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__create_uid
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__create_uid
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_tag__create_uid
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__create_uid
 msgid "Created by"
 msgstr "Được tạo bởi"
 
@@ -513,6 +678,7 @@ msgstr "Được tạo bởi"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__create_date
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__create_date
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_tag__create_date
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__create_date
 msgid "Created on"
 msgstr "Được tạo vào"
 
@@ -564,6 +730,8 @@ msgstr "DMAG"
 #. odoo-javascript
 #: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
 #: code:addons/okr_scale/static/src/rankings/okr_rankings.xml:0
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_okr_frame
 #, python-format
 msgid "DMAG · OKR"
 msgstr "DMAG · OKR"
@@ -589,9 +757,11 @@ msgstr "Hạn chót"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__department_id
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__department_id
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__department_id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__department_id
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__level__department
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__visibility__department
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_weekly_view_search
 msgid "Department"
 msgstr "Phòng ban"
 
@@ -617,6 +787,15 @@ msgid "Departments"
 msgstr "Phòng ban"
 
 #. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__contributor_department_ids
+msgid ""
+"Departments helping the owner to reach this objective. Their members can "
+"follow it and comment."
+msgstr ""
+"Các phòng ban hỗ trợ người chịu trách nhiệm chính. Thành viên của họ được "
+"theo dõi và bình luận."
+
+#. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__description
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__description
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_form
@@ -635,13 +814,28 @@ msgstr "Hủy bỏ"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__display_name
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__display_name
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_tag__display_name
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__display_name
 msgid "Display Name"
 msgstr "Tên hiển thị"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Done"
+msgstr "Đã xong"
 
 #. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_key_result__metric_type__boolean
 msgid "Done / Not done"
 msgstr "Hoàn thành / Chưa hoàn thành"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Done this week"
+msgstr "Đã cập nhật tuần này"
 
 #. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_checkin__state__draft
@@ -660,8 +854,15 @@ msgstr ""
 #. module: okr_scale
 #: model:ir.model,name:okr_scale.model_hr_employee
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__employee_id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__user_id
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_weekly_view_search
 msgid "Employee"
 msgstr "Nhân viên"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__employee_id
+msgid "Employee Profile"
+msgstr "Hồ sơ nhân viên"
 
 #. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__date_end
@@ -701,6 +902,18 @@ msgid "Expected Progress"
 msgstr "Tiến độ kỳ vọng"
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/progress_chart/okr_progress_chart.xml:0
+#, python-format
+msgid "Expected pace"
+msgstr "Nhịp kỳ vọng"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_weekly_view_form
+msgid "Feedback for the week, visible to the employee"
+msgstr "Nhận xét tuần, nhân viên xem được"
+
+#. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__final_score
 msgid "Final Score"
 msgstr "Điểm cuối kỳ"
@@ -710,6 +923,7 @@ msgstr "Điểm cuối kỳ"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_follower_ids
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_follower_ids
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_follower_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__message_follower_ids
 msgid "Followers"
 msgstr "Người theo dõi"
 
@@ -718,6 +932,7 @@ msgstr "Người theo dõi"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_partner_ids
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_partner_ids
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_partner_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__message_partner_ids
 msgid "Followers (Partners)"
 msgstr "Người theo dõi (Đối tác)"
 
@@ -728,12 +943,18 @@ msgid "Font awesome icon e.g. fa-tasks"
 msgstr "Biểu tượng Font Awesome, ví dụ: fa-tasks"
 
 #. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__checkin_weekday__4
+msgid "Friday"
+msgstr "Thứ Sáu"
+
+#. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_key_result__progress_method__objectives
 msgid "From aligned objectives"
 msgstr "Từ các mục tiêu căn chỉnh"
 
 #. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_checkin__mood__good
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_weekly__mood__good
 msgid "Good"
 msgstr "Tốt"
 
@@ -770,6 +991,7 @@ msgstr "Chấm điểm"
 
 #. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_checkin__mood__great
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_weekly__mood__great
 msgid "Great"
 msgstr "Rất tốt"
 
@@ -777,16 +999,44 @@ msgstr "Rất tốt"
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_search
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_search
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_weekly_view_search
 msgid "Group By"
 msgstr "Nhóm theo"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__has_blockers
+msgid "Has Blockers"
+msgstr "Có vướng mắc"
 
 #. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__has_message
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__has_message
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__has_message
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__has_message
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__has_message
 msgid "Has Message"
 msgstr "Có tin nhắn"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_checkin_due
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_weekly_digest
+msgid "Hello"
+msgstr "Xin chào"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__help_needed
+#, python-format
+msgid "Help needed"
+msgstr "Cần hỗ trợ"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Highlights, wins, lessons"
+msgstr "Điểm nổi bật, thành công, bài học"
 
 #. module: okr_scale
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__confidence
@@ -798,9 +1048,43 @@ msgstr ""
 "cáo ở mỗi lần check-in."
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__summary
+#, python-format
+msgid "How did the week go?"
+msgstr "Tuần này thế nào?"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "How do you feel?"
+msgstr "Bạn cảm thấy thế nào?"
+
+#. module: okr_scale
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_key_result_view_form
 msgid "How is this key result measured?"
 msgstr "Kết quả then chốt này được đo lường như thế nào?"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "How the week went"
+msgstr "Tuần qua thế nào"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+msgid "I Support"
+msgstr "Tôi hỗ trợ"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/my_okr/okr_my.xml:0
+#, python-format
+msgid "I support"
+msgstr "Tôi đang hỗ trợ"
 
 #. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__id
@@ -808,6 +1092,7 @@ msgstr "Kết quả then chốt này được đo lường như thế nào?"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__id
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__id
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_tag__id
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__id
 msgid "ID"
 msgstr "ID"
 
@@ -828,6 +1113,7 @@ msgstr "Biểu tượng cho biết hoạt động ngoại lệ."
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_cycle__message_needaction
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__message_needaction
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__message_needaction
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_weekly__message_needaction
 msgid "If checked, new messages require your attention."
 msgstr "Nếu được chọn, có tin nhắn mới cần bạn chú ý."
 
@@ -840,6 +1126,8 @@ msgstr "Nếu được chọn, có tin nhắn mới cần bạn chú ý."
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__message_has_sms_error
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__message_has_error
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__message_has_sms_error
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_weekly__message_has_error
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_weekly__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Nếu được chọn, một số tin nhắn bị lỗi gửi."
 
@@ -860,6 +1148,7 @@ msgstr "OKR Cá nhân"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_is_follower
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_is_follower
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_is_follower
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__message_is_follower
 msgid "Is Follower"
 msgstr "Là người theo dõi"
 
@@ -867,6 +1156,27 @@ msgstr "Là người theo dõi"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__is_my_team
 msgid "Is My Team"
 msgstr "Là nhóm của tôi"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_checkin_due
+msgid ""
+"It is check-in time: take 5 minutes to update your key results and share "
+"your plan for next week."
+msgstr ""
+"Đến giờ check-in: dành 5 phút cập nhật kết quả then chốt và chia sẻ phương "
+"án tuần tới."
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "KR"
+msgstr "KR"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_weekly_view_tree
+msgid "KR updated"
+msgstr "KR đã cập nhật"
 
 #. module: okr_scale
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_tree
@@ -878,6 +1188,11 @@ msgstr "KR"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__name
 msgid "Key Result"
 msgstr "Kết quả then chốt"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__checkin_ids
+msgid "Key Result Check-ins"
+msgstr "Check-in kết quả then chốt"
 
 #. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__key_result_count
@@ -915,10 +1230,26 @@ msgstr "Kết quả then chốt"
 
 #. module: okr_scale
 #. odoo-javascript
+#. odoo-python
+#: code:addons/okr_scale/models/okr_dashboard.py:0
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Key results at risk"
+msgstr "KR có rủi ro"
+
+#. module: okr_scale
+#. odoo-javascript
 #: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
 #, python-format
 msgid "Key results needing attention"
 msgstr "Kết quả then chốt cần chú ý"
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_dashboard.py:0
+#, python-format
+msgid "Key results off track"
+msgstr "KR chậm tiến độ"
 
 #. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__last_checkin_date
@@ -932,6 +1263,7 @@ msgstr "Ngày check-in gần nhất"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__write_uid
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__write_uid
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_tag__write_uid
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__write_uid
 msgid "Last Updated by"
 msgstr "Cập nhật lần cuối bởi"
 
@@ -941,6 +1273,7 @@ msgstr "Cập nhật lần cuối bởi"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__write_date
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__write_date
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_tag__write_date
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__write_date
 msgid "Last Updated on"
 msgstr "Cập nhật lần cuối vào"
 
@@ -974,6 +1307,13 @@ msgid "Low Confidence"
 msgstr "Mức độ tự tin thấp"
 
 #. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_dashboard.py:0
+#, python-format
+msgid "Low confidence (≤ 4/10)"
+msgstr "Tự tin thấp (≤ 4/10)"
+
+#. module: okr_scale
 #: model:ir.ui.menu,name:okr_scale.okr_menu_manage
 msgid "Manage"
 msgstr "Quản lý"
@@ -982,6 +1322,11 @@ msgstr "Quản lý"
 #: model:res.groups,comment:okr_scale.group_okr_admin
 msgid "Manage cycles, company objectives and every OKR."
 msgstr "Quản lý chu kỳ, mục tiêu cấp công ty và mọi OKR."
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__manager_comment
+msgid "Manager Comment"
+msgstr "Nhận xét của quản lý"
 
 #. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__manager_feedback
@@ -1018,10 +1363,18 @@ msgid "Measured By"
 msgstr "Đo lường bởi"
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Measured automatically"
+msgstr "Đo tự động"
+
+#. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__message_has_error
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_has_error
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_has_error
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_has_error
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__message_has_error
 msgid "Message Delivery error"
 msgstr "Lỗi gửi tin nhắn"
 
@@ -1030,6 +1383,7 @@ msgstr "Lỗi gửi tin nhắn"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_ids
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_ids
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__message_ids
 msgid "Messages"
 msgstr "Tin nhắn"
 
@@ -1040,12 +1394,36 @@ msgid "Metric Type"
 msgstr "Loại chỉ số"
 
 #. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_weekly_view_search
+msgid "Mine"
+msgstr "Của tôi"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Missing"
+msgstr "Chưa check-in"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__checkin_weekday__0
+msgid "Monday"
+msgstr "Thứ Hai"
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_weekly__week_start
+msgid "Monday of the week of this check-in."
+msgstr "Thứ Hai của tuần check-in."
+
+#. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__checkin_frequency__monthly
 msgid "Monthly"
 msgstr "Hàng tháng"
 
 #. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__mood
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__mood
 msgid "Mood"
 msgstr "Tâm trạng"
 
@@ -1098,6 +1476,11 @@ msgid "My Team"
 msgstr "Nhóm của tôi"
 
 #. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_weekly_digest
+msgid "My key results"
+msgstr "Kết quả then chốt của tôi"
+
+#. module: okr_scale
 #. odoo-javascript
 #: code:addons/okr_scale/static/src/my_okr/okr_my.xml:0
 #, python-format
@@ -1121,9 +1504,22 @@ msgstr "Thứ hạng của tôi"
 #. module: okr_scale
 #. odoo-javascript
 #: code:addons/okr_scale/static/src/my_okr/okr_my.xml:0
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
 #, python-format
 msgid "My team"
 msgstr "Đội của tôi"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_weekly_digest
+msgid "My team last week"
+msgstr "Đội của tôi tuần qua"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "My week"
+msgstr "Tuần của tôi"
 
 #. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__name
@@ -1132,7 +1528,15 @@ msgid "Name"
 msgstr "Tên"
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#, python-format
+msgid "Needs attention"
+msgstr "Vấn đề cần xử lý"
+
+#. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_checkin__mood__neutral
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_weekly__mood__neutral
 msgid "Neutral"
 msgstr "Bình thường"
 
@@ -1157,6 +1561,13 @@ msgid "New objective"
 msgstr "Mục tiêu mới"
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "New value"
+msgstr "Giá trị mới"
+
+#. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__activity_calendar_event_id
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__activity_calendar_event_id
 msgid "Next Activity Calendar Event"
@@ -1179,6 +1590,13 @@ msgstr "Tóm tắt hoạt động tiếp theo"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__activity_type_id
 msgid "Next Activity Type"
 msgstr "Loại hoạt động tiếp theo"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "No KR"
+msgstr "Chưa có KR"
 
 #. module: okr_scale
 #. odoo-javascript
@@ -1262,6 +1680,34 @@ msgid "No running cycle."
 msgstr "Chưa có chu kỳ đang chạy."
 
 #. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_dashboard.py:0
+#, python-format
+msgid "No update for 2 weeks"
+msgstr "2 tuần chưa cập nhật"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Nobody reports to you in the Employees app."
+msgstr "Chưa có nhân viên nào báo cáo cho bạn trong ứng dụng Nhân viên."
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Not yet"
+msgstr "Chưa"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Now"
+msgstr "Hiện tại"
+
+#. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_key_result__metric_type__number
 msgid "Number"
 msgstr "Số"
@@ -1271,6 +1717,7 @@ msgstr "Số"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_needaction_counter
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_needaction_counter
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_needaction_counter
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__message_needaction_counter
 msgid "Number of Actions"
 msgstr "Số lượng hành động"
 
@@ -1279,6 +1726,7 @@ msgstr "Số lượng hành động"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_has_error_counter
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_has_error_counter
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_has_error_counter
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__message_has_error_counter
 msgid "Number of errors"
 msgstr "Số lỗi"
 
@@ -1287,6 +1735,7 @@ msgstr "Số lỗi"
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_cycle__message_needaction_counter
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__message_needaction_counter
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__message_needaction_counter
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_weekly__message_needaction_counter
 msgid "Number of messages requiring action"
 msgstr "Số tin nhắn cần xử lý"
 
@@ -1295,8 +1744,14 @@ msgstr "Số tin nhắn cần xử lý"
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_cycle__message_has_error_counter
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__message_has_error_counter
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__message_has_error_counter
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_weekly__message_has_error_counter
 msgid "Number of messages with delivery error"
 msgstr "Số tin nhắn bị lỗi gửi"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_okr_frame
+msgid "Nền Tảng Vận Hành &amp; Tăng Trưởng Nha Khoa"
+msgstr "Nền Tảng Vận Hành &amp; Tăng Trưởng Nha Khoa"
 
 #. module: okr_scale
 #: model:ir.module.category,name:okr_scale.module_category_okr
@@ -1365,6 +1820,11 @@ msgid "OKR Tree"
 msgstr "Cây OKR"
 
 #. module: okr_scale
+#: model:ir.model,name:okr_scale.model_okr_scale_weekly
+msgid "OKR Weekly Check-in"
+msgstr "Check-in tuần OKR"
+
+#. module: okr_scale
 #: model:ir.actions.server,name:okr_scale.ir_cron_okr_checkin_reminder_ir_actions_server
 msgid "OKR: check-in reminders"
 msgstr "OKR: nhắc nhở check-in"
@@ -1373,6 +1833,25 @@ msgstr "OKR: nhắc nhở check-in"
 #: model:ir.actions.server,name:okr_scale.ir_cron_okr_status_ir_actions_server
 msgid "OKR: refresh statuses"
 msgstr "OKR: làm mới trạng thái"
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/res_users.py:0
+#, python-format
+msgid "OKR: time for your weekly check-in"
+msgstr "OKR: đến giờ check-in tuần"
+
+#. module: okr_scale
+#: model:ir.actions.server,name:okr_scale.ir_cron_okr_weekly_digest_ir_actions_server
+msgid "OKR: weekly digest (Monday morning)"
+msgstr "OKR: bản tin tuần (sáng thứ Hai)"
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/res_users.py:0
+#, python-format
+msgid "OKR: your weekly digest"
+msgstr "OKR: bản tin tuần của bạn"
 
 #. module: okr_scale
 #: model:ir.ui.menu,name:okr_scale.okr_menu_okrs
@@ -1453,6 +1932,13 @@ msgid "Objectives must be approved by a manager before they start running."
 msgstr "Mục tiêu phải được quản lý duyệt trước khi bắt đầu thực hiện."
 
 #. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_dashboard.py:0
+#, python-format
+msgid "Objectives not aligned"
+msgstr "Mục tiêu chưa căn chỉnh"
+
+#. module: okr_scale
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__is_my_team
 msgid ""
 "Objectives of the departments and employees managed by the current user."
@@ -1466,6 +1952,13 @@ msgid "Objectives to Approve"
 msgstr "Mục tiêu chờ duyệt"
 
 #. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_dashboard.py:0
+#, python-format
+msgid "Objectives waiting for approval"
+msgstr "Mục tiêu chờ duyệt"
+
+#. module: okr_scale
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_form
 msgid "Obstacles, help needed"
 msgstr "Vướng mắc, cần hỗ trợ"
@@ -1475,6 +1968,11 @@ msgstr "Vướng mắc, cần hỗ trợ"
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__status__off_track
 msgid "Off Track"
 msgstr "Chậm tiến độ"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_res_users__okr_checkin_notified_date
+msgid "Okr Checkin Notified Date"
+msgstr "Ngày nhắc check-in OKR"
 
 #. module: okr_scale
 #. odoo-python
@@ -1500,6 +1998,11 @@ msgid "Only managers can review check-ins."
 msgstr "Chỉ quản lý mới có thể xem xét check-in."
 
 #. module: okr_scale
+#: model:ir.model.constraint,message:okr_scale.constraint_okr_scale_weekly_user_week_uniq
+msgid "Only one weekly check-in per person and week."
+msgstr "Mỗi người chỉ có một check-in cho mỗi tuần."
+
+#. module: okr_scale
 #. odoo-python
 #: code:addons/okr_scale/models/okr_objective.py:0
 #, python-format
@@ -1521,6 +2024,18 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
 msgid "Open Cycles"
 msgstr "Chu kỳ đang mở"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Open and comment"
+msgstr "Mở và nhận xét"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_weekly_digest
+msgid "Open my OKR"
+msgstr "Mở OKR của tôi"
 
 #. module: okr_scale
 #. odoo-python
@@ -1561,6 +2076,23 @@ msgid "People"
 msgstr "Cá nhân"
 
 #. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__contributor_ids
+msgid ""
+"People helping the owner on this key result. The owner stays accountable and"
+" checks in."
+msgstr ""
+"Những người hỗ trợ trên KR này. Người chịu trách nhiệm chính vẫn là người "
+"check-in."
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__contributor_user_ids
+msgid ""
+"People helping the owner. The owner stays accountable for the objective."
+msgstr ""
+"Những người hỗ trợ. Người chịu trách nhiệm chính vẫn chịu trách nhiệm về mục"
+" tiêu."
+
+#. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_key_result__metric_type__percent
 msgid "Percentage"
 msgstr "Phần trăm"
@@ -1581,6 +2113,15 @@ msgstr "Nhân sự"
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__owner_id
 msgid "Person responsible for checking in on this key result."
 msgstr "Người chịu trách nhiệm check-in cho kết quả then chốt này."
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__next_plan
+#, python-format
+msgid "Plan for next week"
+msgstr "Phương án tuần tới"
 
 #. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__next_steps
@@ -1616,6 +2157,12 @@ msgstr "Tiến độ"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__progress_before
 msgid "Progress Before"
 msgstr "Tiến độ trước"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__progress_history
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__progress_history
+msgid "Progress History"
+msgstr "Lịch sử tiến độ"
 
 #. module: okr_scale
 #. odoo-javascript
@@ -1655,6 +2202,7 @@ msgstr "Bảng xếp hạng"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__rating_ids
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__rating_ids
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__rating_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__rating_ids
 msgid "Ratings"
 msgstr "Đánh giá"
 
@@ -1662,6 +2210,25 @@ msgstr "Đánh giá"
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__weight
 msgid "Relative importance of this key result inside its objective."
 msgstr "Mức độ quan trọng tương đối của kết quả then chốt này trong mục tiêu."
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Remind"
+msgstr "Nhắc"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.js:0
+#, python-format
+msgid "Reminder sent to %s"
+msgstr "Đã nhắc %s"
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_cycle__checkin_hour
+msgid "Reminders are sent from this time on the check-in day."
+msgstr "Nhắc nhở được gửi từ giờ này trong ngày check-in."
 
 #. module: okr_scale
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_cycle_view_form
@@ -1688,6 +2255,13 @@ msgstr "Đặt lại về Nháp"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__activity_user_id
 msgid "Responsible User"
 msgstr "Người dùng phụ trách"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Result this week"
+msgstr "Kết quả tuần này"
 
 #. module: okr_scale
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_form
@@ -1723,8 +2297,14 @@ msgstr "Đang thực hiện"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__message_has_sms_error
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__message_has_sms_error
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__message_has_sms_error
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__message_has_sms_error
 msgid "SMS Delivery error"
 msgstr "Lỗi gửi SMS"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__checkin_weekday__5
+msgid "Saturday"
+msgstr "Thứ Bảy"
 
 #. module: okr_scale
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_form
@@ -1856,6 +2436,7 @@ msgstr ""
 
 #. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_checkin__mood__struggling
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_weekly__mood__struggling
 msgid "Struggling"
 msgstr "Gặp khó khăn"
 
@@ -1877,9 +2458,32 @@ msgid "Submit Check-in"
 msgstr "Gửi check-in"
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Submit my check-in"
+msgstr "Gửi check-in"
+
+#. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_checkin__state__submitted
 msgid "Submitted"
 msgstr "Đã gửi"
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__checkin_weekday__6
+msgid "Sunday"
+msgstr "Chủ Nhật"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__contributor_department_ids
+msgid "Supporting Departments"
+msgstr "Phòng ban hỗ trợ"
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__contributor_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__contributor_user_ids
+msgid "Supporting People"
+msgstr "Người hỗ trợ"
 
 #. module: okr_scale
 #: model:ir.model.constraint,message:okr_scale.constraint_okr_scale_tag_name_uniq
@@ -1899,6 +2503,34 @@ msgstr "Thẻ"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__target_value
 msgid "Target"
 msgstr "Giá trị mục tiêu"
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_weekly.py:0
+#, python-format
+msgid "Tell your team the plan for next week before submitting."
+msgstr "Hãy chia sẻ phương án tuần tới trước khi gửi."
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.js:0
+#, python-format
+msgid "Tell your team the plan for next week."
+msgstr "Hãy chia sẻ phương án tuần tới."
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/progress_chart/okr_progress_chart.xml:0
+#, python-format
+msgid "The chart appears after the first check-in."
+msgstr "Biểu đồ sẽ hiện sau lần check-in đầu tiên."
+
+#. module: okr_scale
+#. odoo-python
+#: code:addons/okr_scale/models/okr_weekly.py:0
+#, python-format
+msgid "The confidence must be between 1 and 10."
+msgstr "Mức độ tự tin phải từ 1 đến 10."
 
 #. module: okr_scale
 #. odoo-python
@@ -1924,6 +2556,13 @@ msgstr ""
 " mục tiêu, trọng số hoặc cách đo lường của các kết quả then chốt."
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/my_okr/okr_my.xml:0
+#, python-format
+msgid "The owner stays accountable, you help"
+msgstr "Người phụ trách chính chịu trách nhiệm, bạn hỗ trợ"
+
+#. module: okr_scale
 #. odoo-python
 #: code:addons/okr_scale/models/okr_key_result.py:0
 #, python-format
@@ -1936,6 +2575,11 @@ msgstr "Giá trị mục tiêu của \"%s\" phải khác giá trị ban đầu."
 #, python-format
 msgid "The weight of a key result cannot be negative."
 msgstr "Trọng số của kết quả then chốt không được âm."
+
+#. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__checkin_weekday__3
+msgid "Thursday"
+msgstr "Thứ Năm"
 
 #. module: okr_scale
 #. odoo-javascript
@@ -1971,6 +2615,11 @@ msgid "Top performers"
 msgstr "Gương mặt dẫn đầu"
 
 #. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__checkin_weekday__1
+msgid "Tuesday"
+msgstr "Thứ Ba"
+
+#. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__cycle_type
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__okr_type
 msgid "Type"
@@ -1995,6 +2644,13 @@ msgid "Unit displayed next to values, e.g. customers, leads, hours."
 msgstr ""
 "Đơn vị hiển thị bên cạnh giá trị, ví dụ: khách hàng, khách hàng tiềm năng, "
 "giờ."
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Update my week"
+msgstr "Cập nhật tuần của tôi"
 
 #. module: okr_scale
 #: model:mail.activity.type,summary:okr_scale.mail_activity_okr_checkin
@@ -2054,6 +2710,7 @@ msgstr "Phạm vi hiển thị"
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__website_message_ids
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__website_message_ids
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__website_message_ids
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__website_message_ids
 msgid "Website Messages"
 msgstr "Tin nhắn website"
 
@@ -2062,18 +2719,79 @@ msgstr "Tin nhắn website"
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_cycle__website_message_ids
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_key_result__website_message_ids
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__website_message_ids
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_weekly__website_message_ids
 msgid "Website communication history"
 msgstr "Lịch sử trao đổi trên website"
 
 #. module: okr_scale
+#: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__checkin_weekday__2
+msgid "Wednesday"
+msgstr "Thứ Tư"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_weekly__week_start
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_checkin_view_search
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_weekly_view_search
+#, python-format
 msgid "Week"
+msgstr "Tuần"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_weekly_view_form
+msgid "Week of"
 msgstr "Tuần"
 
 #. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__checkin_frequency__weekly
 msgid "Weekly"
 msgstr "Hàng tuần"
+
+#. module: okr_scale
+#: model:ir.actions.client,name:okr_scale.okr_weekly_action
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__weekly_id
+#: model:ir.ui.menu,name:okr_scale.okr_menu_weekly
+msgid "Weekly Check-in"
+msgstr "Check-in tuần"
+
+#. module: okr_scale
+#: model:ir.actions.act_window,name:okr_scale.okr_weekly_history_action
+#: model:ir.ui.menu,name:okr_scale.okr_menu_weekly_history
+msgid "Weekly Check-in History"
+msgstr "Lịch sử check-in tuần"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_checkin_due
+#, python-format
+msgid "Weekly check-in"
+msgstr "Check-in tuần"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/my_okr/okr_my.xml:0
+#, python-format
+msgid "Weekly check-in ("
+msgstr "Check-in tuần ("
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_cycle__checkin_weekday
+msgid ""
+"Weekly check-in day: owners review their key results and plan the next "
+"steps."
+msgstr ""
+"Ngày check-in hàng tuần: người phụ trách cập nhật KR và lên phương án tiếp "
+"theo."
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.js:0
+#, python-format
+msgid "Weekly check-in submitted. Have a great weekend!"
+msgstr "Đã gửi check-in tuần. Chúc bạn cuối tuần vui vẻ!"
 
 #. module: okr_scale
 #. odoo-python
@@ -2088,6 +2806,11 @@ msgid "Weight"
 msgstr "Trọng số"
 
 #. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__progress_history
+msgid "Weighted progress of the key results over the cycle."
+msgstr "Tiến độ có trọng số của các KR trong chu kỳ."
+
+#. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__achievements
 msgid "What did you achieve?"
 msgstr "Bạn đã đạt được những gì?"
@@ -2098,6 +2821,20 @@ msgid "What is blocking you?"
 msgstr "Bạn đang gặp vướng mắc gì?"
 
 #. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "What is slowing you down?"
+msgstr "Điều gì đang làm chậm bạn?"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "What moved this key result?"
+msgstr "Điều gì đã giúp KR này tiến lên?"
+
+#. module: okr_scale
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__visibility
 msgid ""
 "Who can see this objective. Managers in the hierarchy and OKR administrators"
@@ -2105,6 +2842,13 @@ msgid ""
 msgstr ""
 "Ai có thể xem mục tiêu này. Quản lý trong cơ cấu tổ chức và quản trị viên "
 "OKR luôn có quyền xem."
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Who or what would unblock you?"
+msgstr "Ai hoặc điều gì giúp bạn gỡ vướng?"
 
 #. module: okr_scale
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
@@ -2159,6 +2903,25 @@ msgstr "Bạn chỉ có thể quản lý mục tiêu cá nhân của mình hoặ
 
 #. module: okr_scale
 #. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "You own no running key result."
+msgstr "Bạn chưa phụ trách KR nào đang chạy."
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_weekly_digest
+msgid "Your OKR week"
+msgstr "Tuần OKR của bạn"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Your next actions to move the key results"
+msgstr "Các hành động tiếp theo để đẩy KR"
+
+#. module: okr_scale
+#. odoo-javascript
 #: code:addons/okr_scale/static/src/rankings/okr_rankings.xml:0
 #, python-format
 msgid "Your rank"
@@ -2166,10 +2929,23 @@ msgstr "Hạng của bạn"
 
 #. module: okr_scale
 #. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "Your week"
+msgstr "Tuần của bạn"
+
+#. module: okr_scale
+#. odoo-javascript
 #: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
 #, python-format
 msgid "at risk"
 msgstr "có rủi ro"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_weekly_digest
+msgid "checked in"
+msgstr "đã check-in"
 
 #. module: okr_scale
 #. odoo-javascript
@@ -2194,6 +2970,18 @@ msgid "e.g. Sign 20 new B2B customers"
 msgstr "ví dụ: Ký kết 20 khách hàng B2B mới"
 
 #. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_weekly_digest
+msgid "key results at risk"
+msgstr "KR có rủi ro"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "key results updated"
+msgstr "KR đã cập nhật"
+
+#. module: okr_scale
 #. odoo-javascript
 #: code:addons/okr_scale/static/src/rankings/okr_rankings.xml:0
 #, python-format
@@ -2201,9 +2989,42 @@ msgid "objectives"
 msgstr "mục tiêu"
 
 #. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_weekly_digest
+msgid "people blocked"
+msgstr "người đang vướng"
+
+#. module: okr_scale
 #. odoo-javascript
+#: code:addons/okr_scale/static/src/progress_chart/okr_progress_chart.xml:0
+#: code:addons/okr_scale/static/src/progress_chart/okr_progress_chart.xml:0
 #: code:addons/okr_scale/static/src/rankings/okr_rankings.js:0
 #: code:addons/okr_scale/static/src/rankings/okr_rankings.xml:0
 #, python-format
 msgid "pts"
 msgstr "điểm"
+
+#. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.mail_checkin_due
+msgid "reminds you to update your key results."
+msgstr "nhắc bạn cập nhật kết quả then chốt."
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/dashboard/okr_dashboard.xml:0
+#, python-format
+msgid "topics to handle"
+msgstr "vấn đề cần xử lý"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "· Check-in day:"
+msgstr "· Ngày check-in:"
+
+#. module: okr_scale
+#. odoo-javascript
+#: code:addons/okr_scale/static/src/weekly/okr_weekly.xml:0
+#, python-format
+msgid "· last update"
+msgstr "· cập nhật lần cuối"

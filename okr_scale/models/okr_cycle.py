@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
@@ -33,6 +35,13 @@ class OkrCycle(models.Model):
         ('monthly', 'Monthly'),
     ], default='weekly', required=True,
         help='Key result owners are reminded when no check-in was submitted during this period.')
+    checkin_weekday = fields.Selection([
+        ('0', 'Monday'), ('1', 'Tuesday'), ('2', 'Wednesday'), ('3', 'Thursday'),
+        ('4', 'Friday'), ('5', 'Saturday'), ('6', 'Sunday'),
+    ], 'Check-in Day', default='4', required=True,
+        help='Weekly check-in day: owners review their key results and plan the next steps.')
+    checkin_hour = fields.Float('Check-in Time', default=14.0,
+                                help='Reminders are sent from this time on the check-in day.')
     require_approval = fields.Boolean(
         default=True, help='Objectives must be approved by a manager before they start running.')
     objective_ids = fields.One2many('okr.scale.objective', 'cycle_id', 'Objectives')
@@ -57,6 +66,17 @@ class OkrCycle(models.Model):
         stats = {cycle.id: (count, avg) for cycle, count, avg in data}
         for cycle in self:
             cycle.objective_count, cycle.progress = stats.get(cycle.id, (0, 0.0))
+
+    def get_checkin_window_start(self, today):
+        """First day counting for the current check-in period.
+
+        Weekly cycles: the Monday of the week of the last check-in day, so that any
+        check-in between Monday and the check-in day (e.g. Friday) counts."""
+        self.ensure_one()
+        if self.checkin_frequency != 'weekly':
+            return today - timedelta(days=self.get_checkin_days())
+        last_checkin_day = today - timedelta(days=(today.weekday() - int(self.checkin_weekday)) % 7)
+        return last_checkin_day - timedelta(days=last_checkin_day.weekday())
 
     def get_checkin_days(self):
         self.ensure_one()

@@ -12,6 +12,7 @@ class OkrObjective(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _parent_store = True
     _order = 'cycle_id desc, level_sequence, sequence, id'
+    _mail_post_access = 'read'
 
     name = fields.Char('Objective', required=True, tracking=True)
     description = fields.Html()
@@ -59,6 +60,14 @@ class OkrObjective(models.Model):
         ('cancelled', 'Cancelled'),
     ], default='draft', required=True, tracking=True, copy=False, index=True)
     tag_ids = fields.Many2many('okr.scale.tag', string='Tags')
+    contributor_department_ids = fields.Many2many(
+        'hr.department', 'okr_scale_objective_contrib_department_rel', 'objective_id', 'department_id',
+        string='Supporting Departments', tracking=True,
+        help='Departments helping the owner to reach this objective. Their members can follow it and comment.')
+    contributor_user_ids = fields.Many2many(
+        'res.users', 'okr_scale_objective_contrib_user_rel', 'objective_id', 'user_id',
+        string='Supporting People', domain=[('share', '=', False)], tracking=True,
+        help='People helping the owner. The owner stays accountable for the objective.')
 
     parent_id = fields.Many2one(
         'okr.scale.objective', 'Aligned To', index=True, ondelete='set null', tracking=True,
@@ -82,6 +91,8 @@ class OkrObjective(models.Model):
                               help='Average confidence (1-10) of the key results.')
     status = fields.Selection(STATUSES, compute='_compute_status', store=True, index=True)
     last_checkin_date = fields.Date(compute='_compute_progress', store=True, recursive=True)
+    progress_history = fields.Json(compute='_compute_progress_history',
+                                   help='Weighted progress of the key results over the cycle.')
 
     quality_hint = fields.Char(compute='_compute_quality_hint',
                                help='Advice based on OKR good practices, never blocking.')
@@ -194,6 +205,37 @@ class OkrObjective(models.Model):
         domain = self._my_team_domain()
         return domain if (operator == '=') == value else ['!'] + domain
 
+    @api.depends('key_result_ids.progress_history', 'key_result_ids.weight')
+    def _compute_progress_history(self):
+        today = fields.Date.context_today(self)
+        for objective in self:
+            krs = objective.key_result_ids
+            total_weight = sum(krs.mapped('weight'))
+            if not objective.cycle_id or not krs or not total_weight:
+                objective.progress_history = False
+                continue
+            histories = {kr.id: kr._history_points() for kr in krs}
+            dates = sorted({d for points in histories.values() for d, _v in points})
+
+            def value_at(points, day):
+                value = points[0][1]
+                for point_day, point_value in points:
+                    if point_day > day:
+                        break
+                    value = point_value
+                return value
+
+            points = [[fields.Date.to_string(day), round(sum(
+                value_at(histories[kr.id], day) * kr.weight for kr in krs) / total_weight, 1)] for day in dates]
+            if round(points[-1][1], 1) != round(objective.progress, 1):
+                points.append([fields.Date.to_string(min(today, objective.cycle_id.date_end)), round(objective.progress, 1)])
+            objective.progress_history = {
+                'start': fields.Date.to_string(objective.cycle_id.date_start),
+                'end': fields.Date.to_string(objective.cycle_id.date_end),
+                'today': fields.Date.to_string(today),
+                'points': points,
+            }
+
     def _compute_expected_progress(self):
         today = fields.Date.context_today(self)
         for objective in self:
@@ -251,13 +293,20 @@ class OkrObjective(models.Model):
     def create(self, vals_list):
         objectives = super().create(vals_list)
         objectives._check_okr_level_rights()
+        objectives._subscribe_contributors()
         return objectives
 
     def write(self, vals):
         res = super().write(vals)
         if {'level', 'employee_id', 'department_id', 'owner_id'} & set(vals):
             self._check_okr_level_rights()
+        if 'contributor_user_ids' in vals:
+            self._subscribe_contributors()
         return res
+
+    def _subscribe_contributors(self):
+        for objective in self.filtered('contributor_user_ids'):
+            objective.sudo().message_subscribe(partner_ids=objective.contributor_user_ids.partner_id.ids)
 
     # ------------------------------------------------------------------
     # Workflow

@@ -94,6 +94,16 @@ export class OkrDashboard extends Component {
         });
     }
 
+    openIssue(issue) {
+        this.action.doAction({
+            type: "ir.actions.act_window",
+            name: issue.label,
+            res_model: issue.model,
+            views: [[false, "list"], [false, "form"]],
+            domain: [["id", "in", issue.ids]],
+        });
+    }
+
     openRecord(model, id) {
         this.action.doAction({ type: "ir.actions.act_window", res_model: model, res_id: id, views: [[false, "form"]] });
     }

@@ -112,7 +112,44 @@ class OkrDashboard(models.AbstractModel):
                 'confidence': c.confidence,
             } for c in checkins[:10]],
             'extra_sections': self._get_extra_sections(objectives, cycle),
+            'issues': self._get_issues(objectives, cycle),
         }
+
+    @api.model
+    def _get_issues(self, objectives, cycle):
+        """Everything needing attention, most severe first. Each issue opens the records."""
+        today = fields.Date.context_today(self)
+        running = objectives.filtered(lambda o: o.state == 'running')
+        krs = running.key_result_ids
+        Checkin = self.env['okr.scale.checkin']
+        blocked = Checkin.search([('objective_id', 'in', running.ids), ('state', '!=', 'draft'),
+                                  ('date', '>=', today - timedelta(days=7)), ('blockers', '!=', False)])
+        stale = krs.filtered(lambda kr: kr.progress_method == 'manual' and (
+            not kr.last_checkin_date or (today - kr.last_checkin_date).days > 14))
+        unaligned = running.filtered(lambda o: o.level != 'company' and not o.parent_id)
+        team_domain = self.env['okr.scale.objective']._my_team_domain()
+        to_approve = self.env['okr.scale.objective'].search(team_domain + [('state', '=', 'to_approve')]) \
+            if self.env.user.has_group('okr_scale.group_okr_manager') else self.env['okr.scale.objective']
+        issues = [
+            ('off_track', _('Key results off track'), 'danger', 'fa-exclamation-circle', krs.filtered(lambda k: k.status == 'off_track')),
+            ('checkin_due', _('Check-ins missing this week'), 'danger', 'fa-calendar-times-o', krs.filtered('checkin_due')),
+            ('blockers', _('Blockers reported (7 days)'), 'danger', 'fa-hand-paper-o', blocked),
+            ('at_risk', _('Key results at risk'), 'warning', 'fa-exclamation-triangle', krs.filtered(lambda k: k.status == 'at_risk')),
+            ('low_confidence', _('Low confidence (≤ 4/10)'), 'warning', 'fa-heartbeat',
+             krs.filtered(lambda k: k.confidence and int(k.confidence) <= 4)),
+            ('stale', _('No update for 2 weeks'), 'warning', 'fa-hourglass-half', stale),
+            ('to_approve', _('Objectives waiting for approval'), 'info', 'fa-check-square-o', to_approve),
+            ('unaligned', _('Objectives not aligned'), 'info', 'fa-chain-broken', unaligned),
+        ]
+        return [{
+            'key': key,
+            'label': label,
+            'severity': severity,
+            'icon': icon,
+            'count': len(records),
+            'model': records._name,
+            'ids': records.ids,
+        } for key, label, severity, icon, records in issues]
 
     @api.model
     def _get_extra_kpis(self, objectives, cycle):
@@ -132,3 +169,34 @@ class OkrDashboard(models.AbstractModel):
         {'user_id', 'name', 'subtitle', 'value'}]}`` with rows sorted best first.
         """
         return []
+
+    @api.model
+    def _get_weekly_digest(self):
+        """Content of the weekly digest of the current user (read with their rights)."""
+        user = self.env.user
+        status_labels = dict(self.env['okr.scale.key.result']._fields['status']._description_selection(self.env))
+        krs = self.env['okr.scale.key.result'].search(
+            [('owner_id', '=', user.id), ('objective_state', '=', 'running')], order='progress')
+        team = False
+        if user.has_group('okr_scale.group_okr_manager'):
+            Weekly = self.env['okr.scale.weekly']
+            last_week = Weekly._week_start() - timedelta(days=7)
+            board = Weekly.get_team_week(fields.Date.to_string(last_week))
+            if board['stats']['people']:
+                team = {
+                    'stats': board['stats'],
+                    'missing': [r['name'] for r in board['rows'] if r['key_results'] and not r['submitted']],
+                    'blocked': [r for r in board['rows'] if r['blockers'] or r['help_needed']],
+                    'risky': [r for r in board['rows'] if r['risky']],
+                }
+        return {
+            'key_results': [{
+                'name': kr.name,
+                'objective': kr.objective_id.name,
+                'progress': round(kr.progress),
+                'status': kr.status,
+                'status_label': status_labels.get(kr.status, ''),
+                'due': kr.checkin_due,
+            } for kr in krs],
+            'team': team,
+        }

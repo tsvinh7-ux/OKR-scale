@@ -33,6 +33,28 @@
                     </div>
                 </div>
 
+                <!-- Attention center: what needs action, most severe first -->
+                <t t-set="openIssues" t-value="data.issues.filter((i) => i.count)"/>
+                <div class="o_okr_card o_okr_issues mb-4">
+                    <div class="o_okr_card_header">
+                        <span><i class="fa fa-bolt me-2"/>Needs attention</span>
+                        <span t-if="!openIssues.length" class="o_okr_chip o_okr_chip_on_track">All clear</span>
+                        <span t-else="" class="o_okr_card_hint"><t t-esc="openIssues.length"/> topics to handle</span>
+                    </div>
+                    <div class="o_okr_card_body">
+                        <div class="o_okr_issue_grid">
+                            <t t-foreach="data.issues" t-as="issue" t-key="issue.key">
+                                <button t-attf-class="o_okr_issue o_okr_issue_{{ issue.count ? issue.severity : 'ok' }}"
+                                        t-att-disabled="!issue.count" t-on-click="() => this.openIssue(issue)">
+                                    <i t-attf-class="fa {{ issue.count ? issue.icon : 'fa-check' }}"/>
+                                    <span class="o_okr_issue_count" t-esc="issue.count"/>
+                                    <span class="o_okr_issue_label" t-esc="issue.label"/>
+                                </button>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- KPIs -->
                 <div class="row g-3 mb-4">
                     <t t-foreach="data.kpis" t-as="kpi" t-key="kpi.key">
