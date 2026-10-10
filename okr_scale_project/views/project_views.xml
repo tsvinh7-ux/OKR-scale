@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="project_project_view_form" model="ir.ui.view">
+        <field name="name">project.project.form.okr</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button name="action_view_okr_key_results" type="object" class="oe_stat_button" icon="fa-bullseye"
+                        invisible="not okr_key_result_count">
+                    <field name="okr_key_result_count" widget="statinfo" string="OKR"/>
+                </button>
+            </div>
+        </field>
+    </record>
+
+    <record id="project_task_view_form" model="ir.ui.view">
+        <field name="name">project.task.form.okr</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <field name="tag_ids" position="after">
+                <field name="okr_key_result_id" options="{'no_create': True}"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="project_task_view_tree" model="ir.ui.view">
+        <field name="name">project.task.tree.okr</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.project_task_view_tree_base"/>
+        <field name="arch" type="xml">
+            <field name="tag_ids" position="after">
+                <field name="okr_key_result_id" optional="hide"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="project_task_view_search" model="ir.ui.view">
+        <field name="name">project.task.search.okr</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_search_form"/>
+        <field name="arch" type="xml">
+            <field name="stage_id" position="after">
+                <field name="okr_key_result_id"/>
+                <field name="okr_objective_id"/>
+            </field>
+            <filter name="inactive" position="before">
+                <filter string="Linked to OKR" name="okr_linked" domain="[('okr_key_result_id', '!=', False)]"/>
+                <separator/>
+            </filter>
+            <filter name="stage" position="after">
+                <filter string="Key Result" name="group_okr_key_result" context="{'group_by': 'okr_key_result_id'}"/>
+                <filter string="Objective" name="group_okr_objective" context="{'group_by': 'okr_objective_id'}"/>
+            </filter>
+        </field>
+    </record>
+</odoo>

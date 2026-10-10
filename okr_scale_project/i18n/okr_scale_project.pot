@@ -1,0 +1,151 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* okr_scale_project
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-10 09:02+0000\n"
+"PO-Revision-Date: 2026-10-10 09:02+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: okr_scale_project
+#: model:ir.model.fields,help:okr_scale_project.field_okr_scale_key_result__project_ids
+msgid "Every active task of these projects counts towards this key result."
+msgstr ""
+
+#. module: okr_scale_project
+#: model:ir.model.fields,field_description:okr_scale_project.field_project_task__okr_key_result_id
+#: model_terms:ir.ui.view,arch_db:okr_scale_project.project_task_view_search
+msgid "Key Result"
+msgstr ""
+
+#. module: okr_scale_project
+#: model:ir.model.fields,field_description:okr_scale_project.field_project_project__okr_key_result_ids
+msgid "Key Results"
+msgstr ""
+
+#. module: okr_scale_project
+#: model:ir.model.fields,help:okr_scale_project.field_project_task__okr_key_result_id
+msgid "Key result this task contributes to."
+msgstr ""
+
+#. module: okr_scale_project
+#: model_terms:ir.ui.view,arch_db:okr_scale_project.okr_key_result_view_form
+msgid "Link a task from its form, using the Key Result field."
+msgstr ""
+
+#. module: okr_scale_project
+#. odoo-python
+#: code:addons/okr_scale_project/models/okr_dashboard.py:0
+#, python-format
+msgid "Linked tasks done"
+msgstr ""
+
+#. module: okr_scale_project
+#: model_terms:ir.ui.view,arch_db:okr_scale_project.project_task_view_search
+msgid "Linked to OKR"
+msgstr ""
+
+#. module: okr_scale_project
+#: model:ir.model.fields,field_description:okr_scale_project.field_okr_scale_key_result__progress_method
+msgid "Measured By"
+msgstr ""
+
+#. module: okr_scale_project
+#: model:ir.model.fields,field_description:okr_scale_project.field_project_project__okr_key_result_count
+#: model_terms:ir.ui.view,arch_db:okr_scale_project.project_project_view_form
+msgid "OKR"
+msgstr ""
+
+#. module: okr_scale_project
+#: model:ir.model,name:okr_scale_project.model_okr_scale_dashboard
+msgid "OKR Dashboard"
+msgstr ""
+
+#. module: okr_scale_project
+#: model:ir.model,name:okr_scale_project.model_okr_scale_key_result
+msgid "OKR Key Result"
+msgstr ""
+
+#. module: okr_scale_project
+#: model:ir.model.fields,field_description:okr_scale_project.field_project_task__okr_objective_id
+#: model_terms:ir.ui.view,arch_db:okr_scale_project.project_task_view_search
+msgid "Objective"
+msgstr ""
+
+#. module: okr_scale_project
+#: model:ir.model,name:okr_scale_project.model_project_project
+msgid "Project"
+msgstr ""
+
+#. module: okr_scale_project
+#: model:ir.model.fields,field_description:okr_scale_project.field_okr_scale_key_result__project_ids
+msgid "Projects"
+msgstr ""
+
+#. module: okr_scale_project
+#: model_terms:ir.ui.view,arch_db:okr_scale_project.okr_key_result_view_form
+msgid "Projects & Tasks"
+msgstr ""
+
+#. module: okr_scale_project
+#: model:ir.model,name:okr_scale_project.model_project_task
+msgid "Task"
+msgstr ""
+
+#. module: okr_scale_project
+#. odoo-python
+#: code:addons/okr_scale_project/models/project.py:0
+#, python-format
+msgid "Task %s is done."
+msgstr ""
+
+#. module: okr_scale_project
+#: model:ir.model.fields,field_description:okr_scale_project.field_okr_scale_key_result__task_count
+msgid "Task Count"
+msgstr ""
+
+#. module: okr_scale_project
+#: model:ir.model.fields,field_description:okr_scale_project.field_okr_scale_key_result__task_ids
+#: model_terms:ir.ui.view,arch_db:okr_scale_project.okr_key_result_view_form
+msgid "Tasks"
+msgstr ""
+
+#. module: okr_scale_project
+#: model:ir.model.fields,field_description:okr_scale_project.field_okr_scale_key_result__task_done_count
+msgid "Tasks Done"
+msgstr ""
+
+#. module: okr_scale_project
+#: model:ir.model.fields.selection,name:okr_scale_project.selection__okr_scale_key_result__progress_method__tasks
+msgid "Tasks completed"
+msgstr ""
+
+#. module: okr_scale_project
+#: model:ir.model.fields.selection,name:okr_scale_project.selection__okr_scale_key_result__progress_method__task_hours
+msgid "Tasks completed (weighted by allocated hours)"
+msgstr ""
+
+#. module: okr_scale_project
+#: model:ir.model.fields,help:okr_scale_project.field_okr_scale_key_result__task_ids
+msgid "Tasks explicitly linked to this key result."
+msgstr ""
+
+#. module: okr_scale_project
+#. odoo-python
+#: code:addons/okr_scale_project/models/okr_key_result.py:0
+#, python-format
+msgid "Tasks: %s"
+msgstr ""
+
+#. module: okr_scale_project
+#: model_terms:ir.ui.view,arch_db:okr_scale_project.okr_key_result_view_form
+msgid "Total"
+msgstr ""

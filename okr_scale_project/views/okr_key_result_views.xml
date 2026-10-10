@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="okr_key_result_view_form" model="ir.ui.view">
+        <field name="name">okr.scale.key.result.form.project</field>
+        <field name="model">okr.scale.key.result</field>
+        <field name="inherit_id" ref="okr_scale.okr_key_result_view_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button name="action_view_tasks" type="object" class="oe_stat_button" icon="fa-tasks"
+                        invisible="not project_ids and not task_ids">
+                    <field name="task_count" widget="statinfo" string="Tasks"/>
+                </button>
+            </div>
+            <field name="progress" position="before">
+                <label for="task_done_count" invisible="progress_method not in ('tasks', 'task_hours')"/>
+                <div class="o_row" invisible="progress_method not in ('tasks', 'task_hours')">
+                    <field name="task_done_count"/> / <field name="task_count"/>
+                </div>
+            </field>
+            <page name="description" position="before">
+                <page string="Projects &amp; Tasks" name="projects_tasks"
+                      invisible="progress_method not in ('tasks', 'task_hours') and not project_ids and not task_ids">
+                    <group>
+                        <field name="project_ids" widget="many2many_tags"/>
+                    </group>
+                    <field name="task_ids" readonly="1">
+                        <tree decoration-muted="state == '1_canceled'" decoration-success="state == '1_done'">
+                            <field name="name"/>
+                            <field name="project_id"/>
+                            <field name="user_ids" widget="many2many_avatar_user"/>
+                            <field name="stage_id"/>
+                            <field name="state" widget="project_task_state_selection" readonly="1"/>
+                            <field name="allocated_hours" widget="float_time" sum="Total"/>
+                        </tree>
+                    </field>
+                    <div class="text-muted">
+                        Link a task from its form, using the Key Result field.
+                    </div>
+                </page>
+            </page>
+        </field>
+    </record>
+
+    <record id="okr_key_result_view_search" model="ir.ui.view">
+        <field name="name">okr.scale.key.result.search.project</field>
+        <field name="model">okr.scale.key.result</field>
+        <field name="inherit_id" ref="okr_scale.okr_key_result_view_search"/>
+        <field name="arch" type="xml">
+            <field name="cycle_id" position="after">
+                <field name="project_ids"/>
+            </field>
+        </field>
+    </record>
+</odoo>
