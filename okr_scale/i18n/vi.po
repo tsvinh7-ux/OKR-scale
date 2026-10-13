@@ -693,6 +693,11 @@ msgid "Current"
 msgstr "Hiện tại"
 
 #. module: okr_scale
+#: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
+msgid "Current Cycle"
+msgstr "Chu kỳ hiện tại"
+
+#. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_cycle__cycle_type__custom
 msgid "Custom"
 msgstr "Tùy chỉnh"
@@ -1135,6 +1140,11 @@ msgstr "Nếu được chọn, có tin nhắn mới cần bạn chú ý."
 #: model:ir.model.fields,help:okr_scale.field_okr_scale_weekly__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Nếu được chọn, một số tin nhắn bị lỗi gửi."
+
+#. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__in_current_cycle
+msgid "In Current Cycle"
+msgstr "Thuộc chu kỳ hiện tại"
 
 #. module: okr_scale
 #: model:ir.model.fields.selection,name:okr_scale.selection__okr_scale_objective__level__individual
@@ -2046,6 +2056,7 @@ msgstr "Mở OKR của tôi"
 #. odoo-python
 #: code:addons/okr_scale/models/okr_key_result.py:0
 #: code:addons/okr_scale/models/okr_objective.py:0
+#: code:addons/okr_scale/models/okr_objective.py:0
 #, python-format
 msgid "Operation not supported"
 msgstr "Thao tác không được hỗ trợ"
@@ -2394,6 +2405,11 @@ msgid "Share of the cycle already elapsed."
 msgstr "Tỷ lệ thời gian đã trôi qua của chu kỳ."
 
 #. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__state
+msgid "Stage"
+msgstr "Giai đoạn"
+
+#. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_key_result__start_value
 msgid "Start"
 msgstr "Giá trị ban đầu"
@@ -2412,7 +2428,6 @@ msgstr "Ngày bắt đầu"
 #. module: okr_scale
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_checkin__state
 #: model:ir.model.fields,field_description:okr_scale.field_okr_scale_cycle__state
-#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__state
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_search
 msgid "State"
 msgstr "Trạng thái"

@@ -171,7 +171,7 @@ class OkrKeyResult(models.Model):
 
     def _is_checkin_due(self, today=None):
         self.ensure_one()
-        if self.objective_state != 'running' or self.cycle_id.state != 'open':
+        if self.objective_state != 'running' or self.cycle_id.state != 'open' or self.progress_method != 'manual':
             return False
         today = today or fields.Date.context_today(self)
         if today < self.cycle_id.date_start:
@@ -195,7 +195,8 @@ class OkrKeyResult(models.Model):
     def _search_checkin_due(self, operator, value):
         if operator not in ('=', '!=') or not isinstance(value, bool):
             raise NotImplementedError(_('Operation not supported'))
-        candidates = self.search([('objective_state', '=', 'running'), ('cycle_id.state', '=', 'open')])
+        candidates = self.search([('objective_state', '=', 'running'), ('cycle_id.state', '=', 'open'),
+                                  ('progress_method', '=', 'manual')])
         due = candidates.filtered(lambda kr: kr._is_checkin_due())
         positive = (operator == '=') == value
         return [('id', 'in' if positive else 'not in', due.ids)]

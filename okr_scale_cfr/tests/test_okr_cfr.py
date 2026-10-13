@@ -24,13 +24,15 @@ class TestOkrCfr(OkrCommon):
     # Recognition
     # ------------------------------------------------------------------
     def test_recognition_notifies_receivers(self):
+        before = self.teamwork.recognition_count
         kudos = self._kudos(self.seller, self.seller2 | self.tech)
         self.assertEqual(kudos.sender_id, self.seller)
         self.assertIn(self.seller2.partner_id, kudos.message_partner_ids)
         message = kudos.message_ids.filtered(lambda m: m.message_type == 'comment')[:1]
         self.assertTrue(message)
         self.assertEqual(message.partner_ids, (self.seller2 | self.tech).partner_id)
-        self.assertEqual(self.teamwork.recognition_count, 1)
+        self.teamwork.invalidate_recordset(['recognition_count'])
+        self.assertEqual(self.teamwork.recognition_count, before + 1)
 
     def test_recognition_sender_cannot_be_forged(self):
         kudos = self._kudos(self.seller, self.tech, sender_id=self.seller2.id)
@@ -218,7 +220,15 @@ class TestOkrCfr(OkrCommon):
     # ------------------------------------------------------------------
     # Dashboard
     # ------------------------------------------------------------------
+    def _age_existing_recognitions(self):
+        """Move recognitions already in the database (e.g. demo data) out of the periods measured."""
+        self.env['okr.scale.recognition'].flush_model()
+        self.env.cr.execute("UPDATE okr_scale_recognition SET date = date - interval '800 days', "
+                            "create_date = create_date - interval '800 days'")
+        self.env.invalidate_all()
+
     def test_dashboard_extra_data(self):
+        self._age_existing_recognitions()
         self._kudos(self.seller, self.seller2)
         self._kudos(self.tech, self.seller2 | self.seller)
         data = self.env['okr.scale.dashboard'].with_user(self.seller).get_dashboard_data(self.cycle.id)
@@ -228,6 +238,7 @@ class TestOkrCfr(OkrCommon):
         self.assertEqual(section['rows'][0], [self.seller2.name, 2])
 
     def test_rankings_most_recognized(self):
+        self._age_existing_recognitions()
         innovation = self.env.ref('okr_scale_cfr.core_value_innovation')
         self._kudos(self.seller, self.seller2)
         self._kudos(self.tech, self.seller2 | self.seller, core_value_ids=[(6, 0, innovation.ids)])
@@ -252,6 +263,7 @@ class TestOkrCfr(OkrCommon):
         self.assertNotIn(self.tech.id, [row['user_id'] for row in board['rows']])
 
     def test_my_workspace_tile_and_wall_banner(self):
+        self._age_existing_recognitions()
         self._kudos(self.seller, self.seller2)
         self._kudos(self.tech, self.seller2, visibility='private')
         tiles = self.env['okr.scale.dashboard'].with_user(self.seller2)._get_my_extra()

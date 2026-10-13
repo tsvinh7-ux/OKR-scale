@@ -9,11 +9,22 @@ Community, dựng mới từ đầu, tách module để cài đặt và nâng c�
 | `okr_scale_project` | Liên kết KR với Dự án / Nhiệm vụ, tiến độ KR tự đồng bộ từ nhiệm vụ | `okr_scale`, `project` |
 | `okr_scale_cfr` | CFR: Trao đổi 1:1 gắn với OKR (tổng quan KR, check-in từ buổi trước, lịch định kỳ, tự nhắc khi tự tin thấp), Phản hồi minh bạch, Bảng ghi nhận / lời khen, Giá trị cốt lõi | `okr_scale`, `calendar` |
 | `okr_scale_template` | Thư viện OKR mẫu cho nha khoa (25 mẫu, 8 nhóm), dùng mẫu / lưu thành mẫu | `okr_scale` |
+| `okr_scale_demo` | Dữ liệu demo DMAG để chạy thử (sơ đồ tổ chức, OKR, lịch sử check-in, 1:1, lời khen, quà, khách hàng portal) | tất cả module trên |
 | `okr_scale_review` | Đánh giá giữa kỳ & tổng kết cuối chu kỳ: điểm theo cấp và phòng ban, cam kết vs thử thách, bài học, chuyển KR chưa xong sang chu kỳ sau | `okr_scale` |
 | `okr_scale_reward` | Điểm thưởng (sổ cái), ngân sách tặng điểm hàng tháng, điểm tự động, Cửa hàng đổi quà | `okr_scale_cfr`, `product` |
 | `okr_scale_reward_stock` | Quản lý quà tặng qua Kho: sản phẩm lưu kho, phiếu xuất khi duyệt đổi quà, cho phép đặt trước khi chưa có hàng | `okr_scale_reward`, `stock` |
 | `okr_scale_portal` | Chia sẻ OKR cho từng tài khoản portal (khách hàng B2B) với quyền Chỉ xem / Có thể cập nhật, như Project | `okr_scale`, `portal` |
 | `dmag_brand_theme` | Màu nhận diện DMAG cho toàn bộ giao diện Odoo (tùy chọn) | `web` |
+
+## Hình ảnh
+
+| | |
+|---|---|
+| ![Không gian OKR](docs/screenshots/01_khong_gian_okr.png) | ![Check-in tuần](docs/screenshots/02_checkin_tuan_cua_toi.png) |
+| ![Đội của tôi](docs/screenshots/03_checkin_tuan_doi.png) | ![Bảng điều khiển](docs/screenshots/04_bang_dieu_khien.png) |
+| ![Bảng xếp hạng](docs/screenshots/05_bang_xep_hang.png) | ![Tổng kết chu kỳ](docs/screenshots/10_tong_ket_chu_ky.png) |
+| ![Bảng ghi nhận](docs/screenshots/08_bang_ghi_nhan.png) | ![Cửa hàng quà](docs/screenshots/09_cua_hang_qua.png) |
+| ![Thư viện mẫu](docs/screenshots/11_thu_vien_mau.png) | ![Portal khách hàng](docs/screenshots/12_portal_khach_hang.png) |
 
 ## Chạy thử trên máy (localhost) bằng Docker
 

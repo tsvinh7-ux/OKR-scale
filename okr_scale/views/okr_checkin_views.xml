@@ -121,6 +121,7 @@
         <field name="name">Check-ins to Review</field>
         <field name="res_model">okr.scale.checkin</field>
         <field name="view_mode">tree,form</field>
+        <field name="domain">[('user_id', '!=', uid)]</field>
         <field name="context">{'search_default_to_review': 1}</field>
     </record>
 </odoo>

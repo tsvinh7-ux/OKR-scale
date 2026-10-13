@@ -52,7 +52,7 @@ class OkrObjective(models.Model):
         ('private', 'Owner and managers'),
     ], default='public', required=True, tracking=True,
         help='Who can see this objective. Managers in the hierarchy and OKR administrators always can.')
-    state = fields.Selection([
+    state = fields.Selection(string='Stage', selection=[
         ('draft', 'Draft'),
         ('to_approve', 'To Approve'),
         ('running', 'Running'),
@@ -96,6 +96,7 @@ class OkrObjective(models.Model):
 
     quality_hint = fields.Char(compute='_compute_quality_hint',
                                help='Advice based on OKR good practices, never blocking.')
+    in_current_cycle = fields.Boolean(compute='_compute_in_current_cycle', search='_search_in_current_cycle')
     is_my_team = fields.Boolean(compute='_compute_is_my_team', search='_search_is_my_team',
                                 help='Objectives of the departments and employees managed by the current user.')
 
@@ -186,6 +187,18 @@ class OkrObjective(models.Model):
             if objective.level != 'company' and not objective.parent_id:
                 hints.append(_('Align this objective to an upper key result so that everyone pulls in the same direction.'))
             objective.quality_hint = ' '.join(hints)
+
+    def _compute_in_current_cycle(self):
+        current = self.env['okr.scale.cycle'].get_current_cycle()
+        for objective in self:
+            objective.in_current_cycle = objective.cycle_id == current
+
+    def _search_in_current_cycle(self, operator, value):
+        if operator not in ('=', '!=') or not isinstance(value, bool):
+            raise NotImplementedError(_('Operation not supported'))
+        current = self.env['okr.scale.cycle'].get_current_cycle()
+        positive = (operator == '=') == value
+        return [('cycle_id', '=' if positive else '!=', current.id)]
 
     def _my_team_domain(self):
         # Employees are private for non HR users: resolve the team with sudo.

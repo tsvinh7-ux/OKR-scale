@@ -41,7 +41,7 @@
                                             <div class="o_okr_week_objective" t-esc="kr.objective"/>
                                             <a href="#" class="o_okr_week_title" t-on-click.prevent="() => this.openKeyResult(kr.id)" t-esc="kr.name"/>
                                             <div class="small text-muted mt-1">
-                                                <t t-if="kr.manual and !kr.boolean">Now <b t-esc="kr.current"/> / <t t-esc="kr.target"/> <t t-esc="kr.unit"/></t>
+                                                <t t-if="kr.manual and !kr.boolean">Now <b t-esc="fmt(kr.current)"/> / <t t-esc="fmt(kr.target)"/> <t t-esc="kr.unit"/></t>
                                                 <t t-if="!kr.manual">Measured automatically</t>
                                                 <t t-if="kr.last_checkin_date"> · last update <t t-esc="kr.last_checkin_date"/></t>
                                             </div>

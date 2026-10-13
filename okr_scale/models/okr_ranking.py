@@ -1,4 +1,5 @@
 from collections import defaultdict
+from datetime import timedelta
 
 from odoo import _, api, fields, models
 
@@ -212,7 +213,9 @@ class OkrDashboardRanking(models.AbstractModel):
             'manager': {
                 'to_approve': Objective.search_count(team_domain + [('state', '=', 'to_approve')]),
                 'to_review': self.env['okr.scale.checkin'].search_count([
-                    ('state', '=', 'submitted'), ('objective_id', 'in', Objective.search(team_domain).ids)]),
+                    ('state', '=', 'submitted'), ('user_id', '!=', user.id),
+                    ('date', '>=', fields.Date.context_today(self) - timedelta(days=14)),
+                    ('objective_id', 'in', Objective.search(team_domain).ids)]),
                 'team_risky': Objective.search_count(team_domain + [
                     ('state', '=', 'running'), ('status', 'in', ('at_risk', 'off_track'))]),
             } if is_manager else False,

@@ -117,7 +117,7 @@
                                                         <t t-esc="kr.name"/>
                                                     </span>
                                                     <span class="small text-nowrap text-muted">
-                                                        <t t-if="kr.manual"><t t-esc="kr.current"/> / <t t-esc="kr.target"/> <t t-esc="kr.unit"/> · </t>
+                                                        <t t-if="kr.manual"><t t-esc="fmt(kr.current)"/> / <t t-esc="fmt(kr.target)"/> <t t-esc="kr.unit"/> · </t>
                                                         <b style="color: var(--okr-navy)" t-esc="Math.round(kr.progress) + '%'"/>
                                                     </span>
                                                 </div>

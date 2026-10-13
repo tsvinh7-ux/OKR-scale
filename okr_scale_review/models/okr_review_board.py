@@ -68,7 +68,11 @@ class OkrReviewBoard(models.AbstractModel):
             bands[score_band(score)] += 1
         status = {key: 0 for key in STATUS_KEYS}
         for objective in objectives:
-            if objective.status in status:
+            if objective.state == 'done':
+                # Closed objectives: judged on their grade, not on the live status
+                key = 'achieved' if objective.final_score >= 0.7 else 'off_track' if objective.final_score < 0.4 else 'at_risk'
+                status[key] += 1
+            elif objective.status in status:
                 status[objective.status] += 1
         count = len(objectives)
         score = average(scores)

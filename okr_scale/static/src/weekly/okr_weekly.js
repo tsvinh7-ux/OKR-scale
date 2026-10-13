@@ -4,7 +4,7 @@ import { Component, onWillStart, useState } from "@odoo/owl";
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
 import { _t } from "@web/core/l10n/translation";
-import { OkrAvatar, OkrProgressRing, OkrStatusChip } from "../components/okr_components";
+import { OkrAvatar, OkrProgressRing, OkrStatusChip, okrFormatNumber } from "../components/okr_components";
 
 const MOODS = [
     { key: "great", emoji: "🤩" },
@@ -19,6 +19,7 @@ export class OkrWeekly extends Component {
     static props = ["*"];
 
     setup() {
+        this.fmt = okrFormatNumber;
         this.orm = useService("orm");
         this.action = useService("action");
         this.notification = useService("notification");

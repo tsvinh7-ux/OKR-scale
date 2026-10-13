@@ -92,7 +92,7 @@
     border-radius: var(--okr-radius);
     box-shadow: var(--okr-shadow);
 
-    .row > [class*="col"] > & {
+    .row > [class*="col"] > &:only-child {
         height: 100%;
     }
     .o_okr_card_header {
@@ -430,5 +430,24 @@
     .o_okr_issue_ok {
         background: #fff; border-color: var(--okr-line); color: var(--okr-muted); opacity: .7;
         i { background: #E7F6F0; color: var(--okr-success); }
+    }
+}
+
+// OKR tree: long objective names wrap on 2 lines without overlapping
+.o_hierarchy_node_header.o_okr_node_on_track,
+.o_hierarchy_node_header.o_okr_node_achieved,
+.o_hierarchy_node_header.o_okr_node_at_risk,
+.o_hierarchy_node_header.o_okr_node_off_track {
+    height: auto;
+    min-height: 44px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    line-height: 1.25;
+    > * {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        white-space: normal;
     }
 }

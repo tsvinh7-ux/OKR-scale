@@ -307,6 +307,7 @@
                 <filter name="running" string="Running" domain="[('state', '=', 'running')]"/>
                 <filter name="to_approve" string="To Approve" domain="[('state', '=', 'to_approve')]"/>
                 <filter name="current_cycle" string="Open Cycles" domain="[('cycle_id.state', '=', 'open')]"/>
+                <filter name="this_cycle" string="Current Cycle" domain="[('in_current_cycle', '=', True)]"/>
                 <filter name="risky" string="At Risk / Off Track" domain="[('status', 'in', ('at_risk', 'off_track'))]"/>
                 <separator/>
                 <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
@@ -381,7 +382,8 @@
         <field name="name">OKR Tree</field>
         <field name="res_model">okr.scale.objective</field>
         <field name="view_mode">hierarchy,form</field>
-        <field name="context">{'search_default_current_cycle': 1}</field>
+        <field name="domain">[('parent_id', '=', False), ('state', '!=', 'cancelled')]</field>
+        <field name="context">{'search_default_this_cycle': 1}</field>
     </record>
 
     <record id="okr_objective_action_approve" model="ir.actions.act_window">

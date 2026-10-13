@@ -12,6 +12,9 @@ const KPI_ICONS = {
     progress: "fa-line-chart",
     on_track: "fa-check-circle",
     checkin_rate: "fa-calendar-check-o",
+    recognitions: "fa-heart",
+    tasks_done: "fa-tasks",
+    points_granted: "fa-star",
 };
 
 export class OkrDashboard extends Component {

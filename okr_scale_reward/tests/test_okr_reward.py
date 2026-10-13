@@ -35,6 +35,14 @@ class TestOkrReward(OkrCommon):
             'points': points,
         })
 
+    def _age_existing_data(self):
+        """Move points and kudos already in the database (e.g. demo data) out of the measured periods."""
+        self.env.flush_all()
+        self.env.cr.execute("UPDATE okr_scale_point_transaction SET date = date - interval '800 days'")
+        self.env.cr.execute("UPDATE okr_scale_recognition SET date = date - interval '800 days', "
+                            "create_date = create_date - interval '800 days'")
+        self.env.invalidate_all()
+
     def _grant(self, user, points):
         return self.Transaction._grant(user, points, 'manual', 'Test grant')
 
@@ -171,13 +179,14 @@ class TestOkrReward(OkrCommon):
         self.sales_obj.with_user(self.ceo).action_done()
         self.assertEqual(self.sales_obj.state, 'done')
         self.assertEqual(self.sales_obj.final_score, 0.8)
-        reward = self.Transaction.search([('transaction_type', '=', 'objective_achieved')])
+        reward = self.Transaction.search([('transaction_type', '=', 'objective_achieved'),
+                                          ('res_model', '=', self.sales_obj._name), ('res_id', '=', self.sales_obj.id)])
         self.assertEqual(reward.user_id, self.sales_manager)
         self.assertEqual(reward.points, 100)
         self.sales_obj.with_user(self.ceo).action_draft()
         self.sales_obj.write({'state': 'running'})
         self.sales_obj.with_user(self.ceo).action_done()
-        self.assertEqual(self.Transaction.search_count([('transaction_type', '=', 'objective_achieved')]), 1)
+        self.assertEqual(self.Transaction.search_count([('transaction_type', '=', 'objective_achieved'), ('res_model', '=', self.sales_obj._name), ('res_id', '=', self.sales_obj.id)]), 1)
         # A low score is no success
         self.kr_revenue.current_value = 1
         self.company_obj.action_done()
@@ -261,6 +270,7 @@ class TestOkrReward(OkrCommon):
     # Dashboard
     # ------------------------------------------------------------------
     def test_dashboard_extra_data(self):
+        self._age_existing_data()
         self._kudos(self.seller, self.seller2, 20)
         self._kudos(self.tech, self.seller2 | self.seller, 10)
         data = self.env['okr.scale.dashboard'].with_user(self.seller).get_dashboard_data(self.cycle.id)
@@ -295,6 +305,7 @@ class TestOkrReward(OkrCommon):
         self.assertIn('okr_scale_reward.okr_redemption_action_my', html)
 
     def test_rankings_and_workspace(self):
+        self._age_existing_data()
         self._kudos(self.seller, self.seller2, 20)
         self._kudos(self.tech, self.seller2 | self.seller, 10)
         Dashboard = self.env['okr.scale.dashboard'].with_user(self.tech)

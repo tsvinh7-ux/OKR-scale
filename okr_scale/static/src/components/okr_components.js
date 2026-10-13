@@ -1,6 +1,7 @@
 /** @odoo-module **/
 
 import { Component } from "@odoo/owl";
+import { localization } from "@web/core/l10n/localization";
 
 export const STATUS_COLORS = {
     achieved: "var(--okr-navy)",
@@ -60,4 +61,15 @@ export class OkrAvatar extends Component {
 export class OkrStatusChip extends Component {
     static template = "okr_scale.StatusChip";
     static props = { status: { type: [String, Boolean], optional: true }, label: { type: String, optional: true } };
+}
+
+/** Number with the user's decimal and thousands separators, at most 2 decimals. */
+export function okrFormatNumber(value) {
+    if (value === undefined || value === null || value === false) {
+        return "";
+    }
+    const rounded = Math.round(Number(value) * 100) / 100;
+    const [int, dec] = Math.abs(rounded).toString().split(".");
+    const grouped = int.replace(/\B(?=(\d{3})+(?!\d))/g, localization.thousandsSep || ",");
+    return (rounded < 0 ? "-" : "") + grouped + (dec ? (localization.decimalPoint || ".") + dec : "");
 }

@@ -77,7 +77,13 @@ class OkrWeekly(models.Model):
         weekly = self.search([('user_id', '=', user.id), ('week_start', '=', week)], limit=1)
         krs = self.env['okr.scale.key.result'].search(
             [('owner_id', '=', user.id), ('objective_state', '=', 'running')], order='objective_id, sequence')
+        # Weekly cadence, or a longer cadence whose check-in is due now
+        krs = krs.filtered(lambda kr: kr.cycle_id.checkin_frequency == 'weekly' or kr.checkin_due)
         done = {c.key_result_id.id: c for c in weekly.checkin_ids}
+        week_end = week + timedelta(days=6)
+        for kr in krs:
+            if kr.last_checkin_date and week <= kr.last_checkin_date <= week_end:
+                done.setdefault(kr.id, True)
         cycle = krs[:1].cycle_id or self.env['okr.scale.cycle'].get_current_cycle()
         status_labels = dict(self.env['okr.scale.key.result']._fields['status']._description_selection(self.env))
         weekday_labels = dict(self.env['okr.scale.cycle']._fields['checkin_weekday']._description_selection(self.env))
