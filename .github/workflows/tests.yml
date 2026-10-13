@@ -1,0 +1,58 @@
+name: OKR tests (Odoo 17 docker image)
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    container:
+      image: odoo:17.0
+      options: --user root
+    services:
+      db:
+        image: postgres:15
+        env:
+          POSTGRES_DB: postgres
+          POSTGRES_USER: odoo
+          POSTGRES_PASSWORD: odoo
+        options: >-
+          --health-cmd "pg_isready -U odoo" --health-interval 5s --health-timeout 5s --health-retries 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Odoo configuration
+        run: |
+          cat > /tmp/odoo.conf <<CONF
+          [options]
+          addons_path = ${GITHUB_WORKSPACE},/usr/lib/python3/dist-packages/odoo/addons
+          data_dir = /tmp/odoo-data
+          db_host = db
+          db_port = 5432
+          db_user = odoo
+          db_password = odoo
+          CONF
+      - name: Run the test suite of every OKR module
+        env:
+          OKR_CONF: /tmp/odoo.conf
+        run: bash deploy/run_tests.sh
+      - name: Install with the DMAG demo data (what docker compose up does)
+        env:
+          PGHOST: db
+          PGUSER: odoo
+          PGPASSWORD: odoo
+        run: |
+          odoo -c /tmp/odoo.conf -d dmag_okr -i okr_scale_demo --load-language=vi_VN --without-demo=all \
+               --stop-after-init --http-port 8071 2>&1 | tee /tmp/demo.log
+          if grep -E " (ERROR|CRITICAL) " /tmp/demo.log; then exit 1; fi
+          psql -d dmag_okr -tAc "select count(*) from okr_scale_objective" | tee /tmp/count
+          test "$(cat /tmp/count)" -gt 20
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: odoo-logs
+          path: /tmp/*.log

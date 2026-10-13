@@ -28,22 +28,39 @@ Community, dựng mới từ đầu, tách module để cài đặt và nâng c�
 
 ## Chạy thử trên máy (localhost) bằng Docker
 
-Cần cài [Docker Desktop](https://www.docker.com/products/docker-desktop/) (Windows / macOS) hoặc Docker Engine (Linux).
+Cần cài [Docker Desktop](https://www.docker.com/products/docker-desktop/) (Windows / macOS) hoặc Docker Engine (Linux), và bật Docker lên.
 
 ```bash
 git clone -b claude/blissful-euler-lc78sp https://github.com/tsvinh7-ux/OKR-scale.git
 cd OKR-scale
-docker compose up -d db
-# Tạo database "dmag_okr" với toàn bộ module và dữ liệu demo DMAG (2-4 phút)
-docker compose run --rm odoo odoo -d dmag_okr -i okr_scale_demo --load-language=vi_VN --without-demo=all --stop-after-init
 docker compose up -d
 ```
 
-Mở <http://localhost:8069> và đăng nhập `admin` / `admin` (quản trị OKR). Các tài khoản demo khác
-(trưởng phòng, nhân viên, khách hàng portal) xem trong `okr_scale_demo/README.rst`.
+- **Lần đầu** mất khoảng 2–4 phút: hệ thống tự tạo database `dmag_okr`, cài toàn bộ module và dữ liệu demo DMAG.
+  Theo dõi bằng `docker compose logs -f odoo`, khi thấy dòng `Odoo is starting on http://localhost:8069` là xong.
+- Mở <http://localhost:8069>, đăng nhập `admin` / `admin`.
+- Windows: có thể bấm đúp `start.bat`. macOS / Linux: `make start`.
 
-Cập nhật code mới: `git pull` rồi
-`docker compose run --rm odoo odoo -d dmag_okr -u all --stop-after-init && docker compose restart odoo`.
+| Tài khoản | Mật khẩu | Vai trò |
+|---|---|---|
+| `admin` | `admin` | Phó TGĐ, quản trị OKR |
+| `ceo@dmag.vn` | `dmag2026` | Tổng giám đốc |
+| `kinhdoanh@dmag.vn` | `dmag2026` | Trưởng phòng Kinh doanh (xem bảng check-in của đội) |
+| `nv.kinhdoanh1@dmag.vn` | `dmag2026` | Nhân viên Kinh doanh |
+| `anhduong.giamdoc@demo.vn` | `dmag2026` | Khách hàng portal, quyền cập nhật (mở <http://localhost:8069/my/okrs>) |
+| `anhduong.ketoan@demo.vn` | `dmag2026` | Khách hàng portal, chỉ xem |
+
+Các lệnh khác:
+
+| Việc | Lệnh | Windows / make |
+|---|---|---|
+| Chạy toàn bộ kiểm thử tự động (database tạm, tự xoá) | `docker compose run --rm tests` | `run-tests.bat` / `make test` |
+| Cập nhật sau khi `git pull` | `OKR_UPDATE=1 docker compose up -d --force-recreate odoo` | `make update` |
+| Dừng | `docker compose down` | `make stop` |
+| Xoá sạch và làm lại từ đầu | `docker compose down -v` rồi `docker compose up -d` | `make reset` |
+
+Kiểm thử tự động cũng chạy trên GitHub Actions (`.github/workflows/tests.yml`) trong đúng image `odoo:17.0`
+sau mỗi lần push: cài toàn bộ module, chạy kiểm thử và cài thử dữ liệu demo.
 
 ## Cài đặt
 
