@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-10 17:10+0000\n"
-"PO-Revision-Date: 2026-10-10 17:10+0000\n"
+"POT-Creation-Date: 2026-10-13 10:28+0000\n"
+"PO-Revision-Date: 2026-10-13 10:28+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -72,9 +72,69 @@ msgid "<span>Templates</span>"
 msgstr ""
 
 #. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_mkt_brand
+msgid ""
+"A friendly, trustworthy brand built on oral health education content and "
+"real patient stories."
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_hr_engagement
+msgid ""
+"A happy team creates a great patient experience. Reducing turnover and "
+"investing in training are top priorities."
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_ops_supply
+msgid ""
+"A well-controlled supply stock lets dentists treat with peace of mind and "
+"lowers clinic costs."
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_care_complaint
+msgid ""
+"A well-handled complaint can turn an unhappy patient into a loyal advocate."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__owner_id
+msgid "Accountable"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_clinical_doctor_kr1
+msgid "Accumulate continuing medical education (CME) hours"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_hr_onboarding_kr4
+msgid "Achieved when the SOP set is approved and rolled out to all clinics."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_clinical_doctor_kr4
+msgid "Achieved when the certificate is issued during the quarter."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_tech_data_kr1
+msgid ""
+"Achieved when the dashboard is signed off and every clinic manager has "
+"access."
+msgstr ""
+
+#. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__active
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_category__active
 msgid "Active"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_tech_digital_kr3
+msgid ""
+"Active patients connected to Zalo OA / the app / total active patients."
 msgstr ""
 
 #. module: okr_scale_template
@@ -99,6 +159,58 @@ msgid "Amount"
 msgstr ""
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_fin_cash_kr3
+msgid ""
+"Amount collected by bank transfer, card or e-wallet / total amount collected"
+" during the month."
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_care_nps
+msgid ""
+"An experience beyond expectations is the cheapest and most durable growth "
+"engine: satisfied patients come back and refer new ones."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_agent_kr3
+msgid "Appointments booked from care calls / connected care calls."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_tech_digital_kr2
+msgid ""
+"Appointments booked through the website, Zalo OA or the app / total "
+"appointments."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_mkt_roi_kr3
+msgid ""
+"Appointments from leads where the patient showed up / total appointments "
+"from leads."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_recall_kr2
+msgid ""
+"Appointments missed without prior notice / total appointments during the "
+"month."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_ops_flow_kr3
+msgid ""
+"Appointments starting within 10 minutes of the scheduled time / total "
+"appointments."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,description:okr_scale_template.okr_tpl_cat_operations
+msgid "Appointments, chair utilization, supplies, network expansion"
+msgstr ""
+
+#. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_category_view_form
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_category_view_search
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_form
@@ -119,13 +231,121 @@ msgid "Aspirational: a score around 0.7 is a success"
 msgstr ""
 
 #. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_mkt_leads
+msgid "Attract a steady flow of new patients at an optimal cost"
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_hr_talent
+msgid ""
+"Attract great dentists through a strong employer brand, a clear career path "
+"and a professional hiring process."
+msgstr ""
+
+#. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
 msgid "Automatic"
 msgstr ""
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_agent_kr2
+msgid "Automatic post-call survey score, monthly average."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_fin_health_kr3
+msgid ""
+"Average accounts receivable / average daily revenue (including installments "
+"and insurance)."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_nps_kr2
+msgid ""
+"Average rating on the Google Business Profile of all clinics at the end of "
+"the quarter."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_hr_onboarding_kr2
+msgid ""
+"Average score of the skills assessment at the end of the probation period."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_hr_talent
+msgid "Become the dream workplace for young dentists"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_sales_ortho
+msgid "Become the most trusted orthodontic clinic in the area"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_sales_consultant
+msgid "Become the treatment consultant patients trust most in the clinic"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_ops_expansion_kr3
+msgid "Break-even forecast from the financial plan, updated every quarter."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_tech_security_kr2
+msgid "Bring data security incidents down to zero"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_clinical_safety_kr2
+msgid "Bring serious clinical incidents down to zero"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_hr_engagement
+msgid "Build an engaged, proud and ever-growing team"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_mkt_brand
+msgid "Build the most loved dental brand on social media"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_mkt_roi
+msgid "CAC, ROAS, budget, efficiency, show-up"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_recall_kr3
+msgid "Call patients within 48 hours after treatment"
+msgstr ""
+
+#. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
 msgid "Cancel"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_hr_talent_kr3
+msgid ""
+"Candidates who passed the clinical screening round and are in the pipeline "
+"at month end."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_clinical_implant_kr3
+msgid ""
+"Cases requiring re-intervention (removal, fixture replacement, additional "
+"grafting) within 12 months / total cases."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_clinical_implant_kr2
+msgid ""
+"Cases with a digital plan saved in the record / total implant cases during "
+"the month."
 msgstr ""
 
 #. module: okr_scale_template
@@ -143,6 +363,11 @@ msgid "Category"
 msgstr ""
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_ops_flow_kr2
+msgid "Chair hours with treatment / total open chair hours during the month."
+msgstr ""
+
+#. module: okr_scale_template
 #. odoo-python
 #: code:addons/okr_scale_template/models/okr_objective.py:0
 #, python-format
@@ -154,6 +379,31 @@ msgstr ""
 #: code:addons/okr_scale_template/wizard/okr_template_apply.py:0
 #, python-format
 msgid "Choose the cycle of the objective."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,name:okr_scale_template.okr_tpl_cat_operations
+msgid "Clinic Operations"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_tech_data_kr2
+msgid "Clinic managers use the KPI report every week"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,name:okr_scale_template.okr_tpl_cat_clinical
+msgid "Clinical Excellence"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_ops_expansion_kr1
+msgid "Clinics opening on the approved opening date."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_ops_expansion_kr2
+msgid "Clinics scoring ≥ 85 on the operations audit / total clinics."
 msgstr ""
 
 #. module: okr_scale_template
@@ -180,6 +430,31 @@ msgstr ""
 #: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template_apply__level__company
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_search
 msgid "Company"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_complaint_kr2
+msgid ""
+"Complaints with a first response ≤ 2 hours / total complaints received."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_clinical_doctor_kr4
+msgid ""
+"Complete an advanced certification (implant, orthodontics or cosmetic "
+"dentistry)"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_ortho_kr2
+msgid ""
+"Contracts signed / patients who received an in-person orthodontic "
+"consultation during the month."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_tech_digital_kr1
+msgid "Cover every visit with an electronic medical record (EMR)"
 msgstr ""
 
 #. module: okr_scale_template
@@ -228,6 +503,11 @@ msgid "Created on"
 msgstr ""
 
 #. module: okr_scale_template
+#: model:okr.scale.template.category,name:okr_scale_template.okr_tpl_cat_care
+msgid "Customer Care"
+msgstr ""
+
+#. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__cycle_id
 msgid "Cycle"
 msgstr ""
@@ -249,6 +529,12 @@ msgid ""
 msgstr ""
 
 #. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_care_nps
+msgid ""
+"Deliver a dental experience patients want to recommend to their loved ones"
+msgstr ""
+
+#. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__department_id
 #: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template__level__department
 #: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template_apply__level__department
@@ -257,11 +543,26 @@ msgid "Department"
 msgstr ""
 
 #. module: okr_scale_template
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_apply__contributor_department_ids
+msgid "Departments helping to reach the objective."
+msgstr ""
+
+#. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__description
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__template_description
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_category__description
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_form
 msgid "Description"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_clinical_doctor
+msgid "Develop outstanding clinical expertise and earn patients' affection"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,description:okr_scale_template.okr_tpl_cat_tech
+msgid "Digital records, online booking, data, security"
 msgstr ""
 
 #. module: okr_scale_template
@@ -280,8 +581,66 @@ msgid "Done / Not done"
 msgstr ""
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_fin_health_kr1
+msgid "EBITDA / net revenue according to the quarterly management report."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_fin_health
+msgid "EBITDA, profit, costs, receivables, AR days"
+msgstr ""
+
+#. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__employee_id
 msgid "Employee"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_tech_security_kr3
+msgid "Employees complete the information security training"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_hr_onboarding_kr3
+msgid ""
+"Employees leaving within their first 90 days / new hires during the period."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_hr_engagement_kr1
+msgid "Employees who left over the last 12 months / average headcount."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_tech_security_kr3
+msgid "Employees who passed the final course test / total employees."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_care_agent
+msgid "Every care call is a warm and helpful experience"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_care_complaint
+msgid "Every complaint is heard and resolved quickly and with care"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_mkt_roi
+msgid "Every marketing dollar brings in real patients"
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_ops_expansion
+msgid ""
+"Every new clinic meets the same quality standard and breaks even quickly "
+"thanks to a standardized operating model."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_sales_value
+msgid "Every patient receives the most comprehensive and suitable treatment"
 msgstr ""
 
 #. module: okr_scale_template
@@ -291,8 +650,23 @@ msgid ""
 msgstr ""
 
 #. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_ops_expansion
+msgid "Expand the clinic network with a standardized, replicable model"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,description:okr_scale_template.okr_tpl_cat_care
+msgid "Experience, satisfaction, patient retention"
+msgstr ""
+
+#. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__objective_id
 msgid "Fill Objective"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,name:okr_scale_template.okr_tpl_cat_finance
+msgid "Finance"
 msgstr ""
 
 #. module: okr_scale_template
@@ -302,13 +676,88 @@ msgid "Font Awesome class, e.g. fa-heart."
 msgstr ""
 
 #. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_sales_ortho
+msgid ""
+"For clinics or orthodontic teams that want a breakthrough in new orthodontic"
+" cases through a professional consultation experience and transparent "
+"before/after results."
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_clinical_implant
+msgid ""
+"For implant centers: consistent clinical outcomes, digital treatment "
+"planning and fewer re-interventions."
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_fin_cash
+msgid ""
+"For the Accounting &amp; Finance team: collect receivables on time, close "
+"the books quickly and digitize payments."
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_tech_digital
+msgid ""
+"From booking, examination and treatment to aftercare, everything runs on a "
+"digital platform: more convenient for patients and more efficient for the "
+"team."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_ops_flow_kr1
+msgid ""
+"From check-in at reception until the patient is seated in the chair, monthly"
+" average from the software."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_complaint_kr1
+msgid ""
+"From receipt until the complaint ticket is closed (confirmed by the "
+"patient), monthly average."
+msgstr ""
+
+#. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_objective_view_tree_template
 msgid "From template"
 msgstr ""
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_hr_talent_kr1
+msgid ""
+"From the day the position opens until the candidate accepts, averaged over "
+"positions filled during the quarter."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_tech_digital
+msgid "Fully digitize the patient journey"
+msgstr ""
+
+#. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_search
 msgid "Group By"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_sales_growth
+msgid "Grow revenue sustainably across the whole clinic network"
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_fin_health
+msgid ""
+"Growth must come with healthy profits and cash flow so the network can "
+"invest in expansion with confidence."
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_tech_security
+msgid ""
+"Health data is a sensitive asset: a stable infrastructure and a security "
+"culture are everyone's responsibility."
 msgstr ""
 
 #. module: okr_scale_template
@@ -333,10 +782,182 @@ msgid "Icon"
 msgstr ""
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_clinical_implant_kr1
+msgid ""
+"Implants well integrated at the 6-month check-up / total implants due for "
+"assessment."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_mkt_roi_kr2
+msgid "Improve return on ad spend (ROAS)"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_ops_flow_kr3
+msgid "Increase appointments starting on time (±10 minutes)"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_mkt_brand_kr1
+msgid "Increase average interactions per post"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_growth_kr2
+msgid "Increase average monthly revenue per dental chair"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_hr_engagement_kr3
+msgid "Increase average training hours per employee during the quarter"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_agent_kr1
+msgid "Increase completed care calls per week"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_consultant_kr2
+msgid "Increase completed consultations per month"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_value_kr3
+msgid "Increase comprehensive treatment plans presented per month"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_consultant_kr3
+msgid "Increase monthly treatment sales from successful consultations"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_growth_kr1
+msgid "Increase network-wide net revenue per quarter"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_nps_kr3
+msgid "Increase new Google reviews per month"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_mkt_brand_kr2
+msgid "Increase new followers during the quarter"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_ortho_kr1
+msgid "Increase new orthodontic cases per month"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_mkt_leads_kr4
+msgid "Increase new patients per month"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_mkt_leads_kr1
+msgid "Increase qualified leads per month"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_recall_kr1
+msgid "Increase the 6-month recall return rate"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_value_kr1
+msgid "Increase the average treatment value per patient"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_ortho_kr3
+msgid "Increase the average value of an orthodontic contract"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_growth_kr4
+msgid "Increase the number of implant cases per month"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_tech_digital_kr2
+msgid "Increase the share of appointments booked online"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_agent_kr3
+msgid "Increase the share of calls that result in a recall appointment"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_fin_cash_kr3
+msgid "Increase the share of cashless payments"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_ops_expansion_kr2
+msgid "Increase the share of clinics passing the internal operations audit"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_complaint_kr2
+msgid "Increase the share of complaints answered within 2 hours"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_clinical_implant_kr2
+msgid ""
+"Increase the share of implant cases planned digitally (CBCT + surgical "
+"guide)"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_nps_kr4
+msgid "Increase the share of new patients coming from referrals"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_tech_digital_kr3
+msgid ""
+"Increase the share of patients receiving reminders via Zalo OA or the app"
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_sales_value
+msgid ""
+"Increase the treatment value per patient through thorough examinations, "
+"comprehensive treatment plans and follow-through until completion, instead "
+"of only fixing the immediate problem."
+msgstr ""
+
+#. module: okr_scale_template
 #: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template__level__individual
 #: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template_apply__level__individual
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_search
 msgid "Individual"
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_care_agent
+msgid "Individual OKR for customer care / call center staff."
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_clinical_doctor
+msgid ""
+"Individual OKR for dentists: continuous learning, sharing clinical cases and"
+" raising patient satisfaction."
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_sales_consultant
+msgid ""
+"Individual OKR for treatment consultants / treatment coordinators: caring "
+"advice, transparent costs and close follow-up until the patient decides."
 msgstr ""
 
 #. module: okr_scale_template
@@ -347,6 +968,13 @@ msgstr ""
 #. module: okr_scale_template
 #: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template__name
 msgid "Inspiring, qualitative objective proposed by this template."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_fin_cash_kr1
+msgid ""
+"Installment receivables overdue by more than 30 days / total installment "
+"receivables."
 msgstr ""
 
 #. module: okr_scale_template
@@ -424,9 +1052,21 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: okr_scale_template
-#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_apply__owner_id
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_tech_data_kr1
+msgid "Launch a real-time KPI dashboard for the whole network"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_mkt_leads_kr3
 msgid ""
-"Leave empty to let OKR choose: the employee, the department manager or you."
+"Leads who booked an appointment / total qualified leads during the month."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_mkt_leads_kr1
+msgid ""
+"Leads with a valid phone number and a clear dental need, recorded in the "
+"CRM."
 msgstr ""
 
 #. module: okr_scale_template
@@ -440,9 +1080,61 @@ msgid "Line Preview"
 msgstr ""
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_hr_talent_kr3
+msgid "Maintain a pipeline of qualified dentist candidates"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_tech_data
+msgid "Make faster decisions with real-time data"
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_tech_data
+msgid ""
+"Management and clinic managers look at the same up-to-date figures, with no "
+"more waiting for manual reports."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_tech_data_kr2
+msgid "Managers who open the dashboard each week / total clinic managers."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,name:okr_scale_template.okr_tpl_cat_marketing
+msgid "Marketing"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_clinical_safety_kr3
+msgid ""
+"Medical records complete with diagnosis, signatures and treatment consent"
+msgstr ""
+
+#. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__metric_type
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__metric_type
 msgid "Metric Type"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_growth_kr2
+msgid ""
+"Monthly clinic revenue divided by the number of active dental chairs; "
+"averaged across the network."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_clinical_safety_kr1
+msgid ""
+"Monthly infection control and sterilization audit score based on the "
+"internal checklist, averaged across clinics."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_care_nps
+msgid "NPS, experience, Google, rating, referral, review"
 msgstr ""
 
 #. module: okr_scale_template
@@ -453,6 +1145,46 @@ msgstr ""
 #. module: okr_scale_template
 #: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template__line_preview
 msgid "Names of the first key results, one per line (gallery cards)."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_mkt_brand_kr2
+msgid "New followers on the official channels (Facebook, TikTok, Zalo OA)."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_hr_onboarding_kr1
+msgid "New hires complete the onboarding program within 30 days"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_hr_onboarding
+msgid ""
+"New hires integrate quickly and work confidently from their first month"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_hr_onboarding_kr1
+msgid ""
+"New hires who completed all onboarding modules within 30 days / total new "
+"hires."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,description:okr_scale_template.okr_tpl_cat_marketing
+msgid "New patient acquisition, brand, advertising efficiency"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_nps_kr4
+msgid ""
+"New patients with the source \"Referred by an acquaintance\" / total new "
+"patients during the month."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_ops_supply_kr1
+msgid "No more treatments postponed for lack of essential supplies"
 msgstr ""
 
 #. module: okr_scale_template
@@ -467,8 +1199,73 @@ msgid "Number"
 msgstr ""
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_clinical_doctor_kr2
+msgid "Number of cases presented with case review minutes on file."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_value_kr3
+msgid ""
+"Number of comprehensive treatment plans (with images, costs and timeline) "
+"presented by dentists and saved in the software."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_consultant_kr2
+msgid "Number of consultations with complete notes in the CRM."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_tech_security_kr2
+msgid ""
+"Number of data leaks or unauthorized access incidents recorded during the "
+"quarter."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_growth_kr4
+msgid ""
+"Number of implant placements performed (counted per fixture), as recorded in"
+" the clinic management software."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_ortho_kr1
+msgid ""
+"Number of new orthodontic contracts signed (deposit paid) during the month."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_nps_kr3
+msgid ""
+"Number of new reviews on the Google Business Profiles of the whole network "
+"during the month."
+msgstr ""
+
+#. module: okr_scale_template
 #: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template__usage_count
 msgid "Number of objectives created from this template."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_clinical_safety_kr2
+msgid ""
+"Number of severe incidents reported during the quarter (according to the "
+"incident reporting procedure)."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_agent_kr1
+msgid ""
+"Number of successfully connected calls with notes in the call center system "
+"/ CRM."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_ops_supply_kr1
+msgid ""
+"Number of treatment appointments rescheduled due to missing supplies, "
+"recorded in the monthly operations report."
 msgstr ""
 
 #. module: okr_scale_template
@@ -514,6 +1311,11 @@ msgid "Objectives created from this template"
 msgstr ""
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_hr_talent_kr2
+msgid "Offers accepted / offers sent."
+msgstr ""
+
+#. module: okr_scale_template
 #. odoo-python
 #: code:addons/okr_scale_template/models/okr_objective.py:0
 #, python-format
@@ -528,13 +1330,101 @@ msgid "Only draft objectives can be filled from a template."
 msgstr ""
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_ops_expansion_kr1
+msgid "Open new clinics on schedule"
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_mkt_roi
+msgid ""
+"Optimize the budget: measure everything from ads to revenue, cut "
+"underperforming channels and focus on the channels that bring patients."
+msgstr ""
+
+#. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
 msgid "Optional: contribute to an upper key result"
 msgstr ""
 
 #. module: okr_scale_template
-#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__owner_id
-msgid "Owner"
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
+msgid "Optional: departments helping"
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
+msgid "Optional: people helping"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_apply__owner_id
+msgid ""
+"Owner of the objective and of its key results. Leave empty to let OKR "
+"choose: the employee, the department manager or you."
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_clinical_safety
+msgid ""
+"Patient safety is a non-negotiable commitment: infection control, complete "
+"records and zero serious incidents."
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_ops_flow
+msgid ""
+"Patients judge the clinic from the moment they walk in: punctuality and "
+"short waits are the minimum expected experience."
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_care_recall
+msgid ""
+"Patients returning for regular check-ups are the foundation of long-term "
+"oral health and steady clinic revenue."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_mkt_leads_kr4
+msgid ""
+"Patients visiting for the first time (new record created) across the "
+"network."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_consultant_kr1
+msgid ""
+"Patients who accept treatment / patients you consulted during the month "
+"(from the CRM)."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_recall_kr1
+msgid ""
+"Patients who came for their check-up during the period / patients due for "
+"their 6-month check-up during the period."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_recall_kr3
+msgid ""
+"Patients with a post-treatment call ≤ 48 hours (logged in the CRM) / "
+"patients who had invasive treatment."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,name:okr_scale_template.okr_tpl_cat_hr
+msgid "People & Training"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_apply__contributor_user_ids
+msgid "People helping the accountable person. They follow the objective."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_apply_line__contributor_ids
+msgid "People helping the owner on this key result."
 msgstr ""
 
 #. module: okr_scale_template
@@ -544,8 +1434,266 @@ msgid "Percentage"
 msgstr ""
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_nps_kr1
+msgid ""
+"Post-treatment survey (Zalo/SMS): % of patients scoring 9–10 minus % scoring"
+" 0–6. At least 200 responses per month."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_clinical_doctor_kr3
+msgid ""
+"Post-treatment survey: satisfied responses / total responses about the "
+"dentist."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_clinical_doctor_kr2
+msgid "Present clinical cases at internal case reviews"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,description:okr_scale_template.okr_tpl_cat_finance
+msgid "Profitability, costs, cash flow, receivables"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_mkt_brand_kr3
+msgid "Publish real patient story videos"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_hr_onboarding_kr4
+msgid "Publish the dental assistant training SOP set"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_hr_engagement_kr2
+msgid ""
+"Quarterly anonymous survey: % of employees scoring 9–10 minus % scoring 0–6."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_agent_kr2
+msgid "Raise call satisfaction (CSAT, 5-point scale)"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_ops_flow_kr2
+msgid "Raise dental chair utilization"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_clinical_implant
+msgid "Raise implant treatment quality to international standards"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_consultant_kr1
+msgid "Raise my personal treatment plan closing rate"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_complaint_kr3
+msgid "Raise patient satisfaction after complaint handling"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_clinical_doctor_kr3
+msgid "Raise patient satisfaction with the dentist"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_tech_security_kr1
+msgid "Raise system uptime"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_fin_health_kr1
+msgid "Raise the EBITDA margin"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_mkt_roi_kr3
+msgid "Raise the appointment show-up rate"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_nps_kr2
+msgid "Raise the average Google rating"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_hr_engagement_kr2
+msgid "Raise the employee engagement score (eNPS)"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_hr_onboarding_kr2
+msgid "Raise the end-of-probation skills assessment score (out of 100)"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_clinical_safety_kr1
+msgid "Raise the infection control and sterilization compliance audit score"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_hr_talent_kr2
+msgid "Raise the job offer acceptance rate"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_mkt_leads_kr3
+msgid "Raise the lead → appointment conversion rate"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_nps_kr1
+msgid "Raise the network-wide NPS"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_ortho_kr2
+msgid "Raise the orthodontic consultation → signed contract conversion rate"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_value_kr2
+msgid "Raise the share of patients who complete their full treatment plan"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_clinical_implant_kr1
+msgid "Raise the successful osseointegration rate at 6 months"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_growth_kr3
+msgid "Raise the treatment plan acceptance rate"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_clinical_safety_kr3
+msgid ""
+"Random check of 30 records per clinic per month: compliant records / records"
+" checked."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,description:okr_scale_template.okr_tpl_cat_hr
+msgid "Recruitment, training, team engagement"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_hr_engagement_kr1
+msgid "Reduce annual staff turnover"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_fin_health_kr3
+msgid "Reduce average accounts receivable days (AR days)"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_clinical_implant_kr3
+msgid "Reduce the 12-month re-intervention rate"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_recall_kr2
+msgid "Reduce the appointment no-show rate"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_complaint_kr1
+msgid "Reduce the average complaint resolution time"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_ops_flow_kr1
+msgid "Reduce the average patient waiting time"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_mkt_roi_kr1
+msgid "Reduce the cost of acquiring a new patient (CAC)"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_mkt_leads_kr2
+msgid "Reduce the cost per lead (CPL)"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_fin_health_kr2
+msgid "Reduce the operating expense to revenue ratio"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_fin_cash_kr1
+msgid "Reduce the overdue installment receivables rate"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_hr_onboarding_kr3
+msgid "Reduce the share of new hires leaving within their first 90 days"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_ops_supply_kr3
+msgid "Reduce the supply cost to revenue ratio"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_hr_talent_kr1
+msgid "Reduce the time to hire a dentist"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_ops_supply_kr2
+msgid "Reduce the value of expired or damaged supplies per quarter"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_tech_security
+msgid "Reliable systems and patient data that is always fully protected"
+msgstr ""
+
+#. module: okr_scale_template
 #: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_apply__replace_title
 msgid "Replace the title of the objective by the one below."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_care_recall
+msgid "Retain patients with a thoughtful periodic care program"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_mkt_roi_kr2
+msgid ""
+"Revenue from patients sourced from ads / corresponding advertising spend."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,description:okr_scale_template.okr_tpl_cat_sales
+msgid "Revenue, treatment consultation, high-value services"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_ops_flow
+msgid "Run the clinic smoothly and on time, without keeping patients waiting"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,description:okr_scale_template.okr_tpl_cat_clinical
+msgid "Safety, treatment quality, dentist expertise"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,name:okr_scale_template.okr_tpl_cat_sales
+msgid "Sales"
 msgstr ""
 
 #. module: okr_scale_template
@@ -559,6 +1707,35 @@ msgstr ""
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_category__sequence
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__sequence
 msgid "Sequence"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_complaint_kr3
+msgid ""
+"Short survey after the ticket is closed: satisfied patients / patients who "
+"responded."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_ops_expansion_kr3
+msgid "Shorten the break-even time of new clinics"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_fin_cash_kr2
+msgid "Shorten the monthly accounting close (working days)"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_tech_data_kr3
+msgid "Shorten the time to produce the monthly operations report"
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_hr_onboarding
+msgid ""
+"Standardize the onboarding program for new dental assistants, receptionists "
+"and dentists to retain top talent from day one."
 msgstr ""
 
 #. module: okr_scale_template
@@ -580,15 +1757,41 @@ msgid ""
 msgstr ""
 
 #. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_fin_health
+msgid "Strong financial health as a foundation for growth"
+msgstr ""
+
+#. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__level
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_search
 msgid "Suggested Level"
 msgstr ""
 
 #. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_ops_supply
+msgid "Supplies always ready for treatment, with no waste"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__contributor_department_ids
+msgid "Supporting Departments"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__contributor_user_ids
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__contributor_ids
+msgid "Supporting People"
+msgstr ""
+
+#. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__target_value
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__target_value
 msgid "Target"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,name:okr_scale_template.okr_tpl_cat_tech
+msgid "Technology & Digital"
 msgstr ""
 
 #. module: okr_scale_template
@@ -626,6 +1829,21 @@ msgid "Templates"
 msgstr ""
 
 #. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_mkt_leads
+msgid ""
+"The core OKR of the Marketing team: more qualified leads, converted into "
+"actual appointments."
+msgstr ""
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_sales_growth
+msgid ""
+"The growth direction of the whole network for the quarter: increase revenue "
+"through better consultations and high-value services, not through discounts."
+" A good company-level OKR for every clinic to align with."
+msgstr ""
+
+#. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
 msgid "The key results below will be added to the draft objective"
 msgstr ""
@@ -651,9 +1869,117 @@ msgid "The weight of a key result cannot be negative."
 msgstr ""
 
 #. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_fin_cash
+msgid "Tight, transparent control of cash flow and receivables"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_tech_data_kr3
+msgid "Time from month end until the operations report is sent to management."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_mkt_leads_kr2
+msgid "Total advertising spend for the month / number of qualified leads."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_clinical_doctor_kr1
+msgid ""
+"Total certified hours from courses, conferences or internal training during "
+"the quarter."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_ops_supply_kr3
+msgid "Total consumable supply cost / treatment revenue for the month."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_mkt_brand_kr1
+msgid ""
+"Total likes, comments and shares / number of posts on Facebook and TikTok "
+"during the month."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_mkt_roi_kr1
+msgid ""
+"Total marketing spend for the month / number of new patients who visited."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_fin_health_kr2
+msgid "Total operating expenses (excluding depreciation) / net revenue."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_hr_engagement_kr3
+msgid "Total recorded training hours / average headcount for the quarter."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_growth_kr1
+msgid ""
+"Total revenue collected after discounts across all clinics, taken from the "
+"month-end financial report (quarter to date)."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_tech_security_kr1
+msgid ""
+"Total uptime of the clinic management software / total time in the month "
+"(from the monitoring tool)."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_consultant_kr3
+msgid "Total value of accepted treatment plans from your consultations."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_ortho_kr3
+msgid ""
+"Total value of new orthodontic contracts / number of new contracts during "
+"the month."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_ops_supply_kr2
+msgid ""
+"Total value of supplies written off according to the end-of-quarter stock "
+"count report."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_growth_kr3
+msgid ""
+"Treatment plans accepted by patients (deposit paid or treatment started) / "
+"total plans presented during the month."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_value_kr2
+msgid ""
+"Treatment plans completed / plans due for completion during the quarter."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_value_kr1
+msgid ""
+"Treatment revenue for the month / number of patients treated during the "
+"month."
+msgstr ""
+
+#. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__okr_type
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__okr_type
 msgid "Type"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_clinical_safety
+msgid "Uncompromising clinical safety standards in every clinic"
 msgstr ""
 
 #. module: okr_scale_template
@@ -706,6 +2032,19 @@ msgid "Used"
 msgstr ""
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_mkt_brand_kr3
+msgid ""
+"Videos made with the patient's consent and posted on the official channels "
+"during the quarter."
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_tech_digital_kr1
+msgid ""
+"Visits with a complete electronic record / total visits during the month."
+msgstr ""
+
+#. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__weight
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__weight
 msgid "Weight"
@@ -733,8 +2072,79 @@ msgid "Words used to find this template, comma separated."
 msgstr ""
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_fin_cash_kr2
+msgid "Working days from month end until the management report is issued."
+msgstr ""
+
+#. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
 msgid "Your objective"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_mkt_brand
+msgid "brand, fanpage, TikTok, content, social media, branding"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_care_agent
+msgid "call, CSAT, call center, patient care, individual"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_care_agent_kr1
+msgid "calls"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_hr_talent_kr3
+msgid "candidates"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_clinical_doctor_kr2
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_sales_growth_kr4
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_sales_ortho_kr1
+msgid "cases"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_fin_cash
+msgid "cash flow, receivables, installments, closing, payment"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_ops_expansion_kr1
+msgid "clinics"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_care_complaint
+msgid "complaint, feedback, customer service, hotline"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_tech_data
+msgid "data, dashboard, reporting, BI, KPI"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_fin_cash_kr2
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_fin_health_kr3
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_hr_talent_kr1
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_tech_data_kr3
+msgid "days"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_clinical_doctor
+msgid "dentist, CME, continuing education, case review, individual"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_tech_digital
+msgid ""
+"digital transformation, electronic records, EMR, online booking, Zalo OA"
 msgstr ""
 
 #. module: okr_scale_template
@@ -753,11 +2163,169 @@ msgid "e.g. NPS, reviews, referral"
 msgstr ""
 
 #. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_hr_engagement
+msgid "engagement, attrition, eNPS, training, turnover"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_ops_expansion
+msgid "expansion, new clinic, standardization, replication, opening"
+msgstr ""
+
+#. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_category_view_form
 msgid "fa-heart"
 msgstr ""
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_mkt_brand_kr2
+msgid "followers"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_care_complaint_kr1
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_clinical_doctor_kr1
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_hr_engagement_kr3
+msgid "hours"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_clinical_implant
+msgid "implant, implantology, CBCT, surgical guide, quality"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_clinical_safety_kr2
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_tech_security_kr2
+msgid "incidents"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_mkt_brand_kr1
+msgid "interactions"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_mkt_leads
+msgid "lead, CPL, conversion, new patients, advertising"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_mkt_leads_kr1
+msgid "leads"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_ops_flow_kr1
+msgid "minutes"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_ops_expansion_kr3
+msgid "months"
+msgstr ""
+
+#. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_kanban
 msgid "more key result(s)"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_hr_onboarding
+msgid "onboarding, integration, new hire, SOP, dental assistant"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_sales_ortho
+msgid "orthodontics, braces, clear aligners, invisalign, brackets"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_mkt_leads_kr4
+msgid "patients"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_sales_value_kr3
+msgid "plans"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_care_agent_kr2
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_care_nps_kr1
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_hr_engagement_kr2
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_hr_onboarding_kr2
+msgid "points"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_care_recall
+msgid "recall, check-up, no-show, return visit, appointment reminder"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_hr_talent
+msgid "recruitment, dentist, talent, employer branding"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_sales_growth
+msgid "revenue, growth, network, clinic chain, dental chair"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_care_nps_kr3
+msgid "reviews"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_tech_security
+msgid "security, uptime, information security, patient data"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_sales_consultant_kr2
+msgid "sessions"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_care_nps_kr2
+msgid "stars"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_clinical_safety
+msgid ""
+"sterilization, safety, infection control, disinfection, medical records"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_ops_supply
+msgid "supplies, warehouse, inventory, cost, procurement"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_mkt_roi_kr2
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_ops_supply_kr1
+msgid "times"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_sales_consultant
+msgid "treatment consultant, plan closing, individual, sales"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_sales_value
+msgid "treatment plan, patient value, upsell, comprehensive care"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_mkt_brand_kr3
+msgid "videos"
+msgstr ""
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_ops_flow
+msgid "waiting time, chair utilization, appointments, punctuality, operations"
 msgstr ""

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-10 17:10+0000\n"
-"PO-Revision-Date: 2026-10-10 17:10+0000\n"
+"POT-Creation-Date: 2026-10-13 10:28+0000\n"
+"PO-Revision-Date: 2026-10-13 10:28+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: vi_VN\n"
@@ -77,10 +77,82 @@ msgid "<span>Templates</span>"
 msgstr "<span>Mẫu OKR</span>"
 
 #. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_mkt_brand
+msgid ""
+"A friendly, trustworthy brand built on oral health education content and "
+"real patient stories."
+msgstr ""
+"Thương hiệu gần gũi, đáng tin nhờ nội dung giáo dục sức khỏe răng miệng và "
+"câu chuyện khách hàng thật."
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_hr_engagement
+msgid ""
+"A happy team creates a great patient experience. Reducing turnover and "
+"investing in training are top priorities."
+msgstr ""
+"Đội ngũ hạnh phúc tạo ra trải nghiệm bệnh nhân tốt. Giảm nghỉ việc và đầu tư"
+" vào đào tạo là ưu tiên hàng đầu."
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_ops_supply
+msgid ""
+"A well-controlled supply stock lets dentists treat with peace of mind and "
+"lowers clinic costs."
+msgstr ""
+"Kho vật tư được kiểm soát tốt giúp bác sĩ yên tâm điều trị và giảm chi phí "
+"cho phòng khám."
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_care_complaint
+msgid ""
+"A well-handled complaint can turn an unhappy patient into a loyal advocate."
+msgstr ""
+"Một khiếu nại được xử lý tốt có thể biến khách hàng không hài lòng thành "
+"người ủng hộ trung thành."
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__owner_id
+msgid "Accountable"
+msgstr "Người chịu trách nhiệm chính"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_clinical_doctor_kr1
+msgid "Accumulate continuing medical education (CME) hours"
+msgstr "Tích lũy giờ đào tạo chuyên môn liên tục (CME)"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_hr_onboarding_kr4
+msgid "Achieved when the SOP set is approved and rolled out to all clinics."
+msgstr "Đạt khi bộ SOP được duyệt và phổ biến cho tất cả chi nhánh."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_clinical_doctor_kr4
+msgid "Achieved when the certificate is issued during the quarter."
+msgstr "Đạt khi có chứng chỉ được cấp trong quý."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_tech_data_kr1
+msgid ""
+"Achieved when the dashboard is signed off and every clinic manager has "
+"access."
+msgstr ""
+"Đạt khi dashboard được nghiệm thu và mọi quản lý chi nhánh có quyền truy "
+"cập."
+
+#. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__active
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_category__active
 msgid "Active"
 msgstr "Đang hoạt động"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_tech_digital_kr3
+msgid ""
+"Active patients connected to Zalo OA / the app / total active patients."
+msgstr ""
+"Số bệnh nhân đang hoạt động đã kết nối Zalo OA/ứng dụng / tổng bệnh nhân "
+"đang hoạt động."
 
 #. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
@@ -104,6 +176,65 @@ msgid "Amount"
 msgstr "Số tiền"
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_fin_cash_kr3
+msgid ""
+"Amount collected by bank transfer, card or e-wallet / total amount collected"
+" during the month."
+msgstr ""
+"Giá trị thu qua chuyển khoản, thẻ, ví điện tử / tổng giá trị thu trong "
+"tháng."
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_care_nps
+msgid ""
+"An experience beyond expectations is the cheapest and most durable growth "
+"engine: satisfied patients come back and refer new ones."
+msgstr ""
+"Trải nghiệm vượt mong đợi là động cơ tăng trưởng rẻ và bền nhất: khách hài "
+"lòng quay lại và giới thiệu thêm khách mới."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_agent_kr3
+msgid "Appointments booked from care calls / connected care calls."
+msgstr "Số lịch hẹn tạo từ cuộc gọi chăm sóc / số cuộc gọi chăm sóc kết nối."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_tech_digital_kr2
+msgid ""
+"Appointments booked through the website, Zalo OA or the app / total "
+"appointments."
+msgstr "Lịch hẹn đặt qua website, Zalo OA, ứng dụng / tổng số lịch hẹn."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_mkt_roi_kr3
+msgid ""
+"Appointments from leads where the patient showed up / total appointments "
+"from leads."
+msgstr "Số lịch hẹn từ lead có khách đến / tổng lịch hẹn từ lead."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_recall_kr2
+msgid ""
+"Appointments missed without prior notice / total appointments during the "
+"month."
+msgstr ""
+"Số lịch hẹn khách không đến và không báo trước / tổng số lịch hẹn trong "
+"tháng."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_ops_flow_kr3
+msgid ""
+"Appointments starting within 10 minutes of the scheduled time / total "
+"appointments."
+msgstr ""
+"Số lịch hẹn bắt đầu trong vòng 10 phút so với giờ hẹn / tổng lịch hẹn."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,description:okr_scale_template.okr_tpl_cat_operations
+msgid "Appointments, chair utilization, supplies, network expansion"
+msgstr "Lịch hẹn, công suất ghế, vật tư, mở rộng chuỗi"
+
+#. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_category_view_form
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_category_view_search
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_form
@@ -124,14 +255,133 @@ msgid "Aspirational: a score around 0.7 is a success"
 msgstr "Thử thách: đạt khoảng 0,7 điểm đã là thành công"
 
 #. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_mkt_leads
+msgid "Attract a steady flow of new patients at an optimal cost"
+msgstr "Thu hút dòng bệnh nhân mới ổn định với chi phí tối ưu"
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_hr_talent
+msgid ""
+"Attract great dentists through a strong employer brand, a clear career path "
+"and a professional hiring process."
+msgstr ""
+"Thu hút bác sĩ giỏi nhờ thương hiệu tuyển dụng, lộ trình phát triển rõ ràng "
+"và quy trình tuyển dụng chuyên nghiệp."
+
+#. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
 msgid "Automatic"
 msgstr "Tự động"
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_agent_kr2
+msgid "Automatic post-call survey score, monthly average."
+msgstr "Điểm khảo sát tự động sau cuộc gọi, trung bình trong tháng."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_fin_health_kr3
+msgid ""
+"Average accounts receivable / average daily revenue (including installments "
+"and insurance)."
+msgstr ""
+"Công nợ phải thu bình quân / doanh thu bình quân ngày (bao gồm trả góp và "
+"bảo hiểm)."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_nps_kr2
+msgid ""
+"Average rating on the Google Business Profile of all clinics at the end of "
+"the quarter."
+msgstr ""
+"Điểm trung bình trên Google Business Profile của tất cả chi nhánh vào cuối "
+"quý."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_hr_onboarding_kr2
+msgid ""
+"Average score of the skills assessment at the end of the probation period."
+msgstr "Điểm trung bình bài đánh giá năng lực cuối kỳ thử việc."
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_hr_talent
+msgid "Become the dream workplace for young dentists"
+msgstr "Trở thành nơi làm việc mơ ước của bác sĩ nha khoa trẻ"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_sales_ortho
+msgid "Become the most trusted orthodontic clinic in the area"
+msgstr "Trở thành địa chỉ niềng răng được tin chọn hàng đầu khu vực"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_sales_consultant
+msgid "Become the treatment consultant patients trust most in the clinic"
+msgstr ""
+"Trở thành tư vấn viên điều trị được bệnh nhân tin tưởng nhất chi nhánh"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_ops_expansion_kr3
+msgid "Break-even forecast from the financial plan, updated every quarter."
+msgstr "Dự báo hòa vốn theo kế hoạch tài chính được cập nhật hàng quý."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_tech_security_kr2
+msgid "Bring data security incidents down to zero"
+msgstr "Đưa số sự cố bảo mật dữ liệu về 0"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_clinical_safety_kr2
+msgid "Bring serious clinical incidents down to zero"
+msgstr "Đưa số sự cố y khoa nghiêm trọng về 0"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_hr_engagement
+msgid "Build an engaged, proud and ever-growing team"
+msgstr "Xây dựng đội ngũ gắn kết, tự hào và phát triển không ngừng"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_mkt_brand
+msgid "Build the most loved dental brand on social media"
+msgstr "Xây dựng thương hiệu nha khoa được yêu thích nhất trên mạng xã hội"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_mkt_roi
+msgid "CAC, ROAS, budget, efficiency, show-up"
+msgstr "CAC, ROAS, ngân sách, hiệu quả, show-up"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_recall_kr3
+msgid "Call patients within 48 hours after treatment"
+msgstr "Gọi chăm sóc bệnh nhân trong 48 giờ sau điều trị"
+
+#. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
 msgid "Cancel"
 msgstr "Hủy"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_hr_talent_kr3
+msgid ""
+"Candidates who passed the clinical screening round and are in the pipeline "
+"at month end."
+msgstr ""
+"Số ứng viên đạt vòng sơ loại chuyên môn đang có trong pipeline cuối tháng."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_clinical_implant_kr3
+msgid ""
+"Cases requiring re-intervention (removal, fixture replacement, additional "
+"grafting) within 12 months / total cases."
+msgstr ""
+"Số ca phải can thiệp lại (tháo, thay trụ, ghép bổ sung) trong 12 tháng / "
+"tổng số ca."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_clinical_implant_kr2
+msgid ""
+"Cases with a digital plan saved in the record / total implant cases during "
+"the month."
+msgstr ""
+"Số ca có kế hoạch số hóa lưu trên hồ sơ / tổng số ca implant trong tháng."
 
 #. module: okr_scale_template
 #: model_terms:ir.actions.act_window,help:okr_scale_template.okr_template_category_action
@@ -150,6 +400,11 @@ msgid "Category"
 msgstr "Danh mục"
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_ops_flow_kr2
+msgid "Chair hours with treatment / total open chair hours during the month."
+msgstr "Số giờ ghế có điều trị / tổng số giờ ghế mở cửa trong tháng."
+
+#. module: okr_scale_template
 #. odoo-python
 #: code:addons/okr_scale_template/models/okr_objective.py:0
 #, python-format
@@ -162,6 +417,31 @@ msgstr "Chọn mẫu cho \"%s\""
 #, python-format
 msgid "Choose the cycle of the objective."
 msgstr "Hãy chọn chu kỳ cho mục tiêu."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,name:okr_scale_template.okr_tpl_cat_operations
+msgid "Clinic Operations"
+msgstr "Vận hành phòng khám"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_tech_data_kr2
+msgid "Clinic managers use the KPI report every week"
+msgstr "Quản lý chi nhánh sử dụng báo cáo KPI hằng tuần"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,name:okr_scale_template.okr_tpl_cat_clinical
+msgid "Clinical Excellence"
+msgstr "Lâm sàng / Chuyên môn"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_ops_expansion_kr1
+msgid "Clinics opening on the approved opening date."
+msgstr "Chi nhánh đi vào hoạt động đúng ngày khai trương đã duyệt."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_ops_expansion_kr2
+msgid "Clinics scoring ≥ 85 on the operations audit / total clinics."
+msgstr "Số chi nhánh đạt ≥ 85 điểm audit vận hành / tổng số chi nhánh."
 
 #. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__category_color
@@ -188,6 +468,32 @@ msgstr "Cam kết"
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_search
 msgid "Company"
 msgstr "Công ty"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_complaint_kr2
+msgid ""
+"Complaints with a first response ≤ 2 hours / total complaints received."
+msgstr "Số khiếu nại có phản hồi đầu tiên ≤ 2 giờ / tổng khiếu nại tiếp nhận."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_clinical_doctor_kr4
+msgid ""
+"Complete an advanced certification (implant, orthodontics or cosmetic "
+"dentistry)"
+msgstr "Hoàn thành một chứng chỉ chuyên sâu (implant, chỉnh nha hoặc thẩm mỹ)"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_ortho_kr2
+msgid ""
+"Contracts signed / patients who received an in-person orthodontic "
+"consultation during the month."
+msgstr ""
+"Số hợp đồng ký / số khách đã được tư vấn chỉnh nha trực tiếp trong tháng."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_tech_digital_kr1
+msgid "Cover every visit with an electronic medical record (EMR)"
+msgstr "Phủ hồ sơ bệnh án điện tử (EMR) trên mọi lượt khám"
 
 #. module: okr_scale_template
 #: model_terms:ir.actions.act_window,help:okr_scale_template.okr_template_category_action
@@ -235,6 +541,11 @@ msgid "Created on"
 msgstr "Được tạo vào"
 
 #. module: okr_scale_template
+#: model:okr.scale.template.category,name:okr_scale_template.okr_tpl_cat_care
+msgid "Customer Care"
+msgstr "Chăm sóc khách hàng"
+
+#. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__cycle_id
 msgid "Cycle"
 msgstr "Chu kỳ"
@@ -256,6 +567,14 @@ msgid ""
 msgstr "Nguồn dữ liệu và cách tính, để mọi người đo lường thống nhất."
 
 #. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_care_nps
+msgid ""
+"Deliver a dental experience patients want to recommend to their loved ones"
+msgstr ""
+"Mang lại trải nghiệm nha khoa khiến khách hàng muốn giới thiệu cho người "
+"thân"
+
+#. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__department_id
 #: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template__level__department
 #: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template_apply__level__department
@@ -264,12 +583,27 @@ msgid "Department"
 msgstr "Phòng ban"
 
 #. module: okr_scale_template
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_apply__contributor_department_ids
+msgid "Departments helping to reach the objective."
+msgstr "Các phòng ban hỗ trợ đạt được mục tiêu."
+
+#. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__description
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__template_description
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_category__description
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_form
 msgid "Description"
 msgstr "Mô tả"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_clinical_doctor
+msgid "Develop outstanding clinical expertise and earn patients' affection"
+msgstr "Phát triển chuyên môn vượt trội và được bệnh nhân tin yêu"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,description:okr_scale_template.okr_tpl_cat_tech
+msgid "Digital records, online booking, data, security"
+msgstr "Hồ sơ số, đặt lịch trực tuyến, dữ liệu, bảo mật"
 
 #. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__display_name
@@ -287,9 +621,71 @@ msgid "Done / Not done"
 msgstr "Hoàn thành / Chưa hoàn thành"
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_fin_health_kr1
+msgid "EBITDA / net revenue according to the quarterly management report."
+msgstr "EBITDA / doanh thu thuần theo báo cáo quản trị quý."
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_fin_health
+msgid "EBITDA, profit, costs, receivables, AR days"
+msgstr "EBITDA, lợi nhuận, chi phí, công nợ, AR days"
+
+#. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__employee_id
 msgid "Employee"
 msgstr "Nhân viên"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_tech_security_kr3
+msgid "Employees complete the information security training"
+msgstr "Nhân viên hoàn thành khóa đào tạo bảo mật thông tin"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_hr_onboarding_kr3
+msgid ""
+"Employees leaving within their first 90 days / new hires during the period."
+msgstr ""
+"Số nhân viên nghỉ trong 90 ngày đầu / số nhân viên mới tuyển trong kỳ."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_hr_engagement_kr1
+msgid "Employees who left over the last 12 months / average headcount."
+msgstr ""
+"Số nhân viên nghỉ việc trong 12 tháng gần nhất / số nhân viên bình quân."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_tech_security_kr3
+msgid "Employees who passed the final course test / total employees."
+msgstr "Số nhân viên đạt bài kiểm tra cuối khóa / tổng số nhân viên."
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_care_agent
+msgid "Every care call is a warm and helpful experience"
+msgstr "Mỗi cuộc gọi chăm sóc là một trải nghiệm ấm áp và hữu ích"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_care_complaint
+msgid "Every complaint is heard and resolved quickly and with care"
+msgstr "Mọi phàn nàn đều được lắng nghe và giải quyết nhanh chóng, tận tâm"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_mkt_roi
+msgid "Every marketing dollar brings in real patients"
+msgstr "Mỗi đồng chi cho marketing đều mang lại bệnh nhân thật"
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_ops_expansion
+msgid ""
+"Every new clinic meets the same quality standard and breaks even quickly "
+"thanks to a standardized operating model."
+msgstr ""
+"Mỗi chi nhánh mới đạt cùng một chuẩn chất lượng và hòa vốn nhanh nhờ mô hình"
+" vận hành chuẩn hóa."
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_sales_value
+msgid "Every patient receives the most comprehensive and suitable treatment"
+msgstr "Mỗi bệnh nhân nhận được giải pháp điều trị toàn diện và phù hợp nhất"
 
 #. module: okr_scale_template
 #: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_apply__objective_id
@@ -298,9 +694,24 @@ msgid ""
 msgstr "Mục tiêu nháp có sẵn sẽ nhận các kết quả then chốt của mẫu."
 
 #. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_ops_expansion
+msgid "Expand the clinic network with a standardized, replicable model"
+msgstr "Mở rộng chuỗi phòng khám chuẩn hóa và nhân bản thành công"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,description:okr_scale_template.okr_tpl_cat_care
+msgid "Experience, satisfaction, patient retention"
+msgstr "Trải nghiệm, hài lòng, giữ chân bệnh nhân"
+
+#. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__objective_id
 msgid "Fill Objective"
 msgstr "Mục tiêu cần bổ sung"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,name:okr_scale_template.okr_tpl_cat_finance
+msgid "Finance"
+msgstr "Tài chính"
 
 #. module: okr_scale_template
 #: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template__category_icon
@@ -309,14 +720,107 @@ msgid "Font Awesome class, e.g. fa-heart."
 msgstr "Lớp biểu tượng Font Awesome, ví dụ: fa-heart."
 
 #. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_sales_ortho
+msgid ""
+"For clinics or orthodontic teams that want a breakthrough in new orthodontic"
+" cases through a professional consultation experience and transparent "
+"before/after results."
+msgstr ""
+"Dành cho chi nhánh hoặc bộ phận chỉnh nha muốn bứt phá số ca niềng răng nhờ "
+"trải nghiệm tư vấn chuyên nghiệp và kết quả trước/sau minh bạch."
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_clinical_implant
+msgid ""
+"For implant centers: consistent clinical outcomes, digital treatment "
+"planning and fewer re-interventions."
+msgstr ""
+"Dành cho trung tâm implant: kết quả lâm sàng ổn định, lập kế hoạch số hóa và"
+" giảm tái can thiệp."
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_fin_cash
+msgid ""
+"For the Accounting &amp; Finance team: collect receivables on time, close "
+"the books quickly and digitize payments."
+msgstr ""
+"Dành cho phòng Kế toán – Tài chính: thu hồi công nợ đúng hạn, đóng sổ nhanh "
+"và số hóa thanh toán."
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_tech_digital
+msgid ""
+"From booking, examination and treatment to aftercare, everything runs on a "
+"digital platform: more convenient for patients and more efficient for the "
+"team."
+msgstr ""
+"Từ đặt lịch, khám, điều trị đến chăm sóc sau điều trị đều thực hiện trên nền"
+" tảng số, giúp bệnh nhân tiện lợi và đội ngũ làm việc hiệu quả hơn."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_ops_flow_kr1
+msgid ""
+"From check-in at reception until the patient is seated in the chair, monthly"
+" average from the software."
+msgstr ""
+"Từ lúc check-in tại lễ tân đến lúc bệnh nhân lên ghế, trung bình trên phần "
+"mềm trong tháng."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_complaint_kr1
+msgid ""
+"From receipt until the complaint ticket is closed (confirmed by the "
+"patient), monthly average."
+msgstr ""
+"Từ lúc tiếp nhận đến lúc đóng phiếu khiếu nại (có xác nhận của khách), trung"
+" bình trong tháng."
+
+#. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_objective_view_tree_template
 msgid "From template"
 msgstr "Từ mẫu"
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_hr_talent_kr1
+msgid ""
+"From the day the position opens until the candidate accepts, averaged over "
+"positions filled during the quarter."
+msgstr ""
+"Từ ngày mở vị trí đến ngày ứng viên nhận việc, trung bình các vị trí đóng "
+"trong quý."
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_tech_digital
+msgid "Fully digitize the patient journey"
+msgstr "Số hóa toàn diện hành trình của bệnh nhân"
+
+#. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_search
 msgid "Group By"
 msgstr "Nhóm theo"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_sales_growth
+msgid "Grow revenue sustainably across the whole clinic network"
+msgstr "Tăng trưởng doanh thu bền vững cho toàn chuỗi phòng khám"
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_fin_health
+msgid ""
+"Growth must come with healthy profits and cash flow so the network can "
+"invest in expansion with confidence."
+msgstr ""
+"Tăng trưởng phải đi cùng lợi nhuận và dòng tiền lành mạnh để chuỗi tự tin "
+"đầu tư mở rộng."
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_tech_security
+msgid ""
+"Health data is a sensitive asset: a stable infrastructure and a security "
+"culture are everyone's responsibility."
+msgstr ""
+"Dữ liệu sức khỏe là tài sản nhạy cảm: hạ tầng ổn định và văn hóa bảo mật là "
+"trách nhiệm của mọi người."
 
 #. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__hint
@@ -340,11 +844,193 @@ msgid "Icon"
 msgstr "Biểu tượng"
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_clinical_implant_kr1
+msgid ""
+"Implants well integrated at the 6-month check-up / total implants due for "
+"assessment."
+msgstr ""
+"Số trụ implant tích hợp tốt khi tái khám 6 tháng / tổng số trụ đến hạn đánh "
+"giá."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_mkt_roi_kr2
+msgid "Improve return on ad spend (ROAS)"
+msgstr "Nâng hiệu quả quảng cáo (ROAS)"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_ops_flow_kr3
+msgid "Increase appointments starting on time (±10 minutes)"
+msgstr "Tăng tỷ lệ lịch hẹn bắt đầu đúng giờ (±10 phút)"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_mkt_brand_kr1
+msgid "Increase average interactions per post"
+msgstr "Tăng lượt tương tác trung bình mỗi bài đăng"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_growth_kr2
+msgid "Increase average monthly revenue per dental chair"
+msgstr "Tăng doanh thu trung bình mỗi ghế nha mỗi tháng"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_hr_engagement_kr3
+msgid "Increase average training hours per employee during the quarter"
+msgstr "Tăng số giờ đào tạo bình quân mỗi nhân viên trong quý"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_agent_kr1
+msgid "Increase completed care calls per week"
+msgstr "Tăng số cuộc gọi chăm sóc hoàn tất mỗi tuần"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_consultant_kr2
+msgid "Increase completed consultations per month"
+msgstr "Tăng số buổi tư vấn hoàn tất mỗi tháng"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_value_kr3
+msgid "Increase comprehensive treatment plans presented per month"
+msgstr "Tăng số kế hoạch điều trị toàn diện được trình bày mỗi tháng"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_consultant_kr3
+msgid "Increase monthly treatment sales from successful consultations"
+msgstr "Tăng doanh số điều trị tư vấn thành công mỗi tháng"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_growth_kr1
+msgid "Increase network-wide net revenue per quarter"
+msgstr "Tăng doanh thu thuần toàn chuỗi mỗi quý"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_nps_kr3
+msgid "Increase new Google reviews per month"
+msgstr "Tăng số đánh giá Google mới mỗi tháng"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_mkt_brand_kr2
+msgid "Increase new followers during the quarter"
+msgstr "Tăng số người theo dõi mới trong quý"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_ortho_kr1
+msgid "Increase new orthodontic cases per month"
+msgstr "Tăng số ca chỉnh nha mới mỗi tháng"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_mkt_leads_kr4
+msgid "Increase new patients per month"
+msgstr "Tăng số bệnh nhân mới mỗi tháng"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_mkt_leads_kr1
+msgid "Increase qualified leads per month"
+msgstr "Tăng số khách hàng tiềm năng (lead) đủ điều kiện mỗi tháng"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_recall_kr1
+msgid "Increase the 6-month recall return rate"
+msgstr "Tăng tỷ lệ bệnh nhân quay lại tái khám định kỳ 6 tháng"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_value_kr1
+msgid "Increase the average treatment value per patient"
+msgstr "Tăng giá trị điều trị trung bình mỗi bệnh nhân"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_ortho_kr3
+msgid "Increase the average value of an orthodontic contract"
+msgstr "Tăng giá trị trung bình mỗi hợp đồng chỉnh nha"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_growth_kr4
+msgid "Increase the number of implant cases per month"
+msgstr "Tăng số ca implant mỗi tháng"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_tech_digital_kr2
+msgid "Increase the share of appointments booked online"
+msgstr "Tăng tỷ lệ lịch hẹn đặt trực tuyến"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_agent_kr3
+msgid "Increase the share of calls that result in a recall appointment"
+msgstr "Tăng tỷ lệ đặt lịch tái khám thành công từ cuộc gọi"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_fin_cash_kr3
+msgid "Increase the share of cashless payments"
+msgstr "Tăng tỷ lệ thanh toán không dùng tiền mặt"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_ops_expansion_kr2
+msgid "Increase the share of clinics passing the internal operations audit"
+msgstr "Tăng tỷ lệ chi nhánh đạt chuẩn vận hành qua audit nội bộ"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_complaint_kr2
+msgid "Increase the share of complaints answered within 2 hours"
+msgstr "Tăng tỷ lệ khiếu nại được phản hồi trong vòng 2 giờ"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_clinical_implant_kr2
+msgid ""
+"Increase the share of implant cases planned digitally (CBCT + surgical "
+"guide)"
+msgstr ""
+"Tăng tỷ lệ ca implant lập kế hoạch kỹ thuật số (CBCT + máng hướng dẫn)"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_nps_kr4
+msgid "Increase the share of new patients coming from referrals"
+msgstr "Tăng tỷ lệ bệnh nhân mới đến từ giới thiệu"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_tech_digital_kr3
+msgid ""
+"Increase the share of patients receiving reminders via Zalo OA or the app"
+msgstr "Tăng tỷ lệ bệnh nhân nhận nhắc lịch qua Zalo OA hoặc ứng dụng"
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_sales_value
+msgid ""
+"Increase the treatment value per patient through thorough examinations, "
+"comprehensive treatment plans and follow-through until completion, instead "
+"of only fixing the immediate problem."
+msgstr ""
+"Tăng giá trị điều trị trên mỗi bệnh nhân bằng cách khám kỹ, lập kế hoạch "
+"toàn diện và đồng hành đến khi hoàn thành, thay vì chỉ xử lý vấn đề trước "
+"mắt."
+
+#. module: okr_scale_template
 #: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template__level__individual
 #: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template_apply__level__individual
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_search
 msgid "Individual"
 msgstr "Cá nhân"
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_care_agent
+msgid "Individual OKR for customer care / call center staff."
+msgstr "OKR cá nhân cho nhân viên chăm sóc khách hàng / tổng đài."
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_clinical_doctor
+msgid ""
+"Individual OKR for dentists: continuous learning, sharing clinical cases and"
+" raising patient satisfaction."
+msgstr ""
+"OKR cá nhân cho bác sĩ: học tập liên tục, chia sẻ ca lâm sàng và nâng cao sự"
+" hài lòng của bệnh nhân."
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_sales_consultant
+msgid ""
+"Individual OKR for treatment consultants / treatment coordinators: caring "
+"advice, transparent costs and close follow-up until the patient decides."
+msgstr ""
+"OKR cá nhân cho tư vấn viên / điều phối điều trị: tư vấn tận tâm, minh bạch "
+"chi phí và theo sát đến khi bệnh nhân quyết định."
 
 #. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
@@ -355,6 +1041,13 @@ msgstr "Mục tiêu định tính, truyền cảm hứng"
 #: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template__name
 msgid "Inspiring, qualitative objective proposed by this template."
 msgstr "Mục tiêu định tính, truyền cảm hứng do mẫu này đề xuất."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_fin_cash_kr1
+msgid ""
+"Installment receivables overdue by more than 30 days / total installment "
+"receivables."
+msgstr "Giá trị công nợ trả góp quá hạn trên 30 ngày / tổng công nợ trả góp."
 
 #. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__is_decreasing
@@ -431,10 +1124,24 @@ msgid "Last Updated on"
 msgstr "Cập nhật lần cuối vào"
 
 #. module: okr_scale_template
-#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_apply__owner_id
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_tech_data_kr1
+msgid "Launch a real-time KPI dashboard for the whole network"
+msgstr "Đưa vào vận hành dashboard KPI thời gian thực cho toàn chuỗi"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_mkt_leads_kr3
 msgid ""
-"Leave empty to let OKR choose: the employee, the department manager or you."
-msgstr "Để trống để hệ thống tự chọn: nhân viên, trưởng phòng hoặc chính bạn."
+"Leads who booked an appointment / total qualified leads during the month."
+msgstr "Số lead đặt được lịch hẹn / tổng số lead đủ điều kiện trong tháng."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_mkt_leads_kr1
+msgid ""
+"Leads with a valid phone number and a clear dental need, recorded in the "
+"CRM."
+msgstr ""
+"Số lead có số điện thoại hợp lệ và nhu cầu nha khoa rõ ràng, ghi nhận trên "
+"CRM."
 
 #. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__level
@@ -447,10 +1154,69 @@ msgid "Line Preview"
 msgstr "Xem trước KR"
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_hr_talent_kr3
+msgid "Maintain a pipeline of qualified dentist candidates"
+msgstr "Duy trì nguồn ứng viên bác sĩ chất lượng"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_tech_data
+msgid "Make faster decisions with real-time data"
+msgstr "Ra quyết định nhanh hơn nhờ dữ liệu thời gian thực"
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_tech_data
+msgid ""
+"Management and clinic managers look at the same up-to-date figures, with no "
+"more waiting for manual reports."
+msgstr ""
+"Ban điều hành và quản lý chi nhánh cùng nhìn một bộ số liệu cập nhật, không "
+"còn chờ báo cáo thủ công."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_tech_data_kr2
+msgid "Managers who open the dashboard each week / total clinic managers."
+msgstr ""
+"Số quản lý có lượt truy cập dashboard mỗi tuần / tổng số quản lý chi nhánh."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,name:okr_scale_template.okr_tpl_cat_marketing
+msgid "Marketing"
+msgstr "Marketing"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_clinical_safety_kr3
+msgid ""
+"Medical records complete with diagnosis, signatures and treatment consent"
+msgstr "Hồ sơ bệnh án đầy đủ chẩn đoán, chữ ký và cam kết điều trị"
+
+#. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__metric_type
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__metric_type
 msgid "Metric Type"
 msgstr "Loại chỉ số"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_growth_kr2
+msgid ""
+"Monthly clinic revenue divided by the number of active dental chairs; "
+"averaged across the network."
+msgstr ""
+"Doanh thu tháng của chi nhánh chia cho số ghế nha đang hoạt động; lấy trung "
+"bình toàn chuỗi."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_clinical_safety_kr1
+msgid ""
+"Monthly infection control and sterilization audit score based on the "
+"internal checklist, averaged across clinics."
+msgstr ""
+"Điểm audit vô khuẩn – tiệt trùng định kỳ hàng tháng theo checklist nội bộ, "
+"trung bình các chi nhánh."
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_care_nps
+msgid "NPS, experience, Google, rating, referral, review"
+msgstr "NPS, trải nghiệm, Google, đánh giá, giới thiệu, review"
 
 #. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_category__name
@@ -461,6 +1227,51 @@ msgstr "Tên"
 #: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template__line_preview
 msgid "Names of the first key results, one per line (gallery cards)."
 msgstr "Tên các kết quả then chốt đầu tiên, mỗi dòng một tên (thẻ thư viện)."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_mkt_brand_kr2
+msgid "New followers on the official channels (Facebook, TikTok, Zalo OA)."
+msgstr ""
+"Số người theo dõi mới trên các kênh chính thức (Facebook, TikTok, Zalo OA)."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_hr_onboarding_kr1
+msgid "New hires complete the onboarding program within 30 days"
+msgstr "Nhân viên mới hoàn thành chương trình hội nhập trong 30 ngày"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_hr_onboarding
+msgid ""
+"New hires integrate quickly and work confidently from their first month"
+msgstr "Nhân sự mới hòa nhập nhanh và làm việc tự tin ngay từ tháng đầu"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_hr_onboarding_kr1
+msgid ""
+"New hires who completed all onboarding modules within 30 days / total new "
+"hires."
+msgstr ""
+"Số nhân viên mới hoàn thành đủ các học phần hội nhập trong 30 ngày / số nhân"
+" viên mới."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,description:okr_scale_template.okr_tpl_cat_marketing
+msgid "New patient acquisition, brand, advertising efficiency"
+msgstr "Thu hút bệnh nhân mới, thương hiệu, hiệu quả quảng cáo"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_nps_kr4
+msgid ""
+"New patients with the source \"Referred by an acquaintance\" / total new "
+"patients during the month."
+msgstr ""
+"Bệnh nhân mới có nguồn \"Người quen giới thiệu\" / tổng bệnh nhân mới trong "
+"tháng."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_ops_supply_kr1
+msgid "No more treatments postponed for lack of essential supplies"
+msgstr "Không còn hoãn điều trị do thiếu vật tư thiết yếu"
 
 #. module: okr_scale_template
 #: model_terms:ir.actions.act_window,help:okr_scale_template.okr_template_action
@@ -474,9 +1285,82 @@ msgid "Number"
 msgstr "Số"
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_clinical_doctor_kr2
+msgid "Number of cases presented with case review minutes on file."
+msgstr "Số ca được trình bày và lưu biên bản hội chẩn."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_value_kr3
+msgid ""
+"Number of comprehensive treatment plans (with images, costs and timeline) "
+"presented by dentists and saved in the software."
+msgstr ""
+"Số kế hoạch điều trị toàn diện (có hình ảnh, chi phí, lộ trình) được bác sĩ "
+"trình bày và lưu trên phần mềm."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_consultant_kr2
+msgid "Number of consultations with complete notes in the CRM."
+msgstr "Số buổi tư vấn có ghi chú đầy đủ trên CRM."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_tech_security_kr2
+msgid ""
+"Number of data leaks or unauthorized access incidents recorded during the "
+"quarter."
+msgstr "Số sự cố rò rỉ hoặc truy cập trái phép được ghi nhận trong quý."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_growth_kr4
+msgid ""
+"Number of implant placements performed (counted per fixture), as recorded in"
+" the clinic management software."
+msgstr ""
+"Số ca cấy ghép implant đã thực hiện (tính theo trụ) ghi nhận trên phần mềm "
+"quản lý phòng khám."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_ortho_kr1
+msgid ""
+"Number of new orthodontic contracts signed (deposit paid) during the month."
+msgstr "Số hợp đồng chỉnh nha mới được ký (đã đặt cọc) trong tháng."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_nps_kr3
+msgid ""
+"Number of new reviews on the Google Business Profiles of the whole network "
+"during the month."
+msgstr ""
+"Số đánh giá mới trên Google Business Profile của toàn chuỗi trong tháng."
+
+#. module: okr_scale_template
 #: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template__usage_count
 msgid "Number of objectives created from this template."
 msgstr "Số mục tiêu đã được tạo từ mẫu này."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_clinical_safety_kr2
+msgid ""
+"Number of severe incidents reported during the quarter (according to the "
+"incident reporting procedure)."
+msgstr ""
+"Số sự cố mức độ nặng được báo cáo trong quý (theo quy trình báo cáo sự cố)."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_agent_kr1
+msgid ""
+"Number of successfully connected calls with notes in the call center system "
+"/ CRM."
+msgstr "Số cuộc gọi kết nối thành công có ghi chú trên tổng đài/CRM."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_ops_supply_kr1
+msgid ""
+"Number of treatment appointments rescheduled due to missing supplies, "
+"recorded in the monthly operations report."
+msgstr ""
+"Số lịch điều trị bị dời do thiếu vật tư, ghi nhận trong báo cáo vận hành "
+"tháng."
 
 #. module: okr_scale_template
 #: model:ir.model,name:okr_scale_template.model_okr_scale_objective
@@ -523,6 +1407,11 @@ msgid "Objectives created from this template"
 msgstr "Số mục tiêu đã tạo từ mẫu này"
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_hr_talent_kr2
+msgid "Offers accepted / offers sent."
+msgstr "Số offer được chấp nhận / số offer đã gửi."
+
+#. module: okr_scale_template
 #. odoo-python
 #: code:addons/okr_scale_template/models/okr_objective.py:0
 #, python-format
@@ -537,14 +1426,119 @@ msgid "Only draft objectives can be filled from a template."
 msgstr "Chỉ mục tiêu ở trạng thái nháp mới có thể bổ sung từ mẫu."
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_ops_expansion_kr1
+msgid "Open new clinics on schedule"
+msgstr "Khai trương chi nhánh mới đúng tiến độ"
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_mkt_roi
+msgid ""
+"Optimize the budget: measure everything from ads to revenue, cut "
+"underperforming channels and focus on the channels that bring patients."
+msgstr ""
+"Tối ưu ngân sách: đo lường đầy đủ từ quảng cáo đến doanh thu, cắt kênh kém "
+"hiệu quả, tập trung kênh mang lại khách."
+
+#. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
 msgid "Optional: contribute to an upper key result"
 msgstr "Không bắt buộc: đóng góp cho một KR cấp trên"
 
 #. module: okr_scale_template
-#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__owner_id
-msgid "Owner"
-msgstr "Người phụ trách"
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
+msgid "Optional: departments helping"
+msgstr "Tùy chọn: phòng ban hỗ trợ"
+
+#. module: okr_scale_template
+#: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
+msgid "Optional: people helping"
+msgstr "Tùy chọn: người hỗ trợ"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_apply__owner_id
+msgid ""
+"Owner of the objective and of its key results. Leave empty to let OKR "
+"choose: the employee, the department manager or you."
+msgstr ""
+"Người sở hữu mục tiêu và các kết quả then chốt. Để trống để hệ thống tự "
+"chọn: nhân viên, trưởng phòng hoặc chính bạn."
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_clinical_safety
+msgid ""
+"Patient safety is a non-negotiable commitment: infection control, complete "
+"records and zero serious incidents."
+msgstr ""
+"An toàn người bệnh là cam kết không thể thương lượng: kiểm soát nhiễm khuẩn,"
+" hồ sơ đầy đủ và không sự cố nghiêm trọng."
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_ops_flow
+msgid ""
+"Patients judge the clinic from the moment they walk in: punctuality and "
+"short waits are the minimum expected experience."
+msgstr ""
+"Khách hàng đánh giá phòng khám từ lúc bước vào cửa: đúng giờ và ít chờ đợi "
+"là trải nghiệm tối thiểu."
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_care_recall
+msgid ""
+"Patients returning for regular check-ups are the foundation of long-term "
+"oral health and steady clinic revenue."
+msgstr ""
+"Bệnh nhân quay lại tái khám định kỳ là nền tảng cho sức khỏe răng miệng lâu "
+"dài và doanh thu ổn định của phòng khám."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_mkt_leads_kr4
+msgid ""
+"Patients visiting for the first time (new record created) across the "
+"network."
+msgstr "Số bệnh nhân lần đầu đến khám (có hồ sơ mới) trên toàn chuỗi."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_consultant_kr1
+msgid ""
+"Patients who accept treatment / patients you consulted during the month "
+"(from the CRM)."
+msgstr ""
+"Số bệnh nhân đồng ý điều trị / số bệnh nhân do bạn tư vấn trong tháng (theo "
+"phần mềm CRM)."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_recall_kr1
+msgid ""
+"Patients who came for their check-up during the period / patients due for "
+"their 6-month check-up during the period."
+msgstr ""
+"Số bệnh nhân đến tái khám trong kỳ / số bệnh nhân đến hạn tái khám 6 tháng "
+"trong kỳ."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_recall_kr3
+msgid ""
+"Patients with a post-treatment call ≤ 48 hours (logged in the CRM) / "
+"patients who had invasive treatment."
+msgstr ""
+"Số bệnh nhân có cuộc gọi hậu điều trị ≤ 48 giờ (ghi nhận trên CRM) / số bệnh"
+" nhân điều trị xâm lấn."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,name:okr_scale_template.okr_tpl_cat_hr
+msgid "People & Training"
+msgstr "Nhân sự & Đào tạo"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_apply__contributor_user_ids
+msgid "People helping the accountable person. They follow the objective."
+msgstr ""
+"Những người hỗ trợ người chịu trách nhiệm chính. Họ được theo dõi mục tiêu."
+
+#. module: okr_scale_template
+#: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_apply_line__contributor_ids
+msgid "People helping the owner on this key result."
+msgstr "Những người hỗ trợ người phụ trách trên kết quả then chốt này."
 
 #. module: okr_scale_template
 #: model:ir.model.fields.selection,name:okr_scale_template.selection__okr_scale_template_apply_line__metric_type__percent
@@ -553,9 +1547,273 @@ msgid "Percentage"
 msgstr "Phần trăm"
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_nps_kr1
+msgid ""
+"Post-treatment survey (Zalo/SMS): % of patients scoring 9–10 minus % scoring"
+" 0–6. At least 200 responses per month."
+msgstr ""
+"Khảo sát sau điều trị (Zalo/SMS): % khách chấm 9–10 trừ % khách chấm 0–6. "
+"Tối thiểu 200 phản hồi/tháng."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_clinical_doctor_kr3
+msgid ""
+"Post-treatment survey: satisfied responses / total responses about the "
+"dentist."
+msgstr ""
+"Khảo sát sau điều trị: số phản hồi hài lòng / tổng phản hồi về bác sĩ."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_clinical_doctor_kr2
+msgid "Present clinical cases at internal case reviews"
+msgstr "Trình bày ca lâm sàng tại hội chẩn nội bộ"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,description:okr_scale_template.okr_tpl_cat_finance
+msgid "Profitability, costs, cash flow, receivables"
+msgstr "Lợi nhuận, chi phí, dòng tiền, công nợ"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_mkt_brand_kr3
+msgid "Publish real patient story videos"
+msgstr "Xuất bản video câu chuyện khách hàng thật"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_hr_onboarding_kr4
+msgid "Publish the dental assistant training SOP set"
+msgstr "Ban hành bộ SOP đào tạo trợ thủ nha khoa"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_hr_engagement_kr2
+msgid ""
+"Quarterly anonymous survey: % of employees scoring 9–10 minus % scoring 0–6."
+msgstr "Khảo sát ẩn danh hàng quý: % nhân viên chấm 9–10 trừ % chấm 0–6."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_agent_kr2
+msgid "Raise call satisfaction (CSAT, 5-point scale)"
+msgstr "Nâng điểm hài lòng cuộc gọi (CSAT, thang 5)"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_ops_flow_kr2
+msgid "Raise dental chair utilization"
+msgstr "Nâng tỷ lệ lấp đầy ghế nha"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_clinical_implant
+msgid "Raise implant treatment quality to international standards"
+msgstr "Nâng tầm chất lượng điều trị implant theo chuẩn quốc tế"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_consultant_kr1
+msgid "Raise my personal treatment plan closing rate"
+msgstr "Nâng tỷ lệ chốt kế hoạch điều trị của cá nhân"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_complaint_kr3
+msgid "Raise patient satisfaction after complaint handling"
+msgstr "Nâng tỷ lệ khách hài lòng sau xử lý khiếu nại"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_clinical_doctor_kr3
+msgid "Raise patient satisfaction with the dentist"
+msgstr "Nâng tỷ lệ bệnh nhân hài lòng với bác sĩ"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_tech_security_kr1
+msgid "Raise system uptime"
+msgstr "Nâng thời gian hoạt động hệ thống (uptime)"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_fin_health_kr1
+msgid "Raise the EBITDA margin"
+msgstr "Nâng biên lợi nhuận EBITDA"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_mkt_roi_kr3
+msgid "Raise the appointment show-up rate"
+msgstr "Nâng tỷ lệ khách đến khám theo lịch hẹn (show-up)"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_nps_kr2
+msgid "Raise the average Google rating"
+msgstr "Nâng điểm đánh giá Google trung bình"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_hr_engagement_kr2
+msgid "Raise the employee engagement score (eNPS)"
+msgstr "Nâng chỉ số gắn kết nhân viên (eNPS)"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_hr_onboarding_kr2
+msgid "Raise the end-of-probation skills assessment score (out of 100)"
+msgstr "Nâng điểm đánh giá năng lực sau thử việc (thang 100)"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_clinical_safety_kr1
+msgid "Raise the infection control and sterilization compliance audit score"
+msgstr "Nâng điểm audit tuân thủ quy trình vô khuẩn – tiệt trùng"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_hr_talent_kr2
+msgid "Raise the job offer acceptance rate"
+msgstr "Nâng tỷ lệ ứng viên chấp nhận đề nghị làm việc"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_mkt_leads_kr3
+msgid "Raise the lead → appointment conversion rate"
+msgstr "Nâng tỷ lệ chuyển đổi lead → lịch hẹn"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_nps_kr1
+msgid "Raise the network-wide NPS"
+msgstr "Nâng chỉ số NPS toàn chuỗi"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_ortho_kr2
+msgid "Raise the orthodontic consultation → signed contract conversion rate"
+msgstr "Nâng tỷ lệ chuyển đổi tư vấn chỉnh nha → ký hợp đồng"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_value_kr2
+msgid "Raise the share of patients who complete their full treatment plan"
+msgstr "Nâng tỷ lệ bệnh nhân hoàn thành trọn kế hoạch điều trị"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_clinical_implant_kr1
+msgid "Raise the successful osseointegration rate at 6 months"
+msgstr "Nâng tỷ lệ tích hợp xương thành công sau 6 tháng"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_sales_growth_kr3
+msgid "Raise the treatment plan acceptance rate"
+msgstr "Nâng tỷ lệ chấp nhận kế hoạch điều trị"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_clinical_safety_kr3
+msgid ""
+"Random check of 30 records per clinic per month: compliant records / records"
+" checked."
+msgstr ""
+"Kiểm tra ngẫu nhiên 30 hồ sơ/chi nhánh/tháng: số hồ sơ đạt / số hồ sơ được "
+"kiểm tra."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,description:okr_scale_template.okr_tpl_cat_hr
+msgid "Recruitment, training, team engagement"
+msgstr "Tuyển dụng, đào tạo, gắn kết đội ngũ"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_hr_engagement_kr1
+msgid "Reduce annual staff turnover"
+msgstr "Giảm tỷ lệ nghỉ việc năm"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_fin_health_kr3
+msgid "Reduce average accounts receivable days (AR days)"
+msgstr "Giảm số ngày phải thu bình quân (AR days)"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_clinical_implant_kr3
+msgid "Reduce the 12-month re-intervention rate"
+msgstr "Giảm tỷ lệ tái can thiệp trong 12 tháng"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_recall_kr2
+msgid "Reduce the appointment no-show rate"
+msgstr "Giảm tỷ lệ vắng mặt lịch hẹn (no-show)"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_care_complaint_kr1
+msgid "Reduce the average complaint resolution time"
+msgstr "Rút ngắn thời gian xử lý khiếu nại trung bình"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_ops_flow_kr1
+msgid "Reduce the average patient waiting time"
+msgstr "Rút ngắn thời gian chờ trung bình của bệnh nhân"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_mkt_roi_kr1
+msgid "Reduce the cost of acquiring a new patient (CAC)"
+msgstr "Giảm chi phí thu hút một bệnh nhân mới (CAC)"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_mkt_leads_kr2
+msgid "Reduce the cost per lead (CPL)"
+msgstr "Giảm chi phí mỗi lead (CPL)"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_fin_health_kr2
+msgid "Reduce the operating expense to revenue ratio"
+msgstr "Giảm tỷ lệ chi phí vận hành / doanh thu"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_fin_cash_kr1
+msgid "Reduce the overdue installment receivables rate"
+msgstr "Giảm tỷ lệ công nợ trả góp quá hạn"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_hr_onboarding_kr3
+msgid "Reduce the share of new hires leaving within their first 90 days"
+msgstr "Giảm tỷ lệ nhân viên mới nghỉ trong 90 ngày đầu"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_ops_supply_kr3
+msgid "Reduce the supply cost to revenue ratio"
+msgstr "Giảm tỷ lệ chi phí vật tư / doanh thu"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_hr_talent_kr1
+msgid "Reduce the time to hire a dentist"
+msgstr "Rút ngắn thời gian tuyển một vị trí bác sĩ"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_ops_supply_kr2
+msgid "Reduce the value of expired or damaged supplies per quarter"
+msgstr "Giảm giá trị vật tư hết hạn, hư hỏng mỗi quý"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_tech_security
+msgid "Reliable systems and patient data that is always fully protected"
+msgstr "Hệ thống ổn định và dữ liệu bệnh nhân luôn được bảo mật tuyệt đối"
+
+#. module: okr_scale_template
 #: model:ir.model.fields,help:okr_scale_template.field_okr_scale_template_apply__replace_title
 msgid "Replace the title of the objective by the one below."
 msgstr "Thay tiêu đề của mục tiêu bằng tiêu đề bên dưới."
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_care_recall
+msgid "Retain patients with a thoughtful periodic care program"
+msgstr "Giữ chân bệnh nhân bằng chương trình chăm sóc định kỳ chu đáo"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_mkt_roi_kr2
+msgid ""
+"Revenue from patients sourced from ads / corresponding advertising spend."
+msgstr ""
+"Doanh thu từ bệnh nhân có nguồn quảng cáo / chi phí quảng cáo tương ứng."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,description:okr_scale_template.okr_tpl_cat_sales
+msgid "Revenue, treatment consultation, high-value services"
+msgstr "Doanh thu, tư vấn điều trị, dịch vụ giá trị cao"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_ops_flow
+msgid "Run the clinic smoothly and on time, without keeping patients waiting"
+msgstr "Vận hành phòng khám trơn tru, đúng giờ, không để khách chờ đợi"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,description:okr_scale_template.okr_tpl_cat_clinical
+msgid "Safety, treatment quality, dentist expertise"
+msgstr "An toàn, chất lượng điều trị, năng lực bác sĩ"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,name:okr_scale_template.okr_tpl_cat_sales
+msgid "Sales"
+msgstr "Kinh doanh"
 
 #. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_objective_view_form_template
@@ -569,6 +1827,38 @@ msgstr "Lưu thành mẫu"
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__sequence
 msgid "Sequence"
 msgstr "Thứ tự"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_care_complaint_kr3
+msgid ""
+"Short survey after the ticket is closed: satisfied patients / patients who "
+"responded."
+msgstr ""
+"Khảo sát ngắn sau khi đóng phiếu: số khách hài lòng / số khách trả lời."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_ops_expansion_kr3
+msgid "Shorten the break-even time of new clinics"
+msgstr "Rút ngắn thời gian hòa vốn của chi nhánh mới"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_fin_cash_kr2
+msgid "Shorten the monthly accounting close (working days)"
+msgstr "Rút ngắn thời gian đóng sổ kế toán tháng (ngày làm việc)"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,name:okr_scale_template.okr_tpl_tech_data_kr3
+msgid "Shorten the time to produce the monthly operations report"
+msgstr "Rút ngắn thời gian tạo báo cáo vận hành tháng"
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_hr_onboarding
+msgid ""
+"Standardize the onboarding program for new dental assistants, receptionists "
+"and dentists to retain top talent from day one."
+msgstr ""
+"Chuẩn hóa chương trình hội nhập cho trợ thủ, lễ tân và bác sĩ mới để giữ "
+"chân người giỏi ngay từ đầu."
 
 #. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__start_value
@@ -591,16 +1881,42 @@ msgstr ""
 "chỉnh chỉ tiêu, xong trong một phút."
 
 #. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_fin_health
+msgid "Strong financial health as a foundation for growth"
+msgstr "Sức khỏe tài chính vững mạnh làm nền tảng cho tăng trưởng"
+
+#. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__level
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_search
 msgid "Suggested Level"
 msgstr "Cấp đề xuất"
 
 #. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_ops_supply
+msgid "Supplies always ready for treatment, with no waste"
+msgstr "Vật tư luôn sẵn sàng cho điều trị, không lãng phí"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__contributor_department_ids
+msgid "Supporting Departments"
+msgstr "Phòng ban hỗ trợ"
+
+#. module: okr_scale_template
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__contributor_user_ids
+#: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__contributor_ids
+msgid "Supporting People"
+msgstr "Người hỗ trợ"
+
+#. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__target_value
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__target_value
 msgid "Target"
 msgstr "Giá trị mục tiêu"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.category,name:okr_scale_template.okr_tpl_cat_tech
+msgid "Technology & Digital"
+msgstr "Công nghệ & Chuyển đổi số"
 
 #. module: okr_scale_template
 #. odoo-python
@@ -637,6 +1953,26 @@ msgid "Templates"
 msgstr "Mẫu OKR"
 
 #. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_mkt_leads
+msgid ""
+"The core OKR of the Marketing team: more qualified leads, converted into "
+"actual appointments."
+msgstr ""
+"OKR trọng tâm của phòng Marketing: tăng lượng khách tiềm năng chất lượng và "
+"chuyển đổi thành lịch hẹn thực tế."
+
+#. module: okr_scale_template
+#: model_terms:okr.scale.template,description:okr_scale_template.okr_tpl_sales_growth
+msgid ""
+"The growth direction of the whole network for the quarter: increase revenue "
+"through better consultations and high-value services, not through discounts."
+" A good company-level OKR for every clinic to align with."
+msgstr ""
+"Định hướng tăng trưởng của cả chuỗi trong quý: tăng doanh thu nhờ chất lượng"
+" tư vấn và dịch vụ giá trị cao, không chạy theo giảm giá. Phù hợp làm OKR "
+"cấp công ty để các chi nhánh căn chỉnh theo."
+
+#. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
 msgid "The key results below will be added to the draft objective"
 msgstr "Các kết quả then chốt bên dưới sẽ được thêm vào mục tiêu nháp"
@@ -662,10 +1998,133 @@ msgid "The weight of a key result cannot be negative."
 msgstr "Trọng số của kết quả then chốt không được âm."
 
 #. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_fin_cash
+msgid "Tight, transparent control of cash flow and receivables"
+msgstr "Kiểm soát dòng tiền và công nợ chặt chẽ, minh bạch"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_tech_data_kr3
+msgid "Time from month end until the operations report is sent to management."
+msgstr ""
+"Thời gian từ cuối tháng đến khi báo cáo vận hành được gửi ban điều hành."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_mkt_leads_kr2
+msgid "Total advertising spend for the month / number of qualified leads."
+msgstr "Tổng chi phí quảng cáo trong tháng / số lead đủ điều kiện."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_clinical_doctor_kr1
+msgid ""
+"Total certified hours from courses, conferences or internal training during "
+"the quarter."
+msgstr ""
+"Tổng số giờ có chứng nhận từ khóa học, hội nghị hoặc đào tạo nội bộ trong "
+"quý."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_ops_supply_kr3
+msgid "Total consumable supply cost / treatment revenue for the month."
+msgstr "Tổng chi phí vật tư tiêu hao / doanh thu điều trị trong tháng."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_mkt_brand_kr1
+msgid ""
+"Total likes, comments and shares / number of posts on Facebook and TikTok "
+"during the month."
+msgstr ""
+"Tổng lượt thích, bình luận, chia sẻ / số bài đăng trên Facebook và TikTok "
+"trong tháng."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_mkt_roi_kr1
+msgid ""
+"Total marketing spend for the month / number of new patients who visited."
+msgstr "Tổng chi phí marketing trong tháng / số bệnh nhân mới đến khám."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_fin_health_kr2
+msgid "Total operating expenses (excluding depreciation) / net revenue."
+msgstr "Tổng chi phí vận hành (không gồm khấu hao) / doanh thu thuần."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_hr_engagement_kr3
+msgid "Total recorded training hours / average headcount for the quarter."
+msgstr "Tổng giờ đào tạo ghi nhận / số nhân viên bình quân trong quý."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_growth_kr1
+msgid ""
+"Total revenue collected after discounts across all clinics, taken from the "
+"month-end financial report (quarter to date)."
+msgstr ""
+"Tổng doanh thu đã thu sau chiết khấu của tất cả chi nhánh, lấy từ báo cáo "
+"tài chính cuối tháng (cộng dồn quý)."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_tech_security_kr1
+msgid ""
+"Total uptime of the clinic management software / total time in the month "
+"(from the monitoring tool)."
+msgstr ""
+"Tổng thời gian phần mềm quản lý phòng khám hoạt động / tổng thời gian trong "
+"tháng (theo công cụ giám sát)."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_consultant_kr3
+msgid "Total value of accepted treatment plans from your consultations."
+msgstr ""
+"Tổng giá trị kế hoạch điều trị được chấp nhận từ các buổi tư vấn của bạn."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_ortho_kr3
+msgid ""
+"Total value of new orthodontic contracts / number of new contracts during "
+"the month."
+msgstr "Tổng giá trị hợp đồng chỉnh nha mới / số hợp đồng mới trong tháng."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_ops_supply_kr2
+msgid ""
+"Total value of supplies written off according to the end-of-quarter stock "
+"count report."
+msgstr "Tổng giá trị vật tư phải hủy theo biên bản kiểm kê cuối quý."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_growth_kr3
+msgid ""
+"Treatment plans accepted by patients (deposit paid or treatment started) / "
+"total plans presented during the month."
+msgstr ""
+"Số kế hoạch điều trị được bệnh nhân đồng ý (đặt cọc hoặc bắt đầu điều trị) /"
+" tổng số kế hoạch đã trình bày trong tháng."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_value_kr2
+msgid ""
+"Treatment plans completed / plans due for completion during the quarter."
+msgstr ""
+"Số kế hoạch điều trị đã hoàn tất / số kế hoạch đến hạn hoàn tất trong quý."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_sales_value_kr1
+msgid ""
+"Treatment revenue for the month / number of patients treated during the "
+"month."
+msgstr ""
+"Doanh thu điều trị trong tháng / số bệnh nhân có phát sinh điều trị trong "
+"tháng."
+
+#. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template__okr_type
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply__okr_type
 msgid "Type"
 msgstr "Loại"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,name:okr_scale_template.okr_tpl_clinical_safety
+msgid "Uncompromising clinical safety standards in every clinic"
+msgstr "Chuẩn mực an toàn lâm sàng không khoan nhượng tại mọi chi nhánh"
 
 #. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__unit
@@ -717,6 +2176,20 @@ msgid "Used"
 msgstr "Lượt dùng"
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_mkt_brand_kr3
+msgid ""
+"Videos made with the patient's consent and posted on the official channels "
+"during the quarter."
+msgstr ""
+"Video có sự đồng ý của khách hàng, đăng trên kênh chính thức trong quý."
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_tech_digital_kr1
+msgid ""
+"Visits with a complete electronic record / total visits during the month."
+msgstr "Số lượt khám có hồ sơ điện tử đầy đủ / tổng lượt khám trong tháng."
+
+#. module: okr_scale_template
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_apply_line__weight
 #: model:ir.model.fields,field_description:okr_scale_template.field_okr_scale_template_line__weight
 msgid "Weight"
@@ -744,9 +2217,81 @@ msgid "Words used to find this template, comma separated."
 msgstr "Các từ dùng để tìm mẫu này, phân cách bằng dấu phẩy."
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,hint:okr_scale_template.okr_tpl_fin_cash_kr2
+msgid "Working days from month end until the management report is issued."
+msgstr ""
+"Số ngày làm việc từ cuối tháng đến khi báo cáo quản trị được phát hành."
+
+#. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_apply_view_form
 msgid "Your objective"
 msgstr "Mục tiêu của bạn"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_mkt_brand
+msgid "brand, fanpage, TikTok, content, social media, branding"
+msgstr "thương hiệu, fanpage, TikTok, nội dung, mạng xã hội, brand"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_care_agent
+msgid "call, CSAT, call center, patient care, individual"
+msgstr "cuộc gọi, CSAT, tổng đài, chăm sóc, cá nhân"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_care_agent_kr1
+msgid "calls"
+msgstr "cuộc gọi"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_hr_talent_kr3
+msgid "candidates"
+msgstr "ứng viên"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_clinical_doctor_kr2
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_sales_growth_kr4
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_sales_ortho_kr1
+msgid "cases"
+msgstr "ca"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_fin_cash
+msgid "cash flow, receivables, installments, closing, payment"
+msgstr "dòng tiền, công nợ, trả góp, đóng sổ, thanh toán"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_ops_expansion_kr1
+msgid "clinics"
+msgstr "chi nhánh"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_care_complaint
+msgid "complaint, feedback, customer service, hotline"
+msgstr "khiếu nại, phàn nàn, complaint, CSKH, hotline"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_tech_data
+msgid "data, dashboard, reporting, BI, KPI"
+msgstr "dữ liệu, dashboard, báo cáo, BI, KPI"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_fin_cash_kr2
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_fin_health_kr3
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_hr_talent_kr1
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_tech_data_kr3
+msgid "days"
+msgstr "ngày"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_clinical_doctor
+msgid "dentist, CME, continuing education, case review, individual"
+msgstr "bác sĩ, CME, đào tạo liên tục, hội chẩn, cá nhân"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_tech_digital
+msgid ""
+"digital transformation, electronic records, EMR, online booking, Zalo OA"
+msgstr "chuyển đổi số, hồ sơ điện tử, EMR, đặt lịch online, Zalo OA"
 
 #. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_category_view_form
@@ -764,11 +2309,169 @@ msgid "e.g. NPS, reviews, referral"
 msgstr "ví dụ: NPS, đánh giá, giới thiệu"
 
 #. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_hr_engagement
+msgid "engagement, attrition, eNPS, training, turnover"
+msgstr "gắn kết, nghỉ việc, eNPS, đào tạo, turnover"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_ops_expansion
+msgid "expansion, new clinic, standardization, replication, opening"
+msgstr "mở rộng, chi nhánh mới, chuẩn hóa, nhân bản, khai trương"
+
+#. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_category_view_form
 msgid "fa-heart"
 msgstr "fa-heart"
 
 #. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_mkt_brand_kr2
+msgid "followers"
+msgstr "người theo dõi"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_care_complaint_kr1
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_clinical_doctor_kr1
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_hr_engagement_kr3
+msgid "hours"
+msgstr "giờ"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_clinical_implant
+msgid "implant, implantology, CBCT, surgical guide, quality"
+msgstr "implant, cấy ghép, CBCT, máng hướng dẫn, chất lượng"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_clinical_safety_kr2
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_tech_security_kr2
+msgid "incidents"
+msgstr "sự cố"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_mkt_brand_kr1
+msgid "interactions"
+msgstr "tương tác"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_mkt_leads
+msgid "lead, CPL, conversion, new patients, advertising"
+msgstr "lead, CPL, chuyển đổi, bệnh nhân mới, quảng cáo"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_mkt_leads_kr1
+msgid "leads"
+msgstr "lead"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_ops_flow_kr1
+msgid "minutes"
+msgstr "phút"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_ops_expansion_kr3
+msgid "months"
+msgstr "tháng"
+
+#. module: okr_scale_template
 #: model_terms:ir.ui.view,arch_db:okr_scale_template.okr_template_view_kanban
 msgid "more key result(s)"
 msgstr "kết quả then chốt khác"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_hr_onboarding
+msgid "onboarding, integration, new hire, SOP, dental assistant"
+msgstr "hội nhập, onboarding, nhân viên mới, SOP, trợ thủ"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_sales_ortho
+msgid "orthodontics, braces, clear aligners, invisalign, brackets"
+msgstr "niềng răng, chỉnh nha, orthodontic, invisalign, mắc cài"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_mkt_leads_kr4
+msgid "patients"
+msgstr "bệnh nhân"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_sales_value_kr3
+msgid "plans"
+msgstr "kế hoạch"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_care_agent_kr2
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_care_nps_kr1
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_hr_engagement_kr2
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_hr_onboarding_kr2
+msgid "points"
+msgstr "điểm"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_care_recall
+msgid "recall, check-up, no-show, return visit, appointment reminder"
+msgstr "tái khám, recall, no-show, quay lại, nhắc lịch"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_hr_talent
+msgid "recruitment, dentist, talent, employer branding"
+msgstr "tuyển dụng, bác sĩ, nhân tài, employer branding"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_sales_growth
+msgid "revenue, growth, network, clinic chain, dental chair"
+msgstr "doanh thu, tăng trưởng, chuỗi, revenue, ghế nha"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_care_nps_kr3
+msgid "reviews"
+msgstr "đánh giá"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_tech_security
+msgid "security, uptime, information security, patient data"
+msgstr "bảo mật, uptime, an toàn thông tin, dữ liệu bệnh nhân"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_sales_consultant_kr2
+msgid "sessions"
+msgstr "buổi"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_care_nps_kr2
+msgid "stars"
+msgstr "sao"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_clinical_safety
+msgid ""
+"sterilization, safety, infection control, disinfection, medical records"
+msgstr "vô khuẩn, an toàn, kiểm soát nhiễm khuẩn, tiệt trùng, hồ sơ bệnh án"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_ops_supply
+msgid "supplies, warehouse, inventory, cost, procurement"
+msgstr "vật tư, kho, tồn kho, chi phí, cung ứng"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_mkt_roi_kr2
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_ops_supply_kr1
+msgid "times"
+msgstr "lần"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_sales_consultant
+msgid "treatment consultant, plan closing, individual, sales"
+msgstr "tư vấn viên, chốt kế hoạch, cá nhân, sale"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_sales_value
+msgid "treatment plan, patient value, upsell, comprehensive care"
+msgstr "kế hoạch điều trị, giá trị bệnh nhân, upsell, toàn diện"
+
+#. module: okr_scale_template
+#: model:okr.scale.template.line,unit:okr_scale_template.okr_tpl_mkt_brand_kr3
+msgid "videos"
+msgstr "video"
+
+#. module: okr_scale_template
+#: model:okr.scale.template,keywords:okr_scale_template.okr_tpl_ops_flow
+msgid "waiting time, chair utilization, appointments, punctuality, operations"
+msgstr "thời gian chờ, công suất ghế, lịch hẹn, đúng giờ, vận hành"

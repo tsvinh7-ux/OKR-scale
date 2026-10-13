@@ -152,3 +152,73 @@ class TestOkrTemplate(OkrCommon):
         values = Template.search_panel_select_range('category_id')['values']
         value = next(v for v in values if v['id'] == self.category.id)
         self.assertEqual(value['okr_tpl_icon'], 'fa-heart')
+
+    def test_apply_with_supporters(self):
+        form = self._wizard(self.seller)
+        form.contributor_user_ids.add(self.seller2)
+        form.contributor_user_ids.add(self.tech)
+        form.contributor_department_ids.add(self.dep_tech)
+        with form.line_ids.edit(0) as line:
+            line.contributor_ids.add(self.tech)
+        action = form.save().action_apply()
+        objective = self.env['okr.scale.objective'].browse(action['res_id'])
+        self.assertEqual(objective.owner_id, self.seller)
+        self.assertEqual(objective.contributor_user_ids, self.seller2 | self.tech)
+        self.assertEqual(objective.contributor_department_ids, self.dep_tech)
+        nps, no_show, recall = objective.key_result_ids
+        self.assertEqual(nps.contributor_ids, self.tech)
+        self.assertFalse(no_show.contributor_ids)
+        self.assertFalse(recall.contributor_ids)
+        # Supporters follow the objective and can read it.
+        self.assertIn(self.tech.partner_id, objective.message_partner_ids)
+        self.assertTrue(objective.with_user(self.tech).read(['name']))
+
+    def test_fill_existing_draft_merges_supporters(self):
+        objective = self.env['okr.scale.objective'].with_user(self.seller).create({
+            'name': 'My own words', 'cycle_id': self.cycle.id, 'level': 'individual',
+            'employee_id': self.emp_seller.id,
+            'contributor_user_ids': [(6, 0, self.seller2.ids)],
+            'contributor_department_ids': [(6, 0, self.dep_sales.ids)]})
+        context = self.template.with_user(self.seller).with_context(
+            okr_tpl_objective_id=objective.id).action_use_template()['context']
+        form = Form(self.env['okr.scale.template.apply'].with_user(self.seller).with_context(context))
+        form.contributor_user_ids.add(self.tech)
+        form.contributor_user_ids.add(self.seller2)
+        form.contributor_department_ids.add(self.dep_tech)
+        with form.line_ids.edit(1) as line:
+            line.contributor_ids.add(self.seller2)
+        form.save().action_apply()
+        self.assertEqual(objective.contributor_user_ids, self.seller2 | self.tech)
+        self.assertEqual(objective.contributor_department_ids, self.dep_sales | self.dep_tech)
+        self.assertEqual(objective.key_result_ids.sorted('sequence')[1].contributor_ids, self.seller2)
+
+    def test_shipped_templates_are_bilingual(self):
+        Lang = self.env['res.lang']
+        if not Lang._lang_get('vi_VN'):
+            Lang._activate_lang('vi_VN')
+            self.env['ir.module.module'].search([('name', '=', 'okr_scale_template')])._update_translations(
+                filter_lang=['vi_VN'])
+        template = self.env.ref('okr_scale_template.okr_tpl_care_recall')
+        line = self.env.ref('okr_scale_template.okr_tpl_care_recall_kr2')
+        category = self.env.ref('okr_scale_template.okr_tpl_cat_care')
+        en, vi = template.with_context(lang='en_US'), template.with_context(lang='vi_VN')
+        self.assertEqual(en.name, 'Retain patients with a thoughtful periodic care program')
+        self.assertEqual(vi.name, 'Giữ chân bệnh nhân bằng chương trình chăm sóc định kỳ chu đáo')
+        self.assertIn('regular check-ups', en.description)
+        self.assertIn('tái khám định kỳ', vi.description)
+        self.assertIn('recall', en.keywords)
+        self.assertEqual(line.with_context(lang='en_US').name, 'Reduce the appointment no-show rate')
+        self.assertEqual(line.with_context(lang='vi_VN').name, 'Giảm tỷ lệ vắng mặt lịch hẹn (no-show)')
+        self.assertTrue(line.with_context(lang='en_US').hint.startswith('Appointments missed'))
+        self.assertTrue(line.with_context(lang='vi_VN').hint.startswith('Số lịch hẹn khách không đến'))
+        self.assertEqual(category.with_context(lang='en_US').name, 'Customer Care')
+        self.assertEqual(category.with_context(lang='vi_VN').name, 'Chăm sóc khách hàng')
+        unit_line = self.env.ref('okr_scale_template.okr_tpl_ops_flow_kr1')
+        self.assertEqual(unit_line.with_context(lang='en_US').unit, 'minutes')
+        self.assertEqual(unit_line.with_context(lang='vi_VN').unit, 'phút')
+        # The wizard proposes the template in the language of the user.
+        form = Form(self.env['okr.scale.template.apply'].with_user(self.seller).with_context(
+            lang='vi_VN', default_template_id=template.id))
+        self.assertEqual(form.name, vi.name)
+        with form.line_ids.edit(1) as wizard_line:
+            self.assertEqual(wizard_line.name, 'Giảm tỷ lệ vắng mặt lịch hẹn (no-show)')

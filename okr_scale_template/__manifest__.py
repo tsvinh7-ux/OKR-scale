@@ -7,11 +7,11 @@ OKR Scale - Template Library
 * Template categories with icon and color
 * OKR templates: inspiring objective, suggested level and type, 3 to 4 measurable key results with measurement hints
 * Premium gallery with category side panel
-* "Use template" wizard: cycle, level, owner, alignment, inline target adjustment, draft objective created with the user's rights
+* "Use template" wizard: cycle, level, accountable owner, supporting people and departments (also per key result), alignment, inline target adjustment, draft objective created with the user's rights
 * "Save as template" from any objective (OKR managers)
-* 25 templates for a dental clinic chain (DMAG)
+* 25 templates for a dental clinic chain (DMAG), bilingual: English source, Vietnamese translation
 """,
-    'version': '17.0.1.0.0',
+    'version': '17.0.1.1.0',
     'category': 'Human Resources/OKR',
     'author': 'DMAG',
     'license': 'LGPL-3',

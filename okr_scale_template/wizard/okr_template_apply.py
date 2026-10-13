@@ -25,8 +25,16 @@ class OkrTemplateApply(models.TransientModel):
     employee_id = fields.Many2one('hr.employee', 'Employee',
                                   default=lambda self: self.env.user.employee_id)
     department_id = fields.Many2one('hr.department', 'Department')
-    owner_id = fields.Many2one('res.users', 'Owner', domain=[('share', '=', False)],
-                               help='Leave empty to let OKR choose: the employee, the department manager or you.')
+    owner_id = fields.Many2one('res.users', 'Accountable', domain=[('share', '=', False)],
+                               help='Owner of the objective and of its key results. Leave empty to let OKR '
+                                    'choose: the employee, the department manager or you.')
+    contributor_user_ids = fields.Many2many(
+        'res.users', 'okr_scale_template_apply_contrib_user_rel', 'wizard_id', 'user_id',
+        string='Supporting People', domain=[('share', '=', False)],
+        help='People helping the accountable person. They follow the objective.')
+    contributor_department_ids = fields.Many2many(
+        'hr.department', 'okr_scale_template_apply_contrib_department_rel', 'wizard_id', 'department_id',
+        string='Supporting Departments', help='Departments helping to reach the objective.')
     okr_type = fields.Selection([
         ('committed', 'Committed'),
         ('aspirational', 'Aspirational'),
@@ -120,6 +128,8 @@ class OkrTemplateApply(models.TransientModel):
                 raise ValidationError(_('The target of "%s" must differ from its start value.', line.name))
             if self.owner_id:
                 vals['owner_id'] = self.owner_id.id
+            if line.contributor_ids:
+                vals['contributor_ids'] = [Command.set(line.contributor_ids.ids)]
             commands.append(Command.create(vals))
         return commands
 
@@ -135,6 +145,8 @@ class OkrTemplateApply(models.TransientModel):
             'okr_type': self.okr_type,
             'parent_key_result_id': self.parent_key_result_id.id,
             'key_result_ids': self._prepare_key_results(),
+            'contributor_user_ids': [Command.set(self.contributor_user_ids.ids)],
+            'contributor_department_ids': [Command.set(self.contributor_department_ids.ids)],
         }
         if self.level == 'individual':
             vals['employee_id'] = self.employee_id.id
@@ -158,6 +170,13 @@ class OkrTemplateApply(models.TransientModel):
                 vals['name'] = self.name
             if not objective.description and self.template_id.description:
                 vals['description'] = self.template_id.description
+            # Merge the supporters with the ones already set on the objective.
+            new_users = self.contributor_user_ids - objective.contributor_user_ids
+            if new_users:
+                vals['contributor_user_ids'] = [Command.link(user.id) for user in new_users]
+            new_departments = self.contributor_department_ids - objective.contributor_department_ids
+            if new_departments:
+                vals['contributor_department_ids'] = [Command.link(dep.id) for dep in new_departments]
             objective.write(vals)
         else:
             objective = self.env['okr.scale.objective'].create(self._prepare_objective())
@@ -189,3 +208,7 @@ class OkrTemplateApplyLine(models.TransientModel):
     target_value = fields.Float('Target', default=100.0)
     weight = fields.Float(default=1.0)
     hint = fields.Text('How to measure')
+    contributor_ids = fields.Many2many(
+        'res.users', 'okr_scale_template_apply_line_contrib_rel', 'line_id', 'user_id',
+        string='Supporting People', domain=[('share', '=', False)],
+        help='People helping the owner on this key result.')

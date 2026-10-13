@@ -26,8 +26,8 @@
                     <label for="name" string="Your objective"/>
                     <h2><field name="name" class="w-100" placeholder="Inspiring, qualitative objective"/></h2>
                 </div>
-                <group invisible="objective_id">
-                    <group>
+                <group>
+                    <group invisible="objective_id">
                         <field name="cycle_id" options="{'no_create': True, 'no_open': True}" required="not objective_id"/>
                         <field name="level" widget="radio" options="{'horizontal': true}" required="not objective_id"/>
                         <field name="employee_id" invisible="level != 'individual'" required="level == 'individual' and not objective_id"
@@ -37,10 +37,14 @@
                     </group>
                     <group>
                         <field name="owner_id" widget="many2one_avatar_user" options="{'no_create': True, 'no_open': True}"
-                               placeholder="Automatic"/>
-                        <field name="okr_type" widget="radio" options="{'horizontal': true}"/>
+                               placeholder="Automatic" invisible="objective_id"/>
+                        <field name="contributor_user_ids" widget="many2many_avatar_user" options="{'no_create': True}"
+                               placeholder="Optional: people helping"/>
+                        <field name="contributor_department_ids" widget="many2many_tags" options="{'no_create': True}"
+                               placeholder="Optional: departments helping"/>
+                        <field name="okr_type" widget="radio" options="{'horizontal': true}" invisible="objective_id"/>
                         <field name="parent_key_result_id" options="{'no_create': True, 'no_open': True}"
-                               placeholder="Optional: contribute to an upper key result"/>
+                               placeholder="Optional: contribute to an upper key result" invisible="objective_id"/>
                     </group>
                 </group>
                 <div class="o_okr_tpl_apply_section">
@@ -57,6 +61,8 @@
                         <field name="target_value" invisible="metric_type == 'boolean'"/>
                         <field name="unit" invisible="metric_type == 'boolean'"/>
                         <field name="weight" optional="show"/>
+                        <field name="contributor_ids" widget="many2many_avatar_user" optional="hide"
+                               options="{'no_create': True}"/>
                         <field name="hint" optional="hide"/>
                     </tree>
                 </field>

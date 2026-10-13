@@ -1,59 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- English source text; Vietnamese translations live in i18n/vi.po -->
 <odoo noupdate="1">
     <record id="okr_tpl_cat_sales" model="okr.scale.template.category">
-        <field name="name">Kinh doanh</field>
+        <field name="name">Sales</field>
         <field name="icon">fa-line-chart</field>
         <field name="color">8</field>
         <field name="sequence">10</field>
-        <field name="description">Doanh thu, tư vấn điều trị, dịch vụ giá trị cao</field>
+        <field name="description">Revenue, treatment consultation, high-value services</field>
     </record>
     <record id="okr_tpl_cat_care" model="okr.scale.template.category">
-        <field name="name">Chăm sóc khách hàng</field>
+        <field name="name">Customer Care</field>
         <field name="icon">fa-heart</field>
         <field name="color">9</field>
         <field name="sequence">20</field>
-        <field name="description">Trải nghiệm, hài lòng, giữ chân bệnh nhân</field>
+        <field name="description">Experience, satisfaction, patient retention</field>
     </record>
     <record id="okr_tpl_cat_clinical" model="okr.scale.template.category">
-        <field name="name">Lâm sàng / Chuyên môn</field>
+        <field name="name">Clinical Excellence</field>
         <field name="icon">fa-user-md</field>
         <field name="color">7</field>
         <field name="sequence">30</field>
-        <field name="description">An toàn, chất lượng điều trị, năng lực bác sĩ</field>
+        <field name="description">Safety, treatment quality, dentist expertise</field>
     </record>
     <record id="okr_tpl_cat_marketing" model="okr.scale.template.category">
         <field name="name">Marketing</field>
         <field name="icon">fa-bullhorn</field>
         <field name="color">11</field>
         <field name="sequence">40</field>
-        <field name="description">Thu hút bệnh nhân mới, thương hiệu, hiệu quả quảng cáo</field>
+        <field name="description">New patient acquisition, brand, advertising efficiency</field>
     </record>
     <record id="okr_tpl_cat_operations" model="okr.scale.template.category">
-        <field name="name">Vận hành phòng khám</field>
+        <field name="name">Clinic Operations</field>
         <field name="icon">fa-hospital-o</field>
         <field name="color">2</field>
         <field name="sequence">50</field>
-        <field name="description">Lịch hẹn, công suất ghế, vật tư, mở rộng chuỗi</field>
+        <field name="description">Appointments, chair utilization, supplies, network expansion</field>
     </record>
     <record id="okr_tpl_cat_hr" model="okr.scale.template.category">
-        <field name="name">Nhân sự &amp; Đào tạo</field>
+        <field name="name">People &amp; Training</field>
         <field name="icon">fa-users</field>
         <field name="color">4</field>
         <field name="sequence">60</field>
-        <field name="description">Tuyển dụng, đào tạo, gắn kết đội ngũ</field>
+        <field name="description">Recruitment, training, team engagement</field>
     </record>
     <record id="okr_tpl_cat_finance" model="okr.scale.template.category">
-        <field name="name">Tài chính</field>
+        <field name="name">Finance</field>
         <field name="icon">fa-money</field>
         <field name="color">10</field>
         <field name="sequence">70</field>
-        <field name="description">Lợi nhuận, chi phí, dòng tiền, công nợ</field>
+        <field name="description">Profitability, costs, cash flow, receivables</field>
     </record>
     <record id="okr_tpl_cat_tech" model="okr.scale.template.category">
-        <field name="name">Công nghệ &amp; Chuyển đổi số</field>
+        <field name="name">Technology &amp; Digital</field>
         <field name="icon">fa-laptop</field>
         <field name="color">5</field>
         <field name="sequence">80</field>
-        <field name="description">Hồ sơ số, đặt lịch trực tuyến, dữ liệu, bảo mật</field>
+        <field name="description">Digital records, online booking, data, security</field>
     </record>
 </odoo>
