@@ -85,3 +85,12 @@ class TestOkrProgress(OkrCommon):
         self.cycle.action_close()
         self.assertEqual(self.sales_obj.state, 'done')
         self.assertEqual(self.sales_obj.final_score, 0.7)
+
+    def test_manual_zero_grade_kept(self):
+        self.kr_customers.current_value = 14
+        self.sales_obj.final_score = 0.0
+        self.assertTrue(self.sales_obj.graded)
+        self.cycle.action_close()
+        self.assertEqual(self.sales_obj.final_score, 0.0, 'A deliberate 0.0 grade is kept')
+        self.assertFalse(self.company_obj.graded)
+        self.assertEqual(self.company_obj.state, 'done')

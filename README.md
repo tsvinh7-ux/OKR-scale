@@ -15,6 +15,25 @@ Community, dựng mới từ đầu, tách module để cài đặt và nâng c�
 | `okr_scale_portal` | Chia sẻ OKR cho từng tài khoản portal (khách hàng B2B) với quyền Chỉ xem / Có thể cập nhật, như Project | `okr_scale`, `portal` |
 | `dmag_brand_theme` | Màu nhận diện DMAG cho toàn bộ giao diện Odoo (tùy chọn) | `web` |
 
+## Chạy thử trên máy (localhost) bằng Docker
+
+Cần cài [Docker Desktop](https://www.docker.com/products/docker-desktop/) (Windows / macOS) hoặc Docker Engine (Linux).
+
+```bash
+git clone -b claude/blissful-euler-lc78sp https://github.com/tsvinh7-ux/OKR-scale.git
+cd OKR-scale
+docker compose up -d db
+# Tạo database "dmag_okr" với toàn bộ module và dữ liệu demo DMAG (2-4 phút)
+docker compose run --rm odoo odoo -d dmag_okr -i okr_scale_demo --load-language=vi_VN --without-demo=all --stop-after-init
+docker compose up -d
+```
+
+Mở <http://localhost:8069> và đăng nhập `admin` / `admin` (quản trị OKR). Các tài khoản demo khác
+(trưởng phòng, nhân viên, khách hàng portal) xem trong `okr_scale_demo/README.rst`.
+
+Cập nhật code mới: `git pull` rồi
+`docker compose run --rm odoo odoo -d dmag_okr -u all --stop-after-init && docker compose restart odoo`.
+
 ## Cài đặt
 
 1. Thêm thư mục repo vào `addons_path` của Odoo 17.

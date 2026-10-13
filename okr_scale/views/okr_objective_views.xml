@@ -135,6 +135,7 @@
                         <page string="Grading" name="grading" invisible="state not in ('running', 'done')">
                             <group>
                                 <field name="final_score" readonly="state != 'done'"/>
+                                <field name="graded" invisible="state != 'done'"/>
                                 <field name="self_assessment" readonly="state != 'done'"/>
                                 <field name="lessons_learned" readonly="state != 'done'"/>
                                 <field name="approved_by_id"/>

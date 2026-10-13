@@ -101,6 +101,8 @@ class OkrObjective(models.Model):
 
     final_score = fields.Float('Final Score', tracking=True, copy=False,
                                help='Grade given at the end of the cycle, from 0.0 to 1.0.')
+    graded = fields.Boolean('Graded Manually', copy=False, readonly=True,
+                            help='The final score was set by a person: closing the cycle keeps it, even 0.0.')
     self_assessment = fields.Text(copy=False)
     lessons_learned = fields.Text(copy=False)
     approved_by_id = fields.Many2one('res.users', readonly=True, copy=False)
@@ -297,6 +299,8 @@ class OkrObjective(models.Model):
         return objectives
 
     def write(self, vals):
+        if 'final_score' in vals and not self.env.context.get('okr_auto_grade'):
+            vals = dict(vals, graded=True)
         res = super().write(vals)
         if {'level', 'employee_id', 'department_id', 'owner_id'} & set(vals):
             self._check_okr_level_rights()
@@ -370,10 +374,11 @@ class OkrObjective(models.Model):
         for objective in self:
             if objective.state != 'running':
                 continue
-            vals = {'state': 'done'}
-            if not objective.final_score:
-                vals['final_score'] = round(min(objective.progress, 100.0) / 100.0, 2)
-            objective.write(vals)
+            objective.write({'state': 'done'})
+            if not objective.graded:
+                # Proposed grade from the progress; the owner can still adjust it.
+                objective.with_context(okr_auto_grade=True).write(
+                    {'final_score': round(min(objective.progress, 100.0) / 100.0, 2)})
 
     def action_cancel(self):
         self.write({'state': 'cancelled'})

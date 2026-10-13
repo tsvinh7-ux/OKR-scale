@@ -985,6 +985,11 @@ msgid "Grade given at the end of the cycle, from 0.0 to 1.0."
 msgstr "Điểm được chấm vào cuối chu kỳ, từ 0.0 đến 1.0."
 
 #. module: okr_scale
+#: model:ir.model.fields,field_description:okr_scale.field_okr_scale_objective__graded
+msgid "Graded Manually"
+msgstr "Đã chấm điểm thủ công"
+
+#. module: okr_scale
 #: model_terms:ir.ui.view,arch_db:okr_scale.okr_objective_view_form
 msgid "Grading"
 msgstr "Chấm điểm"
@@ -2543,6 +2548,14 @@ msgstr "Ngày kết thúc của chu kỳ %s phải sau ngày bắt đầu."
 #: model:ir.model.constraint,message:okr_scale.constraint_okr_scale_objective_final_score_range
 msgid "The final score must be between 0.0 and 1.0."
 msgstr "Điểm cuối kỳ phải nằm trong khoảng từ 0.0 đến 1.0."
+
+#. module: okr_scale
+#: model:ir.model.fields,help:okr_scale.field_okr_scale_objective__graded
+msgid ""
+"The final score was set by a person: closing the cycle keeps it, even 0.0."
+msgstr ""
+"Điểm cuối kỳ do người dùng chấm: khi đóng chu kỳ điểm được giữ nguyên, kể cả"
+" 0.0."
 
 #. module: okr_scale
 #. odoo-python
